@@ -1,0 +1,19 @@
+# PROVISIONAL — development/test fixture only. NOT an approved methodology value.
+#
+# Sub-metric weights for VALUATION_SCORE. Methodology §14 defines this as a `blend(...)` of
+# HistoricalValuationPercentile (§11), SectorValuationPercentile (§12), and sector_metric_profile
+# (§10) rather than a flat named sub-metric list like Quality/Growth/FCF — §10's actual metric
+# set varies per sector (P/E vs EV/Sales vs P/B, etc.). Collapsing this into a 3-way blend across
+# {historical_percentile, sector_percentile, metric_profile} is an IMPLEMENTATION-DETAIL
+# simplification for the Phase 1B MVP composition layer, not a new methodology decision — the
+# real sector-conditional metric-set logic still lives in packages/quant_core/fundamentals/
+# valuation.py and packages/quant_core/regime/sector_profile.py; this file only weights the
+# three conceptual layers against each other. See quality_v1.0.yaml's header comment for the
+# same PROVISIONAL/production-rejection disclaimer.
+
+version: v1.0
+status: PROVISIONAL
+weights:
+  historical_percentile: 0.3333333
+  sector_percentile: 0.3333333
+  metric_profile: 0.3333334

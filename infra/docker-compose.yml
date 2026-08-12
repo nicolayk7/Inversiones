@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: timescale/timescaledb-ha:pg16
+    container_name: ii-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ii
+      POSTGRES_PASSWORD: ii
+      POSTGRES_DB: investment_intelligence
+    ports:
+      # Host 5433 — this machine already runs an unrelated Postgres on 5432 (see gestor_postgres).
+      - "5433:5432"
+    volumes:
+      - ii_postgres_data:/home/postgres/pgdata/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ii -d investment_intelligence"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: ii-redis
+    restart: unless-stopped
+    ports:
+      # Host 6380 — this machine already runs an unrelated Redis on 6379 (see gestor_redis).
+      - "6380:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  ii_postgres_data:

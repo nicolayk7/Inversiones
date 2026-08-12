@@ -1,0 +1,14 @@
+# PROVISIONAL — development/test fixture only. NOT an approved methodology value.
+#
+# Sub-metric weights for FCF_SCORE (methodology §14: weighted(FCFMargin,
+# FCFTrajectory-or-FCFGrowth, FCFConversion, FCFConsistency) minus FCF-specific red-flag
+# deductions, applied separately — see packages/engines/wealth_engine/red_flags.py). See
+# quality_v1.0.yaml's header comment — same status, same disclaimer.
+
+version: v1.0
+status: PROVISIONAL
+weights:
+  fcf_margin: 0.25
+  fcf_growth_or_trajectory: 0.25
+  fcf_conversion: 0.25
+  fcf_consistency: 0.25

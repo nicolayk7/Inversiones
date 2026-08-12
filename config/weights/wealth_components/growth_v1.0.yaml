@@ -1,0 +1,17 @@
+# PROVISIONAL — development/test fixture only. NOT an approved methodology value.
+#
+# Sub-metric weights for GROWTH_SCORE (methodology §14: weighted(RevenueGrowth,
+# EPSGrowth[quality-adjusted vs NI growth], FCFGrowth, EBITDAGrowth, ForwardGrowth,
+# Consistency, Acceleration)). See quality_v1.0.yaml's header comment — same status, same
+# disclaimer, same rejection-under-production behavior.
+
+version: v1.0
+status: PROVISIONAL
+weights:
+  revenue_growth: 0.1428571
+  eps_growth: 0.1428571
+  fcf_growth: 0.1428571
+  ebitda_growth: 0.1428571
+  forward_growth: 0.1428571
+  growth_consistency: 0.1428571
+  growth_acceleration: 0.1428574

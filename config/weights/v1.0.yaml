@@ -1,0 +1,42 @@
+# FROZEN — architecture v1.0, approved 2026-08-10, decisions #5-#9.
+#
+# These weights are static configuration, not agent output. Agents read them
+# through packages/shared/weights.py; nothing in packages/agents is permitted
+# to generate, adjust, or override a weight at runtime (rule 9). Changing a
+# number here means cutting a new version file (e.g. v1.1.yaml) and updating
+# `weights_version` — never editing v1.0.yaml after the freeze.
+#
+# Risk is deliberately absent from `opportunity` below: Risk is an independent
+# gate, not a weighted input to the score (rule 8).
+
+version: v1.0
+
+wealth:
+  quality: 0.25
+  growth: 0.25
+  fcf: 0.15
+  moat: 0.15
+  valuation: 0.20
+
+trading:
+  trend: 0.25
+  momentum: 0.20
+  technical: 0.20
+  catalyst: 0.15
+  relative_strength: 0.10
+  market_regime: 0.10
+
+options:
+  iv_rank: 0.20
+  expected_move: 0.15
+  liquidity: 0.20
+  greeks: 0.15
+  risk_reward: 0.20
+  term_structure: 0.10
+
+opportunity:
+  wealth: 0.30
+  trading: 0.30
+  options: 0.15
+  macro: 0.10
+  regime: 0.15

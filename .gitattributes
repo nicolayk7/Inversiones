@@ -1,0 +1,11 @@
+# Explicit line-ending policy for this cross-platform Python project (Windows dev machine,
+# Postgres/Docker on the same host, no Linux/CI history yet to normalize retroactively).
+* text=auto
+
+*.py text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.sql text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf

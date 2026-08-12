@@ -1,0 +1,1 @@
+"""LLM reasoning layer. Agents call engines/tools only — never calculate, never touch providers directly, never modify weights. Six agents total (architecture v1.0, rule 15). NOT implemented in Phase 0."""

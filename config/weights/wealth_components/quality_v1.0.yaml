@@ -1,0 +1,26 @@
+# PROVISIONAL — development/test fixture only. NOT an approved methodology value.
+#
+# Sub-metric weights for QUALITY_SCORE (methodology §14: weighted(ROIC_spread,
+# ROE_dupont_adjusted, ROA, GrossMargin, OperatingMargin, FCFMargin, EBITDAMargin,
+# MarginStability, ROIIC)). Production sub-metric weight VALUES were never approved (Phase 1A
+# decision log #4 / Category C) — this file exists solely so the composition pipeline is
+# executable and testable in development, per Phase 1B implementation authorization rule 5.
+#
+# Equal weighting was chosen only because it requires no judgment call to author, not because it
+# is believed correct — no calibration or backtest supports these numbers. A production file
+# MUST be authored, reviewed, and marked `status: APPROVED` separately before this group's score
+# is meaningful for a real ticker. `load_component_weights()` refuses to load this file at all
+# under a production configuration (rule 6).
+
+version: v1.0
+status: PROVISIONAL
+weights:
+  roic_spread: 0.1111111
+  roe: 0.1111111
+  roa: 0.1111111
+  gross_margin: 0.1111111
+  operating_margin: 0.1111111
+  fcf_margin: 0.1111111
+  ebitda_margin: 0.1111111
+  margin_stability: 0.1111111
+  roiic: 0.1111112

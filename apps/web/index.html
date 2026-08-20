@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Investment Intelligence — Wealth Snapshot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --border: #2a2e38;
+    --text: #e6e8ec;
+    --muted: #8a90a0;
+    --ok: #3ecf8e;
+    --na: #6b7280;
+    --unsupported: #a78bfa;
+    --insufficient: #e0a53c;
+    --low-reliability: #c9b458;
+    --bad: #e0563c;
+    --accent: #5b8def;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .subtitle { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end; }
+  label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  input, select, button {
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #0f1115;
+    color: var(--text);
+  }
+  input { width: 140px; }
+  button {
+    background: var(--accent);
+    color: #0f1115;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button:disabled { opacity: 0.5; cursor: default; }
+  button.ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    font-weight: 400;
+  }
+  .quickpicks { display: flex; gap: 6px; margin-top: 8px; }
+  .hint { color: var(--muted); font-size: 12px; margin-top: 8px; }
+  .error {
+    background: #2a1418;
+    border: 1px solid #6b2530;
+    color: #ff9d9d;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    display: none;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .card h3 { margin: 0 0 6px; font-size: 13px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+  .value-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .value { font-size: 26px; font-weight: 700; }
+  .value-caption {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+  }
+  .status {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-top: 6px;
+  }
+  .status.OK { background: rgba(62,207,142,0.15); color: var(--ok); }
+  .status.N\/A { background: rgba(107,114,128,0.2); color: var(--na); }
+  .status.UNSUPPORTED { background: rgba(167,139,250,0.18); color: var(--unsupported); }
+  .status.INSUFFICIENT_DATA { background: rgba(224,165,60,0.15); color: var(--insufficient); }
+  .status.LOW_RELIABILITY { background: rgba(201,180,88,0.15); color: var(--low-reliability); }
+  .status-note { color: var(--muted); font-size: 10.5px; margin-top: 3px; }
+  .reason { color: var(--muted); font-size: 12px; margin-top: 8px; line-height: 1.4; }
+  .unit-note { color: var(--muted); font-size: 11.5px; margin-top: 8px; line-height: 1.4; font-style: italic; }
+  .headline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .headline .meta { color: var(--muted); font-size: 13px; }
+  .headline .meta b { color: var(--text); }
+  .section-title { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin: 20px 0 10px; }
+  .flags { display: flex; flex-direction: column; gap: 8px; }
+  .flag {
+    border-left: 3px solid var(--insufficient);
+    padding: 8px 12px;
+    background: rgba(224,165,60,0.06);
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+  }
+  .flag.HIGH { border-color: var(--bad); background: rgba(224,86,60,0.06); }
+  .flag.LOW { border-color: var(--muted); background: rgba(138,144,160,0.06); }
+  .flag .code { font-weight: 700; font-size: 12px; }
+  .flag .desc { margin-top: 2px; }
+  .flag .evidence { color: var(--muted); font-size: 11px; margin-top: 4px; }
+  .no-flags { color: var(--muted); font-size: 13px; }
+  .diagnostics { display: flex; gap: 24px; flex-wrap: wrap; }
+  .diagnostic { font-size: 13px; }
+  .diagnostic .label { color: var(--muted); }
+  .banner {
+    background: rgba(91,141,239,0.08);
+    border: 1px solid rgba(91,141,239,0.3);
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    margin-bottom: 16px;
+  }
+  .banner b { color: var(--accent); }
+  .banner.disclosure {
+    background: rgba(224,165,60,0.07);
+    border: 1px solid rgba(224,165,60,0.35);
+  }
+  .banner.disclosure b { color: var(--insufficient); }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 11.5px;
+    color: var(--muted);
+  }
+  .legend .item { display: flex; align-items: center; gap: 6px; }
+  .legend .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .empty { color: var(--muted); font-size: 13px; padding: 24px 0; text-align: center; }
+</style>
+</head>
+<body>
+
+<h1>Investment Intelligence — Wealth Snapshot</h1>
+<div class="subtitle">Reads directly from <code>POST /v1/wealth/compute</code>. No Opportunity/Risk/Portfolio yet — this surfaces exactly what the Wealth Engine already computes, nothing more.</div>
+
+<div class="banner">
+  Only tickers already ingested into storage will resolve. Currently ingested via
+  <code>scripts/ingest_mvp_universe.py</code>: <b>AAPL, MSFT, AMZN, GOOGL</b>.
+  <code>wealth_score</code> is intentionally always <code>UNSUPPORTED</code> (BalanceSheetMultiplier
+  not yet approved) — that is expected, not an error.
+</div>
+
+<div id="disclosureBanner" class="banner disclosure">
+  <b>Development / analytical output.</b> Component weights used to compute Quality, Growth, FCF,
+  and Valuation are currently <b>PROVISIONAL</b> — not yet approved through this platform's
+  methodology-governance process. These figures are suitable for engineering validation and
+  internal review only, and are <b>not approved for investment decision-making</b>. This banner
+  reflects the live <code>component_weights_status</code> field on each response, not a static claim.
+</div>
+
+<div class="panel">
+  <div class="controls">
+    <div>
+      <label for="ticker">Ticker</label>
+      <input id="ticker" value="AAPL" autocomplete="off">
+    </div>
+    <div>
+      <label for="asOf">As of</label>
+      <input id="asOf" type="date">
+    </div>
+    <div>
+      <label for="sector">Sector</label>
+      <select id="sector">
+        <option value="generic_industrial">generic_industrial</option>
+        <option value="cyclicals_energy">cyclicals_energy</option>
+        <option value="utilities">utilities</option>
+        <option value="financials_banks">financials_banks</option>
+        <option value="financials_insurance">financials_insurance</option>
+        <option value="consumer_staples_retail">consumer_staples_retail</option>
+        <option value="reit">reit</option>
+      </select>
+    </div>
+    <button id="analyzeBtn">Analyze</button>
+  </div>
+  <div class="quickpicks">
+    <button class="ghost" data-ticker="AAPL">AAPL</button>
+    <button class="ghost" data-ticker="MSFT">MSFT</button>
+    <button class="ghost" data-ticker="AMZN">AMZN</button>
+    <button class="ghost" data-ticker="GOOGL">GOOGL</button>
+  </div>
+  <div class="hint">Sector defaults to generic_industrial — Banks/Insurance are sector-gated and will show Quality/FCF as UNSUPPORTED by design (methodology C4).</div>
+</div>
+
+<div class="panel legend">
+  <div class="item"><span class="dot" style="background:var(--ok)"></span> OK — computed normally</div>
+  <div class="item"><span class="dot" style="background:var(--na)"></span> N/A — not applicable / a required input is missing</div>
+  <div class="item"><span class="dot" style="background:var(--unsupported)"></span> UNSUPPORTED — methodology/policy does not permit computing this yet</div>
+  <div class="item"><span class="dot" style="background:var(--insufficient)"></span> INSUFFICIENT DATA — computable in principle, but coverage is too low right now</div>
+  <div class="item"><span class="dot" style="background:var(--low-reliability)"></span> LOW RELIABILITY — computed, but flagged as thin/unstable</div>
+</div>
+
+<div id="errorBox" class="error"></div>
+<div id="results"></div>
+
+<script>
+const STATUS_LABEL = {
+  "OK": "OK",
+  "N/A": "N/A",
+  "UNSUPPORTED": "UNSUPPORTED",
+  "INSUFFICIENT_DATA": "INSUFFICIENT DATA",
+  "LOW_RELIABILITY": "LOW RELIABILITY",
+};
+
+const STATUS_NOTE = {
+  "N/A": "not applicable / input missing",
+  "UNSUPPORTED": "blocked by methodology/policy",
+  "INSUFFICIENT_DATA": "not enough sub-metric coverage",
+  "LOW_RELIABILITY": "computed, but thin/unstable",
+};
+
+const els = {
+  ticker: document.getElementById("ticker"),
+  asOf: document.getElementById("asOf"),
+  sector: document.getElementById("sector"),
+  analyzeBtn: document.getElementById("analyzeBtn"),
+  errorBox: document.getElementById("errorBox"),
+  results: document.getElementById("results"),
+  disclosureBanner: document.getElementById("disclosureBanner"),
+};
+
+els.asOf.value = new Date().toISOString().slice(0, 10);
+
+document.querySelectorAll(".quickpicks button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    els.ticker.value = btn.dataset.ticker;
+    analyze();
+  });
+});
+els.analyzeBtn.addEventListener("click", analyze);
+els.ticker.addEventListener("keydown", (e) => { if (e.key === "Enter") analyze(); });
+
+function escapeHtml(s) {
+  const div = document.createElement("div");
+  div.textContent = s;
+  return div.innerHTML;
+}
+
+// Every raw component/composite value in this API is a raw weighted blend or raw ratio, NEVER a
+// 0-100 score or percentile (responsible-output audit, 2026-08) — this caption is attached
+// wherever a numeric value is shown, not just Wealth's four "real" components, so nothing here
+// can ever be silently misread as a percentage even if a currently-blocked composite resolves later.
+function scoreCard(title, field, unitNote) {
+  const status = field.status || "N/A";
+  const hasValue = field.value !== null && field.value !== undefined;
+  const note = STATUS_NOTE[status];
+  return `
+    <div class="card">
+      <h3>${title}</h3>
+      <div class="value-row">
+        <div class="value">${hasValue ? field.value.toFixed(4) : "—"}</div>
+        ${hasValue ? `<span class="value-caption">raw value, not 0–100</span>` : ""}
+      </div>
+      <span class="status ${status}">${STATUS_LABEL[status] || status}</span>
+      ${note ? `<div class="status-note">${note}</div>` : ""}
+      ${field.reason ? `<div class="reason">${escapeHtml(field.reason)}</div>` : ""}
+      ${unitNote ? `<div class="unit-note">${unitNote}</div>` : ""}
+    </div>`;
+}
+
+function valuationUnitNote(field, sector) {
+  const metric = sector === "financials_banks" ? "P/B multiple" : "P/E multiple";
+  if (field.value !== null && field.value !== undefined) {
+    return `${metric}: <b>lower is cheaper</b>, all else equal — a higher number is not automatically better.`;
+  }
+  return `When available, this resolves to a raw ${metric} — lower will mean cheaper, not better. Currently unavailable because no price has been ingested for this ticker.`;
+}
+
+function renderRedFlags(flags) {
+  if (!flags || flags.length === 0) {
+    return `<div class="no-flags">No red flags fired for this snapshot.</div>`;
+  }
+  return `<div class="flags">${flags.map((f) => `
+    <div class="flag ${f.severity}">
+      <div class="code">${f.code} <span style="font-weight:400;color:var(--muted)">[${f.severity}]</span></div>
+      <div class="desc">${escapeHtml(f.description)}</div>
+      <div class="evidence">${f.evidence.map(escapeHtml).join(" · ")}</div>
+    </div>`).join("")}</div>`;
+}
+
+function updateDisclosureBanner(status) {
+  const isProvisional = status !== "APPROVED";
+  els.disclosureBanner.classList.toggle("disclosure", isProvisional);
+  const statusWord = status || "PROVISIONAL";
+  els.disclosureBanner.innerHTML = isProvisional
+    ? `<b>Development / analytical output.</b> Component weights used to compute Quality, Growth,
+       FCF, and Valuation are currently <b>${escapeHtml(statusWord)}</b> — not yet approved through
+       this platform's methodology-governance process. These figures are suitable for engineering
+       validation and internal review only, and are <b>not approved for investment
+       decision-making</b>. Reflects this response's live <code>component_weights_status</code> field.`
+    : `<b>Component weights: APPROVED.</b> This response's <code>component_weights_status</code>
+       field reports APPROVED sub-metric weighting for all four components. Scores below are no
+       longer blocked on that particular gate.`;
+}
+
+function render(data) {
+  updateDisclosureBanner(data.component_weights_status);
+
+  els.results.innerHTML = `
+    <div class="panel headline">
+      <div>
+        <div style="font-size:22px;font-weight:700">${data.ticker}</div>
+        <div class="meta">
+          sector: <b>${data.sector}</b> ·
+          requested as-of: <b>${data.requested_as_of ?? "—"}</b> ·
+          data as-of (latest period_end used): <b>${data.as_of}</b>
+        </div>
+        <div class="meta" style="margin-top:4px">
+          weights_version (frozen top-level): <b>${data.weights_version}</b> ·
+          component_weights_status (sub-metric weights): <b>${data.component_weights_status}</b>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div class="meta">wealth_score (headline)</div>
+        <span class="status ${data.wealth_score.status}">${STATUS_LABEL[data.wealth_score.status]}</span>
+        <div class="reason" style="max-width:340px">${escapeHtml(data.wealth_score.reason || "")}</div>
+      </div>
+    </div>
+
+    <div class="section-title">Wealth components (the four real, usable scores — raw values, see caption)</div>
+    <div class="grid">
+      ${scoreCard("Quality", data.quality_score)}
+      ${scoreCard("Growth", data.growth_score)}
+      ${scoreCard("FCF", data.fcf_score)}
+      ${scoreCard("Valuation", data.valuation_score, valuationUnitNote(data.valuation_score, data.sector))}
+    </div>
+
+    <div class="section-title">Composites (deferred — always N/A/UNSUPPORTED in this MVP)</div>
+    <div class="grid">
+      ${scoreCard("Wealth Score Raw", data.wealth_score_raw)}
+      ${scoreCard("Moat", data.moat_score)}
+      ${scoreCard("Business Quality Composite", data.business_quality_composite)}
+      ${scoreCard("Capital Allocation", data.capital_allocation_score)}
+      ${scoreCard("Balance Sheet", data.balance_sheet_score)}
+    </div>
+
+    <div class="section-title">Raw diagnostics</div>
+    <div class="panel diagnostics">
+      <div class="diagnostic"><span class="label">ROIC:</span> ${data.roic !== null ? data.roic.toFixed(4) : "—"}</div>
+      <div class="diagnostic"><span class="label">ROIC ex-goodwill:</span> ${data.roic_ex_goodwill !== null ? data.roic_ex_goodwill.toFixed(4) : "—"}</div>
+      <div class="diagnostic"><span class="label">data_confidence:</span> ${data.data_confidence.status}</div>
+      <div class="diagnostic"><span class="label">data_quality:</span> ${data.data_quality.status}</div>
+    </div>
+
+    <div class="section-title">Red flags</div>
+    <div class="panel">${renderRedFlags(data.red_flags)}</div>
+  `;
+}
+
+async function analyze() {
+  const ticker = els.ticker.value.trim().toUpperCase();
+  if (!ticker) return;
+
+  els.errorBox.style.display = "none";
+  els.analyzeBtn.disabled = true;
+  els.analyzeBtn.textContent = "Analyzing…";
+  els.results.innerHTML = `<div class="empty">Loading ${ticker}…</div>`;
+
+  try {
+    const resp = await fetch("/v1/wealth/compute", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ticker,
+        as_of: els.asOf.value,
+        sector: els.sector.value,
+      }),
+    });
+
+    if (!resp.ok) {
+      const body = await resp.json().catch(() => ({}));
+      const detail = body.detail || `HTTP ${resp.status}`;
+      let hint = "";
+      if (resp.status === 404) {
+        hint = " — nothing has been ingested for this ticker/date. Run scripts/ingest_mvp_universe.py first.";
+      } else if (resp.status === 409) {
+        hint = " — PROVISIONAL config rejected under a production environment setting.";
+      } else if (resp.status === 503) {
+        hint = " — a required config file is missing on the server.";
+      }
+      els.errorBox.textContent = `${detail}${hint}`;
+      els.errorBox.style.display = "block";
+      els.results.innerHTML = "";
+      return;
+    }
+
+    const data = await resp.json();
+    render(data);
+  } catch (err) {
+    els.errorBox.textContent = `Request failed: ${err.message}. Is the API running (uvicorn apps.api.main:app)?`;
+    els.errorBox.style.display = "block";
+    els.results.innerHTML = "";
+  } finally {
+    els.analyzeBtn.disabled = false;
+    els.analyzeBtn.textContent = "Analyze";
+  }
+}
+
+analyze();
+</script>
+</body>
+</html>

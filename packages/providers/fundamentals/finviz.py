@@ -65,6 +65,8 @@ silently returning a one-bar list for any multi-day range and calling it somethi
 isn't. `get_current_price` names what it actually is instead: a live scalar, not a bar.
 """
 
+import html
+import json
 import re
 from datetime import date, datetime, timezone
 
@@ -113,6 +115,59 @@ def _clean_text(html_fragment: str) -> str:
     return _TAG_PATTERN.sub("", html_fragment).strip()
 
 
+def _parse_fields(body: str, ticker: str) -> dict[str, str]:
+    """The snapshot grid only (tooltip-keyed), from an already-fetched page body. Tooltip keys are
+    HTML-entity-decoded (`html.unescape`) — some contain literal `&#39;`/`&lt;br&gt;` in the raw
+    attribute (e.g. "Analysts&#39; Dividend Estimate...", "Earnings date&lt;br&gt;...") which would
+    otherwise never match a plain-string lookup written against the human-readable tooltip text."""
+    fields: dict[str, str] = {
+        html.unescape(m.group("tooltip")): _clean_text(m.group("value"))
+        for m in _ROW_PATTERN.finditer(body)
+    }
+    if not fields:
+        raise FinvizResponseError(
+            f"Finviz fundamentals grid not found for {ticker!r} — page markup may have changed, "
+            "or this was a bot-check response, not the real quote page"
+        )
+    return fields
+
+
+# The historical-chart data lives in a single <script id="fa-init-data-0" type="application/json">
+# blob, not the snapshot-table2 grid — {"annual": {"values": [[...], [...], [...]]}, "quarterly":
+# {...}}, three point-series in a FIXED, undocumented order. Confirmed empirically (2026-08-20,
+# not guessed) by cross-referencing each series' most-recent value against the SAME page's own
+# labeled snapshot-grid fields, for two different tickers (AAPL and MSFT): series[0] always matches
+# "Diluted EPS (ttm)", series[1] always matches "Revenue (ttm)" (in $ millions), series[2] always
+# matches "Shares outstanding" (in millions). If Finviz ever reorders this, the generated chart
+# would show implausible magnitudes (e.g. EPS in the hundreds-of-thousands range) — a visible,
+# not-silent failure mode.
+_CHART_DATA_PATTERN = re.compile(
+    r'<script id="fa-init-data-0" type="application/json">(?P<json>.*?)</script>', re.S
+)
+_CHART_SERIES_ORDER = ("eps", "sales", "shares_outstanding")
+
+
+def _parse_charts(body: str) -> dict[str, dict[str, list[dict]]] | None:
+    """Returns `{"eps": {"annual": [...], "quarterly": [...]}, "sales": {...},
+    "shares_outstanding": {...}}`, each a list of `{"name": <year or "TTM"/"MRQ" or quarter
+    label>, "value": <float>}` points, or `None` if this ticker's page has no chart data block at
+    all (never fabricated — some tickers genuinely lack a multi-year history, e.g. recent IPOs)."""
+    match = _CHART_DATA_PATTERN.search(body)
+    if match is None:
+        return None
+    try:
+        raw = json.loads(match.group("json"))
+    except json.JSONDecodeError:
+        return None
+
+    result: dict[str, dict[str, list[dict]]] = {}
+    for cadence in ("annual", "quarterly"):
+        series_list = raw.get(cadence, {}).get("values", [])
+        for name, series in zip(_CHART_SERIES_ORDER, series_list):
+            result.setdefault(name, {})[cadence] = series
+    return result or None
+
+
 def _parse_number(raw: str) -> float | None:
     """'-' is Finviz's own "no value" marker — returns None, never 0.0. Handles 'K'/'M'/'B'/'T'
     suffixes, comma thousand-separators (e.g. Volume's '17,640,556'), and a trailing '%' (returned
@@ -155,25 +210,20 @@ class FinvizFundamentalsProvider:
     def __exit__(self, *exc) -> None:
         self.close()
 
-    def _fetch_fields(self, ticker: str) -> dict[str, str]:
-        """Shared by every method below: one HTTP GET of the quote page, parsed into a
-        tooltip-keyed field dict. Not cached — each call is a fresh live fetch, matching this
-        provider's "no historical snapshots" nature (see module docstring)."""
+    def _fetch_page(self, ticker: str) -> str:
+        """The one HTTP GET every method in this class is built on. Not cached — each call is a
+        fresh live fetch, matching this provider's "no historical snapshots" nature (module
+        docstring)."""
         response = self._client.get(_QUOTE_URL.format(ticker=ticker.upper()))
         if response.status_code == 404:
             raise FinvizNotFoundError(f"Finviz has no quote page for {ticker!r}")
         response.raise_for_status()
-        body = response.text
+        return response.text
 
-        fields: dict[str, str] = {
-            m.group("tooltip"): _clean_text(m.group("value")) for m in _ROW_PATTERN.finditer(body)
-        }
-        if not fields:
-            raise FinvizResponseError(
-                f"Finviz fundamentals grid not found for {ticker!r} — page markup may have "
-                "changed, or this was a bot-check response, not the real quote page"
-            )
-        return fields
+    def _fetch_fields(self, ticker: str) -> dict[str, str]:
+        """One page fetch, parsed into a tooltip-keyed field dict (the snapshot grid only — not
+        the historical charts; see `get_snapshot` for both together in one fetch)."""
+        return _parse_fields(self._fetch_page(ticker), ticker)
 
     def get_quarterly_fundamentals(
         self, ticker: str, as_of: date | None = None
@@ -245,6 +295,21 @@ class FinvizFundamentalsProvider:
             )
         volume = _parse_number(fields.get("Volume", ""))
         return price, (int(volume) if volume is not None else None), observed_at
+
+    def get_snapshot(self, ticker: str) -> dict:
+        """Everything on the quote page, in ONE fetch (not `get_quarterly_fundamentals`'s
+        curated FundamentalsRecord subset, and not two separate requests) — built for
+        `scripts/generate_finviz_snapshot_site.py`'s static-visualization use case, which wants
+        the raw grid plus the historical charts together. Returns
+        `{"ticker": ..., "fields": {<tooltip>: <raw string value>, ...}, "charts": {...} | None}`.
+        `fields` is unfiltered — every tooltip->value pair on the page, not a hand-picked subset —
+        so a caller can choose what to display without this provider needing to know in advance."""
+        body = self._fetch_page(ticker)
+        return {
+            "ticker": ticker.upper(),
+            "fields": _parse_fields(body, ticker),
+            "charts": _parse_charts(body),
+        }
 
 
 __all__ = [

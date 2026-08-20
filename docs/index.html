@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Finviz Snapshot Mirror</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --border: #2a2e38;
+    --text: #e6e8ec;
+    --muted: #8a90a0;
+    --accent: #5b8def;
+    --pos: #3ecf8e;
+    --neg: #e0563c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+  }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  .subtitle { color: var(--muted); font-size: 12px; margin-bottom: 16px; }
+  .disclaimer {
+    background: #171a21;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .tickers { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .tickers button {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #0f1115;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .tickers button.active { background: var(--accent); color: #0f1115; border-color: var(--accent); }
+  .meta { color: var(--muted); font-size: 12px; margin-bottom: 14px; }
+  .grid-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 4px 0;
+    margin-bottom: 20px;
+    overflow-x: auto;
+  }
+  table.snapshot { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+  table.snapshot td {
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  table.snapshot td.label { color: var(--muted); }
+  table.snapshot td.value { font-weight: 600; text-align: right; }
+  .pos { color: var(--pos); }
+  .neg { color: var(--neg); }
+  .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .chart-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .chart-title { font-size: 13px; font-weight: 600; }
+  .cadence-toggle { display: flex; gap: 4px; }
+  .cadence-toggle button {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .cadence-toggle button.active { background: var(--accent); color: #0f1115; border-color: var(--accent); }
+  .bars { display: flex; align-items: flex-end; gap: 4px; height: 150px; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; min-width: 0; }
+  .bar-value { font-size: 9px; color: var(--muted); margin-bottom: 3px; white-space: nowrap; }
+  .bar { width: 100%; border-radius: 3px 3px 0 0; background: var(--accent); }
+  .bar.outlined { background: #7fa8f2; }
+  .bar-label { font-size: 9px; color: var(--muted); margin-top: 4px; white-space: nowrap; }
+  .loading, .error { color: var(--muted); font-size: 13px; padding: 20px; }
+  .error { color: var(--neg); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+  <h1>Finviz Snapshot Mirror</h1>
+  <div class="subtitle">
+    Espejo estático, de solo lectura, de datos públicos de
+    <a href="https://finviz.com" target="_blank" rel="noopener">finviz.com</a> — sin backend, sin base de datos.
+  </div>
+  <div class="disclaimer">
+    Datos con fines informativos/educativos únicamente, no es asesoría de inversión. Actualizado
+    periódicamente (ver "generado" abajo), no en tiempo real. Fuente: Finviz (cotizaciones con
+    hasta 1 minuto de delay para NASDAQ/NYSE/AMEX, según Finviz).
+  </div>
+
+  <div id="tickers" class="tickers"></div>
+  <div id="meta" class="meta"></div>
+  <div id="content"><div class="loading">Cargando…</div></div>
+
+<script>
+const CADENCE_LABEL = { annual: "Annual", quarterly: "Quarterly" };
+const CHART_TITLES = {
+  eps: "GAAP EPS",
+  sales: "Sales ($mm)",
+  shares_outstanding: "Shares Outstanding (mm)",
+};
+let currentCadence = "annual";
+
+function fmtNum(v) {
+  if (v === null || v === undefined) return "-";
+  const abs = Math.abs(v);
+  if (abs >= 1000) return (v / 1000).toFixed(1) + "k";
+  return abs >= 100 ? v.toFixed(0) : v.toFixed(2);
+}
+
+function colorClass(value) {
+  if (typeof value !== "string") return "";
+  if (/-\d/.test(value) && value.includes("%")) return "neg";
+  if (value.includes("%") && /^\+?\d/.test(value)) return "pos";
+  return "";
+}
+
+function renderGrid(columns) {
+  const cols = columns.map(col => {
+    const rows = col.map(f =>
+      `<tr><td class="label">${f.label}</td><td class="value ${colorClass(f.value)}">${f.value}</td></tr>`
+    ).join("");
+    return `<table class="snapshot"><tbody>${rows}</tbody></table>`;
+  });
+  return `<div class="grid-panel" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));">${cols.join("")}</div>`;
+}
+
+function renderBars(series) {
+  if (!series || series.length === 0) return `<div class="loading">Sin datos históricos.</div>`;
+  const values = series.map(p => p.value);
+  const max = Math.max(...values, 0);
+  const bars = series.map(p => {
+    const heightPct = max > 0 ? Math.max((p.value / max) * 100, p.value < 0 ? 4 : 2) : 2;
+    const cls = p.isOutlined ? "bar outlined" : "bar";
+    return `<div class="bar-col">
+      <div class="bar-value">${fmtNum(p.value)}</div>
+      <div class="${cls}" style="height:${heightPct}%"></div>
+      <div class="bar-label">${p.name}</div>
+    </div>`;
+  }).join("");
+  return `<div class="bars">${bars}</div>`;
+}
+
+function renderCharts(charts) {
+  if (!charts) return `<div class="loading">Este ticker no tiene datos históricos de gráficos.</div>`;
+  const panels = Object.keys(CHART_TITLES).map(key => {
+    const metric = charts[key];
+    const series = metric ? metric[currentCadence] : null;
+    return `<div class="chart-panel" data-metric="${key}">
+      <div class="chart-header">
+        <div class="chart-title">${CHART_TITLES[key]}</div>
+        <div class="cadence-toggle">
+          <button data-cadence="annual" class="${currentCadence === "annual" ? "active" : ""}">Annual</button>
+          <button data-cadence="quarterly" class="${currentCadence === "quarterly" ? "active" : ""}">Quarterly</button>
+        </div>
+      </div>
+      ${renderBars(series)}
+    </div>`;
+  }).join("");
+  return `<div class="charts">${panels}</div>`;
+}
+
+async function loadTicker(ticker) {
+  document.querySelectorAll("#tickers button").forEach(b => b.classList.toggle("active", b.dataset.ticker === ticker));
+  document.getElementById("content").innerHTML = `<div class="loading">Cargando ${ticker}…</div>`;
+  try {
+    const res = await fetch(`data/${ticker}.json`, { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    document.getElementById("meta").textContent =
+      `${data.ticker} · generado: ${new Date(data.generated_at).toLocaleString()}`;
+    document.getElementById("content").innerHTML = renderGrid(data.columns) + renderCharts(data.charts);
+    attachCadenceHandlers(data);
+  } catch (err) {
+    document.getElementById("content").innerHTML = `<div class="error">No se pudo cargar ${ticker}: ${err.message}</div>`;
+  }
+}
+
+function attachCadenceHandlers(data) {
+  document.querySelectorAll(".cadence-toggle button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentCadence = btn.dataset.cadence;
+      document.getElementById("content").innerHTML = renderGrid(data.columns) + renderCharts(data.charts);
+      attachCadenceHandlers(data);
+    });
+  });
+}
+
+async function init() {
+  try {
+    const res = await fetch("data/index.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const index = await res.json();
+    const tickerBar = document.getElementById("tickers");
+    tickerBar.innerHTML = index.tickers.map(t =>
+      `<button data-ticker="${t}">${t}</button>`
+    ).join("");
+    tickerBar.querySelectorAll("button").forEach(b =>
+      b.addEventListener("click", () => loadTicker(b.dataset.ticker))
+    );
+    if (index.tickers.length > 0) loadTicker(index.tickers[0]);
+    else document.getElementById("content").innerHTML = `<div class="error">No hay tickers generados todavía.</div>`;
+  } catch (err) {
+    document.getElementById("content").innerHTML =
+      `<div class="error">No se pudo cargar el índice de datos: ${err.message}. ¿Corriste scripts/generate_finviz_snapshot_site.py?</div>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>

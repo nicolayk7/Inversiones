@@ -56,6 +56,23 @@ _AAPL_QUOTE_HTML = f"""
 
 _NOT_FOUND_HTML = "<html><body><h1>Ticker not found</h1></body></html>"
 
+# Condensed but real-shaped chart data block — same 3-series-in-fixed-order layout confirmed live
+# against AAPL and MSFT (see finviz.py's _parse_charts docstring).
+_CHART_JSON = (
+    '{"annual":{"values":['
+    '[{"name":"2024","value":6.08},{"name":"TTM","value":8.72,"isOutlined":true}],'
+    '[{"name":"2024","value":391035},{"name":"TTM","value":466823,"isOutlined":true}],'
+    '[{"name":"2024","value":15116.8},{"name":"MRQ","value":14608.9,"isOutlined":true}]'
+    ']},"quarterly":{"values":['
+    '[{"name":"Q3 \'26","value":2.02}],[{"name":"Q3 \'26","value":109417}],'
+    '[{"name":"Q3 \'26","value":14608.9}]'
+    ']}}'
+)
+_AAPL_QUOTE_HTML_WITH_CHARTS = _AAPL_QUOTE_HTML.replace(
+    "</body></html>",
+    f'<script id="fa-init-data-0" type="application/json">{_CHART_JSON}</script></body></html>',
+)
+
 
 def _client(handler) -> httpx.Client:
     return httpx.Client(transport=httpx.MockTransport(handler))
@@ -171,6 +188,51 @@ def test_past_as_of_raises_not_silently_returns_todays_data():
 
     with pytest.raises(FinvizError):
         _provider(handler).get_quarterly_fundamentals("AAPL", as_of=date.today() - timedelta(days=30))
+
+
+# -- get_snapshot -----------------------------------------------------------------------------
+
+
+def test_get_snapshot_returns_fields_and_charts_from_one_fetch():
+    calls = []
+
+    def handler(request):
+        calls.append(request)
+        return httpx.Response(200, text=_AAPL_QUOTE_HTML_WITH_CHARTS)
+
+    snapshot = _provider(handler).get_snapshot("aapl")
+
+    assert len(calls) == 1  # one page fetch, not two
+    assert snapshot["ticker"] == "AAPL"
+    assert snapshot["fields"]["Revenue (ttm)"] == "466.82B"
+    assert snapshot["charts"]["eps"]["annual"][-1] == {
+        "name": "TTM", "value": 8.72, "isOutlined": True,
+    }
+    assert snapshot["charts"]["sales"]["annual"][-1]["value"] == 466823
+    assert snapshot["charts"]["shares_outstanding"]["annual"][-1]["value"] == 14608.9
+    assert snapshot["charts"]["eps"]["quarterly"][0]["name"] == "Q3 '26"
+
+
+def test_get_snapshot_charts_is_none_when_block_absent():
+    def handler(request):
+        return httpx.Response(200, text=_AAPL_QUOTE_HTML)  # no fa-init-data-0 block
+
+    snapshot = _provider(handler).get_snapshot("AAPL")
+    assert snapshot["charts"] is None
+    assert snapshot["fields"]  # fields still present
+
+
+def test_get_snapshot_charts_is_none_on_malformed_json_not_a_crash():
+    html = _AAPL_QUOTE_HTML.replace(
+        "</body></html>",
+        '<script id="fa-init-data-0" type="application/json">{not valid json</script></body></html>',
+    )
+
+    def handler(request):
+        return httpx.Response(200, text=html)
+
+    snapshot = _provider(handler).get_snapshot("AAPL")
+    assert snapshot["charts"] is None
 
 
 # -- get_current_price ------------------------------------------------------------------------

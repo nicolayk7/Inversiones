@@ -1,0 +1,44 @@
+name: Refresh Finviz snapshot site
+
+# Free, $0-cost refresh loop for docs/ (see scripts/generate_finviz_snapshot_site.py's own
+# docstring): runs the generator against the live finviz.com quote page, commits whatever changed
+# under docs/data/ back to main, and — once GitHub Pages is enabled for this repo (Settings ->
+# Pages -> Source: main / docs) — that commit is what makes the published site show today's
+# numbers. No secrets, no external services beyond finviz.com itself.
+
+on:
+  schedule:
+    # Once daily, ~22:00 UTC (after the US market close) — not a precision requirement, the site
+    # itself already discloses "not real-time" (docs/index.html's disclaimer).
+    - cron: "0 22 * * *"
+  workflow_dispatch: {} # manual "Run workflow" button in the Actions tab, for on-demand refreshes
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      # Full editable install (not just httpx/pydantic) — matches local dev exactly, avoids any
+      # import-path surprises for the sake of shaving a few CI seconds.
+      - name: Install project
+        run: pip install -e .
+
+      - name: Generate snapshot JSON
+        run: python scripts/generate_finviz_snapshot_site.py
+
+      - name: Commit updated snapshot (if anything changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data
+          git diff --cached --quiet && echo "No data changes — nothing to commit." || \
+            git commit -m "Refresh Finviz snapshot data [automated]"
+          git push

@@ -338,3 +338,34 @@ async def test_live_aapl_price_ingestion_wires_into_wealth_engine():
     # is below the 60% group-coverage threshold. This is not a bug; see pipeline.py's
     # _valuation_sub_metrics.
     assert output.valuation_score.status in ("OK", "INSUFFICIENT_DATA")
+
+
+# -- Live Finviz free-price path (opt-in only) --------------------------------------------------
+
+
+@pytest.mark.skipif(
+    not os.environ.get("RUN_FINVIZ_LIVE_TEST"),
+    reason="Live scrape against the real finviz.com: SKIPPED by default (ToS caution) — set "
+    "RUN_FINVIZ_LIVE_TEST=1 to opt in",
+)
+async def test_live_aapl_finviz_price_ingestion_wires_into_wealth_engine():
+    """Mirrors test_live_aapl_price_ingestion_wires_into_wealth_engine above, but through the
+    free Finviz path (ingest_finviz_price) instead of paid Massive — the $0-cost substitute this
+    MVP needs when no MASSIVE_API_KEY is configured. Real Finviz scrape -> PostgreSQL -> retrieval
+    -> WealthEngineInput.price, `as_of`=today (Finviz's free page has no historical snapshots — see
+    finviz.py's module docstring — so, unlike the Massive test above, this cannot use a fixed past
+    as_of; the ingested bar's own `ts`/`available_at` are both "now")."""
+    async with SessionLocal() as session:
+        await data_ingestion.ingest_fundamentals(TICKER, session)  # idempotent if already present
+        await data_ingestion.ingest_finviz_price(TICKER, session)
+
+    async with SessionLocal() as session:
+        inp = await data_ingestion.build_wealth_engine_input_from_storage(
+            TICKER, SectorProfile.GENERIC_INDUSTRIAL, date.today(), session
+        )
+
+    assert inp.price is not None
+    assert inp.price > 0
+
+    output = compute_wealth_snapshot(inp)
+    assert output.valuation_score.status in ("OK", "INSUFFICIENT_DATA")

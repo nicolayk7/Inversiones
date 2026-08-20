@@ -300,7 +300,7 @@ function valuationUnitNote(field, sector) {
   if (field.value !== null && field.value !== undefined) {
     return `${metric}: <b>lower is cheaper</b>, all else equal — a higher number is not automatically better.`;
   }
-  return `When available, this resolves to a raw ${metric} — lower will mean cheaper, not better. Currently unavailable because no price has been ingested for this ticker.`;
+  return `When available, this resolves to a raw ${metric} — lower will mean cheaper, not better. See the reason above for why it's unavailable for this ticker/as-of.`;
 }
 
 function renderRedFlags(flags) {

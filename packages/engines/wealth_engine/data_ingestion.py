@@ -7,6 +7,11 @@ Provider -> Engine shortcut (architecture v1.0 §04's dependency direction; cont
 - `ingest_price`: MarketDataProvider -> canonical DTO -> `prices_repository.save_daily_bars` ->
   PostgreSQL. Only function in this module that touches a `MarketDataProvider` (Market Data
   Foundation Phase 4) — same shape as `ingest_fundamentals`, deliberately, not a new pattern.
+- `ingest_finviz_price`: free-tier substitute for `ingest_price` when no paid MarketDataProvider is
+  configured — `FinvizFundamentalsProvider.get_current_price` -> a single synthetic
+  open=high=low=close OHLCVBar (disclosed, not a real OHLC bar — see its own docstring) ->
+  `prices_repository.save_daily_bars` -> PostgreSQL, tagged `source="finviz_last_price"` so it's
+  never confused with a real Massive-sourced bar.
 - `ingest_quarterly_revenue`: FundamentalsProvider's `get_quarterly_revenue` (Phase 7B) ->
   canonical `IncomeStatement` DTOs -> `fundamentals_repository.save_income_statements` ->
   PostgreSQL (Phase 7C-1). Same ingestion-only pattern as the two above.
@@ -25,9 +30,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 import packages.quant_core.fundamentals as qf
 from packages.engines.wealth_engine.pipeline import WealthEngineInput
+from packages.providers.fundamentals.finviz import FinvizFundamentalsProvider
 from packages.providers.fundamentals.sec_edgar import SecEdgarFundamentalsProvider
 from packages.providers.market.massive import MassiveMarketDataProvider
 from packages.quant_core.regime import SectorProfile
+from packages.shared.schemas import OHLCVBar
 from packages.storage.repositories import fundamentals_repository as repo
 from packages.storage.repositories import prices_repository
 
@@ -83,6 +90,54 @@ async def ingest_price(
             provider.close()
 
     await prices_repository.save_daily_bars(session, bars)
+
+
+async def ingest_finviz_price(
+    ticker: str, session: AsyncSession, *, provider: FinvizFundamentalsProvider | None = None
+) -> None:
+    """Free-tier price ingestion — a substitute for `ingest_price` (Massive) when no paid
+    MarketDataProvider is configured: `FinvizFundamentalsProvider.get_current_price` -> a SINGLE
+    synthetic OHLCVBar -> PostgreSQL, via the same `prices_repository` Massive-sourced bars already
+    use. Same owns-provider pattern as `ingest_fundamentals`/`ingest_price`.
+
+    DISCLOSED LIMITATION, load-bearing for anyone reading `open`/`high`/`low` off a row this
+    function wrote: Finviz's free page has no intraday Open/High/Low at all (confirmed — see
+    `packages.providers.fundamentals.finviz`'s module docstring), only a single "current"
+    last-traded price. This function sets `open = high = low = close` = that one price — NOT a
+    real OHLC bar. It exists ONLY so Wealth Engine's Valuation math (which reads `bar.close` alone;
+    `packages.quant_core.fundamentals.valuation` never touches open/high/low) has a price to work
+    with. Persisted under `source="finviz_last_price"` — deliberately distinct from Massive's
+    `source="massive"` — so this can never be silently mistaken for a real OHLC bar by a future
+    caller (e.g. a Trading Engine technical indicator computing True Range would get zero range
+    from a finviz_last_price row and must not treat that as real).
+
+    `ts` = today (a live snapshot, not a specific historical trading day — same convention as
+    `FinvizFundamentalsProvider.get_quarterly_fundamentals`'s `period_end`). `available_at` = the
+    fetch's own timestamp — this genuinely IS a live observation, not a delayed daily close, so
+    Massive's end-of-day-UTC convention does not apply here.
+
+    Raises whatever `get_current_price` raises (ticker/markup errors) if the price can't be
+    resolved, and `ValueError` if Volume itself is unparseable — never persists a fabricated or
+    zero-volume bar."""
+    owns_provider = provider is None
+    provider = provider or FinvizFundamentalsProvider()
+    try:
+        price, volume, observed_at = provider.get_current_price(ticker)
+    finally:
+        if owns_provider:
+            provider.close()
+
+    if volume is None:
+        raise ValueError(
+            f"Finviz returned no parseable Volume for {ticker!r} — refusing to persist a price "
+            "bar with a fabricated volume"
+        )
+
+    bar = OHLCVBar(
+        ticker=ticker.upper(), ts=date.today(), open=price, high=price, low=price, close=price,
+        volume=volume, available_at=observed_at, source="finviz_last_price",
+    )
+    await prices_repository.save_daily_bars(session, [bar])
 
 
 async def ingest_quarterly_revenue(

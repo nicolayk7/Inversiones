@@ -51,6 +51,18 @@ on this date" — not a substitute for a true fiscal-period record. Callers need
 periods must use SEC EDGAR; this provider is a supplementary ratio snapshot only. `as_of` in the
 past is therefore not supported (this free source has no historical snapshots) and raises rather
 than silently mislabeling today's data as historical.
+
+`get_current_price` (added to connect this provider to Wealth Engine's Valuation, which needs a
+scalar price — see packages/engines/wealth_engine/data_ingestion.py's `ingest_finviz_price`): the
+same quote page's "Current stock price" cell, confirmed present in the same grid. This is
+deliberately NOT exposed as a `MarketDataProvider.get_daily_bars` implementation — that Protocol
+promises real historical daily bars over an arbitrary [start, end] range, which this free page
+cannot provide (it has no Open/High/Low fields at all, confirmed by enumerating every tooltip on
+the live page — only a single current "last" price, previous close, and volume). Claiming to
+implement `get_daily_bars` would mean either fabricating Open/High/Low from Close (exactly what
+`packages.providers.market.massive` explicitly refuses to do for even a single missing field) or
+silently returning a one-bar list for any multi-day range and calling it something it structurally
+isn't. `get_current_price` names what it actually is instead: a live scalar, not a bar.
 """
 
 import re
@@ -103,10 +115,11 @@ def _clean_text(html_fragment: str) -> str:
 
 def _parse_number(raw: str) -> float | None:
     """'-' is Finviz's own "no value" marker — returns None, never 0.0. Handles 'K'/'M'/'B'/'T'
-    suffixes and a trailing '%' (returned as a fraction, e.g. '48.65%' -> 0.4865, matching
-    FundamentalsRecord's gross_margin/operating_margin/roic/roe convention: ratios stored as
-    fractions, not raw percentages)."""
-    text = raw.strip()
+    suffixes, comma thousand-separators (e.g. Volume's '17,640,556'), and a trailing '%' (returned
+    as a fraction, e.g. '48.65%' -> 0.4865, matching FundamentalsRecord's
+    gross_margin/operating_margin/roic/roe convention: ratios stored as fractions, not raw
+    percentages)."""
+    text = raw.strip().replace(",", "")
     if not text or text == "-":
         return None
     is_percent = text.endswith("%")
@@ -142,18 +155,10 @@ class FinvizFundamentalsProvider:
     def __exit__(self, *exc) -> None:
         self.close()
 
-    def get_quarterly_fundamentals(
-        self, ticker: str, as_of: date | None = None
-    ) -> list[FundamentalsRecord]:
-        """Returns at most one record: today's live TTM ratio snapshot (see module docstring's
-        period_end convention). A past `as_of` is not supported by this free source — raises
-        rather than silently returning today's data mislabeled as historical."""
-        if as_of is not None and as_of < date.today():
-            raise FinvizError(
-                "Finviz free quote page has no historical snapshots — cannot honor a past as_of "
-                f"({as_of}); only the live/current snapshot is available"
-            )
-
+    def _fetch_fields(self, ticker: str) -> dict[str, str]:
+        """Shared by every method below: one HTTP GET of the quote page, parsed into a
+        tooltip-keyed field dict. Not cached — each call is a fresh live fetch, matching this
+        provider's "no historical snapshots" nature (see module docstring)."""
         response = self._client.get(_QUOTE_URL.format(ticker=ticker.upper()))
         if response.status_code == 404:
             raise FinvizNotFoundError(f"Finviz has no quote page for {ticker!r}")
@@ -168,7 +173,21 @@ class FinvizFundamentalsProvider:
                 f"Finviz fundamentals grid not found for {ticker!r} — page markup may have "
                 "changed, or this was a bot-check response, not the real quote page"
             )
+        return fields
 
+    def get_quarterly_fundamentals(
+        self, ticker: str, as_of: date | None = None
+    ) -> list[FundamentalsRecord]:
+        """Returns at most one record: today's live TTM ratio snapshot (see module docstring's
+        period_end convention). A past `as_of` is not supported by this free source — raises
+        rather than silently returning today's data mislabeled as historical."""
+        if as_of is not None and as_of < date.today():
+            raise FinvizError(
+                "Finviz free quote page has no historical snapshots — cannot honor a past as_of "
+                f"({as_of}); only the live/current snapshot is available"
+            )
+
+        fields = self._fetch_fields(ticker)
         today = date.today()
         now = datetime.now(timezone.utc)
         return [
@@ -207,6 +226,25 @@ class FinvizFundamentalsProvider:
         if price is None or shares_outstanding is None or not price_to_fcf:
             return None
         return price * shares_outstanding / price_to_fcf
+
+    def get_current_price(self, ticker: str) -> tuple[float, int | None, datetime]:
+        """Live (price, volume, observed_at) in a single fetch — one HTTP GET, not two, per this
+        provider's own low-volume ToS discipline (module docstring). `observed_at` is this fetch's
+        own timestamp, not an end-of-day convention — it genuinely IS the observation time. Not
+        part of the `MarketDataProvider` Protocol — see module docstring for why.
+
+        Raises `FinvizResponseError` if the price cell itself is unparseable (never returns a
+        fabricated/zero price). `volume` is best-effort and may be `None` (never 0 — 0 would
+        falsely assert "no shares traded today")."""
+        fields = self._fetch_fields(ticker)
+        observed_at = datetime.now(timezone.utc)
+        price = _parse_number(fields.get("Current stock price", ""))
+        if price is None:
+            raise FinvizResponseError(
+                f"Finviz quote page for {ticker!r} had no parseable 'Current stock price' value"
+            )
+        volume = _parse_number(fields.get("Volume", ""))
+        return price, (int(volume) if volume is not None else None), observed_at
 
 
 __all__ = [

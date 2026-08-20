@@ -2,8 +2,11 @@
 sequential script, same ingestion functions `tests/integration/test_wealth_engine_live_aapl.py`
 already exercises, just runnable from a terminal instead of pytest.
 
-Sequence per ticker: fundamentals -> quarterly revenue -> price. Price is best-effort: if
-MASSIVE_API_KEY isn't configured, that step is skipped with a warning (not a failure) and
+Sequence per ticker: fundamentals -> quarterly revenue -> price. Price prefers Massive
+(MASSIVE_API_KEY, real OHLC) when configured; otherwise falls back to Finviz's free live-price
+scrape (`data_ingestion.ingest_finviz_price` — see its own docstring for the open=high=low=close
+disclosure) so Valuation still gets a real price with $0 cost. If BOTH are unavailable (no
+Massive key AND Finviz itself fails), the step is skipped with a warning, not a failure, and
 Valuation stays N/A for that ticker downstream, exactly like every other missing-data case in
 this codebase.
 
@@ -22,7 +25,9 @@ import sys
 from datetime import date, timedelta
 
 from packages.engines.wealth_engine import data_ingestion
+from packages.providers.fundamentals.finviz import FinvizError
 from packages.providers.market.massive import MassiveAuthError
+from packages.shared.config import settings
 from packages.storage.db import SessionLocal
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -50,18 +55,30 @@ async def _ingest_one(ticker: str) -> None:
         await data_ingestion.ingest_quarterly_revenue(ticker, session)
     logger.info("[%s] quarterly revenue ingested.", ticker)
 
-    end = date.today()
-    start = end - timedelta(days=_PRICE_LOOKBACK_DAYS)
+    if settings.massive_api_key:
+        end = date.today()
+        start = end - timedelta(days=_PRICE_LOOKBACK_DAYS)
+        try:
+            logger.info("[%s] ingesting price [%s, %s] (Massive)...", ticker, start, end)
+            async with SessionLocal() as session:
+                await data_ingestion.ingest_price(ticker, start, end, session)
+            logger.info("[%s] price ingested (Massive).", ticker)
+            return
+        except MassiveAuthError:
+            logger.warning("[%s] Massive rejected the configured key — falling back to Finviz.", ticker)
+
+    # No Massive key configured (or it failed) — free fallback. See ingest_finviz_price's
+    # docstring for the open=high=low=close disclosure this bar carries.
     try:
-        logger.info("[%s] ingesting price [%s, %s]...", ticker, start, end)
+        logger.info("[%s] ingesting price (Finviz, free live snapshot)...", ticker)
         async with SessionLocal() as session:
-            await data_ingestion.ingest_price(ticker, start, end, session)
-        logger.info("[%s] price ingested.", ticker)
-    except MassiveAuthError:
+            await data_ingestion.ingest_finviz_price(ticker, session)
+        logger.info("[%s] price ingested (Finviz).", ticker)
+    except FinvizError as exc:
         logger.warning(
-            "[%s] MASSIVE_API_KEY not configured — skipping price ingestion. "
-            "Valuation will be N/A for this ticker until a price is available.",
-            ticker,
+            "[%s] Finviz price ingestion failed (%s) and no Massive key is configured — skipping "
+            "price ingestion. Valuation will be N/A for this ticker until a price is available.",
+            ticker, exc,
         )
 
 

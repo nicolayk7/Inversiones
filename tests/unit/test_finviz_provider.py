@@ -6,7 +6,7 @@ RUN_FINVIZ_LIVE_TEST=1 is set, per this provider's own ToS-caution disclosure (n
 live hits against a source with no explicit scraping allowance)."""
 
 import os
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 
 import httpx
 import pytest
@@ -45,6 +45,7 @@ _AAPL_QUOTE_HTML = f"""
 {_cell("Current stock price", "Price", "314.81")}
 {_cell("Shares outstanding", "Shs Outstand", "14.61B")}
 {_cell("Price to Free Cash Flow (ttm)", "P/FCF", "33.61")}
+{_cell("Volume", "Volume", "17,509,621")}
 {_cell("EPS estimate for next year", "EPS next Y", "9.54")}
 {_cell("EPS growth next year", "EPS next Y", "7.98%")}
 {_cell("Debt/Eq ratio placeholder", "Some N/A Field", "-")}
@@ -79,6 +80,7 @@ def _provider(handler) -> FinvizFundamentalsProvider:
         ("166000", 166000.0),
         ("1.98M", 1.98e6),
         ("2.5K", 2.5e3),
+        ("17,509,621", 17509621.0),
     ],
 )
 def test_parse_number(raw, expected):
@@ -171,6 +173,50 @@ def test_past_as_of_raises_not_silently_returns_todays_data():
         _provider(handler).get_quarterly_fundamentals("AAPL", as_of=date.today() - timedelta(days=30))
 
 
+# -- get_current_price ------------------------------------------------------------------------
+
+
+def test_get_current_price_returns_price_volume_and_observed_at():
+    def handler(request):
+        return httpx.Response(200, text=_AAPL_QUOTE_HTML)
+
+    before = datetime.now(timezone.utc)
+    price, volume, observed_at = _provider(handler).get_current_price("AAPL")
+    after = datetime.now(timezone.utc)
+
+    assert price == pytest.approx(314.81)
+    assert volume == 17509621
+    assert before <= observed_at <= after  # this fetch's own timestamp, not a fixed convention
+
+
+def test_get_current_price_volume_is_none_when_absent_not_zero():
+    html = _AAPL_QUOTE_HTML.replace(_cell("Volume", "Volume", "17,509,621"), "")
+
+    def handler(request):
+        return httpx.Response(200, text=html)
+
+    _, volume, _ = _provider(handler).get_current_price("AAPL")
+    assert volume is None
+
+
+def test_get_current_price_raises_when_price_cell_missing():
+    html = _AAPL_QUOTE_HTML.replace(_cell("Current stock price", "Price", "314.81"), "")
+
+    def handler(request):
+        return httpx.Response(200, text=html)
+
+    with pytest.raises(FinvizResponseError):
+        _provider(handler).get_current_price("AAPL")
+
+
+def test_get_current_price_unknown_ticker_raises_not_found():
+    def handler(request):
+        return httpx.Response(404, text=_NOT_FOUND_HTML)
+
+    with pytest.raises(FinvizNotFoundError):
+        _provider(handler).get_current_price("ZZZZINVALIDTICKER")
+
+
 # -- errors ----------------------------------------------------------------------------------
 
 
@@ -215,3 +261,17 @@ def test_live_finviz_fetches_aapl_snapshot():
     assert record.ticker == "AAPL"
     assert record.source == "finviz"
     assert record.revenue is not None and record.revenue > 0
+
+
+@pytest.mark.skipif(
+    not os.environ.get("RUN_FINVIZ_LIVE_TEST"),
+    reason="Live scrape against the real finviz.com: SKIPPED by default (ToS caution) — set "
+    "RUN_FINVIZ_LIVE_TEST=1 to opt in",
+)
+def test_live_finviz_fetches_aapl_current_price():
+    with FinvizFundamentalsProvider() as provider:
+        price, volume, observed_at = provider.get_current_price("AAPL")
+
+    assert price > 0
+    assert volume is None or volume > 0
+    assert observed_at.tzinfo is not None

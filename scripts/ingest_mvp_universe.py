@@ -26,7 +26,7 @@ from datetime import date, timedelta
 
 from packages.engines.wealth_engine import data_ingestion
 from packages.providers.fundamentals.finviz import FinvizError
-from packages.providers.market.massive import MassiveAuthError
+from packages.providers.market.massive import MassiveProviderError
 from packages.shared.config import settings
 from packages.storage.db import SessionLocal
 
@@ -64,8 +64,12 @@ async def _ingest_one(ticker: str) -> None:
                 await data_ingestion.ingest_price(ticker, start, end, session)
             logger.info("[%s] price ingested (Massive).", ticker)
             return
-        except MassiveAuthError:
-            logger.warning("[%s] Massive rejected the configured key — falling back to Finviz.", ticker)
+        except MassiveProviderError as exc:
+            # Any Massive failure falls back to Finviz, not just a bad/missing key — a rate limit
+            # or a malformed response is just as much a reason to try the free path as auth
+            # rejection is (audit finding: this used to catch only MassiveAuthError, silently
+            # skipping the documented fallback for every other Massive failure mode).
+            logger.warning("[%s] Massive failed (%s) — falling back to Finviz.", ticker, exc)
 
     # No Massive key configured (or it failed) — free fallback. See ingest_finviz_price's
     # docstring for the open=high=low=close disclosure this bar carries.

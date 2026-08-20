@@ -41,4 +41,7 @@ jobs:
           git add docs/data
           git diff --cached --quiet && echo "No data changes — nothing to commit." || \
             git commit -m "Refresh Finviz snapshot data [automated]"
-          git push
+          # Explicit HEAD:main, not a bare "git push" — actions/checkout leaves HEAD detached for
+          # schedule/workflow_dispatch triggers, and a bare push fails in that state ("You are not
+          # currently on a branch"). HEAD:main works whether HEAD is attached or detached.
+          git push origin HEAD:main

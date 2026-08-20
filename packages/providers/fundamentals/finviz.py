@@ -141,6 +141,15 @@ def _parse_fields(body: str, ticker: str) -> dict[str, str]:
 # matches "Shares outstanding" (in millions). If Finviz ever reorders this, the generated chart
 # would show implausible magnitudes (e.g. EPS in the hundreds-of-thousands range) — a visible,
 # not-silent failure mode.
+#
+# Widened this check across all 100 tickers in scripts/generate_finviz_snapshot_site.py's default
+# watchlist (2026-08-20 audit) — order held for 99/100. The one exception, GOOGL, is NOT a mapping
+# bug: its EPS and Sales chart values still cross-validate correctly against its own grid fields;
+# only shares_outstanding diverges (~12.23B on the chart vs. ~5.87B on the grid's "Shares
+# outstanding" field), which traces to Finviz itself reporting different share counts in different
+# page sections for dual/multi-class-share companies (Alphabet trades as both GOOG and GOOGL) —
+# not something this parser can reconcile, since both numbers come from the same source page.
+# Flagging here so a mismatch on a multi-class ticker reads as "known Finviz quirk," not a bug.
 _CHART_DATA_PATTERN = re.compile(
     r'<script id="fa-init-data-0" type="application/json">(?P<json>.*?)</script>', re.S
 )

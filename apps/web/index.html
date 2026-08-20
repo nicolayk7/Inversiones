@@ -336,15 +336,15 @@ function render(data) {
   els.results.innerHTML = `
     <div class="panel headline">
       <div>
-        <div style="font-size:22px;font-weight:700">${data.ticker}</div>
+        <div style="font-size:22px;font-weight:700">${escapeHtml(data.ticker)}</div>
         <div class="meta">
-          sector: <b>${data.sector}</b> ·
-          requested as-of: <b>${data.requested_as_of ?? "—"}</b> ·
-          data as-of (latest period_end used): <b>${data.as_of}</b>
+          sector: <b>${escapeHtml(data.sector)}</b> ·
+          requested as-of: <b>${escapeHtml(data.requested_as_of ?? "—")}</b> ·
+          data as-of (latest period_end used): <b>${escapeHtml(data.as_of)}</b>
         </div>
         <div class="meta" style="margin-top:4px">
-          weights_version (frozen top-level): <b>${data.weights_version}</b> ·
-          component_weights_status (sub-metric weights): <b>${data.component_weights_status}</b>
+          weights_version (frozen top-level): <b>${escapeHtml(data.weights_version)}</b> ·
+          component_weights_status (sub-metric weights): <b>${escapeHtml(data.component_weights_status)}</b>
         </div>
       </div>
       <div style="text-align:right">

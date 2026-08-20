@@ -1,15 +1,15 @@
 {
   "ticker": "ADBE",
-  "generated_at": "2026-08-20T19:57:41.143314+00:00",
+  "generated_at": "2026-08-20T20:32:09.264657+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "108.12B"
+        "value": "108.21B"
       },
       {
         "label": "Enterprise Value",
-        "value": "109.56B"
+        "value": "109.65B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "15.56"
+        "value": "15.57"
       },
       {
         "label": "Forward P/E",
-        "value": "9.89"
+        "value": "9.90"
       },
       {
         "label": "PEG",
@@ -55,11 +55,11 @@
       },
       {
         "label": "P/B",
-        "value": "9.42"
+        "value": "9.43"
       },
       {
         "label": "P/FCF",
-        "value": "10.52"
+        "value": "10.53"
       },
       {
         "label": "EV/EBITDA",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "370.86 -26.66%"
+        "value": "370.86 -26.60%"
       },
       {
         "label": "52W Low",
-        "value": "190.12 43.06%"
+        "value": "190.12 43.18%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.32"
+        "value": "0.40"
       },
       {
         "label": "Volume",
-        "value": "1,998,956"
+        "value": "2,564,949"
       },
       {
         "label": "RSI (14)",
-        "value": "61.05"
+        "value": "61.20"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "271.99"
+        "value": "272.22"
       },
       {
         "label": "Change %",
-        "value": "-0.17%"
+        "value": "-0.09%"
       }
     ]
   ],

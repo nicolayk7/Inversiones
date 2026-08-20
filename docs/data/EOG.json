@@ -1,15 +1,15 @@
 {
   "ticker": "EOG",
-  "generated_at": "2026-08-20T19:58:51.496106+00:00",
+  "generated_at": "2026-08-20T20:34:29.094704+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "79.85B"
+        "value": "79.83B"
       },
       {
         "label": "Enterprise Value",
-        "value": "83.19B"
+        "value": "83.17B"
       },
       {
         "label": "Income (ttm)",
@@ -67,7 +67,7 @@
       },
       {
         "label": "EV/Sales",
-        "value": "3.12"
+        "value": "3.11"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "151.87 0.24%"
+        "value": "151.87 0.21%"
       },
       {
         "label": "52W Low",
-        "value": "101.59 49.84%"
+        "value": "101.59 49.80%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.52"
+        "value": "0.70"
       },
       {
         "label": "Volume",
-        "value": "1,777,637"
+        "value": "2,389,426"
       },
       {
         "label": "RSI (14)",
-        "value": "64.70"
+        "value": "64.66"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "152.23"
+        "value": "152.19"
       },
       {
         "label": "Change %",
-        "value": "1.84%"
+        "value": "1.81%"
       }
     ]
   ],

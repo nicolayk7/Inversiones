@@ -1,15 +1,15 @@
 {
   "ticker": "AXP",
-  "generated_at": "2026-08-20T19:58:06.824940+00:00",
+  "generated_at": "2026-08-20T20:32:48.829085+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "224.21B"
+        "value": "223.63B"
       },
       {
         "label": "Enterprise Value",
-        "value": "238.02B"
+        "value": "237.43B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "20.14"
+        "value": "20.09"
       },
       {
         "label": "Forward P/E",
-        "value": "16.50"
+        "value": "16.46"
       },
       {
         "label": "PEG",
@@ -51,23 +51,23 @@
       },
       {
         "label": "P/S",
-        "value": "2.67"
+        "value": "2.66"
       },
       {
         "label": "P/B",
-        "value": "6.54"
+        "value": "6.52"
       },
       {
         "label": "P/FCF",
-        "value": "14.76"
+        "value": "14.72"
       },
       {
         "label": "EV/EBITDA",
-        "value": "9.71"
+        "value": "9.68"
       },
       {
         "label": "EV/Sales",
-        "value": "2.83"
+        "value": "2.82"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "387.49 -14.32%"
+        "value": "387.49 -14.54%"
       },
       {
         "label": "52W Low",
-        "value": "290.97 14.11%"
+        "value": "290.97 13.81%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.85"
+        "value": "1.29"
       },
       {
         "label": "Volume",
-        "value": "2,509,701"
+        "value": "3,854,527"
       },
       {
         "label": "RSI (14)",
-        "value": "41.60"
+        "value": "40.95"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "332.01"
+        "value": "331.15"
       },
       {
         "label": "Change %",
-        "value": "-2.32%"
+        "value": "-2.57%"
       }
     ]
   ],

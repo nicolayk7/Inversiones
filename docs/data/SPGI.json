@@ -1,15 +1,15 @@
 {
   "ticker": "SPGI",
-  "generated_at": "2026-08-20T19:58:09.474695+00:00",
+  "generated_at": "2026-08-20T20:38:16.967935+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "127.21B"
+        "value": "127.40B"
       },
       {
         "label": "Enterprise Value",
-        "value": "143.95B"
+        "value": "144.15B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "26.28"
+        "value": "26.32"
       },
       {
         "label": "Forward P/E",
-        "value": "21.19"
+        "value": "21.22"
       },
       {
         "label": "PEG",
@@ -51,7 +51,7 @@
       },
       {
         "label": "P/S",
-        "value": "7.89"
+        "value": "7.90"
       },
       {
         "label": "P/B",
@@ -59,15 +59,15 @@
       },
       {
         "label": "P/FCF",
-        "value": "22.83"
+        "value": "22.86"
       },
       {
         "label": "EV/EBITDA",
-        "value": "17.15"
+        "value": "17.18"
       },
       {
         "label": "EV/Sales",
-        "value": "8.93"
+        "value": "8.94"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "529.30 -18.48%"
+        "value": "529.30 -18.35%"
       },
       {
         "label": "52W Low",
-        "value": "360.94 19.55%"
+        "value": "360.94 19.73%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.59"
+        "value": "0.93"
       },
       {
         "label": "Volume",
-        "value": "1,326,360"
+        "value": "2,112,965"
       },
       {
         "label": "RSI (14)",
-        "value": "57.88"
+        "value": "58.20"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "431.50"
+        "value": "432.16"
       },
       {
         "label": "Change %",
-        "value": "1.13%"
+        "value": "1.29%"
       }
     ]
   ],

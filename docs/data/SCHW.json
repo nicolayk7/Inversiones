@@ -1,15 +1,15 @@
 {
   "ticker": "SCHW",
-  "generated_at": "2026-08-20T19:58:05.959367+00:00",
+  "generated_at": "2026-08-20T20:38:05.677050+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "189.66B"
+        "value": "189.86B"
       },
       {
         "label": "Enterprise Value",
-        "value": "171.41B"
+        "value": "171.61B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "19.94"
+        "value": "19.96"
       },
       {
         "label": "Forward P/E",
-        "value": "13.91"
+        "value": "13.92"
       },
       {
         "label": "PEG",
@@ -55,7 +55,7 @@
       },
       {
         "label": "P/B",
-        "value": "4.31"
+        "value": "4.32"
       },
       {
         "label": "P/FCF",
@@ -63,7 +63,7 @@
       },
       {
         "label": "EV/EBITDA",
-        "value": "10.75"
+        "value": "10.76"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "112.20 -2.25%"
+        "value": "112.20 -2.15%"
       },
       {
         "label": "52W Low",
-        "value": "83.96 30.63%"
+        "value": "83.96 30.76%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.47"
+        "value": "0.64"
       },
       {
         "label": "Volume",
-        "value": "4,706,342"
+        "value": "6,354,159"
       },
       {
         "label": "RSI (14)",
-        "value": "64.14"
+        "value": "64.70"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "109.68"
+        "value": "109.79"
       },
       {
         "label": "Change %",
-        "value": "-1.09%"
+        "value": "-0.98%"
       }
     ]
   ],

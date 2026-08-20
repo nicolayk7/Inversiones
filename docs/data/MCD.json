@@ -1,15 +1,15 @@
 {
   "ticker": "MCD",
-  "generated_at": "2026-08-20T19:58:29.660448+00:00",
+  "generated_at": "2026-08-20T20:36:29.164813+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "190.74B"
+        "value": "190.45B"
       },
       {
         "label": "Enterprise Value",
-        "value": "244.51B"
+        "value": "244.22B"
       },
       {
         "label": "Income (ttm)",
@@ -39,19 +39,19 @@
     [
       {
         "label": "P/E",
-        "value": "21.89"
+        "value": "21.86"
       },
       {
         "label": "Forward P/E",
-        "value": "19.29"
+        "value": "19.26"
       },
       {
         "label": "PEG",
-        "value": "2.74"
+        "value": "2.73"
       },
       {
         "label": "P/S",
-        "value": "6.89"
+        "value": "6.87"
       },
       {
         "label": "P/B",
@@ -59,15 +59,15 @@
       },
       {
         "label": "P/FCF",
-        "value": "24.58"
+        "value": "24.54"
       },
       {
         "label": "EV/EBITDA",
-        "value": "16.38"
+        "value": "16.36"
       },
       {
         "label": "EV/Sales",
-        "value": "8.83"
+        "value": "8.82"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "341.75 -21.13%"
+        "value": "341.75 -21.25%"
       },
       {
         "label": "52W Low",
-        "value": "260.96 3.29%"
+        "value": "260.96 3.13%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.58"
+        "value": "0.77"
       },
       {
         "label": "Volume",
-        "value": "2,644,251"
+        "value": "3,524,188"
       },
       {
         "label": "RSI (14)",
-        "value": "47.84"
+        "value": "47.24"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "269.55"
+        "value": "269.13"
       },
       {
         "label": "Change %",
-        "value": "0.78%"
+        "value": "0.63%"
       }
     ]
   ],

@@ -1,15 +1,15 @@
 {
   "ticker": "ICE",
-  "generated_at": "2026-08-20T19:58:10.340491+00:00",
+  "generated_at": "2026-08-20T20:35:38.542792+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "89.13B"
+        "value": "89.04B"
       },
       {
         "label": "Enterprise Value",
-        "value": "107.17B"
+        "value": "107.09B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "22.42"
+        "value": "22.40"
       },
       {
         "label": "Forward P/E",
-        "value": "18.00"
+        "value": "17.98"
       },
       {
         "label": "PEG",
@@ -59,15 +59,15 @@
       },
       {
         "label": "P/FCF",
-        "value": "17.55"
+        "value": "17.54"
       },
       {
         "label": "EV/EBITDA",
-        "value": "14.10"
+        "value": "14.09"
       },
       {
         "label": "EV/Sales",
-        "value": "8.16"
+        "value": "8.15"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "181.72 -12.63%"
+        "value": "181.72 -12.72%"
       },
       {
         "label": "52W Low",
-        "value": "121.79 30.36%"
+        "value": "121.79 30.23%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.61"
+        "value": "0.99"
       },
       {
         "label": "Volume",
-        "value": "2,779,025"
+        "value": "4,522,239"
       },
       {
         "label": "RSI (14)",
-        "value": "71.88"
+        "value": "71.68"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "158.76"
+        "value": "158.61"
       },
       {
         "label": "Change %",
-        "value": "0.97%"
+        "value": "0.87%"
       }
     ]
   ],

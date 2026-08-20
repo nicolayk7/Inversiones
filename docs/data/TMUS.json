@@ -1,15 +1,15 @@
 {
   "ticker": "TMUS",
-  "generated_at": "2026-08-20T19:58:54.093749+00:00",
+  "generated_at": "2026-08-20T20:38:38.987578+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "194.34B"
+        "value": "194.39B"
       },
       {
         "label": "Enterprise Value",
-        "value": "310.68B"
+        "value": "310.74B"
       },
       {
         "label": "Income (ttm)",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "261.56 -30.73%"
+        "value": "261.56 -30.72%"
       },
       {
         "label": "52W Low",
-        "value": "165.66 9.36%"
+        "value": "165.66 9.39%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.57"
+        "value": "0.70"
       },
       {
         "label": "Volume",
-        "value": "2,969,850"
+        "value": "3,699,906"
       },
       {
         "label": "RSI (14)",
-        "value": "50.43"
+        "value": "50.49"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "181.17"
+        "value": "181.22"
       },
       {
         "label": "Change %",
-        "value": "-0.65%"
+        "value": "-0.63%"
       }
     ]
   ],

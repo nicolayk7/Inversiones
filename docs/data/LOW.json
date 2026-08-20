@@ -1,15 +1,15 @@
 {
   "ticker": "LOW",
-  "generated_at": "2026-08-20T19:58:33.153155+00:00",
+  "generated_at": "2026-08-20T20:36:19.602372+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "122.18B"
+        "value": "121.86B"
       },
       {
         "label": "Enterprise Value",
-        "value": "160.80B"
+        "value": "160.48B"
       },
       {
         "label": "Income (ttm)",
@@ -39,15 +39,15 @@
     [
       {
         "label": "P/E",
-        "value": "18.43"
+        "value": "18.38"
       },
       {
         "label": "Forward P/E",
-        "value": "16.67"
+        "value": "16.62"
       },
       {
         "label": "PEG",
-        "value": "3.19"
+        "value": "3.18"
       },
       {
         "label": "P/S",
@@ -59,15 +59,15 @@
       },
       {
         "label": "P/FCF",
-        "value": "17.45"
+        "value": "17.41"
       },
       {
         "label": "EV/EBITDA",
-        "value": "12.68"
+        "value": "12.66"
       },
       {
         "label": "EV/Sales",
-        "value": "1.78"
+        "value": "1.77"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "293.06 -25.64%"
+        "value": "293.06 -25.84%"
       },
       {
         "label": "52W Low",
-        "value": "199.40 9.28%"
+        "value": "199.40 9.00%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "1.59"
+        "value": "1.92"
       },
       {
         "label": "Volume",
-        "value": "4,848,589"
+        "value": "5,889,605"
       },
       {
         "label": "RSI (14)",
-        "value": "52.19"
+        "value": "51.52"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "217.91"
+        "value": "217.34"
       },
       {
         "label": "Change %",
-        "value": "-0.95%"
+        "value": "-1.21%"
       }
     ]
   ],

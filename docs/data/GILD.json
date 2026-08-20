@@ -1,15 +1,15 @@
 {
   "ticker": "GILD",
-  "generated_at": "2026-08-20T19:58:21.745161+00:00",
+  "generated_at": "2026-08-20T20:35:07.821595+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "177.85B"
+        "value": "177.86B"
       },
       {
         "label": "Enterprise Value",
-        "value": "199.13B"
+        "value": "199.14B"
       },
       {
         "label": "Income (ttm)",
@@ -43,7 +43,7 @@
       },
       {
         "label": "Forward P/E",
-        "value": "14.49"
+        "value": "14.50"
       },
       {
         "label": "PEG",
@@ -147,7 +147,7 @@
       },
       {
         "label": "52W Low",
-        "value": "108.46 32.24%"
+        "value": "108.46 32.25%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.55"
+        "value": "0.94"
       },
       {
         "label": "Volume",
-        "value": "4,169,695"
+        "value": "7,159,987"
       },
       {
         "label": "RSI (14)",
-        "value": "63.80"
+        "value": "63.82"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "143.43"
+        "value": "143.44"
       },
       {
         "label": "Change %",
-        "value": "-2.83%"
+        "value": "-2.82%"
       }
     ]
   ],

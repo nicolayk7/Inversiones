@@ -1,15 +1,15 @@
 {
   "ticker": "PANW",
-  "generated_at": "2026-08-20T19:57:51.780959+00:00",
+  "generated_at": "2026-08-20T20:37:21.643688+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "284.88B"
+        "value": "284.89B"
       },
       {
         "label": "Enterprise Value",
-        "value": "283.83B"
+        "value": "283.85B"
       },
       {
         "label": "Income (ttm)",
@@ -39,7 +39,7 @@
     [
       {
         "label": "P/E",
-        "value": "287.52"
+        "value": "287.54"
       },
       {
         "label": "Forward P/E",
@@ -63,7 +63,7 @@
       },
       {
         "label": "EV/EBITDA",
-        "value": "157.82"
+        "value": "157.83"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "398.88 -12.37%"
+        "value": "398.88 -12.36%"
       },
       {
         "label": "52W Low",
-        "value": "139.57 150.44%"
+        "value": "139.57 150.45%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.49"
+        "value": "0.63"
       },
       {
         "label": "Volume",
-        "value": "3,631,600"
+        "value": "4,667,039"
       },
       {
         "label": "RSI (14)",
-        "value": "47.91"
+        "value": "47.92"
       },
       {
         "label": "Prev Close",
@@ -175,7 +175,7 @@
       },
       {
         "label": "Price",
-        "value": "349.54"
+        "value": "349.56"
       },
       {
         "label": "Change %",

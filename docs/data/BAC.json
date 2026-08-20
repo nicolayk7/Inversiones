@@ -1,11 +1,11 @@
 {
   "ticker": "BAC",
-  "generated_at": "2026-08-20T19:58:00.777041+00:00",
+  "generated_at": "2026-08-20T20:32:51.445654+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "433.27B"
+        "value": "432.57B"
       },
       {
         "label": "Enterprise Value",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "14.26"
+        "value": "14.24"
       },
       {
         "label": "Forward P/E",
-        "value": "11.78"
+        "value": "11.76"
       },
       {
         "label": "PEG",
@@ -59,7 +59,7 @@
       },
       {
         "label": "P/FCF",
-        "value": "5.27"
+        "value": "5.26"
       },
       {
         "label": "EV/EBITDA",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "65.22 -5.01%"
+        "value": "65.22 -5.16%"
       },
       {
         "label": "52W Low",
-        "value": "46.12 34.36%"
+        "value": "46.12 34.14%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.63"
+        "value": "1.00"
       },
       {
         "label": "Volume",
-        "value": "21,393,799"
+        "value": "34,327,070"
       },
       {
         "label": "RSI (14)",
-        "value": "47.92"
+        "value": "47.36"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "61.96"
+        "value": "61.86"
       },
       {
         "label": "Change %",
-        "value": "-1.92%"
+        "value": "-2.07%"
       }
     ]
   ],

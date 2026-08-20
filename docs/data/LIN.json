@@ -1,15 +1,15 @@
 {
   "ticker": "LIN",
-  "generated_at": "2026-08-20T19:58:54.955687+00:00",
+  "generated_at": "2026-08-20T20:36:15.255660+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "221.94B"
+        "value": "221.87B"
       },
       {
         "label": "Enterprise Value",
-        "value": "246.60B"
+        "value": "246.53B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "31.08"
+        "value": "31.07"
       },
       {
         "label": "Forward P/E",
-        "value": "24.58"
+        "value": "24.57"
       },
       {
         "label": "PEG",
@@ -59,15 +59,15 @@
       },
       {
         "label": "P/FCF",
-        "value": "44.61"
+        "value": "44.60"
       },
       {
         "label": "EV/EBITDA",
-        "value": "18.36"
+        "value": "18.35"
       },
       {
         "label": "EV/Sales",
-        "value": "6.96"
+        "value": "6.95"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "548.20 -12.18%"
+        "value": "548.20 -12.21%"
       },
       {
         "label": "52W Low",
-        "value": "387.78 24.16%"
+        "value": "387.78 24.11%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.52"
+        "value": "0.71"
       },
       {
         "label": "Volume",
-        "value": "1,193,659"
+        "value": "1,648,689"
       },
       {
         "label": "RSI (14)",
-        "value": "40.14"
+        "value": "40.00"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "481.45"
+        "value": "481.29"
       },
       {
         "label": "Change %",
-        "value": "0.07%"
+        "value": "0.03%"
       }
     ]
   ],

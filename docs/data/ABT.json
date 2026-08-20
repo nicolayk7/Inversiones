@@ -1,15 +1,15 @@
 {
   "ticker": "ABT",
-  "generated_at": "2026-08-20T19:58:18.218924+00:00",
+  "generated_at": "2026-08-20T20:32:06.655992+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "197.49B"
+        "value": "197.51B"
       },
       {
         "label": "Enterprise Value",
-        "value": "225.15B"
+        "value": "225.16B"
       },
       {
         "label": "Income (ttm)",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "137.49 -16.99%"
+        "value": "137.49 -16.98%"
       },
       {
         "label": "52W Low",
-        "value": "81.97 39.23%"
+        "value": "81.97 39.25%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.31"
+        "value": "0.48"
       },
       {
         "label": "Volume",
-        "value": "3,710,686"
+        "value": "5,784,091"
       },
       {
         "label": "RSI (14)",
-        "value": "74.28"
+        "value": "74.32"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "114.13"
+        "value": "114.14"
       },
       {
         "label": "Change %",
-        "value": "-0.26%"
+        "value": "-0.25%"
       }
     ]
   ],

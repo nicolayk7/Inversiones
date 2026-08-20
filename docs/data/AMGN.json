@@ -1,11 +1,11 @@
 {
   "ticker": "AMGN",
-  "generated_at": "2026-08-20T19:58:20.808868+00:00",
+  "generated_at": "2026-08-20T20:32:29.195124+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "234.48B"
+        "value": "234.49B"
       },
       {
         "label": "Enterprise Value",
@@ -47,7 +47,7 @@
       },
       {
         "label": "PEG",
-        "value": "3.19"
+        "value": "3.20"
       },
       {
         "label": "P/S",
@@ -59,7 +59,7 @@
       },
       {
         "label": "P/FCF",
-        "value": "23.04"
+        "value": "23.05"
       },
       {
         "label": "EV/EBITDA",
@@ -147,7 +147,7 @@
       },
       {
         "label": "52W Low",
-        "value": "269.77 60.77%"
+        "value": "269.77 60.78%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.63"
+        "value": "1.07"
       },
       {
         "label": "Volume",
-        "value": "1,681,955"
+        "value": "2,894,445"
       },
       {
         "label": "RSI (14)",
-        "value": "71.50"
+        "value": "71.51"
       },
       {
         "label": "Prev Close",
@@ -175,7 +175,7 @@
       },
       {
         "label": "Price",
-        "value": "433.71"
+        "value": "433.73"
       },
       {
         "label": "Change %",

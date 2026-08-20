@@ -1,11 +1,11 @@
 {
   "ticker": "GS",
-  "generated_at": "2026-08-20T19:58:02.506089+00:00",
+  "generated_at": "2026-08-20T20:35:17.418991+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "292.01B"
+        "value": "291.74B"
       },
       {
         "label": "Enterprise Value",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "15.48"
+        "value": "15.46"
       },
       {
         "label": "Forward P/E",
-        "value": "13.69"
+        "value": "13.68"
       },
       {
         "label": "PEG",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "1153.99 -13.10%"
+        "value": "1153.99 -13.18%"
       },
       {
         "label": "52W Low",
-        "value": "705.55 42.14%"
+        "value": "705.55 42.01%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.58"
+        "value": "0.76"
       },
       {
         "label": "Volume",
-        "value": "1,248,553"
+        "value": "1,632,183"
       },
       {
         "label": "RSI (14)",
-        "value": "40.67"
+        "value": "40.50"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "1002.86"
+        "value": "1001.95"
       },
       {
         "label": "Change %",
-        "value": "-1.84%"
+        "value": "-1.93%"
       }
     ]
   ],

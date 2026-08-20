@@ -1,15 +1,15 @@
 {
   "ticker": "WMT",
-  "generated_at": "2026-08-20T19:58:25.246240+00:00",
+  "generated_at": "2026-08-20T20:39:24.734386+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "827.68B"
+        "value": "826.37B"
       },
       {
         "label": "Enterprise Value",
-        "value": "897.78B"
+        "value": "896.46B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "36.64"
+        "value": "36.58"
       },
       {
         "label": "Forward P/E",
-        "value": "31.78"
+        "value": "31.73"
       },
       {
         "label": "PEG",
@@ -55,15 +55,15 @@
       },
       {
         "label": "P/B",
-        "value": "8.78"
+        "value": "8.76"
       },
       {
         "label": "P/FCF",
-        "value": "65.94"
+        "value": "65.84"
       },
       {
         "label": "EV/EBITDA",
-        "value": "20.02"
+        "value": "19.99"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "135.15 -23.05%"
+        "value": "135.15 -23.17%"
       },
       {
         "label": "52W Low",
-        "value": "95.42 9.00%"
+        "value": "95.42 8.82%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "3.14"
+        "value": "3.47"
       },
       {
         "label": "Volume",
-        "value": "74,814,241"
+        "value": "83,281,855"
       },
       {
         "label": "RSI (14)",
-        "value": "29.99"
+        "value": "29.78"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "104.01"
+        "value": "103.84"
       },
       {
         "label": "Change %",
-        "value": "-9.01%"
+        "value": "-9.15%"
       }
     ]
   ],

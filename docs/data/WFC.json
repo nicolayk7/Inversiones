@@ -1,11 +1,11 @@
 {
   "ticker": "WFC",
-  "generated_at": "2026-08-20T19:58:01.637054+00:00",
+  "generated_at": "2026-08-20T20:39:22.165689+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "252.90B"
+        "value": "253.11B"
       },
       {
         "label": "Enterprise Value",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "12.15"
+        "value": "12.16"
       },
       {
         "label": "Forward P/E",
-        "value": "10.48"
+        "value": "10.49"
       },
       {
         "label": "PEG",
@@ -59,7 +59,7 @@
       },
       {
         "label": "P/FCF",
-        "value": "36.88"
+        "value": "36.91"
       },
       {
         "label": "EV/EBITDA",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "97.76 -14.45%"
+        "value": "97.76 -14.38%"
       },
       {
         "label": "52W Low",
-        "value": "72.78 14.92%"
+        "value": "72.78 15.01%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.46"
+        "value": "0.73"
       },
       {
         "label": "Volume",
-        "value": "6,883,644"
+        "value": "10,990,472"
       },
       {
         "label": "RSI (14)",
-        "value": "38.83"
+        "value": "39.02"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "83.63"
+        "value": "83.70"
       },
       {
         "label": "Change %",
-        "value": "-2.69%"
+        "value": "-2.61%"
       }
     ]
   ],

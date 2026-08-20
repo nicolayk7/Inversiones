@@ -1,15 +1,15 @@
 {
   "ticker": "INTU",
-  "generated_at": "2026-08-20T19:57:49.159761+00:00",
+  "generated_at": "2026-08-20T20:35:43.756447+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "98.89B"
+        "value": "98.98B"
       },
       {
         "label": "Enterprise Value",
-        "value": "99.01B"
+        "value": "99.10B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "21.89"
+        "value": "21.91"
       },
       {
         "label": "Forward P/E",
-        "value": "13.23"
+        "value": "13.24"
       },
       {
         "label": "PEG",
@@ -59,15 +59,15 @@
       },
       {
         "label": "P/FCF",
-        "value": "12.82"
+        "value": "12.83"
       },
       {
         "label": "EV/EBITDA",
-        "value": "15.04"
+        "value": "15.05"
       },
       {
         "label": "EV/Sales",
-        "value": "4.73"
+        "value": "4.74"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "705.10 -48.73%"
+        "value": "705.10 -48.68%"
       },
       {
         "label": "52W Low",
-        "value": "252.84 42.98%"
+        "value": "252.84 43.12%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.36"
+        "value": "0.60"
       },
       {
         "label": "Volume",
-        "value": "1,969,554"
+        "value": "3,281,215"
       },
       {
         "label": "RSI (14)",
-        "value": "66.39"
+        "value": "66.59"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "361.52"
+        "value": "361.87"
       },
       {
         "label": "Change %",
-        "value": "-0.26%"
+        "value": "-0.17%"
       }
     ]
   ],

@@ -1,11 +1,11 @@
 {
   "ticker": "UNH",
-  "generated_at": "2026-08-20T19:58:12.069763+00:00",
+  "generated_at": "2026-08-20T20:38:58.128586+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "345.20B"
+        "value": "345.44B"
       },
       {
         "label": "Enterprise Value",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "24.73"
+        "value": "24.75"
       },
       {
         "label": "Forward P/E",
-        "value": "17.16"
+        "value": "17.17"
       },
       {
         "label": "PEG",
@@ -59,7 +59,7 @@
       },
       {
         "label": "P/FCF",
-        "value": "14.62"
+        "value": "14.63"
       },
       {
         "label": "EV/EBITDA",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "461.62 -16.69%"
+        "value": "461.62 -16.63%"
       },
       {
         "label": "52W Low",
-        "value": "255.96 50.25%"
+        "value": "255.96 50.35%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.55"
+        "value": "0.71"
       },
       {
         "label": "Volume",
-        "value": "3,200,975"
+        "value": "4,185,147"
       },
       {
         "label": "RSI (14)",
-        "value": "33.13"
+        "value": "33.26"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "384.58"
+        "value": "384.85"
       },
       {
         "label": "Change %",
-        "value": "-1.04%"
+        "value": "-0.97%"
       }
     ]
   ],

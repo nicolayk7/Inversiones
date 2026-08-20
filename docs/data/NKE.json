@@ -1,15 +1,15 @@
 {
   "ticker": "NKE",
-  "generated_at": "2026-08-20T19:58:30.522242+00:00",
+  "generated_at": "2026-08-20T20:37:02.149868+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "59.72B"
+        "value": "59.65B"
       },
       {
         "label": "Enterprise Value",
-        "value": "61.72B"
+        "value": "61.66B"
       },
       {
         "label": "Income (ttm)",
@@ -39,15 +39,15 @@
     [
       {
         "label": "P/E",
-        "value": "19.19"
+        "value": "19.16"
       },
       {
         "label": "Forward P/E",
-        "value": "18.47"
+        "value": "18.45"
       },
       {
         "label": "PEG",
-        "value": "4.39"
+        "value": "4.38"
       },
       {
         "label": "P/S",
@@ -55,15 +55,15 @@
       },
       {
         "label": "P/B",
-        "value": "4.02"
+        "value": "4.01"
       },
       {
         "label": "P/FCF",
-        "value": "27.34"
+        "value": "27.31"
       },
       {
         "label": "EV/EBITDA",
-        "value": "12.81"
+        "value": "12.80"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "80.17 -49.78%"
+        "value": "80.17 -49.84%"
       },
       {
         "label": "52W Low",
-        "value": "38.86 3.59%"
+        "value": "38.86 3.47%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.58"
+        "value": "0.68"
       },
       {
         "label": "Volume",
-        "value": "14,024,309"
+        "value": "16,613,502"
       },
       {
         "label": "RSI (14)",
-        "value": "43.28"
+        "value": "43.10"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "40.26"
+        "value": "40.21"
       },
       {
         "label": "Change %",
-        "value": "-1.94%"
+        "value": "-2.05%"
       }
     ]
   ],

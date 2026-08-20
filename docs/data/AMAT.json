@@ -1,15 +1,15 @@
 {
   "ticker": "AMAT",
-  "generated_at": "2026-08-20T19:57:57.238324+00:00",
+  "generated_at": "2026-08-20T20:32:25.728715+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "394.01B"
+        "value": "393.97B"
       },
       {
         "label": "Enterprise Value",
-        "value": "391.32B"
+        "value": "391.28B"
       },
       {
         "label": "Income (ttm)",
@@ -43,7 +43,7 @@
       },
       {
         "label": "Forward P/E",
-        "value": "26.58"
+        "value": "26.57"
       },
       {
         "label": "PEG",
@@ -59,7 +59,7 @@
       },
       {
         "label": "P/FCF",
-        "value": "70.07"
+        "value": "70.06"
       },
       {
         "label": "EV/EBITDA",
@@ -147,7 +147,7 @@
       },
       {
         "label": "52W Low",
-        "value": "154.46 221.28%"
+        "value": "154.46 221.24%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.44"
+        "value": "0.65"
       },
       {
         "label": "Volume",
-        "value": "4,164,393"
+        "value": "6,175,610"
       },
       {
         "label": "RSI (14)",
-        "value": "43.77"
+        "value": "43.76"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "496.26"
+        "value": "496.21"
       },
       {
         "label": "Change %",
-        "value": "0.02%"
+        "value": "0.01%"
       }
     ]
   ],

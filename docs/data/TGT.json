@@ -1,15 +1,15 @@
 {
   "ticker": "TGT",
-  "generated_at": "2026-08-20T19:58:34.030457+00:00",
+  "generated_at": "2026-08-20T20:38:35.475888+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "71.82B"
+        "value": "71.88B"
       },
       {
         "label": "Enterprise Value",
-        "value": "85.09B"
+        "value": "85.15B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "16.41"
+        "value": "16.42"
       },
       {
         "label": "Forward P/E",
-        "value": "16.57"
+        "value": "16.58"
       },
       {
         "label": "PEG",
@@ -59,11 +59,11 @@
       },
       {
         "label": "P/FCF",
-        "value": "16.12"
+        "value": "16.13"
       },
       {
         "label": "EV/EBITDA",
-        "value": "9.26"
+        "value": "9.27"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "161.98 -2.38%"
+        "value": "161.98 -2.30%"
       },
       {
         "label": "52W Low",
-        "value": "83.44 89.50%"
+        "value": "83.44 89.66%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.95"
+        "value": "1.27"
       },
       {
         "label": "Volume",
-        "value": "4,496,426"
+        "value": "6,055,215"
       },
       {
         "label": "RSI (14)",
-        "value": "69.41"
+        "value": "69.72"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "158.12"
+        "value": "158.25"
       },
       {
         "label": "Change %",
-        "value": "-0.55%"
+        "value": "-0.47%"
       }
     ]
   ],

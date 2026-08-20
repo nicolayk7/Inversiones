@@ -1,15 +1,15 @@
 {
   "ticker": "PLD",
-  "generated_at": "2026-08-20T19:58:59.274464+00:00",
+  "generated_at": "2026-08-20T20:37:33.839706+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "136.02B"
+        "value": "136.04B"
       },
       {
         "label": "Enterprise Value",
-        "value": "175.81B"
+        "value": "175.83B"
       },
       {
         "label": "Income (ttm)",
@@ -59,7 +59,7 @@
       },
       {
         "label": "P/FCF",
-        "value": "31.09"
+        "value": "31.10"
       },
       {
         "label": "EV/EBITDA",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "153.35 -8.28%"
+        "value": "153.35 -8.26%"
       },
       {
         "label": "52W Low",
-        "value": "107.84 30.43%"
+        "value": "107.84 30.45%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.49"
+        "value": "0.73"
       },
       {
         "label": "Volume",
-        "value": "2,114,502"
+        "value": "3,165,342"
       },
       {
         "label": "RSI (14)",
-        "value": "45.91"
+        "value": "45.96"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "140.66"
+        "value": "140.68"
       },
       {
         "label": "Change %",
-        "value": "-0.45%"
+        "value": "-0.44%"
       }
     ]
   ],

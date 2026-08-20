@@ -1,15 +1,15 @@
 {
   "ticker": "ABBV",
-  "generated_at": "2026-08-20T19:58:14.703009+00:00",
+  "generated_at": "2026-08-20T20:32:04.906422+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "462.63B"
+        "value": "462.68B"
       },
       {
         "label": "Enterprise Value",
-        "value": "526.93B"
+        "value": "526.98B"
       },
       {
         "label": "Income (ttm)",
@@ -39,7 +39,7 @@
     [
       {
         "label": "P/E",
-        "value": "74.02"
+        "value": "74.03"
       },
       {
         "label": "Forward P/E",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "267.47 -2.12%"
+        "value": "267.47 -2.11%"
       },
       {
         "label": "52W Low",
-        "value": "190.75 37.25%"
+        "value": "190.75 37.26%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.58"
+        "value": "0.77"
       },
       {
         "label": "Volume",
-        "value": "3,823,149"
+        "value": "5,125,655"
       },
       {
         "label": "RSI (14)",
-        "value": "61.54"
+        "value": "61.58"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "261.80"
+        "value": "261.83"
       },
       {
         "label": "Change %",
-        "value": "-1.57%"
+        "value": "-1.56%"
       }
     ]
   ],

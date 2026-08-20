@@ -1,15 +1,15 @@
 {
   "ticker": "ORCL",
-  "generated_at": "2026-08-20T19:57:40.274904+00:00",
+  "generated_at": "2026-08-20T20:37:18.112515+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "407.67B"
+        "value": "409.23B"
       },
       {
         "label": "Enterprise Value",
-        "value": "548.71B"
+        "value": "550.27B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "24.30"
+        "value": "24.39"
       },
       {
         "label": "Forward P/E",
-        "value": "12.94"
+        "value": "12.99"
       },
       {
         "label": "PEG",
@@ -51,11 +51,11 @@
       },
       {
         "label": "P/S",
-        "value": "6.05"
+        "value": "6.08"
       },
       {
         "label": "P/B",
-        "value": "10.85"
+        "value": "10.90"
       },
       {
         "label": "P/FCF",
@@ -63,11 +63,11 @@
       },
       {
         "label": "EV/EBITDA",
-        "value": "17.29"
+        "value": "17.34"
       },
       {
         "label": "EV/Sales",
-        "value": "8.15"
+        "value": "8.17"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "345.72 -59.06%"
+        "value": "345.72 -58.91%"
       },
       {
         "label": "52W Low",
-        "value": "114.50 23.61%"
+        "value": "114.50 24.08%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.39"
+        "value": "0.47"
       },
       {
         "label": "Volume",
-        "value": "12,481,776"
+        "value": "15,089,984"
       },
       {
         "label": "RSI (14)",
-        "value": "48.36"
+        "value": "48.82"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "141.53"
+        "value": "142.07"
       },
       {
         "label": "Change %",
-        "value": "-1.59%"
+        "value": "-1.21%"
       }
     ]
   ],

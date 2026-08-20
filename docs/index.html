@@ -251,9 +251,15 @@ function attachCadenceHandlers(data) {
   });
 }
 
-// How many quick-pick buttons to show above the fold — the rest of the (possibly much larger)
-// TICKERS list is reachable only through the search box, not as a wall of buttons.
-const QUICK_PICK_COUNT = 10;
+// Fixed, hand-picked "recognizable name" shortlist for the row above the fold — NOT the first N
+// entries of the generated index. That index is now the full alphabetical S&P 500 ∪ Nasdaq-100
+// list (scripts/generate_finviz_snapshot_site.py), so slicing it would surface "A", "AAL", "ABBV"
+// instead of anything a casual visitor recognizes. Each entry is checked against the generated
+// index at render time — see init() — so a ticker here that ever drops out of the watchlist
+// silently disappears from this row instead of rendering a dead button.
+const QUICK_PICKS = [
+  "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "TSLA", "AVGO", "JPM", "BRK-B",
+];
 
 function setupSearch(allTickers) {
   const input = document.getElementById("search");
@@ -307,7 +313,8 @@ async function init() {
     const index = await res.json();
 
     const tickerBar = document.getElementById("tickers");
-    const quickPicks = index.tickers.slice(0, QUICK_PICK_COUNT);
+    const availableTickers = new Set(index.tickers);
+    const quickPicks = QUICK_PICKS.filter(t => availableTickers.has(t));
     tickerBar.innerHTML = quickPicks.map(t =>
       `<button data-ticker="${t}">${t}</button>`
     ).join("");
@@ -319,7 +326,8 @@ async function init() {
     document.querySelector(".tickers-label").textContent =
       `Populares (${quickPicks.length} de ${index.tickers.length} disponibles — usa el buscador para el resto)`;
 
-    if (index.tickers.length > 0) loadTicker(index.tickers[0]);
+    if (quickPicks.length > 0) loadTicker(quickPicks[0]);
+    else if (index.tickers.length > 0) loadTicker(index.tickers[0]);
     else document.getElementById("content").innerHTML = `<div class="error">No hay tickers generados todavía.</div>`;
   } catch (err) {
     document.getElementById("content").innerHTML =

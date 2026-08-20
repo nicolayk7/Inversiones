@@ -1,15 +1,15 @@
 {
   "ticker": "HON",
-  "generated_at": "2026-08-20T19:58:40.938585+00:00",
+  "generated_at": "2026-08-20T20:35:26.075237+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "69.21B"
+        "value": "69.19B"
       },
       {
         "label": "Enterprise Value",
-        "value": "95.29B"
+        "value": "95.27B"
       },
       {
         "label": "Income (ttm)",
@@ -43,7 +43,7 @@
       },
       {
         "label": "Forward P/E",
-        "value": "21.84"
+        "value": "21.83"
       },
       {
         "label": "PEG",
@@ -59,7 +59,7 @@
       },
       {
         "label": "P/FCF",
-        "value": "16.69"
+        "value": "16.68"
       },
       {
         "label": "EV/EBITDA",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "260.15 -16.06%"
+        "value": "260.15 -16.08%"
       },
       {
         "label": "52W Low",
-        "value": "195.77 11.55%"
+        "value": "195.77 11.52%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.40"
+        "value": "0.52"
       },
       {
         "label": "Volume",
-        "value": "1,765,954"
+        "value": "2,333,484"
       },
       {
         "label": "RSI (14)",
-        "value": "34.54"
+        "value": "34.50"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "218.38"
+        "value": "218.32"
       },
       {
         "label": "Change %",
-        "value": "-1.51%"
+        "value": "-1.54%"
       }
     ]
   ],

@@ -1,15 +1,15 @@
 {
   "ticker": "PEP",
-  "generated_at": "2026-08-20T19:58:27.907538+00:00",
+  "generated_at": "2026-08-20T20:37:26.909753+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "194.03B"
+        "value": "193.92B"
       },
       {
         "label": "Enterprise Value",
-        "value": "236.70B"
+        "value": "236.59B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "18.64"
+        "value": "18.63"
       },
       {
         "label": "Forward P/E",
-        "value": "15.86"
+        "value": "15.85"
       },
       {
         "label": "PEG",
@@ -55,11 +55,11 @@
       },
       {
         "label": "P/B",
-        "value": "8.79"
+        "value": "8.78"
       },
       {
         "label": "P/FCF",
-        "value": "20.90"
+        "value": "20.89"
       },
       {
         "label": "EV/EBITDA",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "171.48 -17.10%"
+        "value": "171.48 -17.14%"
       },
       {
         "label": "52W Low",
-        "value": "133.73 6.30%"
+        "value": "133.73 6.24%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.45"
+        "value": "0.62"
       },
       {
         "label": "Volume",
-        "value": "3,849,365"
+        "value": "5,348,843"
       },
       {
         "label": "RSI (14)",
-        "value": "56.41"
+        "value": "56.19"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "142.15"
+        "value": "142.08"
       },
       {
         "label": "Change %",
-        "value": "-0.30%"
+        "value": "-0.35%"
       }
     ]
   ],

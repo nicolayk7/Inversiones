@@ -1,15 +1,15 @@
 {
   "ticker": "UPS",
-  "generated_at": "2026-08-20T19:58:41.845641+00:00",
+  "generated_at": "2026-08-20T20:38:59.846469+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "87.37B"
+        "value": "87.27B"
       },
       {
         "label": "Enterprise Value",
-        "value": "111.42B"
+        "value": "111.33B"
       },
       {
         "label": "Income (ttm)",
@@ -39,15 +39,15 @@
     [
       {
         "label": "P/E",
-        "value": "19.12"
+        "value": "19.10"
       },
       {
         "label": "Forward P/E",
-        "value": "12.79"
+        "value": "12.77"
       },
       {
         "label": "PEG",
-        "value": "1.95"
+        "value": "1.94"
       },
       {
         "label": "P/S",
@@ -55,15 +55,15 @@
       },
       {
         "label": "P/B",
-        "value": "5.80"
+        "value": "5.79"
       },
       {
         "label": "P/FCF",
-        "value": "16.01"
+        "value": "15.99"
       },
       {
         "label": "EV/EBITDA",
-        "value": "9.10"
+        "value": "9.09"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "122.41 -16.11%"
+        "value": "122.41 -16.20%"
       },
       {
         "label": "52W Low",
-        "value": "82.00 25.23%"
+        "value": "82.00 25.10%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.56"
+        "value": "0.71"
       },
       {
         "label": "Volume",
-        "value": "2,952,838"
+        "value": "3,737,349"
       },
       {
         "label": "RSI (14)",
-        "value": "40.58"
+        "value": "40.36"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "102.69"
+        "value": "102.58"
       },
       {
         "label": "Change %",
-        "value": "-0.17%"
+        "value": "-0.27%"
       }
     ]
   ],

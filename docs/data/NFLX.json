@@ -1,15 +1,15 @@
 {
   "ticker": "NFLX",
-  "generated_at": "2026-08-20T19:58:35.752382+00:00",
+  "generated_at": "2026-08-20T20:37:00.428462+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "333.42B"
+        "value": "333.70B"
       },
       {
         "label": "Enterprise Value",
-        "value": "340.92B"
+        "value": "341.21B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "25.23"
+        "value": "25.25"
       },
       {
         "label": "Forward P/E",
-        "value": "20.99"
+        "value": "21.00"
       },
       {
         "label": "PEG",
@@ -55,11 +55,11 @@
       },
       {
         "label": "P/B",
-        "value": "11.06"
+        "value": "11.07"
       },
       {
         "label": "P/FCF",
-        "value": "29.90"
+        "value": "29.92"
       },
       {
         "label": "EV/EBITDA",
@@ -67,7 +67,7 @@
       },
       {
         "label": "EV/Sales",
-        "value": "6.99"
+        "value": "7.00"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "126.71 -36.81%"
+        "value": "126.71 -36.75%"
       },
       {
         "label": "52W Low",
-        "value": "65.08 23.04%"
+        "value": "65.08 23.14%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.49"
+        "value": "0.63"
       },
       {
         "label": "Volume",
-        "value": "20,712,420"
+        "value": "26,976,333"
       },
       {
         "label": "RSI (14)",
-        "value": "63.38"
+        "value": "63.61"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "80.07"
+        "value": "80.14"
       },
       {
         "label": "Change %",
-        "value": "-0.18%"
+        "value": "-0.10%"
       }
     ]
   ],

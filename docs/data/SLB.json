@@ -1,15 +1,15 @@
 {
   "ticker": "SLB",
-  "generated_at": "2026-08-20T19:58:50.630561+00:00",
+  "generated_at": "2026-08-20T20:38:09.146590+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "79.71B"
+        "value": "79.48B"
       },
       {
         "label": "Enterprise Value",
-        "value": "89.61B"
+        "value": "89.38B"
       },
       {
         "label": "Income (ttm)",
@@ -39,15 +39,15 @@
     [
       {
         "label": "P/E",
-        "value": "26.07"
+        "value": "25.99"
       },
       {
         "label": "Forward P/E",
-        "value": "16.80"
+        "value": "16.75"
       },
       {
         "label": "PEG",
-        "value": "2.05"
+        "value": "2.04"
       },
       {
         "label": "P/S",
@@ -55,19 +55,19 @@
       },
       {
         "label": "P/B",
-        "value": "3.06"
+        "value": "3.05"
       },
       {
         "label": "P/FCF",
-        "value": "16.58"
+        "value": "16.54"
       },
       {
         "label": "EV/EBITDA",
-        "value": "11.97"
+        "value": "11.94"
       },
       {
         "label": "EV/Sales",
-        "value": "2.47"
+        "value": "2.46"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "58.82 -8.70%"
+        "value": "58.82 -8.96%"
       },
       {
         "label": "52W Low",
-        "value": "31.64 69.74%"
+        "value": "31.64 69.25%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.34"
+        "value": "0.46"
       },
       {
         "label": "Volume",
-        "value": "4,600,410"
+        "value": "6,315,336"
       },
       {
         "label": "RSI (14)",
-        "value": "60.60"
+        "value": "60.09"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "53.71"
+        "value": "53.55"
       },
       {
         "label": "Change %",
-        "value": "0.29%"
+        "value": "0.00%"
       }
     ]
   ],

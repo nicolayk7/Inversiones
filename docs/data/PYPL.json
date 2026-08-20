@@ -1,15 +1,15 @@
 {
   "ticker": "PYPL",
-  "generated_at": "2026-08-20T19:57:58.993546+00:00",
+  "generated_at": "2026-08-20T20:37:47.102294+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "53.32B"
+        "value": "53.30B"
       },
       {
         "label": "Enterprise Value",
-        "value": "56.28B"
+        "value": "56.26B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "11.78"
+        "value": "11.77"
       },
       {
         "label": "Forward P/E",
-        "value": "10.78"
+        "value": "10.77"
       },
       {
         "label": "PEG",
@@ -59,7 +59,7 @@
       },
       {
         "label": "P/FCF",
-        "value": "8.10"
+        "value": "8.09"
       },
       {
         "label": "EV/EBITDA",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "79.21 -21.32%"
+        "value": "79.21 -21.35%"
       },
       {
         "label": "52W Low",
-        "value": "38.46 62.06%"
+        "value": "38.46 61.99%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.64"
+        "value": "0.75"
       },
       {
         "label": "Volume",
-        "value": "10,153,031"
+        "value": "11,871,855"
       },
       {
         "label": "RSI (14)",
-        "value": "74.14"
+        "value": "74.08"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "62.33"
+        "value": "62.30"
       },
       {
         "label": "Change %",
-        "value": "1.76%"
+        "value": "1.71%"
       }
     ]
   ],

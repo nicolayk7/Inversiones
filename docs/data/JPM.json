@@ -1,11 +1,11 @@
 {
   "ticker": "JPM",
-  "generated_at": "2026-08-20T19:57:59.907510+00:00",
+  "generated_at": "2026-08-20T20:35:58.426853+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "937.68B"
+        "value": "934.49B"
       },
       {
         "label": "Enterprise Value",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "15.11"
+        "value": "15.06"
       },
       {
         "label": "Forward P/E",
-        "value": "14.04"
+        "value": "13.99"
       },
       {
         "label": "PEG",
@@ -51,15 +51,15 @@
       },
       {
         "label": "P/S",
-        "value": "3.15"
+        "value": "3.14"
       },
       {
         "label": "P/B",
-        "value": "2.65"
+        "value": "2.64"
       },
       {
         "label": "P/FCF",
-        "value": "6.10"
+        "value": "6.08"
       },
       {
         "label": "EV/EBITDA",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "366.50 -3.75%"
+        "value": "366.50 -4.08%"
       },
       {
         "label": "52W Low",
-        "value": "279.10 26.39%"
+        "value": "279.10 25.96%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.44"
+        "value": "0.77"
       },
       {
         "label": "Volume",
-        "value": "3,850,887"
+        "value": "6,768,621"
       },
       {
         "label": "RSI (14)",
-        "value": "49.77"
+        "value": "48.46"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "352.75"
+        "value": "351.55"
       },
       {
         "label": "Change %",
-        "value": "-1.26%"
+        "value": "-1.60%"
       }
     ]
   ],

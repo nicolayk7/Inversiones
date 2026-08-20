@@ -1,15 +1,15 @@
 {
   "ticker": "AVGO",
-  "generated_at": "2026-08-20T19:57:39.359382+00:00",
+  "generated_at": "2026-08-20T20:32:45.323788+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "1729.38B"
+        "value": "1731.90B"
       },
       {
         "label": "Enterprise Value",
-        "value": "1774.66B"
+        "value": "1777.18B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "60.51"
+        "value": "60.60"
       },
       {
         "label": "Forward P/E",
-        "value": "18.56"
+        "value": "18.59"
       },
       {
         "label": "PEG",
@@ -51,23 +51,23 @@
       },
       {
         "label": "P/S",
-        "value": "22.92"
+        "value": "22.95"
       },
       {
         "label": "P/B",
-        "value": "19.72"
+        "value": "19.75"
       },
       {
         "label": "P/FCF",
-        "value": "52.79"
+        "value": "52.86"
       },
       {
         "label": "EV/EBITDA",
-        "value": "42.19"
+        "value": "42.25"
       },
       {
         "label": "EV/Sales",
-        "value": "23.52"
+        "value": "23.55"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "495.00 -26.57%"
+        "value": "495.00 -26.46%"
       },
       {
         "label": "52W Low",
-        "value": "281.87 28.96%"
+        "value": "281.87 29.15%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.58"
+        "value": "0.74"
       },
       {
         "label": "Volume",
-        "value": "14,890,458"
+        "value": "19,364,240"
       },
       {
         "label": "RSI (14)",
-        "value": "35.90"
+        "value": "36.19"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "363.50"
+        "value": "364.03"
       },
       {
         "label": "Change %",
-        "value": "0.28%"
+        "value": "0.43%"
       }
     ]
   ],

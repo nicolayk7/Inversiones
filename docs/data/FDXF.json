@@ -1,0 +1,254 @@
+{
+  "ticker": "FDXF",
+  "generated_at": "2026-08-20T20:34:47.261752+00:00",
+  "columns": [
+    [
+      {
+        "label": "Market Cap",
+        "value": "20.39B"
+      },
+      {
+        "label": "Enterprise Value",
+        "value": "20.38B"
+      },
+      {
+        "label": "Income (ttm)",
+        "value": "-"
+      },
+      {
+        "label": "Sales (ttm)",
+        "value": "-"
+      },
+      {
+        "label": "Book/sh",
+        "value": "-0.02"
+      },
+      {
+        "label": "Cash/sh",
+        "value": "24.61"
+      },
+      {
+        "label": "Employees",
+        "value": "40000"
+      },
+      {
+        "label": "IPO Date",
+        "value": "May 27, 2026"
+      }
+    ],
+    [
+      {
+        "label": "P/E",
+        "value": "-"
+      },
+      {
+        "label": "Forward P/E",
+        "value": "-"
+      },
+      {
+        "label": "PEG",
+        "value": "-"
+      },
+      {
+        "label": "P/S",
+        "value": "-"
+      },
+      {
+        "label": "P/B",
+        "value": "-"
+      },
+      {
+        "label": "P/FCF",
+        "value": "-"
+      },
+      {
+        "label": "EV/EBITDA",
+        "value": "-"
+      },
+      {
+        "label": "EV/Sales",
+        "value": "-"
+      },
+      {
+        "label": "Debt/Eq",
+        "value": "-"
+      },
+      {
+        "label": "Current Ratio",
+        "value": "167.41"
+      }
+    ],
+    [
+      {
+        "label": "EPS (ttm)",
+        "value": "-"
+      },
+      {
+        "label": "EPS next Y ($)",
+        "value": "-"
+      },
+      {
+        "label": "EPS next Y (%)",
+        "value": "-"
+      },
+      {
+        "label": "EPS next 5Y",
+        "value": "-"
+      },
+      {
+        "label": "EPS past 3/5Y",
+        "value": "-35.49% -"
+      },
+      {
+        "label": "Sales past 3/5Y",
+        "value": "-3.39% -"
+      },
+      {
+        "label": "ROE",
+        "value": "-"
+      },
+      {
+        "label": "ROIC",
+        "value": "-"
+      },
+      {
+        "label": "ROA",
+        "value": "-"
+      },
+      {
+        "label": "Gross Margin",
+        "value": "-"
+      },
+      {
+        "label": "Oper. Margin",
+        "value": "-"
+      },
+      {
+        "label": "Profit Margin",
+        "value": "-"
+      }
+    ],
+    [
+      {
+        "label": "Shs Outstand",
+        "value": "149.51M"
+      },
+      {
+        "label": "Insider Own",
+        "value": "20.23%"
+      },
+      {
+        "label": "Inst Own",
+        "value": "60.93%"
+      },
+      {
+        "label": "52W High",
+        "value": "200.00 -31.80%"
+      },
+      {
+        "label": "52W Low",
+        "value": "135.00 1.04%"
+      },
+      {
+        "label": "Beta",
+        "value": "-"
+      },
+      {
+        "label": "Avg Volume",
+        "value": "1.74M"
+      },
+      {
+        "label": "Rel Volume",
+        "value": "0.63"
+      },
+      {
+        "label": "Volume",
+        "value": "1,093,210"
+      },
+      {
+        "label": "RSI (14)",
+        "value": "41.28"
+      },
+      {
+        "label": "Prev Close",
+        "value": "138.17"
+      },
+      {
+        "label": "Price",
+        "value": "136.40"
+      },
+      {
+        "label": "Change %",
+        "value": "-1.28%"
+      }
+    ]
+  ],
+  "charts": {
+    "eps": {
+      "annual": [
+        {
+          "name": "2023",
+          "value": 10.528
+        },
+        {
+          "name": "2024",
+          "value": 9.003
+        },
+        {
+          "name": "2025",
+          "value": 4.381
+        }
+      ],
+      "quarterly": [
+        {
+          "name": "Q3 '25",
+          "value": -0.02
+        }
+      ]
+    },
+    "sales": {
+      "annual": [
+        {
+          "name": "2023",
+          "value": 9424
+        },
+        {
+          "name": "2024",
+          "value": 8892
+        },
+        {
+          "name": "2025",
+          "value": 8795
+        }
+      ],
+      "quarterly": [
+        {
+          "name": "Q3 '25",
+          "value": 0
+        }
+      ]
+    },
+    "shares_outstanding": {
+      "annual": [
+        {
+          "name": "2023",
+          "value": 149.505
+        },
+        {
+          "name": "2024",
+          "value": 149.505
+        },
+        {
+          "name": "2025",
+          "value": 149.505
+        }
+      ],
+      "quarterly": [
+        {
+          "name": "Q3 '25",
+          "value": 149.505
+        }
+      ]
+    }
+  }
+}

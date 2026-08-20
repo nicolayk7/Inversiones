@@ -1,15 +1,15 @@
 {
   "ticker": "APD",
-  "generated_at": "2026-08-20T19:58:55.814609+00:00",
+  "generated_at": "2026-08-20T20:32:36.101939+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "66.81B"
+        "value": "66.88B"
       },
       {
         "label": "Enterprise Value",
-        "value": "86.70B"
+        "value": "86.77B"
       },
       {
         "label": "Income (ttm)",
@@ -43,7 +43,7 @@
       },
       {
         "label": "Forward P/E",
-        "value": "20.78"
+        "value": "20.80"
       },
       {
         "label": "PEG",
@@ -51,11 +51,11 @@
       },
       {
         "label": "P/S",
-        "value": "5.30"
+        "value": "5.31"
       },
       {
         "label": "P/B",
-        "value": "4.81"
+        "value": "4.82"
       },
       {
         "label": "P/FCF",
@@ -63,11 +63,11 @@
       },
       {
         "label": "EV/EBITDA",
-        "value": "18.83"
+        "value": "18.84"
       },
       {
         "label": "EV/Sales",
-        "value": "6.88"
+        "value": "6.89"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "314.87 -4.72%"
+        "value": "314.87 -4.62%"
       },
       {
         "label": "52W Low",
-        "value": "229.11 30.95%"
+        "value": "229.11 31.09%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.79"
+        "value": "1.28"
       },
       {
         "label": "Volume",
-        "value": "994,411"
+        "value": "1,609,212"
       },
       {
         "label": "RSI (14)",
-        "value": "50.28"
+        "value": "50.63"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "300.02"
+        "value": "300.33"
       },
       {
         "label": "Change %",
-        "value": "-1.06%"
+        "value": "-0.95%"
       }
     ]
   ],

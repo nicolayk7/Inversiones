@@ -1,15 +1,15 @@
 {
   "ticker": "ISRG",
-  "generated_at": "2026-08-20T19:58:22.633630+00:00",
+  "generated_at": "2026-08-20T20:35:49.015038+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "132.41B"
+        "value": "132.30B"
       },
       {
         "label": "Enterprise Value",
-        "value": "127.29B"
+        "value": "127.18B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "42.96"
+        "value": "42.92"
       },
       {
         "label": "Forward P/E",
-        "value": "31.02"
+        "value": "31.00"
       },
       {
         "label": "PEG",
@@ -51,23 +51,23 @@
       },
       {
         "label": "P/S",
-        "value": "12.00"
+        "value": "11.99"
       },
       {
         "label": "P/B",
-        "value": "7.30"
+        "value": "7.29"
       },
       {
         "label": "P/FCF",
-        "value": "41.09"
+        "value": "41.05"
       },
       {
         "label": "EV/EBITDA",
-        "value": "30.41"
+        "value": "30.39"
       },
       {
         "label": "EV/Sales",
-        "value": "11.54"
+        "value": "11.53"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "603.88 -37.93%"
+        "value": "603.88 -37.99%"
       },
       {
         "label": "52W Low",
-        "value": "328.57 14.07%"
+        "value": "328.57 13.97%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.97"
+        "value": "1.24"
       },
       {
         "label": "Volume",
-        "value": "2,996,996"
+        "value": "3,831,390"
       },
       {
         "label": "RSI (14)",
-        "value": "45.53"
+        "value": "45.40"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "374.80"
+        "value": "374.48"
       },
       {
         "label": "Change %",
-        "value": "-5.76%"
+        "value": "-5.84%"
       }
     ]
   ],

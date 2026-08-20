@@ -1,15 +1,15 @@
 {
   "ticker": "MU",
-  "generated_at": "2026-08-20T19:57:55.461140+00:00",
+  "generated_at": "2026-08-20T20:36:54.397327+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "1101.21B"
+        "value": "1100.40B"
       },
       {
         "label": "Enterprise Value",
-        "value": "1081.54B"
+        "value": "1080.73B"
       },
       {
         "label": "Income (ttm)",
@@ -39,7 +39,7 @@
     [
       {
         "label": "P/E",
-        "value": "22.07"
+        "value": "22.06"
       },
       {
         "label": "Forward P/E",
@@ -51,23 +51,23 @@
       },
       {
         "label": "P/S",
-        "value": "12.20"
+        "value": "12.19"
       },
       {
         "label": "P/B",
-        "value": "10.93"
+        "value": "10.92"
       },
       {
         "label": "P/FCF",
-        "value": "42.08"
+        "value": "42.04"
       },
       {
         "label": "EV/EBITDA",
-        "value": "15.82"
+        "value": "15.81"
       },
       {
         "label": "EV/Sales",
-        "value": "11.98"
+        "value": "11.97"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "1255.00 -22.31%"
+        "value": "1255.00 -22.36%"
       },
       {
         "label": "52W Low",
-        "value": "113.46 759.38%"
+        "value": "113.46 758.74%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.47"
+        "value": "0.51"
       },
       {
         "label": "Volume",
-        "value": "22,646,635"
+        "value": "24,882,508"
       },
       {
         "label": "RSI (14)",
-        "value": "55.22"
+        "value": "55.16"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "975.05"
+        "value": "974.33"
       },
       {
         "label": "Change %",
-        "value": "4.05%"
+        "value": "3.97%"
       }
     ]
   ],

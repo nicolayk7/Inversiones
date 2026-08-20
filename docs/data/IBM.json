@@ -1,15 +1,15 @@
 {
   "ticker": "IBM",
-  "generated_at": "2026-08-20T19:57:47.416623+00:00",
+  "generated_at": "2026-08-20T20:35:37.682484+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "219.63B"
+        "value": "220.17B"
       },
       {
         "label": "Enterprise Value",
-        "value": "276.81B"
+        "value": "277.35B"
       },
       {
         "label": "Income (ttm)",
@@ -39,31 +39,31 @@
     [
       {
         "label": "P/E",
-        "value": "20.69"
+        "value": "20.74"
       },
       {
         "label": "Forward P/E",
-        "value": "17.73"
+        "value": "17.78"
       },
       {
         "label": "PEG",
-        "value": "2.45"
+        "value": "2.46"
       },
       {
         "label": "P/S",
-        "value": "3.18"
+        "value": "3.19"
       },
       {
         "label": "P/B",
-        "value": "6.37"
+        "value": "6.39"
       },
       {
         "label": "P/FCF",
-        "value": "15.93"
+        "value": "15.97"
       },
       {
         "label": "EV/EBITDA",
-        "value": "14.09"
+        "value": "14.11"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "332.46 -29.88%"
+        "value": "332.46 -29.71%"
       },
       {
         "label": "52W Low",
-        "value": "199.19 17.03%"
+        "value": "199.19 17.32%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.26"
+        "value": "0.36"
       },
       {
         "label": "Volume",
-        "value": "2,839,355"
+        "value": "4,031,243"
       },
       {
         "label": "RSI (14)",
-        "value": "47.49"
+        "value": "47.92"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "233.12"
+        "value": "233.69"
       },
       {
         "label": "Change %",
-        "value": "-1.70%"
+        "value": "-1.46%"
       }
     ]
   ],

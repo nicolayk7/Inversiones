@@ -1,15 +1,15 @@
 {
   "ticker": "INTC",
-  "generated_at": "2026-08-20T19:57:43.727746+00:00",
+  "generated_at": "2026-08-20T20:35:42.872804+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "484.05B"
+        "value": "484.10B"
       },
       {
         "label": "Enterprise Value",
-        "value": "520.29B"
+        "value": "520.34B"
       },
       {
         "label": "Income (ttm)",
@@ -43,7 +43,7 @@
       },
       {
         "label": "Forward P/E",
-        "value": "44.53"
+        "value": "44.54"
       },
       {
         "label": "PEG",
@@ -59,11 +59,11 @@
       },
       {
         "label": "P/FCF",
-        "value": "1407.11"
+        "value": "1407.27"
       },
       {
         "label": "EV/EBITDA",
-        "value": "30.68"
+        "value": "30.69"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "142.35 -35.29%"
+        "value": "142.35 -35.28%"
       },
       {
         "label": "52W Low",
-        "value": "22.77 304.48%"
+        "value": "22.77 304.52%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.60"
+        "value": "0.71"
       },
       {
         "label": "Volume",
-        "value": "71,506,146"
+        "value": "85,105,159"
       },
       {
         "label": "RSI (14)",
-        "value": "41.39"
+        "value": "41.40"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "92.12"
+        "value": "92.13"
       },
       {
         "label": "Change %",
-        "value": "-0.73%"
+        "value": "-0.72%"
       }
     ]
   ],

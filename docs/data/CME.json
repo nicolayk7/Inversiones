@@ -1,15 +1,15 @@
 {
   "ticker": "CME",
-  "generated_at": "2026-08-20T19:58:11.206028+00:00",
+  "generated_at": "2026-08-20T20:33:31.606523+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "97.32B"
+        "value": "97.40B"
       },
       {
         "label": "Enterprise Value",
-        "value": "98.90B"
+        "value": "98.99B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "22.95"
+        "value": "22.97"
       },
       {
         "label": "Forward P/E",
-        "value": "20.93"
+        "value": "20.95"
       },
       {
         "label": "PEG",
@@ -51,7 +51,7 @@
       },
       {
         "label": "P/S",
-        "value": "14.37"
+        "value": "14.38"
       },
       {
         "label": "P/B",
@@ -59,15 +59,15 @@
       },
       {
         "label": "P/FCF",
-        "value": "23.10"
+        "value": "23.12"
       },
       {
         "label": "EV/EBITDA",
-        "value": "20.86"
+        "value": "20.88"
       },
       {
         "label": "EV/Sales",
-        "value": "14.60"
+        "value": "14.62"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "322.82 -16.16%"
+        "value": "322.82 -16.09%"
       },
       {
         "label": "52W Low",
-        "value": "218.31 23.97%"
+        "value": "218.31 24.08%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.35"
+        "value": "0.48"
       },
       {
         "label": "Volume",
-        "value": "1,121,490"
+        "value": "1,560,719"
       },
       {
         "label": "RSI (14)",
-        "value": "61.41"
+        "value": "61.62"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "270.64"
+        "value": "270.87"
       },
       {
         "label": "Change %",
-        "value": "1.38%"
+        "value": "1.47%"
       }
     ]
   ],

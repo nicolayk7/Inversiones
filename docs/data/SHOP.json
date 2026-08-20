@@ -1,15 +1,15 @@
 {
   "ticker": "SHOP",
-  "generated_at": "2026-08-20T19:57:50.899222+00:00",
+  "generated_at": "2026-08-20T20:38:06.536131+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "189.55B"
+        "value": "189.37B"
       },
       {
         "label": "Enterprise Value",
-        "value": "184.78B"
+        "value": "184.60B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "99.38"
+        "value": "99.28"
       },
       {
         "label": "Forward P/E",
-        "value": "59.72"
+        "value": "59.66"
       },
       {
         "label": "PEG",
@@ -51,23 +51,23 @@
       },
       {
         "label": "P/S",
-        "value": "14.29"
+        "value": "14.27"
       },
       {
         "label": "P/B",
-        "value": "14.97"
+        "value": "14.96"
       },
       {
         "label": "P/FCF",
-        "value": "81.10"
+        "value": "81.03"
       },
       {
         "label": "EV/EBITDA",
-        "value": "77.22"
+        "value": "77.14"
       },
       {
         "label": "EV/Sales",
-        "value": "13.93"
+        "value": "13.91"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "182.19 -19.14%"
+        "value": "182.19 -19.22%"
       },
       {
         "label": "52W Low",
-        "value": "94.00 56.72%"
+        "value": "94.00 56.57%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.46"
+        "value": "0.60"
       },
       {
         "label": "Volume",
-        "value": "4,283,443"
+        "value": "5,657,602"
       },
       {
         "label": "RSI (14)",
-        "value": "59.42"
+        "value": "59.31"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "147.32"
+        "value": "147.18"
       },
       {
         "label": "Change %",
-        "value": "0.50%"
+        "value": "0.41%"
       }
     ]
   ],

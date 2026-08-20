@@ -1,0 +1,247 @@
+{
+  "ticker": "HONA",
+  "generated_at": "2026-08-20T20:35:26.924051+00:00",
+  "columns": [
+    [
+      {
+        "label": "Market Cap",
+        "value": "52.58B"
+      },
+      {
+        "label": "Enterprise Value",
+        "value": "67.48B"
+      },
+      {
+        "label": "Income (ttm)",
+        "value": "-"
+      },
+      {
+        "label": "Sales (ttm)",
+        "value": "-"
+      },
+      {
+        "label": "Book/sh",
+        "value": "-17.97"
+      },
+      {
+        "label": "Cash/sh",
+        "value": "3.33"
+      },
+      {
+        "label": "Employees",
+        "value": "-"
+      },
+      {
+        "label": "IPO Date",
+        "value": "Jun 16, 2026"
+      }
+    ],
+    [
+      {
+        "label": "P/E",
+        "value": "-"
+      },
+      {
+        "label": "Forward P/E",
+        "value": "-"
+      },
+      {
+        "label": "PEG",
+        "value": "-"
+      },
+      {
+        "label": "P/S",
+        "value": "-"
+      },
+      {
+        "label": "P/B",
+        "value": "-"
+      },
+      {
+        "label": "P/FCF",
+        "value": "-"
+      },
+      {
+        "label": "EV/EBITDA",
+        "value": "-"
+      },
+      {
+        "label": "EV/Sales",
+        "value": "-"
+      },
+      {
+        "label": "Debt/Eq",
+        "value": "-"
+      },
+      {
+        "label": "Current Ratio",
+        "value": "1.53"
+      }
+    ],
+    [
+      {
+        "label": "EPS (ttm)",
+        "value": "-"
+      },
+      {
+        "label": "EPS next Y ($)",
+        "value": "-"
+      },
+      {
+        "label": "EPS next Y (%)",
+        "value": "-"
+      },
+      {
+        "label": "EPS next 5Y",
+        "value": "-"
+      },
+      {
+        "label": "EPS past 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Sales past 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "ROE",
+        "value": "-"
+      },
+      {
+        "label": "ROIC",
+        "value": "-"
+      },
+      {
+        "label": "ROA",
+        "value": "-"
+      },
+      {
+        "label": "Gross Margin",
+        "value": "-"
+      },
+      {
+        "label": "Oper. Margin",
+        "value": "-"
+      },
+      {
+        "label": "Profit Margin",
+        "value": "-"
+      }
+    ],
+    [
+      {
+        "label": "Shs Outstand",
+        "value": "316.95M"
+      },
+      {
+        "label": "Insider Own",
+        "value": "0.07%"
+      },
+      {
+        "label": "Inst Own",
+        "value": "73.81%"
+      },
+      {
+        "label": "52W High",
+        "value": "297.50 -44.24%"
+      },
+      {
+        "label": "52W Low",
+        "value": "150.03 10.57%"
+      },
+      {
+        "label": "Beta",
+        "value": "-"
+      },
+      {
+        "label": "Avg Volume",
+        "value": "3.68M"
+      },
+      {
+        "label": "Rel Volume",
+        "value": "0.80"
+      },
+      {
+        "label": "Volume",
+        "value": "2,927,698"
+      },
+      {
+        "label": "RSI (14)",
+        "value": "36.41"
+      },
+      {
+        "label": "Prev Close",
+        "value": "170.37"
+      },
+      {
+        "label": "Price",
+        "value": "165.89"
+      },
+      {
+        "label": "Change %",
+        "value": "-2.63%"
+      }
+    ]
+  ],
+  "charts": {
+    "eps": {
+      "annual": [
+        {
+          "name": "2025",
+          "value": 5.617
+        }
+      ],
+      "quarterly": [
+        {
+          "name": "Q1 '26",
+          "value": 1.591
+        },
+        {
+          "name": "Q2 '26",
+          "value": 0.776
+        }
+      ]
+    },
+    "sales": {
+      "annual": [
+        {
+          "name": "2025",
+          "value": 17716
+        }
+      ],
+      "quarterly": [
+        {
+          "name": "Q1 '26",
+          "value": 4352
+        },
+        {
+          "name": "Q2 '26",
+          "value": 4522
+        }
+      ]
+    },
+    "shares_outstanding": {
+      "annual": [
+        {
+          "name": "2025",
+          "value": 316.883
+        },
+        {
+          "name": "MRQ",
+          "value": 316.953,
+          "isOutlined": true
+        }
+      ],
+      "quarterly": [
+        {
+          "name": "Q1 '26",
+          "value": 316.883
+        },
+        {
+          "name": "Q2 '26",
+          "value": 316.953
+        }
+      ]
+    }
+  }
+}

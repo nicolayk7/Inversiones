@@ -10,12 +10,23 @@ input, and its output must never be wired into Wealth Engine's storage/pipeline 
 concern that happens to use the same underlying provider).
 
 TICKERS is independent of `scripts/ingest_mvp_universe.py`'s MVP_TICKERS — this script needs no CIK
-mapping (Finviz scraping doesn't require one), so it isn't restricted to that set. It is a
-hand-picked "commonly searched, liquid large-cap" watchlist for this static site's search box —
-NOT an index constituent list, NOT the Wealth Engine's `universe_definition`, and must never be
-conflated with either (CLAUDE.md's Equity Universe vs. Market Context split governs THAT list, not
-this one — this generator's output never reaches Wealth Engine). Pass tickers as CLI args to
-override or narrow it for a single run.
+mapping (Finviz scraping doesn't require one), so it isn't restricted to that set. It is the real,
+verified union of the S&P 500 and Nasdaq-100 constituents (518 unique tickers) — NOT the Wealth
+Engine's `universe_definition`, and must never be conflated with it (CLAUDE.md's Equity Universe
+vs. Market Context split governs THAT list, not this one — this generator's output never reaches
+Wealth Engine). Pass tickers as CLI args to override or narrow it for a single run.
+
+Sourced live, not guessed (2026-08-20): S&P 500 (503 tickers) from Wikipedia's "List of S&P 500
+companies" constituents table, parsed off each row's exchange-symbol template invocation (the
+NyseSymbol/NasdaqSymbol/BZX-link template's own `params.1.wt` value, not the visible link text —
+two rows, BRK.B and BF.B, carry an inline HTML comment between the ticker link and its cell close
+tag that breaks a naive "grab the first link in the cell" parse and silently substitutes the
+company name instead; this was caught by cross-checking the extracted list actually contained
+"BRK" during development, not assumed correct). Nasdaq-100 (102 tickers, the real current count —
+dual-class shares like GOOG/GOOGL push it slightly over 100) from slickcharts.com/nasdaq100's
+constituent table. Unioned and deduplicated to 518. Two tickers use a period in their official
+symbol (BRK.B, BF.B) but Finviz's own URL scheme requires a hyphen instead — confirmed live
+(`quote?t=BRK-B` -> HTTP 200, `quote?t=BRK.B` -> HTTP 404) rather than assumed, and converted here.
 
 On-demand, arbitrary-ticker search from the browser is deliberately NOT how this works: a static
 site's client-side JS cannot fetch finviz.com directly (no CORS allow-origin from Finviz, and even
@@ -26,8 +37,11 @@ runner (the GitHub Actions cron), and let the page's search box filter that alre
 client-side. `docs/index.html`'s search feels instant because it's a local filter, not a live call.
 
 A larger TICKERS list means more sequential requests per run — `_REQUEST_DELAY_SECONDS` adds a
-small pause between them so a ~100-ticker run still reads as "one script working through a list
-slowly," not a burst.
+small pause between them so a 518-ticker run (~12 minutes end to end) still reads as "one script
+working through a list slowly," not a burst. That is a real, deliberate increase in daily request
+volume over this generator's original 4/100-ticker versions — still one controlled runner, one
+request at a time, once a day, but worth being explicit about rather than letting the list grow
+without remark.
 
 FIELD_LAYOUT is a curated, high-confidence subset of the ~84 fields Finviz's quote page exposes —
 every entry's tooltip key was verified present on a live fetch during development, cross-checked
@@ -61,37 +75,63 @@ logger = logging.getLogger("generate_finviz_snapshot_site")
 
 _REQUEST_DELAY_SECONDS = 0.6
 
-# Hand-picked large-cap/liquid watchlist spanning sectors — see module docstring for what this
-# list is (and isn't). Feel free to extend; each entry needs nothing beyond being a real Finviz
-# ticker symbol (no CIK, no pre-registration anywhere else in this repo).
+# S&P 500 ∪ Nasdaq-100, 518 unique tickers, alphabetical — see module docstring for exact sourcing
+# (Wikipedia + slickcharts.com, fetched live 2026-08-20) and the BRK.B/BF.B -> BRK-B/BF-B rewrite.
+# Re-running the two fetches later will drift from this list as index membership changes; this is
+# a point-in-time snapshot of membership, not a live-synced one.
 TICKERS = [
-    # Technology
-    "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "TSLA", "AVGO", "ORCL", "ADBE",
-    "CRM", "AMD", "INTC", "CSCO", "QCOM", "TXN", "IBM", "NOW", "INTU", "UBER",
-    "SHOP", "PANW", "SNPS", "CDNS", "ADI", "MU", "LRCX", "AMAT", "KLAC", "PYPL",
-    # Financials
-    "JPM", "BAC", "WFC", "GS", "MS", "C", "BLK", "SCHW", "AXP", "V",
-    "MA", "SPGI", "ICE", "CME",
-    # Healthcare
-    "UNH", "JNJ", "LLY", "ABBV", "MRK", "PFE", "TMO", "ABT", "DHR", "BMY",
-    "AMGN", "GILD", "ISRG", "CVS", "MDT",
-    # Consumer
-    "WMT", "PG", "KO", "PEP", "COST", "MCD", "NKE", "SBUX", "HD", "LOW",
-    "TGT", "DIS", "NFLX", "CMCSA", "BKNG",
-    # Industrials
-    "BA", "CAT", "GE", "HON", "UPS", "RTX", "LMT", "DE", "UNP", "MMM", "ETN",
-    # Energy
-    "XOM", "CVX", "COP", "SLB", "EOG",
-    # Communications / Telecom
-    "T", "VZ", "TMUS",
-    # Materials
-    "LIN", "APD",
-    # Utilities
-    "NEE", "DUK",
-    # Real Estate
-    "AMT", "PLD",
-    # Industrials/other
-    "ADP",
+    "A", "AAPL", "ABBV", "ABNB", "ABT", "ACGL", "ACN", "ADBE", "ADI", "ADM",
+    "ADP", "ADSK", "AEE", "AEP", "AES", "AFL", "AIG", "AIZ", "AJG", "AKAM",
+    "ALAB", "ALB", "ALGN", "ALL", "ALLE", "ALNY", "AMAT", "AMCR", "AMD", "AME",
+    "AMGN", "AMP", "AMT", "AMZN", "ANET", "AON", "AOS", "APA", "APD", "APH",
+    "APO", "APP", "APTV", "ARE", "ARES", "ARM", "ASML", "ATO", "AVGO", "AVY",
+    "AWK", "AXON", "AXP", "AZO", "BA", "BAC", "BALL", "BAX", "BBY", "BDX",
+    "BEN", "BF-B", "BG", "BIIB", "BKNG", "BKR", "BLDR", "BLK", "BMY", "BNY",
+    "BR", "BRK-B", "BRO", "BSX", "BX", "BXP", "C", "CAH", "CARR", "CASY",
+    "CAT", "CB", "CBOE", "CBRE", "CCEP", "CCI", "CCL", "CDNS", "CDW", "CEG",
+    "CF", "CFG", "CHD", "CHRW", "CHTR", "CI", "CIEN", "CINF", "CL", "CLX",
+    "CMCSA", "CME", "CMG", "CMI", "CMS", "CNC", "CNP", "COF", "COHR", "COIN",
+    "COO", "COP", "COR", "COST", "CPAY", "CPRT", "CPT", "CRH", "CRL", "CRM",
+    "CRWD", "CRWV", "CSCO", "CSGP", "CSX", "CTAS", "CTSH", "CTVA", "CVNA", "CVS",
+    "CVX", "D", "DAL", "DASH", "DD", "DDOG", "DE", "DECK", "DELL", "DG",
+    "DGX", "DHI", "DHR", "DIS", "DLR", "DLTR", "DOC", "DOV", "DOW", "DPZ",
+    "DRI", "DTE", "DUK", "DVA", "DVN", "DXCM", "EBAY", "ECHO", "ECL", "ED",
+    "EFX", "EG", "EIX", "EL", "ELV", "EME", "EMR", "EOG", "EQIX", "EQT",
+    "ERIE", "ES", "ESS", "ETN", "ETR", "EVRG", "EW", "EXC", "EXE", "EXPD",
+    "EXPE", "EXR", "F", "FANG", "FAST", "FCX", "FDS", "FDX", "FDXF", "FE",
+    "FER", "FERG", "FFIV", "FICO", "FIS", "FISV", "FITB", "FIX", "FLEX", "FOX",
+    "FOXA", "FRT", "FSLR", "FTNT", "FTV", "GD", "GDDY", "GE", "GEHC", "GEN",
+    "GEV", "GILD", "GIS", "GL", "GLW", "GM", "GNRC", "GOOG", "GOOGL", "GPC",
+    "GPN", "GRMN", "GS", "GWW", "HAL", "HAS", "HBAN", "HCA", "HD", "HIG",
+    "HII", "HLT", "HON", "HONA", "HOOD", "HPE", "HPQ", "HRL", "HSIC", "HST",
+    "HSY", "HUBB", "HUM", "HWM", "IBKR", "IBM", "ICE", "IDXX", "IEX", "IFF",
+    "INCY", "INTC", "INTU", "INVH", "IP", "IQV", "IR", "IRM", "ISRG", "IT",
+    "ITW", "IVZ", "J", "JBHT", "JBL", "JCI", "JKHY", "JNJ", "JPM", "KDP",
+    "KEY", "KEYS", "KHC", "KIM", "KKR", "KLAC", "KMB", "KMI", "KO", "KR",
+    "KVUE", "L", "LDOS", "LEN", "LH", "LHX", "LII", "LIN", "LITE", "LLY",
+    "LMT", "LNT", "LOW", "LRCX", "LULU", "LUV", "LVS", "LYB", "LYV", "MA",
+    "MAA", "MAR", "MAS", "MCD", "MCHP", "MCK", "MCO", "MDLZ", "MDT", "MELI",
+    "MET", "META", "MGM", "MKC", "MLM", "MMM", "MNST", "MO", "MOS", "MPC",
+    "MPWR", "MRK", "MRNA", "MRSH", "MRVL", "MS", "MSCI", "MSFT", "MSI", "MSTR",
+    "MTB", "MTD", "MU", "NBIS", "NCLH", "NDAQ", "NDSN", "NEE", "NEM", "NFLX",
+    "NI", "NKE", "NOC", "NOW", "NRG", "NSC", "NTAP", "NTRS", "NUE", "NVDA",
+    "NVR", "NWS", "NWSA", "NXPI", "O", "ODFL", "OKE", "OMC", "ON", "ORCL",
+    "ORLY", "OTIS", "OXY", "PANW", "PAYX", "PCAR", "PCG", "PDD", "PEG", "PEP",
+    "PFE", "PFG", "PG", "PGR", "PH", "PHM", "PKG", "PLD", "PLTR", "PM",
+    "PNC", "PNR", "PNW", "PODD", "PPG", "PPL", "PRU", "PSA", "PSKY", "PSX",
+    "PTC", "PWR", "PYPL", "Q", "QCOM", "RCL", "RDDT", "REG", "REGN", "RF",
+    "RJF", "RKLB", "RL", "RMD", "ROK", "ROL", "ROP", "ROST", "RSG", "RTX",
+    "RVTY", "SBAC", "SBUX", "SCHW", "SHOP", "SHW", "SJM", "SLB", "SMCI", "SNA",
+    "SNDK", "SNPS", "SO", "SOLV", "SPCX", "SPG", "SPGI", "SRE", "STE", "STLD",
+    "STT", "STX", "STZ", "SW", "SWK", "SWKS", "SYF", "SYK", "SYY", "T",
+    "TAP", "TDG", "TDY", "TECH", "TEL", "TER", "TFC", "TGT", "TJX", "TKO",
+    "TMO", "TMUS", "TPL", "TPR", "TRGP", "TRI", "TRMB", "TROW", "TRV", "TSCO",
+    "TSLA", "TSN", "TT", "TTD", "TTWO", "TXN", "TXT", "TYL", "UAL", "UBER",
+    "UDR", "UHS", "ULTA", "UNH", "UNP", "UPS", "URI", "USB", "V", "VEEV",
+    "VICI", "VLO", "VLTO", "VMC", "VMRK", "VRSK", "VRSN", "VRT", "VRTX", "VST",
+    "VTR", "VTRS", "VZ", "WAB", "WAT", "WBD", "WDAY", "WDC", "WEC", "WELL",
+    "WFC", "WM", "WMB", "WMT", "WRB", "WSM", "WST", "WTW", "WY", "WYNN",
+    "XEL", "XOM", "XYL", "XYZ", "YUM", "ZBH", "ZBRA", "ZTS",
 ]
 
 _OUTPUT_DIR = Path(__file__).resolve().parents[1] / "docs" / "data"

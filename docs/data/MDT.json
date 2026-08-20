@@ -1,15 +1,15 @@
 {
   "ticker": "MDT",
-  "generated_at": "2026-08-20T19:58:24.380104+00:00",
+  "generated_at": "2026-08-20T20:36:33.511046+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "118.33B"
+        "value": "118.15B"
       },
       {
         "label": "Enterprise Value",
-        "value": "138.87B"
+        "value": "138.69B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "24.81"
+        "value": "24.77"
       },
       {
         "label": "Forward P/E",
-        "value": "14.46"
+        "value": "14.43"
       },
       {
         "label": "PEG",
@@ -59,15 +59,15 @@
       },
       {
         "label": "P/FCF",
-        "value": "21.81"
+        "value": "21.77"
       },
       {
         "label": "EV/EBITDA",
-        "value": "13.91"
+        "value": "13.89"
       },
       {
         "label": "EV/Sales",
-        "value": "3.82"
+        "value": "3.81"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "106.33 -13.06%"
+        "value": "106.33 -13.19%"
       },
       {
         "label": "52W Low",
-        "value": "73.31 26.10%"
+        "value": "73.31 25.90%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.45"
+        "value": "0.69"
       },
       {
         "label": "Volume",
-        "value": "4,107,445"
+        "value": "6,348,686"
       },
       {
         "label": "RSI (14)",
-        "value": "66.71"
+        "value": "66.09"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "92.44"
+        "value": "92.30"
       },
       {
         "label": "Change %",
-        "value": "-1.79%"
+        "value": "-1.94%"
       }
     ]
   ],

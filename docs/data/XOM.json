@@ -1,15 +1,15 @@
 {
   "ticker": "XOM",
-  "generated_at": "2026-08-20T19:58:47.999736+00:00",
+  "generated_at": "2026-08-20T20:39:31.553822+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "684.86B"
+        "value": "683.19B"
       },
       {
         "label": "Enterprise Value",
-        "value": "723.37B"
+        "value": "721.71B"
       },
       {
         "label": "Income (ttm)",
@@ -39,15 +39,15 @@
     [
       {
         "label": "P/E",
-        "value": "21.43"
+        "value": "21.38"
       },
       {
         "label": "Forward P/E",
-        "value": "15.60"
+        "value": "15.56"
       },
       {
         "label": "PEG",
-        "value": "1.08"
+        "value": "1.07"
       },
       {
         "label": "P/S",
@@ -55,15 +55,15 @@
       },
       {
         "label": "P/B",
-        "value": "2.64"
+        "value": "2.63"
       },
       {
         "label": "P/FCF",
-        "value": "22.42"
+        "value": "22.36"
       },
       {
         "label": "EV/EBITDA",
-        "value": "10.23"
+        "value": "10.20"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "176.41 -5.59%"
+        "value": "176.41 -5.82%"
       },
       {
         "label": "52W Low",
-        "value": "107.68 54.68%"
+        "value": "107.68 54.30%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.52"
+        "value": "0.84"
       },
       {
         "label": "Volume",
-        "value": "8,258,622"
+        "value": "13,440,618"
       },
       {
         "label": "RSI (14)",
-        "value": "71.29"
+        "value": "70.83"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "166.55"
+        "value": "166.15"
       },
       {
         "label": "Change %",
-        "value": "1.08%"
+        "value": "0.84%"
       }
     ]
   ],

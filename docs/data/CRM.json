@@ -1,15 +1,15 @@
 {
   "ticker": "CRM",
-  "generated_at": "2026-08-20T19:57:42.009277+00:00",
+  "generated_at": "2026-08-20T20:33:47.506967+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "168.52B"
+        "value": "168.25B"
       },
       {
         "label": "Enterprise Value",
-        "value": "199.23B"
+        "value": "198.96B"
       },
       {
         "label": "Income (ttm)",
@@ -39,15 +39,15 @@
     [
       {
         "label": "P/E",
-        "value": "23.82"
+        "value": "23.78"
       },
       {
         "label": "Forward P/E",
-        "value": "13.16"
+        "value": "13.14"
       },
       {
         "label": "PEG",
-        "value": "1.02"
+        "value": "1.01"
       },
       {
         "label": "P/S",
@@ -55,15 +55,15 @@
       },
       {
         "label": "P/B",
-        "value": "4.92"
+        "value": "4.91"
       },
       {
         "label": "P/FCF",
-        "value": "11.49"
+        "value": "11.48"
       },
       {
         "label": "EV/EBITDA",
-        "value": "15.16"
+        "value": "15.14"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "269.11 -23.54%"
+        "value": "269.11 -23.66%"
       },
       {
         "label": "52W Low",
-        "value": "146.32 40.62%"
+        "value": "146.32 40.40%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.42"
+        "value": "0.60"
       },
       {
         "label": "Volume",
-        "value": "6,180,923"
+        "value": "8,966,911"
       },
       {
         "label": "RSI (14)",
-        "value": "64.45"
+        "value": "64.13"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "205.76"
+        "value": "205.43"
       },
       {
         "label": "Change %",
-        "value": "-0.16%"
+        "value": "-0.32%"
       }
     ]
   ],

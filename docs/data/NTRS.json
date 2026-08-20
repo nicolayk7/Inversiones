@@ -1,0 +1,437 @@
+{
+  "ticker": "NTRS",
+  "generated_at": "2026-08-20T20:37:07.687271+00:00",
+  "columns": [
+    [
+      {
+        "label": "Market Cap",
+        "value": "33.39B"
+      },
+      {
+        "label": "Enterprise Value",
+        "value": "-"
+      },
+      {
+        "label": "Income (ttm)",
+        "value": "2.18B"
+      },
+      {
+        "label": "Sales (ttm)",
+        "value": "15.21B"
+      },
+      {
+        "label": "Book/sh",
+        "value": "68.41"
+      },
+      {
+        "label": "Cash/sh",
+        "value": "-"
+      },
+      {
+        "label": "Employees",
+        "value": "23800"
+      },
+      {
+        "label": "IPO Date",
+        "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "P/E",
+        "value": "15.67"
+      },
+      {
+        "label": "Forward P/E",
+        "value": "14.56"
+      },
+      {
+        "label": "PEG",
+        "value": "0.88"
+      },
+      {
+        "label": "P/S",
+        "value": "2.20"
+      },
+      {
+        "label": "P/B",
+        "value": "2.67"
+      },
+      {
+        "label": "P/FCF",
+        "value": "74.99"
+      },
+      {
+        "label": "EV/EBITDA",
+        "value": "-"
+      },
+      {
+        "label": "EV/Sales",
+        "value": "-"
+      },
+      {
+        "label": "Debt/Eq",
+        "value": "1.18"
+      },
+      {
+        "label": "Current Ratio",
+        "value": "1.55"
+      }
+    ],
+    [
+      {
+        "label": "EPS (ttm)",
+        "value": "11.65"
+      },
+      {
+        "label": "EPS next Y ($)",
+        "value": "12.54"
+      },
+      {
+        "label": "EPS next Y (%)",
+        "value": "9.29%"
+      },
+      {
+        "label": "EPS next 5Y",
+        "value": "16.63%"
+      },
+      {
+        "label": "EPS past 3/5Y",
+        "value": "12.47% 9.85%"
+      },
+      {
+        "label": "Sales past 3/5Y",
+        "value": "22.59% 17.81%"
+      },
+      {
+        "label": "ROE",
+        "value": "16.93%"
+      },
+      {
+        "label": "ROIC",
+        "value": "11.82%"
+      },
+      {
+        "label": "ROA",
+        "value": "1.27%"
+      },
+      {
+        "label": "Gross Margin",
+        "value": "-"
+      },
+      {
+        "label": "Oper. Margin",
+        "value": "13.39%"
+      },
+      {
+        "label": "Profit Margin",
+        "value": "14.34%"
+      }
+    ],
+    [
+      {
+        "label": "Shs Outstand",
+        "value": "182.96M"
+      },
+      {
+        "label": "Insider Own",
+        "value": "1.80%"
+      },
+      {
+        "label": "Inst Own",
+        "value": "85.77%"
+      },
+      {
+        "label": "52W High",
+        "value": "195.78 -6.78%"
+      },
+      {
+        "label": "52W Low",
+        "value": "121.12 50.69%"
+      },
+      {
+        "label": "Beta",
+        "value": "1.26"
+      },
+      {
+        "label": "Avg Volume",
+        "value": "1.10M"
+      },
+      {
+        "label": "Rel Volume",
+        "value": "1.00"
+      },
+      {
+        "label": "Volume",
+        "value": "1,100,066"
+      },
+      {
+        "label": "RSI (14)",
+        "value": "45.62"
+      },
+      {
+        "label": "Prev Close",
+        "value": "185.40"
+      },
+      {
+        "label": "Price",
+        "value": "182.51"
+      },
+      {
+        "label": "Change %",
+        "value": "-1.56%"
+      }
+    ]
+  ],
+  "charts": {
+    "eps": {
+      "annual": [
+        {
+          "name": "2017",
+          "value": 4.923
+        },
+        {
+          "name": "2018",
+          "value": 6.637
+        },
+        {
+          "name": "2019",
+          "value": 6.628
+        },
+        {
+          "name": "2020",
+          "value": 5.46
+        },
+        {
+          "name": "2021",
+          "value": 7.136
+        },
+        {
+          "name": "2022",
+          "value": 6.14
+        },
+        {
+          "name": "2023",
+          "value": 5.078
+        },
+        {
+          "name": "2024",
+          "value": 9.771
+        },
+        {
+          "name": "2025",
+          "value": 8.735
+        },
+        {
+          "name": "TTM",
+          "value": 11.6497,
+          "isOutlined": true
+        }
+      ],
+      "quarterly": [
+        {
+          "name": "Q2 '24",
+          "value": 4.34
+        },
+        {
+          "name": "Q3 '24",
+          "value": 2.219
+        },
+        {
+          "name": "Q4 '24",
+          "value": 2.256
+        },
+        {
+          "name": "Q1 '25",
+          "value": 1.898
+        },
+        {
+          "name": "Q2 '25",
+          "value": 2.135
+        },
+        {
+          "name": "Q3 '25",
+          "value": 2.289
+        },
+        {
+          "name": "Q4 '25",
+          "value": 2.423
+        },
+        {
+          "name": "Q1 '26",
+          "value": 2.706
+        },
+        {
+          "name": "Q2 '26",
+          "value": 4.231
+        }
+      ]
+    },
+    "sales": {
+      "annual": [
+        {
+          "name": "2017",
+          "value": 5720.6
+        },
+        {
+          "name": "2018",
+          "value": 6682.2
+        },
+        {
+          "name": "2019",
+          "value": 6916.7
+        },
+        {
+          "name": "2020",
+          "value": 6313
+        },
+        {
+          "name": "2021",
+          "value": 6508.4
+        },
+        {
+          "name": "2022",
+          "value": 7777
+        },
+        {
+          "name": "2023",
+          "value": 12135.9
+        },
+        {
+          "name": "2024",
+          "value": 15909.3
+        },
+        {
+          "name": "2025",
+          "value": 14329
+        },
+        {
+          "name": "TTM",
+          "value": 15210.6,
+          "isOutlined": true
+        }
+      ],
+      "quarterly": [
+        {
+          "name": "Q2 '24",
+          "value": 4340.3
+        },
+        {
+          "name": "Q3 '24",
+          "value": 3950.2
+        },
+        {
+          "name": "Q4 '24",
+          "value": 3678.9
+        },
+        {
+          "name": "Q1 '25",
+          "value": 3512.7
+        },
+        {
+          "name": "Q2 '25",
+          "value": 3600.2
+        },
+        {
+          "name": "Q3 '25",
+          "value": 3585.2
+        },
+        {
+          "name": "Q4 '25",
+          "value": 3621
+        },
+        {
+          "name": "Q1 '26",
+          "value": 3785.6
+        },
+        {
+          "name": "Q2 '26",
+          "value": 4218.8
+        }
+      ]
+    },
+    "shares_outstanding": {
+      "annual": [
+        {
+          "name": "2017",
+          "value": 226.127
+        },
+        {
+          "name": "2018",
+          "value": 219.012
+        },
+        {
+          "name": "2019",
+          "value": 209.709
+        },
+        {
+          "name": "2020",
+          "value": 208.289
+        },
+        {
+          "name": "2021",
+          "value": 207.762
+        },
+        {
+          "name": "2022",
+          "value": 208.428
+        },
+        {
+          "name": "2023",
+          "value": 205.126
+        },
+        {
+          "name": "2024",
+          "value": 195.97
+        },
+        {
+          "name": "2025",
+          "value": 186.338
+        },
+        {
+          "name": "MRQ",
+          "value": 182.956,
+          "isOutlined": true
+        }
+      ],
+      "quarterly": [
+        {
+          "name": "Q2 '24",
+          "value": 201.638
+        },
+        {
+          "name": "Q3 '24",
+          "value": 198.218
+        },
+        {
+          "name": "Q4 '24",
+          "value": 195.97
+        },
+        {
+          "name": "Q1 '25",
+          "value": 194.539
+        },
+        {
+          "name": "Q2 '25",
+          "value": 191.233
+        },
+        {
+          "name": "Q3 '25",
+          "value": 189.117
+        },
+        {
+          "name": "Q4 '25",
+          "value": 186.338
+        },
+        {
+          "name": "Q1 '26",
+          "value": 185.047
+        },
+        {
+          "name": "Q2 '26",
+          "value": 182.956
+        }
+      ]
+    }
+  }
+}

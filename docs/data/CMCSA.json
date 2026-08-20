@@ -1,15 +1,15 @@
 {
   "ticker": "CMCSA",
-  "generated_at": "2026-08-20T19:58:36.605290+00:00",
+  "generated_at": "2026-08-20T20:33:30.740888+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "93.67B"
+        "value": "93.75B"
       },
       {
         "label": "Enterprise Value",
-        "value": "176.58B"
+        "value": "176.67B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "8.55"
+        "value": "8.56"
       },
       {
         "label": "Forward P/E",
-        "value": "7.29"
+        "value": "7.30"
       },
       {
         "label": "PEG",
@@ -59,7 +59,7 @@
       },
       {
         "label": "P/FCF",
-        "value": "4.58"
+        "value": "4.59"
       },
       {
         "label": "EV/EBITDA",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "32.85 -19.66%"
+        "value": "32.85 -19.59%"
       },
       {
         "label": "52W Low",
-        "value": "21.28 24.04%"
+        "value": "21.28 24.15%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.34"
+        "value": "0.52"
       },
       {
         "label": "Volume",
-        "value": "11,759,666"
+        "value": "17,880,205"
       },
       {
         "label": "RSI (14)",
-        "value": "62.96"
+        "value": "63.24"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "26.40"
+        "value": "26.42"
       },
       {
         "label": "Change %",
-        "value": "-0.73%"
+        "value": "-0.64%"
       }
     ]
   ],

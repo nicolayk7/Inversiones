@@ -1,15 +1,15 @@
 {
   "ticker": "AMZN",
-  "generated_at": "2026-08-20T19:57:35.847181+00:00",
+  "generated_at": "2026-08-20T20:32:31.765682+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "2803.53B"
+        "value": "2805.63B"
       },
       {
         "label": "Enterprise Value",
-        "value": "2922.25B"
+        "value": "2924.35B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "20.91"
+        "value": "20.92"
       },
       {
         "label": "Forward P/E",
-        "value": "24.49"
+        "value": "24.51"
       },
       {
         "label": "PEG",
@@ -51,7 +51,7 @@
       },
       {
         "label": "P/S",
-        "value": "3.61"
+        "value": "3.62"
       },
       {
         "label": "P/B",
@@ -63,7 +63,7 @@
       },
       {
         "label": "EV/EBITDA",
-        "value": "16.84"
+        "value": "16.85"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "287.20 -9.50%"
+        "value": "287.20 -9.43%"
       },
       {
         "label": "52W Low",
-        "value": "196.00 32.61%"
+        "value": "196.00 32.71%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.42"
+        "value": "0.56"
       },
       {
         "label": "Volume",
-        "value": "20,594,067"
+        "value": "28,023,568"
       },
       {
         "label": "RSI (14)",
-        "value": "50.77"
+        "value": "50.91"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "259.92"
+        "value": "260.11"
       },
       {
         "label": "Change %",
-        "value": "-2.23%"
+        "value": "-2.16%"
       }
     ]
   ],

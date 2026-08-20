@@ -1,15 +1,15 @@
 {
   "ticker": "NOW",
-  "generated_at": "2026-08-20T19:57:48.299060+00:00",
+  "generated_at": "2026-08-20T20:37:03.994238+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "134.08B"
+        "value": "134.16B"
       },
       {
         "label": "Enterprise Value",
-        "value": "137.86B"
+        "value": "137.94B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "81.02"
+        "value": "81.07"
       },
       {
         "label": "Forward P/E",
-        "value": "25.84"
+        "value": "25.86"
       },
       {
         "label": "PEG",
@@ -51,19 +51,19 @@
       },
       {
         "label": "P/S",
-        "value": "9.10"
+        "value": "9.11"
       },
       {
         "label": "P/B",
-        "value": "10.71"
+        "value": "10.72"
       },
       {
         "label": "P/FCF",
-        "value": "29.27"
+        "value": "29.29"
       },
       {
         "label": "EV/EBITDA",
-        "value": "46.21"
+        "value": "46.24"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "194.73 -33.41%"
+        "value": "194.73 -33.37%"
       },
       {
         "label": "52W Low",
-        "value": "81.24 59.61%"
+        "value": "81.24 59.71%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.56"
+        "value": "0.65"
       },
       {
         "label": "Volume",
-        "value": "14,307,244"
+        "value": "16,801,992"
       },
       {
         "label": "RSI (14)",
-        "value": "64.11"
+        "value": "64.17"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "129.67"
+        "value": "129.75"
       },
       {
         "label": "Change %",
-        "value": "1.94%"
+        "value": "2.00%"
       }
     ]
   ],

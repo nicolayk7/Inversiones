@@ -1,15 +1,15 @@
 {
   "ticker": "VZ",
-  "generated_at": "2026-08-20T19:58:53.227054+00:00",
+  "generated_at": "2026-08-20T20:39:15.014510+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "204.58B"
+        "value": "204.37B"
       },
       {
         "label": "Enterprise Value",
-        "value": "392.39B"
+        "value": "392.18B"
       },
       {
         "label": "Income (ttm)",
@@ -39,15 +39,15 @@
     [
       {
         "label": "P/E",
-        "value": "12.82"
+        "value": "12.81"
       },
       {
         "label": "Forward P/E",
-        "value": "9.39"
+        "value": "9.38"
       },
       {
         "label": "PEG",
-        "value": "1.54"
+        "value": "1.53"
       },
       {
         "label": "P/S",
@@ -59,7 +59,7 @@
       },
       {
         "label": "P/FCF",
-        "value": "9.50"
+        "value": "9.49"
       },
       {
         "label": "EV/EBITDA",
@@ -67,7 +67,7 @@
       },
       {
         "label": "EV/Sales",
-        "value": "2.83"
+        "value": "2.82"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "51.68 -4.72%"
+        "value": "51.68 -4.82%"
       },
       {
         "label": "52W Low",
-        "value": "38.39 28.26%"
+        "value": "38.39 28.13%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.33"
+        "value": "0.46"
       },
       {
         "label": "Volume",
-        "value": "8,774,949"
+        "value": "12,527,922"
       },
       {
         "label": "RSI (14)",
-        "value": "66.32"
+        "value": "65.88"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "49.24"
+        "value": "49.19"
       },
       {
         "label": "Change %",
-        "value": "-0.24%"
+        "value": "-0.34%"
       }
     ]
   ],

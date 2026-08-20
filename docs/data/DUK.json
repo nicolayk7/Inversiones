@@ -1,15 +1,15 @@
 {
   "ticker": "DUK",
-  "generated_at": "2026-08-20T19:58:57.548968+00:00",
+  "generated_at": "2026-08-20T20:34:16.118156+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "95.76B"
+        "value": "95.66B"
       },
       {
         "label": "Enterprise Value",
-        "value": "190.23B"
+        "value": "190.14B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "18.43"
+        "value": "18.41"
       },
       {
         "label": "Forward P/E",
-        "value": "17.12"
+        "value": "17.10"
       },
       {
         "label": "PEG",
@@ -63,7 +63,7 @@
       },
       {
         "label": "EV/EBITDA",
-        "value": "12.30"
+        "value": "12.29"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "134.49 -8.68%"
+        "value": "134.49 -8.77%"
       },
       {
         "label": "52W Low",
-        "value": "113.89 7.83%"
+        "value": "113.89 7.72%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.61"
+        "value": "0.83"
       },
       {
         "label": "Volume",
-        "value": "2,414,971"
+        "value": "3,313,509"
       },
       {
         "label": "RSI (14)",
-        "value": "42.68"
+        "value": "42.32"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "122.81"
+        "value": "122.69"
       },
       {
         "label": "Change %",
-        "value": "-0.64%"
+        "value": "-0.74%"
       }
     ]
   ],

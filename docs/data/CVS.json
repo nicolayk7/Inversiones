@@ -1,15 +1,15 @@
 {
   "ticker": "CVS",
-  "generated_at": "2026-08-20T19:58:23.515882+00:00",
+  "generated_at": "2026-08-20T20:33:56.174966+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "119.97B"
+        "value": "119.78B"
       },
       {
         "label": "Enterprise Value",
-        "value": "182.51B"
+        "value": "182.32B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "24.76"
+        "value": "24.72"
       },
       {
         "label": "Forward P/E",
-        "value": "11.05"
+        "value": "11.03"
       },
       {
         "label": "PEG",
@@ -59,11 +59,11 @@
       },
       {
         "label": "P/FCF",
-        "value": "10.20"
+        "value": "10.19"
       },
       {
         "label": "EV/EBITDA",
-        "value": "9.49"
+        "value": "9.48"
       },
       {
         "label": "EV/Sales",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "110.68 -15.25%"
+        "value": "110.68 -15.39%"
       },
       {
         "label": "52W Low",
-        "value": "69.51 34.94%"
+        "value": "69.51 34.73%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.45"
+        "value": "0.79"
       },
       {
         "label": "Volume",
-        "value": "3,624,948"
+        "value": "6,347,262"
       },
       {
         "label": "RSI (14)",
-        "value": "35.78"
+        "value": "35.29"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "93.80"
+        "value": "93.65"
       },
       {
         "label": "Change %",
-        "value": "0.16%"
+        "value": "0.00%"
       }
     ]
   ],

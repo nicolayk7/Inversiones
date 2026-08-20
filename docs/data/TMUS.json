@@ -1,6 +1,6 @@
 {
   "ticker": "TMUS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 19, 2007"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.14 (2.28%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.94 (2.17%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 28, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "37.66%"
       }
     ],
     [

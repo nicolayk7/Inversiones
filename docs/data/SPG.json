@@ -1,6 +1,6 @@
 {
   "ticker": "SPG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 14, 1993"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "9.02 (4.10%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "8.80 (4.00%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 09, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.41% 7.34%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "151.42%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,140,063"
+        "value": "1,140,090"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 223.01,
       "low": 219.83,
       "close": 219.9,
-      "volume": 1140063
+      "volume": 1140090
     }
   ]
 }

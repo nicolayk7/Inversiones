@@ -1,6 +1,6 @@
 {
   "ticker": "LHX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 13, 1955"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.00 (1.85%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.90 (1.81%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.33% 7.14%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "56.31%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,729,206"
+        "value": "1,729,223"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 276.62,
       "low": 269.59,
       "close": 270.44,
-      "volume": 1729206
+      "volume": 1729223
     }
   ]
 }

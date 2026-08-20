@@ -1,6 +1,6 @@
 {
   "ticker": "GOOGL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 19, 2004"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.80 (0.24%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.85 (0.25%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "7.68%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "18,551,991"
+        "value": "18,557,902"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 343.9,
       "low": 338.565,
       "close": 340.67,
-      "volume": 18551991
+      "volume": 18557902
     }
   ]
 }

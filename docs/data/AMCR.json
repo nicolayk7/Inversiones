@@ -1,6 +1,6 @@
 {
   "ticker": "AMCR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 11, 2019"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.59 (5.41%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.01% 2.05%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "108.50%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,899,528"
+        "value": "4,900,128"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 48.28,
       "low": 46.596,
       "close": 47.81,
-      "volume": 4899528
+      "volume": 4900128
     }
   ]
 }

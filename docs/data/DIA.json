@@ -1,6 +1,6 @@
 {
   "ticker": "DIA",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": true,
   "columns": [
     [
@@ -76,7 +76,7 @@
     [
       {
         "label": "Volume",
-        "value": "2,866,382"
+        "value": "2,868,036"
       },
       {
         "label": "Avg Volume",
@@ -1154,7 +1154,7 @@
       "high": 531.78,
       "low": 527.2,
       "close": 527.51,
-      "volume": 2866382
+      "volume": 2868036
     }
   ]
 }

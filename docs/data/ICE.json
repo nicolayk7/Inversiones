@@ -1,6 +1,6 @@
 {
   "ticker": "ICE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 16, 2005"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.09 (1.32%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.00 (1.26%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 16, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.10% 9.86%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "33.30%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,522,302"
+        "value": "4,522,301"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 160.505,
       "low": 156.21,
       "close": 158.61,
-      "volume": 4522302
+      "volume": 4522301
     }
   ]
 }

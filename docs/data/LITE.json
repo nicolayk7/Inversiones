@@ -1,6 +1,6 @@
 {
   "ticker": "LITE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 23, 2015"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -140,7 +162,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "107.91%"
+        "value": "93.59%"
       },
       {
         "label": "52W High",
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,253,297"
+        "value": "4,254,430"
       },
       {
         "label": "RSI (14)",
@@ -1511,7 +1533,7 @@
       "high": 881.88,
       "low": 815.03,
       "close": 879.28,
-      "volume": 4253297
+      "volume": 4254430
     }
   ]
 }

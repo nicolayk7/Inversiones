@@ -1,6 +1,6 @@
 {
   "ticker": "QCOM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 13, 1991"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.63 (2.26%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.59 (2.23%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 03, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.76% 6.50%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "69.40%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "8,506,004"
+        "value": "8,506,784"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 165.11,
       "low": 159.41,
       "close": 160.74,
-      "volume": 8506004
+      "volume": 8506784
     }
   ]
 }

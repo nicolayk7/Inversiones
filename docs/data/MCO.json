@@ -1,6 +1,6 @@
 {
   "ticker": "MCO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 12, 1969"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.78 (0.76%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.03 (0.81%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.33% 10.91%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.51%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "736,963"
+        "value": "736,964"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 503.67,
       "low": 495.27,
       "close": 498.77,
-      "volume": 736963
+      "volume": 736964
     }
   ]
 }

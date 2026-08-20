@@ -1,6 +1,6 @@
 {
   "ticker": "FDX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 12, 1978"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.72 (1.45%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 22, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.03% 17.41%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "31.32%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,665,997"
+        "value": "1,666,008"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 333.23,
       "low": 325.38,
       "close": 326.04,
-      "volume": 1665997
+      "volume": 1666008
     }
   ]
 }

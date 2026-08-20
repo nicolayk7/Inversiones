@@ -1,6 +1,6 @@
 {
   "ticker": "TJX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 12, 1964"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.85 (1.31%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.81 (1.29%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 13, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "12.94% 45.58%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "34.90%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "12,328,161"
+        "value": "12,329,100"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 142.49,
       "low": 139.31,
       "close": 140.69,
-      "volume": 12328161
+      "volume": 12329100
     }
   ]
 }

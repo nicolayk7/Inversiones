@@ -1,6 +1,6 @@
 {
   "ticker": "IRM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 01, 1996"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.39 (2.76%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.38 (2.75%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "9.24% 5.45%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "663.03%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,380,356"
+        "value": "1,380,357"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 123.93,
       "low": 121.3,
       "close": 122.94,
-      "volume": 1380356
+      "volume": 1380357
     }
   ]
 }

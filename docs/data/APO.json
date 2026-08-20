@@ -1,6 +1,6 @@
 {
   "ticker": "APO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 30, 2011"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.23 (1.71%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.14 (1.65%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 19, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.54% -2.94%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "35.99%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "6,797,205"
+        "value": "6,797,208"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 134.25,
       "low": 129.95,
       "close": 129.98,
-      "volume": 6797205
+      "volume": 6797208
     }
   ]
 }

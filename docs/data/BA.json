@@ -1,6 +1,6 @@
 {
   "ticker": "BA",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 05, 1934"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.04 (0.02%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Feb 13, 2020"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "7,853,561"
+        "value": "7,854,408"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 221.11,
       "low": 214.12,
       "close": 215.1,
-      "volume": 7853561
+      "volume": 7854408
     }
   ]
 }

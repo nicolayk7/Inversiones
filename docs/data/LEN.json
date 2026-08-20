@@ -1,6 +1,6 @@
 {
   "ticker": "LEN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 23, 1971"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.00 (2.34%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.00 (2.34%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 10, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.06% 26.39%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "25.05%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,186,680"
+        "value": "2,186,682"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 86.47,
       "low": 84.75,
       "close": 85.42,
-      "volume": 2186680
+      "volume": 2186682
     }
   ]
 }

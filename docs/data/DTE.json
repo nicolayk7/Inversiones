@@ -1,6 +1,6 @@
 {
   "ticker": "DTE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 16, 1949"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.76 (3.45%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.58 (3.32%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.06% 1.46%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "62.92%"
       }
     ],
     [

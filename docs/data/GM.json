@@ -1,6 +1,6 @@
 {
   "ticker": "GM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 18, 2010"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.72 (0.83%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.66 (0.77%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "46.85% 8.45%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "17.44%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,917,069"
+        "value": "4,917,872"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 86.44,
       "low": 83.73,
       "close": 86.15,
-      "volume": 4917069
+      "volume": 4917872
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "PSX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 12, 2012"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.08 (2.12%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.01 (2.09%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 18, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.44% 5.70%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "44.04%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,109,637"
+        "value": "3,109,652"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 246.95,
       "low": 239.28,
       "close": 240,
-      "volume": 3109637
+      "volume": 3109652
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "BALL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 17, 1973"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.80 (1.28%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.80 (1.28%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% 5.92%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "24.13%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,634,791"
+        "value": "1,634,806"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 62.89,
       "low": 61.77,
       "close": 62.61,
-      "volume": 1634791
+      "volume": 1634806
     }
   ]
 }

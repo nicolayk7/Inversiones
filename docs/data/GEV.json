@@ -1,6 +1,6 @@
 {
   "ticker": "GEV",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 27, 2024"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.01 (0.21%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.75 (0.18%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 16, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "7.06%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,656,482"
+        "value": "2,657,073"
       },
       {
         "label": "RSI (14)",
@@ -1485,7 +1507,7 @@
       "high": 986,
       "low": 942.357,
       "close": 966.01,
-      "volume": 2656482
+      "volume": 2657073
     }
   ]
 }

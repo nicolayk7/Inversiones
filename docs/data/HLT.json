@@ -1,6 +1,6 @@
 {
   "ticker": "HLT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 12, 2013"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.61 (0.18%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.60 (0.18%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.06% 31.95%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "9.80%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,119,500"
+        "value": "2,119,499"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 333.54,
       "low": 327.44,
       "close": 329.61,
-      "volume": 2119500
+      "volume": 2119499
     }
   ]
 }

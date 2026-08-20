@@ -1,6 +1,6 @@
 {
   "ticker": "NDAQ",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 01, 2002"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.20 (1.23%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.12 (1.15%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.42% 10.07%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "33.98%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,938,278"
+        "value": "2,938,282"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 99.345,
       "low": 96.54,
       "close": 97.55,
-      "volume": 2938278
+      "volume": 2938282
     }
   ]
 }

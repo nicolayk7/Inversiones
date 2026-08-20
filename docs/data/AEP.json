@@ -1,6 +1,6 @@
 {
   "ticker": "AEP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 01, 1949"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.84 (3.06%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.80 (3.02%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 10, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.67% 5.66%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "56.15%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,357,416"
+        "value": "3,357,418"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 127.54,
       "low": 125.67,
       "close": 125.7,
-      "volume": 3357416
+      "volume": 3357418
     }
   ]
 }

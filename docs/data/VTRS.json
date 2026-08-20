@@ -1,6 +1,6 @@
 {
   "ticker": "VTRS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.52 (3.22%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.48 (2.98%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,329,220"
+        "value": "5,329,721"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 16.26,
       "low": 16.04,
       "close": 16.12,
-      "volume": 5329220
+      "volume": 5329721
     }
   ]
 }

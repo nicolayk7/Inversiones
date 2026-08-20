@@ -1,6 +1,6 @@
 {
   "ticker": "EMR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 05, 1944"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.21 (1.43%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.22 (1.43%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.80% 1.08%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "52.15%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,821,598"
+        "value": "1,821,597"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 157.25,
       "low": 154.08,
       "close": 154.72,
-      "volume": 1821598
+      "volume": 1821597
     }
   ]
 }

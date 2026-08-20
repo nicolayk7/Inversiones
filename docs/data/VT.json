@@ -1,6 +1,6 @@
 {
   "ticker": "VT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": true,
   "columns": [
     [
@@ -76,7 +76,7 @@
     [
       {
         "label": "Volume",
-        "value": "2,071,453"
+        "value": "2,071,594"
       },
       {
         "label": "Avg Volume",
@@ -1154,7 +1154,7 @@
       "high": 160.829,
       "low": 159.805,
       "close": 159.93,
-      "volume": 2071453
+      "volume": 2071594
     }
   ]
 }

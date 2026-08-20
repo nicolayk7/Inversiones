@@ -1,6 +1,6 @@
 {
   "ticker": "MELI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 10, 2007"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Dec 28, 2017"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "399,520"
+        "value": "399,700"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 1929.64,
       "low": 1885.33,
       "close": 1921.96,
-      "volume": 399520
+      "volume": 399700
     }
   ]
 }

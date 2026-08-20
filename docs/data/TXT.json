@@ -1,6 +1,6 @@
 {
   "ticker": "TXT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 22, 1947"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.08 (0.10%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.08 (0.09%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% 0.00%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "1.57%"
       }
     ],
     [

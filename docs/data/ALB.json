@@ -1,6 +1,6 @@
 {
   "ticker": "ALB",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 22, 1994"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.62 (1.21%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.62 (1.21%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.84% 1.02%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,618,814"
+        "value": "1,618,914"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 136.06,
       "low": 132.8,
       "close": 134.19,
-      "volume": 1618814
+      "volume": 1618914
     }
   ]
 }

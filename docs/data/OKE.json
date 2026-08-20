@@ -1,6 +1,6 @@
 {
   "ticker": "OKE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 24, 1954"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.29 (4.54%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.24 (4.48%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 03, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "3.28% 1.95%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "76.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,740,085"
+        "value": "2,740,955"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 97.55,
       "low": 94.405,
       "close": 94.6,
-      "volume": 2740085
+      "volume": 2740955
     }
   ]
 }

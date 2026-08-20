@@ -1,6 +1,6 @@
 {
   "ticker": "HON",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 01, 1927"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.28 (1.96%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.44 (2.03%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.88% 4.76%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "62.25%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,437,994"
+        "value": "2,438,207"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 222.18,
       "low": 218.05,
       "close": 218.32,
-      "volume": 2437994
+      "volume": 2438207
     }
   ]
 }

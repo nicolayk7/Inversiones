@@ -1,6 +1,6 @@
 {
   "ticker": "AXP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 04, 1972"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.80 (1.15%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.54 (1.07%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 02, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "16.40% 13.78%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "21.33%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,883,638"
+        "value": "3,883,827"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 338,
       "low": 331.15,
       "close": 331.15,
-      "volume": 3883638
+      "volume": 3883827
     }
   ]
 }

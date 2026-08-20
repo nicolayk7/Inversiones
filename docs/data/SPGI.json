@@ -1,6 +1,6 @@
 {
   "ticker": "SPGI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 14, 1929"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.89 (0.90%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.65 (0.84%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 26, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.97% 7.46%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "26.20%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,287,729"
+        "value": "2,287,897"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 433.83,
       "low": 425.67,
       "close": 432.16,
-      "volume": 2287729
+      "volume": 2287897
     }
   ]
 }

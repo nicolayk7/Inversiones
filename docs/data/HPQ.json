@@ -1,6 +1,6 @@
 {
   "ticker": "HPQ",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1961"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.20 (4.07%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.19 (4.03%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 09, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.07% 10.63%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "43.62%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "11,415,410"
+        "value": "11,415,420"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 30.36,
       "low": 29.36,
       "close": 29.47,
-      "volume": 11415410
+      "volume": 11415420
     }
   ]
 }

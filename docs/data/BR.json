@@ -1,6 +1,6 @@
 {
   "ticker": "BR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 22, 2007"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.30 (2.41%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.90 (2.18%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 03, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.38% 11.14%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "40.62%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,071,592"
+        "value": "1,071,601"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 178.61,
       "low": 174.17,
       "close": 178.5,
-      "volume": 1071592
+      "volume": 1071601
     }
   ]
 }

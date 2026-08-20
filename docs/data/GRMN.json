@@ -1,6 +1,6 @@
 {
   "ticker": "GRMN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 08, 2000"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.15 (1.42%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.75 (1.28%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.45% 7.53%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "40.15%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "900,004"
+        "value": "900,013"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 298.2,
       "low": 290.935,
       "close": 293.09,
-      "volume": 900004
+      "volume": 900013
     }
   ]
 }

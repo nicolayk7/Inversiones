@@ -1,6 +1,6 @@
 {
   "ticker": "INTC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 03, 1973"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.04 (0.04%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 07, 2024"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -136,7 +158,7 @@
       },
       {
         "label": "Insider Own",
-        "value": "14.72%"
+        "value": "14.73%"
       },
       {
         "label": "Inst Own",
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "85,470,102"
+        "value": "85,539,882"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 92.68,
       "low": 89.85,
       "close": 92.13,
-      "volume": 85470102
+      "volume": 85539882
     }
   ]
 }

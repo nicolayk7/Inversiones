@@ -1,6 +1,6 @@
 {
   "ticker": "WDC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.59 (0.13%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.50 (0.11%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 08, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "2.06%"
       }
     ],
     [
@@ -136,7 +158,7 @@
       },
       {
         "label": "Insider Own",
-        "value": "0.82%"
+        "value": "0.79%"
       },
       {
         "label": "Inst Own",
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,360,234"
+        "value": "5,361,551"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 477.28,
       "low": 453.7,
       "close": 469.05,
-      "volume": 5360234
+      "volume": 5361551
     }
   ]
 }

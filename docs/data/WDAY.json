@@ -1,6 +1,6 @@
 {
   "ticker": "WDAY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 12, 2012"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,122,608"
+        "value": "3,122,621"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 200.37,
       "low": 194.78,
       "close": 197.32,
-      "volume": 3122608
+      "volume": 3122621
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "ABBV",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 10, 2012"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.87 (2.62%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.83 (2.61%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.21% 6.56%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "281.66%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,228,462"
+        "value": "5,228,691"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 265.93,
       "low": 260.481,
       "close": 261.83,
-      "volume": 5228462
+      "volume": 5228691
     }
   ]
 }

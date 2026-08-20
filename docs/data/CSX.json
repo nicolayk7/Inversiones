@@ -1,6 +1,6 @@
 {
   "ticker": "CSX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 03, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.56 (1.10%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.54 (1.06%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "9.14% 8.24%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "33.71%"
       }
     ],
     [

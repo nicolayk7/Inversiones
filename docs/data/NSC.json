@@ -1,6 +1,6 @@
 {
   "ticker": "NSC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 02, 1982"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.42 (1.56%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.40 (1.56%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 07, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.87% 7.51%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "42.36%"
       }
     ],
     [

@@ -1,6 +1,6 @@
 {
   "ticker": "KR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 26, 1928"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.45 (2.57%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.44 (2.56%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "11.44% 14.37%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "88.93%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "9,700,987"
+        "value": "9,700,989"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 56.665,
       "low": 55.05,
       "close": 56.32,
-      "volume": 9700987
+      "volume": 9700989
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "BAC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 05, 1979"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.19 (1.93%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.12 (1.81%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.89% 8.45%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "28.33%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "34,960,532"
+        "value": "34,972,345"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 63.24,
       "low": 61.81,
       "close": 61.86,
-      "volume": 34960532
+      "volume": 34972345
     }
   ]
 }

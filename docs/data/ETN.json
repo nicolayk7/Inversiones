@@ -1,6 +1,6 @@
 {
   "ticker": "ETN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 01, 1923"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.20 (1.01%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.34 (1.05%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 07, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.69% 7.34%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "39.82%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,684,398"
+        "value": "1,684,406"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 425.421,
       "low": 415.15,
       "close": 415.29,
-      "volume": 1684398
+      "volume": 1684406
     }
   ]
 }

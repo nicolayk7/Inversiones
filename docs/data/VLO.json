@@ -1,6 +1,6 @@
 {
   "ticker": "VLO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 01, 1984"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.84 (1.42%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.73 (1.39%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.86% 2.89%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "59.66%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,263,006"
+        "value": "2,263,023"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 352.7,
       "low": 340.94,
       "close": 341.51,
-      "volume": 2263006
+      "volume": 2263023
     }
   ]
 }

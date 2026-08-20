@@ -1,6 +1,6 @@
 {
   "ticker": "GEHC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 15, 2022"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.10 (0.14%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.14 (0.19%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 24, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "3.08%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,499,430"
+        "value": "2,499,490"
       },
       {
         "label": "RSI (14)",
@@ -1509,7 +1531,7 @@
       "high": 75.65,
       "low": 74.005,
       "close": 74.06,
-      "volume": 2499430
+      "volume": 2499490
     }
   ]
 }

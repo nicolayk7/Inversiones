@@ -1,6 +1,6 @@
 {
   "ticker": "PFE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 17, 1944"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.72 (6.20%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.72 (6.19%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 24, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.23% 2.37%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "126.85%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "29,250,246"
+        "value": "29,254,417"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 28.16,
       "low": 27.645,
       "close": 27.79,
-      "volume": 29250246
+      "volume": 29254417
     }
   ]
 }

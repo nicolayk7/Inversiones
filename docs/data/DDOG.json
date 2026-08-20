@@ -1,6 +1,6 @@
 {
   "ticker": "DDOG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 19, 2019"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,172,904"
+        "value": "3,173,239"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 236.56,
       "low": 227.11,
       "close": 232.55,
-      "volume": 3172904
+      "volume": 3173239
     }
   ]
 }

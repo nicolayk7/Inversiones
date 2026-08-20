@@ -1,6 +1,6 @@
 {
   "ticker": "UNP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 16, 1969"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.49 (1.81%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.52 (1.82%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.31% 6.99%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "45.41%"
       }
     ],
     [

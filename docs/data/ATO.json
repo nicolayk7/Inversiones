@@ -1,6 +1,6 @@
 {
   "ticker": "ATO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 28, 1983"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.00 (2.35%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.87 (2.27%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 24, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.56% 8.64%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "46.63%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,128,223"
+        "value": "1,128,238"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 173.125,
       "low": 170.37,
       "close": 170.52,
-      "volume": 1128223
+      "volume": 1128238
     }
   ]
 }

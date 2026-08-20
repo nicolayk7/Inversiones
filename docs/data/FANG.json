@@ -1,6 +1,6 @@
 {
   "ticker": "FANG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 12, 2012"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.36 (2.07%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.25 (2.01%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 13, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "-23.57% 21.67%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "69.83%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,234,237"
+        "value": "2,234,257"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 216.9,
       "low": 209.31,
       "close": 211.02,
-      "volume": 2234237
+      "volume": 2234257
     }
   ]
 }

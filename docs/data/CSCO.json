@@ -1,6 +1,6 @@
 {
   "ticker": "CSCO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 16, 1990"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.71 (1.56%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.66 (1.51%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Oct 02, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.53% 2.60%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "49.85%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "12,631,937"
+        "value": "12,634,309"
       },
       {
         "label": "RSI (14)",
@@ -1523,7 +1545,7 @@
       "high": 111.58,
       "low": 109.23,
       "close": 109.59,
-      "volume": 12631937
+      "volume": 12634309
     }
   ]
 }

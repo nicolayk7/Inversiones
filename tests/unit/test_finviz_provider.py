@@ -30,6 +30,20 @@ def _cell(tooltip: str, label: str, value: str) -> str:
     )
 
 
+def _cell_linked(tooltip: str, label: str, value: str) -> str:
+    """Like _cell, but with the label wrapped in an <a> — the real markup Finviz uses for
+    Dividend Est./TTM/Ex-Date/Gr., Payout, Recom, Target Price, the three "Short interest*" rows,
+    EPS/Sales Surpr., and Earnings date (confirmed live 2026-08-20: each links to that metric's own
+    chart view). A real regression case: _ROW_PATTERN used to require the label div to hold plain
+    text only and silently dropped every one of these 12 fields."""
+    return (
+        f'<td class="snapshot-td2" data-boxover-html="{tooltip}">'
+        f'<div class="snapshot-td-label"><a href="stock?t=AAPL&ty=dv" class="hover:underline">{label}</a></div></td>'
+        f'<td class="snapshot-td2"><div class="snapshot-td-content">'
+        f'<a href="stock?t=AAPL&ty=dv" class="hover:underline"><b>{value}</b></a></div></td>'
+    )
+
+
 # Shaped like the real six-table, 14-row grid, condensed to the fields this adapter reads (plus
 # the genuine "EPS next Y" duplicate-label case) — enough to exercise the tooltip-keyed lookup
 # without reproducing all 84 real cells.
@@ -166,6 +180,22 @@ def test_ambiguous_short_label_disambiguated_by_tooltip():
     fields = {m.group("tooltip"): m.group("value") for m in _ROW_PATTERN.finditer(response.text)}
     assert "9.54" in fields["EPS estimate for next year"]
     assert "7.98%" in fields["EPS growth next year"]
+
+
+def test_link_wrapped_label_still_parses():
+    """Regression test for the 2026-08-20 fix: a label wrapped in <a> (the real markup for
+    Dividend Est./TTM/Ex-Date/Gr., Payout, Recom, Target Price, Short interest*, EPS/Sales Surpr.,
+    Earnings date) must still resolve — this used to be silently dropped entirely."""
+    html = _AAPL_QUOTE_HTML.replace(
+        "</tr>\n</tbody></table>",
+        _cell_linked("Trailing 12 Months Dividend", "Dividend TTM", "1.06 (0.34%)") + "</tr>\n</tbody></table>",
+    )
+
+    def handler(request):
+        return httpx.Response(200, text=html)
+
+    snapshot = _provider(handler).get_snapshot("AAPL")
+    assert snapshot["fields"]["Trailing 12 Months Dividend"] == "1.06 (0.34%)"
 
 
 # -- derived FCF ----------------------------------------------------------------------------------

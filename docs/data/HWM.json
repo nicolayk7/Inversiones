@@ -1,6 +1,6 @@
 {
   "ticker": "HWM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 11, 1951"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.51 (0.19%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.50 (0.18%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 07, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "63.86% 85.56%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "11.86%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,237,326"
+        "value": "2,237,338"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 285.073,
       "low": 272.08,
       "close": 273.64,
-      "volume": 2237326
+      "volume": 2237338
     }
   ]
 }

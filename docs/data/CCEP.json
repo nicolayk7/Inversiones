@@ -1,6 +1,6 @@
 {
   "ticker": "CCEP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 21, 1986"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.55 (2.39%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.39 (2.24%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "May 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "11.08% 18.43%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "48.48%"
       }
     ],
     [

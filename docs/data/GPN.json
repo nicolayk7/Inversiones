@@ -1,6 +1,6 @@
 {
   "ticker": "GPN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 16, 2001"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.20 (1.30%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.00 (1.08%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% 5.09%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "17.28%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,899,232"
+        "value": "1,899,818"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 92.93,
       "low": 90.85,
       "close": 92.28,
-      "volume": 1899232
+      "volume": 1899818
     }
   ]
 }

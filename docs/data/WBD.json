@@ -1,6 +1,6 @@
 {
   "ticker": "WBD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 06, 2005"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Mar 24, 2010"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "17,136,286"
+        "value": "17,136,297"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 28.535,
       "low": 28.18,
       "close": 28.23,
-      "volume": 17136286
+      "volume": 17136297
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "FDS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 28, 1996"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.51 (1.50%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.46 (1.49%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.76% 7.51%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.52%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "958,447"
+        "value": "958,191"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 304.3,
       "low": 293.58,
       "close": 300.06,
-      "volume": 958447
+      "volume": 958191
     }
   ]
 }

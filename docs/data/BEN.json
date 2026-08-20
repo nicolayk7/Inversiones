@@ -1,6 +1,6 @@
 {
   "ticker": "BEN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 23, 1983"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.45 (4.27%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.31 (3.86%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 29, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "3.34% 3.46%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "140.40%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,400,161"
+        "value": "3,400,160"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 34.52,
       "low": 33.8,
       "close": 33.97,
-      "volume": 3400161
+      "volume": 3400160
     }
   ]
 }

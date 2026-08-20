@@ -1,6 +1,6 @@
 {
   "ticker": "DVA",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 31, 1995"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "483,437"
+        "value": "483,436"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 177.535,
       "low": 175.13,
       "close": 175.24,
-      "volume": 483437
+      "volume": 483436
     }
   ]
 }

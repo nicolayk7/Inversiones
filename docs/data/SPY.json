@@ -1,6 +1,6 @@
 {
   "ticker": "SPY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": true,
   "columns": [
     [
@@ -76,7 +76,7 @@
     [
       {
         "label": "Volume",
-        "value": "45,489,389"
+        "value": "45,498,457"
       },
       {
         "label": "Avg Volume",
@@ -1154,7 +1154,7 @@
       "high": 768.15,
       "low": 762.04,
       "close": 762.6,
-      "volume": 45489389
+      "volume": 45498457
     }
   ]
 }

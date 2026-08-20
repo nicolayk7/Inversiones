@@ -1,6 +1,6 @@
 {
   "ticker": "V",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 19, 2008"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.72 (0.74%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.68 (0.73%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "16.31% 14.48%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "23.37%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "6,151,373"
+        "value": "6,151,394"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 368.93,
       "low": 363.63,
       "close": 365.73,
-      "volume": 6151373
+      "volume": 6151394
     }
   ]
 }

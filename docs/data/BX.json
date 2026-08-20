@@ -1,6 +1,6 @@
 {
   "ticker": "BX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 22, 2007"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.23 (3.70%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.23 (3.70%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 03, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "-1.72% 19.68%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "121.20%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,138,522"
+        "value": "3,138,886"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 144.87,
       "low": 141.05,
       "close": 141.35,
-      "volume": 3138522
+      "volume": 3138886
     }
   ]
 }

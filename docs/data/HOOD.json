@@ -1,6 +1,6 @@
 {
   "ticker": "HOOD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 29, 2021"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "25,138,905"
+        "value": "25,154,141"
       },
       {
         "label": "RSI (14)",
@@ -1509,7 +1531,7 @@
       "high": 101.61,
       "low": 93.65,
       "close": 95.1,
-      "volume": 25138905
+      "volume": 25154141
     }
   ]
 }

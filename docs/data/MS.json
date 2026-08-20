@@ -1,6 +1,6 @@
 {
   "ticker": "MS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 21, 1986"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.30 (2.07%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.15 (2.00%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "9.28% 22.42%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "37.72%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,874,913"
+        "value": "4,875,067"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 215.065,
       "low": 207.32,
       "close": 207.45,
-      "volume": 4874913
+      "volume": 4875067
     }
   ]
 }

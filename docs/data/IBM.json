@@ -1,6 +1,6 @@
 {
   "ticker": "IBM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 11, 1915"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.76 (2.89%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.74 (2.88%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 10, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.60% 0.61%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "60.09%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,985,435"
+        "value": "4,985,823"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 237.5,
       "low": 233.03,
       "close": 233.69,
-      "volume": 4985435
+      "volume": 4985823
     }
   ]
 }

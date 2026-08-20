@@ -1,6 +1,6 @@
 {
   "ticker": "WEC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 21, 1947"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.81 (3.52%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.75 (3.45%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.05% 7.13%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "74.22%"
       }
     ],
     [

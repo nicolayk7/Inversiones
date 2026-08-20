@@ -1,6 +1,6 @@
 {
   "ticker": "KIM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 22, 1991"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.07 (4.42%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.03 (4.26%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.34% 13.34%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "123.73%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,957,453"
+        "value": "2,957,470"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 24.395,
       "low": 24.13,
       "close": 24.16,
-      "volume": 2957453
+      "volume": 2957470
     }
   ]
 }

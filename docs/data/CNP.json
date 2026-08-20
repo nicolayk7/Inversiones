@@ -1,6 +1,6 @@
 {
   "ticker": "CNP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 16, 1943"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.92 (2.29%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.92 (2.29%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 20, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.93% 3.53%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "54.85%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,813,778"
+        "value": "5,813,876"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 40.59,
       "low": 39.55,
       "close": 40.2,
-      "volume": 5813778
+      "volume": 5813876
     }
   ]
 }

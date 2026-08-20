@@ -1,6 +1,6 @@
 {
   "ticker": "SPCX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 12, 2026"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "119,581,017"
+        "value": "119,677,744"
       },
       {
         "label": "RSI (14)",
@@ -684,7 +706,7 @@
       "high": 137.88,
       "low": 130.39,
       "close": 134,
-      "volume": 119581017
+      "volume": 119677744
     }
   ]
 }

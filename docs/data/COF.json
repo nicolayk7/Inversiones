@@ -1,6 +1,6 @@
 {
   "ticker": "COF",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 16, 1994"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.23 (1.52%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.20 (1.51%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 17, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.70% 21.06%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "64.53%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,119,641"
+        "value": "4,119,677"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 218.91,
       "low": 211.32,
       "close": 212.48,
-      "volume": 4119641
+      "volume": 4119677
     }
   ]
 }

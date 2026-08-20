@@ -1,6 +1,6 @@
 {
   "ticker": "WST",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.77 (0.22%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.88 (0.25%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 29, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.14% 5.44%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "12.66%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "588,379"
+        "value": "588,685"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 360.285,
       "low": 347.99,
       "close": 353.77,
-      "volume": 588379
+      "volume": 588685
     }
   ]
 }

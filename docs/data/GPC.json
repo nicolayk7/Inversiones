@@ -1,6 +1,6 @@
 {
   "ticker": "GPC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 20, 1968"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.24 (3.19%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.18 (3.15%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.79% 5.45%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "869.93%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,761,693"
+        "value": "1,761,405"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 133.07,
       "low": 129.4,
       "close": 132.92,
-      "volume": 1761693
+      "volume": 1761405
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "GEN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 23, 1989"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.51 (1.81%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.50 (1.77%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 17, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% 0.00%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "31.81%"
       }
     ],
     [

@@ -1,6 +1,6 @@
 {
   "ticker": "EQT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 05, 1950"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.66 (1.23%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.66 (1.22%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 05, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.18% 84.42%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "19.25%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,210,270"
+        "value": "5,210,274"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 54.665,
       "low": 53.12,
       "close": 53.89,
-      "volume": 5210270
+      "volume": 5210274
     }
   ]
 }

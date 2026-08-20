@@ -1,6 +1,6 @@
 {
   "ticker": "MO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 15, 1923"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.33 (6.47%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.24 (6.33%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.17% 4.12%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "101.07%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "10,275,906"
+        "value": "10,276,452"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 67.25,
       "low": 65.985,
       "close": 66.94,
-      "volume": 10275906
+      "volume": 10276453
     }
   ]
 }

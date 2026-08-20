@@ -1,6 +1,6 @@
 {
   "ticker": "PH",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 09, 1964"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "7.90 (0.79%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "7.40 (0.74%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "May 08, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.60% 15.06%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "25.98%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "559,731"
+        "value": "559,738"
       },
       {
         "label": "RSI (14)",
@@ -1523,7 +1545,7 @@
       "high": 1023.675,
       "low": 999.82,
       "close": 1000.13,
-      "volume": 559731
+      "volume": 559738
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "EFX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 11, 1971"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.24 (1.16%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.12 (1.10%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "May 22, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.61% 3.91%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "35.52%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,194,362"
+        "value": "1,194,041"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 195.86,
       "low": 188.189,
       "close": 192.41,
-      "volume": 1194362
+      "volume": 1194041
     }
   ]
 }

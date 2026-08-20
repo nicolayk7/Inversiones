@@ -1,6 +1,6 @@
 {
   "ticker": "MAS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 02, 1962"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.28 (1.74%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.95 (1.30%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 24, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "3.45% 17.66%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "32.15%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,329,134"
+        "value": "1,328,997"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 74.47,
       "low": 73.135,
       "close": 73.33,
-      "volume": 1329134
+      "volume": 1328997
     }
   ]
 }

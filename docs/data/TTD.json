@@ -1,6 +1,6 @@
 {
   "ticker": "TTD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 21, 2016"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "14,421,503"
+        "value": "14,423,932"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 13.62,
       "low": 13.15,
       "close": 13.32,
-      "volume": 14421503
+      "volume": 14423932
     }
   ]
 }

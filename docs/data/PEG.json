@@ -1,6 +1,6 @@
 {
   "ticker": "PEG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 31, 1948"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.67 (3.57%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.60 (3.48%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 09, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.27% 5.15%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "59.81%"
       }
     ],
     [

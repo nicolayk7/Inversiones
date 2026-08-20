@@ -1,6 +1,6 @@
 {
   "ticker": "LII",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 29, 1999"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.17 (1.27%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.26 (1.30%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.19% 10.39%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "22.19%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "518,622"
+        "value": "518,642"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 416.28,
       "low": 404.195,
       "close": 406.05,
-      "volume": 518622
+      "volume": 518642
     }
   ]
 }

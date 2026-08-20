@@ -1,6 +1,6 @@
 {
   "ticker": "FIS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 20, 2001"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.82 (4.48%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.68 (4.14%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "-5.23% 2.71%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "219.90%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,065,393"
+        "value": "4,065,610"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 41.135,
       "low": 40.2,
       "close": 40.58,
-      "volume": 4065393
+      "volume": 4065610
     }
   ]
 }

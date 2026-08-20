@@ -1,6 +1,6 @@
 {
   "ticker": "NFLX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 23, 2002"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "27,096,183"
+        "value": "27,100,547"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 81.08,
       "low": 79.585,
       "close": 80.14,
-      "volume": 27096183
+      "volume": 27100547
     }
   ]
 }

@@ -102,6 +102,7 @@
     white-space: nowrap;
   }
   table.snapshot td.label { color: var(--muted); }
+  .has-glossary { border-bottom: 1px dotted var(--muted); cursor: help; }
   table.snapshot td.value { font-weight: 600; text-align: right; }
   .pos { color: var(--pos); }
   .neg { color: var(--neg); }
@@ -214,6 +215,85 @@
   <div id="content"><div class="loading">Cargando…</div></div>
 
 <script>
+// Plain-language explanation for every field label used anywhere on this page (grid + analysis
+// section) — shown as a native browser tooltip (title attribute) on hover/long-press, so a reader
+// who doesn't already know what "ROE" means can find out without leaving the page. Keyed by the
+// exact display label used in scripts/generate_finviz_snapshot_site.py's FIELD_LAYOUT/
+// ETF_FIELD_LAYOUT, or by the Spanish metric name used in the analysis section — NOT by Finviz's
+// own tooltip text (which is terser and assumes the reader already knows the jargon).
+const GLOSSARY = {
+  "Market Cap": "Valor total de la empresa en bolsa: precio de la acción × número de acciones en circulación.",
+  "Enterprise Value": "Lo que costaría comprar toda la empresa: capitalización de mercado + deuda − efectivo. Más completo que el Market Cap para comparar empresas con distinto nivel de deuda.",
+  "Income (ttm)": "Utilidad neta (ganancia) de los últimos 12 meses (trailing twelve months).",
+  "Sales (ttm)": "Ingresos totales (ventas) de los últimos 12 meses.",
+  "Book/sh": "Valor contable (patrimonio neto) por acción, según el último balance reportado.",
+  "Cash/sh": "Efectivo y equivalentes de efectivo por acción.",
+  "Employees": "Número de empleados de tiempo completo.",
+  "IPO Date": "Fecha en que la empresa salió a bolsa (oferta pública inicial).",
+  "Dividend Est.": "Dividendo anual estimado por analistas para el año fiscal actual, en dólares y como % del precio (yield estimado).",
+  "Dividend TTM": "Dividendo realmente pagado en los últimos 12 meses, en dólares y como % del precio (yield).",
+  "Dividend Ex-Date": "Fecha ex-dividendo: hay que tener la acción ANTES de esta fecha para recibir el próximo pago.",
+  "Dividend Gr. 3/5Y": "Crecimiento anual promedio del dividendo en los últimos 3 y 5 años.",
+  "Payout Ratio": "Porcentaje de la utilidad neta que se reparte como dividendo. Muy alto (cerca de 100% o más) puede ser señal de que el dividendo no es sostenible.",
+  "P/E": "Precio entre utilidad por acción (ttm) — cuántos años de ganancia actual pagarías por la acción al precio de hoy. Más bajo puede ser más barato, pero no siempre es mejor.",
+  "Forward P/E": "Como el P/E, pero usando la utilidad ESTIMADA para el próximo año fiscal en vez de la ya reportada.",
+  "PEG": "P/E dividido entre la tasa de crecimiento esperado de utilidades. Cercano a 1 suele considerarse un precio razonable relativo al crecimiento.",
+  "P/S": "Precio entre ventas por acción (ttm). Útil para comparar empresas que todavía no son rentables.",
+  "P/B": "Precio entre valor contable por acción — compara el precio de mercado contra lo que 'vale en libros' la empresa.",
+  "P/FCF": "Precio entre flujo de caja libre por acción (ttm): el efectivo que realmente genera el negocio después de inversión en capital.",
+  "EV/EBITDA": "Enterprise Value entre EBITDA (utilidad antes de intereses, impuestos, depreciación y amortización). Muy usado para comparar empresas con distinta deuda o carga impositiva.",
+  "EV/Sales": "Enterprise Value entre ventas — similar al P/S pero considerando también la deuda.",
+  "Debt/Eq": "Deuda total entre patrimonio neto. Más alto = la empresa depende más del endeudamiento para financiarse.",
+  "Current Ratio": "Activos corrientes entre pasivos corrientes — mide si la empresa puede cubrir sus obligaciones de corto plazo. Por debajo de 1 puede ser señal de alerta.",
+  "EPS (ttm)": "Utilidad neta por acción de los últimos 12 meses (Earnings Per Share).",
+  "EPS next Y ($)": "Utilidad por acción que estiman los analistas para el próximo año fiscal, en dólares.",
+  "EPS next Y (%)": "Crecimiento porcentual de utilidad por acción que estiman los analistas para el próximo año.",
+  "EPS next 5Y": "Crecimiento anual promedio de utilidad por acción que esperan los analistas para los próximos 5 años.",
+  "EPS past 3/5Y": "Crecimiento anual promedio real de utilidad por acción en los últimos 3 y 5 años.",
+  "Sales past 3/5Y": "Crecimiento anual promedio real de ventas en los últimos 3 y 5 años.",
+  "ROE": "Return on Equity — utilidad neta entre patrimonio neto. Qué tan rentable es la empresa usando el dinero de sus accionistas. Un ROE extremadamente alto puede señalar mucha deuda, no necesariamente eficiencia.",
+  "ROIC": "Return on Invested Capital — qué tan bien la empresa convierte el capital invertido (deuda + patrimonio) en ganancias. Uno de los mejores indicadores de calidad del negocio.",
+  "ROA": "Return on Assets — utilidad neta entre activos totales. Qué tan eficiente es la empresa usando TODOS sus activos para generar ganancias.",
+  "Gross Margin": "Margen bruto: (ventas − costo de lo vendido) entre ventas. Qué % de cada dólar de venta queda después de producir el bien o servicio.",
+  "Oper. Margin": "Margen operativo: utilidad operativa entre ventas. Qué % de cada dólar de venta queda después de todos los gastos operativos del negocio.",
+  "Profit Margin": "Margen neto: utilidad neta entre ventas. Qué % de cada dólar de venta se convierte en ganancia final.",
+  "Shs Outstand": "Número total de acciones en circulación.",
+  "Insider Own": "Porcentaje de la empresa en manos de directivos, fundadores o empleados clave (insiders).",
+  "Inst Own": "Porcentaje de la empresa en manos de inversionistas institucionales (fondos, bancos, aseguradoras).",
+  "52W High": "Precio máximo de las últimas 52 semanas, y qué tan lejos está el precio actual de ese máximo.",
+  "52W Low": "Precio mínimo de las últimas 52 semanas, y qué tan lejos está el precio actual de ese mínimo.",
+  "Beta": "Qué tanto se mueve la acción respecto al mercado general. Beta 1 = se mueve como el mercado; mayor a 1 = más volátil; menor a 1 = menos volátil.",
+  "Avg Volume": "Promedio de acciones negociadas por día en los últimos 3 meses.",
+  "Rel Volume": "Volumen de hoy comparado con el promedio habitual. Por encima de 1 = se está negociando más de lo normal hoy.",
+  "Volume": "Número de acciones negociadas en la sesión más reciente.",
+  "RSI (14)": "Relative Strength Index a 14 días — mide si la acción está 'sobrecomprada' (arriba de 70) o 'sobrevendida' (abajo de 30) en el corto plazo. Es un indicador de momentum, no de valor de la empresa.",
+  "Prev Close": "Precio de cierre de la sesión anterior.",
+  "Price": "Precio actual (o del último cierre disponible).",
+  "Change %": "Variación porcentual del precio en la sesión de hoy.",
+  // ETF-specific
+  "AUM": "Assets Under Management — el valor total del dinero invertido en el fondo.",
+  "Expense Ratio": "Costo anual del fondo, como % de tu inversión. Más bajo significa que te quedas con más del retorno.",
+  "Inception Date": "Fecha en que se creó el fondo.",
+  "Category": "Categoría del ETF según Finviz (clase de activo y exposición geográfica).",
+  "Asset Type": "Tipo de activo que contiene el fondo (acciones, bonos, materias primas, etc.).",
+  "Tracked Index": "Índice de referencia que el fondo busca replicar.",
+  "Fund Manager": "Gestora o banco emisor del fondo.",
+  "Holdings": "Número de posiciones distintas dentro del fondo. Más holdings suele significar más diversificación.",
+  "1Y Return": "Retorno anualizado del fondo en el último año.",
+  "3Y Return": "Retorno anualizado del fondo en los últimos 3 años.",
+  "5Y Return": "Retorno anualizado del fondo en los últimos 5 años.",
+  "10Y Return": "Retorno anualizado del fondo en los últimos 10 años.",
+  "YTD Fund Flows": "Dinero neto que ha entrado (o salido) del fondo en lo que va del año, como % de su tamaño.",
+  // Analysis-section metric names (Spanish, distinct from the grid's English labels above)
+  "Margen bruto": "Margen bruto: (ventas − costo de lo vendido) entre ventas. Qué % de cada dólar de venta queda después de producir el bien o servicio.",
+  "Margen operativo": "Margen operativo: utilidad operativa entre ventas. Qué % de cada dólar de venta queda después de todos los gastos operativos del negocio.",
+};
+
+function glossaryAttr(label) {
+  const text = GLOSSARY[label];
+  return text ? ` title="${text.replace(/"/g, "&quot;")}"` : "";
+}
+
 const CADENCE_LABEL = { annual: "Annual", quarterly: "Quarterly" };
 const CHART_TITLES = {
   eps: "GAAP EPS",
@@ -239,7 +319,7 @@ function colorClass(value) {
 function renderGrid(columns) {
   const cols = columns.map(col => {
     const rows = col.map(f =>
-      `<tr><td class="label">${f.label}</td><td class="value ${colorClass(f.value)}">${f.value}</td></tr>`
+      `<tr><td class="label has-glossary"${glossaryAttr(f.label)}>${f.label}</td><td class="value ${colorClass(f.value)}">${f.value}</td></tr>`
     ).join("");
     return `<table class="snapshot"><tbody>${rows}</tbody></table>`;
   });
@@ -318,10 +398,10 @@ function renderAnalysis(analysis) {
     return `
       <div class="section-title">Análisis del fondo</div>
       <div class="analysis-panel">
-        <div class="analysis-row"><span class="analysis-label">Índice replicado</span><span class="analysis-value">${analysis.tracked_index}</span></div>
-        <div class="analysis-row"><span class="analysis-label">Categoría</span><span class="analysis-value">${analysis.category}</span></div>
-        <div class="analysis-row"><span class="analysis-label">Gestora</span><span class="analysis-value">${analysis.manager}</span></div>
-        <div class="analysis-row"><span class="analysis-label">Holdings</span><span class="analysis-value">${analysis.holdings_count}</span></div>
+        <div class="analysis-row"><span class="analysis-label has-glossary"${glossaryAttr("Tracked Index")}>Índice replicado</span><span class="analysis-value">${analysis.tracked_index}</span></div>
+        <div class="analysis-row"><span class="analysis-label has-glossary"${glossaryAttr("Category")}>Categoría</span><span class="analysis-value">${analysis.category}</span></div>
+        <div class="analysis-row"><span class="analysis-label has-glossary"${glossaryAttr("Fund Manager")}>Gestora</span><span class="analysis-value">${analysis.manager}</span></div>
+        <div class="analysis-row"><span class="analysis-label has-glossary"${glossaryAttr("Holdings")}>Holdings</span><span class="analysis-value">${analysis.holdings_count}</span></div>
         ${analysis.expense_ratio_read ? `<div class="analysis-growth">Expense ratio ${fmtExpenseRatio(analysis.expense_ratio)}: ${analysis.expense_ratio_read}.</div>` : ""}
         <div class="analysis-footnote">${analysis.methodology}</div>
       </div>`;
@@ -329,7 +409,7 @@ function renderAnalysis(analysis) {
 
   const rows = analysis.comparisons.map(c => `
     <div class="analysis-row">
-      <span class="analysis-label">${c.metric}</span>
+      <span class="analysis-label has-glossary"${glossaryAttr(c.metric)}>${c.metric}</span>
       <span class="analysis-value">${fmtMetricValue(c.metric, c.value)}<span class="analysis-vs ${readClass(c.read)}">${c.read}</span></span>
     </div>
     <div class="analysis-submeta">mediana ${analysis.sector} (n=${c.sector_n}): ${fmtMetricValue(c.metric, c.sector_median)}</div>

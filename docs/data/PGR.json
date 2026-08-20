@@ -1,6 +1,6 @@
 {
   "ticker": "PGR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "9.39 (4.26%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "13.90 (6.31%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Oct 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "226.33% 23.19%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "72.29%"
       }
     ],
     [

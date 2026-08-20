@@ -1,6 +1,6 @@
 {
   "ticker": "STLD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 22, 1996"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.12 (0.97%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.06 (0.94%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "13.72% 14.87%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "25.03%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,252,557"
+        "value": "2,252,567"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 227.76,
       "low": 218.02,
       "close": 219,
-      "volume": 2252557
+      "volume": 2252567
     }
   ]
 }

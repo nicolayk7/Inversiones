@@ -1,6 +1,6 @@
 {
   "ticker": "HAL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 15, 1948"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.68 (1.92%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.68 (1.91%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 03, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "12.31% 16.27%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "45.21%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "12,172,777"
+        "value": "12,172,870"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 36.08,
       "low": 35.28,
       "close": 35.69,
-      "volume": 12172777
+      "volume": 12172870
     }
   ]
 }

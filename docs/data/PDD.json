@@ -1,6 +1,6 @@
 {
   "ticker": "PDD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 26, 2018"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,439,571"
+        "value": "5,439,680"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 89.78,
       "low": 87.655,
       "close": 89.52,
-      "volume": 5439571
+      "volume": 5439680
     }
   ]
 }

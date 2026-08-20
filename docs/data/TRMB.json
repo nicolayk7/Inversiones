@@ -1,6 +1,6 @@
 {
   "ticker": "TRMB",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 20, 1990"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,402,763"
+        "value": "3,402,814"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 59.91,
       "low": 58.745,
       "close": 59.68,
-      "volume": 3402763
+      "volume": 3402814
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "BBY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 18, 1985"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.89 (4.54%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.82 (4.46%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 18, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.58% 11.55%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "75.40%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,743,710"
+        "value": "2,743,161"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 87.926,
       "low": 85.285,
       "close": 85.73,
-      "volume": 2743710
+      "volume": 2743161
     }
   ]
 }

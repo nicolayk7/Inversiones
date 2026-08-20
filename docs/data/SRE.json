@@ -1,6 +1,6 @@
 {
   "ticker": "SRE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 29, 1998"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.40 (2.74%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.61 (2.98%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 25, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.05% 4.30%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "93.92%"
       }
     ],
     [

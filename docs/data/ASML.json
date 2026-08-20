@@ -1,6 +1,6 @@
 {
   "ticker": "ASML",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 15, 1995"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "10.65 (0.61%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "9.08 (0.52%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 28, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "13.12% 21.86%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "26.75%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "824,932"
+        "value": "824,996"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 1775.82,
       "low": 1741.02,
       "close": 1750.31,
-      "volume": 824932
+      "volume": 824996
     }
   ]
 }

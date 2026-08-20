@@ -1,6 +1,6 @@
 {
   "ticker": "EXR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 12, 2004"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.54 (4.44%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.48 (4.40%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.60% 12.47%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "141.19%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "664,783"
+        "value": "664,784"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 148.375,
       "low": 146.47,
       "close": 147.26,
-      "volume": 664783
+      "volume": 664784
     }
   ]
 }

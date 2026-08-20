@@ -1,6 +1,6 @@
 {
   "ticker": "CF",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 11, 2005"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.15 (1.71%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.10 (1.67%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.06% 10.76%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "22.30%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,315,345"
+        "value": "3,315,360"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 129.18,
       "low": 121.5,
       "close": 125.7,
-      "volume": 3315345
+      "volume": 3315360
     }
   ]
 }

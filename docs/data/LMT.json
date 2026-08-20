@@ -1,6 +1,6 @@
 {
   "ticker": "LMT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 11, 1961"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "14.05 (2.46%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "13.65 (2.39%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.40% 6.38%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "62.13%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,554,583"
+        "value": "1,554,705"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 591.68,
       "low": 569.54,
       "close": 571.48,
-      "volume": 1554583
+      "volume": 1554705
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "ORCL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 12, 1986"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.95 (1.37%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.00 (1.41%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 10, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "13.72% 13.97%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "34.31%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "15,150,798"
+        "value": "15,159,628"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 145.92,
       "low": 141.02,
       "close": 142.07,
-      "volume": 15150798
+      "volume": 15159628
     }
   ]
 }

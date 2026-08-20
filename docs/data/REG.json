@@ -1,6 +1,6 @@
 {
   "ticker": "REG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 29, 1993"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.04 (3.97%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.97 (3.88%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.43% 3.82%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "101.79%"
       }
     ],
     [
@@ -136,7 +158,7 @@
       },
       {
         "label": "Insider Own",
-        "value": "0.53%"
+        "value": "0.52%"
       },
       {
         "label": "Inst Own",

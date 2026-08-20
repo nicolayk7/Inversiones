@@ -1,6 +1,6 @@
 {
   "ticker": "AMGN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 17, 1983"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "10.10 (2.33%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "9.80 (2.26%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.05% 8.27%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "66.92%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,913,843"
+        "value": "2,913,947"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 441.34,
       "low": 431.07,
       "close": 433.73,
-      "volume": 2913843
+      "volume": 2913947
     }
   ]
 }

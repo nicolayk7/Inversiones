@@ -1,6 +1,6 @@
 {
   "ticker": "URI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 18, 1997"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "7.77 (0.71%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "7.70 (0.70%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 12, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "18.55%"
       }
     ],
     [

@@ -1,6 +1,6 @@
 {
   "ticker": "IVZ",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 25, 1995"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.86 (2.74%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.85 (2.71%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.37% 1.25%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,467,613"
+        "value": "4,467,647"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 32.35,
       "low": 31.195,
       "close": 31.36,
-      "volume": 4467613
+      "volume": 4467647
     }
   ]
 }

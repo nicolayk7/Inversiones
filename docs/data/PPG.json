@@ -1,6 +1,6 @@
 {
   "ticker": "PPG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 17, 1945"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.90 (2.58%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.87 (2.55%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 10, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.73% 5.77%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "40.19%"
       }
     ],
     [

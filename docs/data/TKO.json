@@ -1,6 +1,6 @@
 {
   "ticker": "TKO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 19, 1999"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.56 (0.80%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.11 (1.59%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "68.59% 36.80%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "101.83%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,071,977"
+        "value": "1,071,989"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 203.04,
       "low": 194.11,
       "close": 195.45,
-      "volume": 1071977
+      "volume": 1071989
     }
   ]
 }

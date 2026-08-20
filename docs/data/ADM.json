@@ -1,6 +1,6 @@
 {
   "ticker": "ADM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 24, 1924"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.12 (2.60%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.07 (2.53%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 19, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.44% 7.21%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "91.59%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,387,672"
+        "value": "3,387,674"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 83.835,
       "low": 80.96,
       "close": 81.7,
-      "volume": 3387672
+      "volume": 3387674
     }
   ]
 }

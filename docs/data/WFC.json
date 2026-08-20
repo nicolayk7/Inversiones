@@ -1,6 +1,6 @@
 {
   "ticker": "WFC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 10, 1962"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.91 (2.28%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.85 (2.21%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 07, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "15.62% 6.86%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.17%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "13,729,027"
+        "value": "13,729,115"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 85.67,
       "low": 83.62,
       "close": 83.7,
-      "volume": 13729027
+      "volume": 13729115
     }
   ]
 }

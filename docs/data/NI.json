@@ -1,6 +1,6 @@
 {
   "ticker": "NI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 19, 1962"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.20 (2.89%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.18 (2.83%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Oct 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.01% 5.92%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "57.34%"
       }
     ],
     [

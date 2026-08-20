@@ -1,6 +1,6 @@
 {
   "ticker": "PEP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 18, 1919"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.84 (4.11%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.75 (4.04%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.45% 6.93%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "93.68%"
       }
     ],
     [
@@ -136,7 +158,7 @@
       },
       {
         "label": "Insider Own",
-        "value": "0.33%"
+        "value": "0.32%"
       },
       {
         "label": "Inst Own",
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,350,117"
+        "value": "5,350,178"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 143.365,
       "low": 141.11,
       "close": 142.08,
-      "volume": 5350117
+      "volume": 5350178
     }
   ]
 }

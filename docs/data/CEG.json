@@ -1,6 +1,6 @@
 {
   "ticker": "CEG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 19, 2022"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.68 (0.62%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.67 (0.61%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 18, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "40.40% -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "21.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,175,211"
+        "value": "2,175,371"
       },
       {
         "label": "RSI (14)",
@@ -1521,7 +1543,7 @@
       "high": 277.965,
       "low": 271.07,
       "close": 272.92,
-      "volume": 2175211
+      "volume": 2175371
     }
   ]
 }

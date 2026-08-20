@@ -1,6 +1,6 @@
 {
   "ticker": "INTU",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 12, 1993"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.69 (1.30%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.80 (1.33%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 09, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "15.21% 14.43%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "30.43%"
       }
     ],
     [
@@ -136,7 +158,7 @@
       },
       {
         "label": "Insider Own",
-        "value": "2.17%"
+        "value": "2.16%"
       },
       {
         "label": "Inst Own",
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,288,057"
+        "value": "3,288,073"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 366.63,
       "low": 358.385,
       "close": 361.87,
-      "volume": 3288057
+      "volume": 3288073
     }
   ]
 }

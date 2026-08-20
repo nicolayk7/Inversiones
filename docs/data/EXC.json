@@ -1,6 +1,6 @@
 {
   "ticker": "EXC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 06, 1943"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.68 (3.73%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.64 (3.64%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.83% 0.90%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "58.50%"
       }
     ],
     [

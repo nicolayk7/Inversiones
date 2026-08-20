@@ -1,6 +1,6 @@
 {
   "ticker": "SYF",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 31, 2014"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.28 (1.67%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.24 (1.62%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 05, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.51% 5.50%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "12.40%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,187,591"
+        "value": "4,188,093"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 79.24,
       "low": 75.655,
       "close": 76.71,
-      "volume": 4187591
+      "volume": 4188093
     }
   ]
 }

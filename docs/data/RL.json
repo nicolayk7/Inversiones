@@ -1,6 +1,6 @@
 {
   "ticker": "RL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 12, 1997"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.84 (1.03%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.74 (1.00%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 26, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.76% -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "24.16%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "574,487"
+        "value": "574,521"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 374.725,
       "low": 365.69,
       "close": 372.52,
-      "volume": 574487
+      "volume": 574521
     }
   ]
 }

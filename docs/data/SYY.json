@@ -1,6 +1,6 @@
 {
   "ticker": "SYY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 26, 1971"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.22 (2.67%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.17 (2.61%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 02, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "3.28% 3.58%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "59.29%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,022,065"
+        "value": "3,022,091"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 84.71,
       "low": 82.365,
       "close": 83.06,
-      "volume": 3022065
+      "volume": 3022091
     }
   ]
 }

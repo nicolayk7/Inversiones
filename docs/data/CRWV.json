@@ -1,6 +1,6 @@
 {
   "ticker": "CRWV",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 28, 2025"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "17,618,260"
+        "value": "17,622,800"
       },
       {
         "label": "RSI (14)",
@@ -1466,7 +1488,7 @@
       "high": 93.77,
       "low": 88.78,
       "close": 89.76,
-      "volume": 17618260
+      "volume": 17622800
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "MSI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 17, 2010"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.60 (0.97%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.72 (1.00%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 16, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "11.29% 11.24%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "35.15%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,564,834"
+        "value": "1,564,841"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 486.25,
       "low": 472.47,
       "close": 473.63,
-      "volume": 1564834
+      "volume": 1564841
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "SLB",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 02, 1962"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.17 (2.19%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.16 (2.17%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 02, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "20.60% 5.31%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "48.55%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "8,441,298"
+        "value": "8,441,411"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 54.33,
       "low": 53.525,
       "close": 53.55,
-      "volume": 8441298
+      "volume": 8441411
     }
   ]
 }

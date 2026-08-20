@@ -1,6 +1,6 @@
 {
   "ticker": "LDOS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 13, 2006"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.74 (1.23%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.69 (1.20%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.22% 3.69%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "14.63%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,162,002"
+        "value": "1,162,022"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 146.29,
       "low": 140.1,
       "close": 141.37,
-      "volume": 1162002
+      "volume": 1162022
     }
   ]
 }

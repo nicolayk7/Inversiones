@@ -1,6 +1,6 @@
 {
   "ticker": "WELL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 19, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.13 (1.32%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.07 (1.29%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 12, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.94% 0.87%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,683,442"
+        "value": "2,683,453"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 238.79,
       "low": 235.108,
       "close": 237.4,
-      "volume": 2683442
+      "volume": 2683453
     }
   ]
 }

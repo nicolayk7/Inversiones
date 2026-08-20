@@ -1,6 +1,6 @@
 {
   "ticker": "OTIS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 19, 2020"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.75 (2.44%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.72 (2.40%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "14.13% 22.42%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "47.08%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,672,052"
+        "value": "2,672,070"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 72.095,
       "low": 71.22,
       "close": 71.77,
-      "volume": 2672052
+      "volume": 2672070
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "PWR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 12, 1998"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.43 (0.07%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.43 (0.06%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "12.24% 14.32%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "6.03%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,177,846"
+        "value": "1,177,867"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 679.21,
       "low": 660.6,
       "close": 662.47,
-      "volume": 1177846
+      "volume": 1177867
     }
   ]
 }

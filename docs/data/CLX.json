@@ -1,6 +1,6 @@
 {
   "ticker": "CLX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 01, 1968"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.10 (4.81%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.97 (4.69%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 12, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "1.59% 2.05%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "103.41%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,017,889"
+        "value": "2,017,909"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 108.95,
       "low": 105.8,
       "close": 106.04,
-      "volume": 2017889
+      "volume": 2017909
     }
   ]
 }

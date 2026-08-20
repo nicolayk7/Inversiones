@@ -1,6 +1,6 @@
 {
   "ticker": "TROW",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 02, 1986"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.17 (4.60%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.14 (4.58%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "1.91% 7.13%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "54.95%"
       }
     ],
     [

@@ -1,6 +1,6 @@
 {
   "ticker": "PSKY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 14, 1990"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.22 (2.17%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.20 (1.94%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "-40.72% -26.93%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "9,300,019"
+        "value": "9,300,131"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 10.65,
       "low": 10.165,
       "close": 10.29,
-      "volume": 9300019
+      "volume": 9300131
     }
   ]
 }

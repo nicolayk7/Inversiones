@@ -1,6 +1,6 @@
 {
   "ticker": "COR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 04, 1995"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.39 (0.76%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.40 (0.76%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.14% 5.79%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.63%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,175,755"
+        "value": "1,175,754"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 318.23,
       "low": 312.605,
       "close": 314.69,
-      "volume": 1175755
+      "volume": 1175754
     }
   ]
 }

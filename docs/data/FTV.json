@@ -1,6 +1,6 @@
 {
   "ticker": "FTV",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 13, 2016"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.25 (0.41%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.24 (0.40%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 22, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% 0.00%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "16.18%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,344,998"
+        "value": "2,345,019"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 59.6,
       "low": 58.57,
       "close": 59.4,
-      "volume": 2344998
+      "volume": 2345019
     }
   ]
 }

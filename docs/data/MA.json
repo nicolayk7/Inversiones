@@ -1,6 +1,6 @@
 {
   "ticker": "MA",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 25, 2006"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.55 (0.62%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.37 (0.59%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 09, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "15.58% 13.94%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "19.07%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,612,695"
+        "value": "2,612,709"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 579.61,
       "low": 571.8,
       "close": 573.85,
-      "volume": 2612695
+      "volume": 2612709
     }
   ]
 }

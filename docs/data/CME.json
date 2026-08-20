@@ -1,6 +1,6 @@
 {
   "ticker": "CME",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 06, 2002"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "11.51 (4.25%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.05 (1.87%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 09, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "-16.21% -3.26%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "44.80%"
       }
     ],
     [

@@ -1,6 +1,6 @@
 {
   "ticker": "BF-B",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 02, 1962"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.95 (3.34%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.92 (3.23%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Dec 08, 2010"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.21% 5.32%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "59.73%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,068,118"
+        "value": "2,068,006"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 28.525,
       "low": 27.89,
       "close": 28.41,
-      "volume": 2068118
+      "volume": 2068006
     }
   ]
 }

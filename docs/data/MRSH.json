@@ -1,6 +1,6 @@
 {
   "ticker": "MRSH",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 19, 1968"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.78 (1.99%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.69 (1.94%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 23, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "15.07% 13.73%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "41.74%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,417,755"
+        "value": "2,417,476"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 191.81,
       "low": 187.58,
       "close": 190.21,
-      "volume": 2417755
+      "volume": 2417476
     }
   ]
 }

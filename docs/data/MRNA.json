@@ -1,6 +1,6 @@
 {
   "ticker": "MRNA",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 07, 2018"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "99,202,659"
+        "value": "99,273,740"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 155,
       "low": 128.61,
       "close": 133.32,
-      "volume": 99202659
+      "volume": 99273740
     }
   ]
 }

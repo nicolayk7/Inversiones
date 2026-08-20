@@ -1,6 +1,6 @@
 {
   "ticker": "DD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 01, 2017"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.97 (2.15%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.31 (1.67%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.70% 3.57%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "983,503"
+        "value": "983,507"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 140.54,
       "low": 138.45,
       "close": 138.46,
-      "volume": 983503
+      "volume": 983507
     }
   ]
 }

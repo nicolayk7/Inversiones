@@ -1,6 +1,6 @@
 {
   "ticker": "DG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 13, 2009"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.33 (1.94%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.36 (1.96%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 07, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.37% 10.38%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "34.46%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,154,724"
+        "value": "2,154,744"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 123.09,
       "low": 117.51,
       "close": 120.58,
-      "volume": 2154724
+      "volume": 2154744
     }
   ]
 }

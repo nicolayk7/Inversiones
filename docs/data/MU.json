@@ -1,6 +1,6 @@
 {
   "ticker": "MU",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 01, 1984"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.58 (0.06%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.53 (0.05%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 06, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.27% -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "6.06%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "25,098,060"
+        "value": "25,137,969"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 977.28,
       "low": 929.07,
       "close": 974.33,
-      "volume": 25098060
+      "volume": 25137969
     }
   ]
 }

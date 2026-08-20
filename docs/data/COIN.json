@@ -1,6 +1,6 @@
 {
   "ticker": "COIN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 14, 2021"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "17,531,000"
+        "value": "17,539,126"
       },
       {
         "label": "RSI (14)",
@@ -1495,7 +1517,7 @@
       "high": 174.78,
       "low": 166.11,
       "close": 172.35,
-      "volume": 17531000
+      "volume": 17539126
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "TMO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.85 (0.29%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.80 (0.29%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "12.75% 14.34%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "9.70%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,750,075"
+        "value": "2,750,080"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 634.7,
       "low": 607.37,
       "close": 627.55,
-      "volume": 2750075
+      "volume": 2750080
     }
   ]
 }

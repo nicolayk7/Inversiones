@@ -1,6 +1,6 @@
 {
   "ticker": "NUE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 02, 1962"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.24 (0.93%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.23 (0.93%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "3.21% 6.54%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "29.39%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,267,830"
+        "value": "2,267,879"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 246.02,
       "low": 239.86,
       "close": 240.48,
-      "volume": 2267830
+      "volume": 2267879
     }
   ]
 }

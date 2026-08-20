@@ -1,6 +1,6 @@
 {
   "ticker": "MRVL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 27, 2000"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.24 (0.10%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.24 (0.10%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 10, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% 0.00%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "7.82%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "29,162,361"
+        "value": "29,178,993"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 251.73,
       "low": 234.527,
       "close": 251.01,
-      "volume": 29162361
+      "volume": 29178993
     }
   ]
 }

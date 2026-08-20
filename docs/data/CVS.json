@@ -1,6 +1,6 @@
 {
   "ticker": "CVS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 01, 1952"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.73 (2.91%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.66 (2.84%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 23, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.74% 5.87%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "191.23%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "6,439,585"
+        "value": "6,439,592"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 94.26,
       "low": 93.21,
       "close": 93.65,
-      "volume": 6439585
+      "volume": 6439592
     }
   ]
 }

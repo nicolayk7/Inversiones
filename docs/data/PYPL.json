@@ -1,6 +1,6 @@
 {
   "ticker": "PYPL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 06, 2015"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.32 (0.51%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.42 (0.67%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "2.59%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "12,016,686"
+        "value": "12,017,733"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 62.73,
       "low": 60.95,
       "close": 62.3,
-      "volume": 12016686
+      "volume": 12017733
     }
   ]
 }

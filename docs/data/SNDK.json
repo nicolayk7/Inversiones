@@ -1,6 +1,6 @@
 {
   "ticker": "SNDK",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 13, 2025"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "11,403,049"
+        "value": "11,413,053"
       },
       {
         "label": "RSI (14)",
@@ -1458,7 +1480,7 @@
       "high": 1631.4,
       "low": 1554,
       "close": 1600.62,
-      "volume": 11403049
+      "volume": 11413053
     }
   ]
 }

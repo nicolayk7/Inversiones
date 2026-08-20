@@ -1,6 +1,6 @@
 {
   "ticker": "AIZ",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 05, 2004"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.48 (1.24%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.44 (1.22%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.18% 5.16%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "19.20%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "442,656"
+        "value": "442,529"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 283.45,
       "low": 274.36,
       "close": 282,
-      "volume": 442656
+      "volume": 442529
     }
   ]
 }

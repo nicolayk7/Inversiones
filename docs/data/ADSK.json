@@ -1,6 +1,6 @@
 {
   "ticker": "ADSK",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 28, 1985"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Mar 22, 2005"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,482,559"
+        "value": "1,482,604"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 255.86,
       "low": 250.19,
       "close": 251.02,
-      "volume": 1482559
+      "volume": 1482604
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "LUV",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 24, 1975"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.78 (1.95%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.72 (1.80%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 03, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "58.74% 31.95%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "90.90%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,740,604"
+        "value": "4,740,779"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 41,
       "low": 39.835,
       "close": 39.89,
-      "volume": 4740604
+      "volume": 4740779
     }
   ]
 }

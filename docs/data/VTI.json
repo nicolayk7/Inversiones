@@ -1,6 +1,6 @@
 {
   "ticker": "VTI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": true,
   "columns": [
     [
@@ -76,7 +76,7 @@
     [
       {
         "label": "Volume",
-        "value": "3,425,575"
+        "value": "3,426,616"
       },
       {
         "label": "Avg Volume",
@@ -1154,7 +1154,7 @@
       "high": 379.37,
       "low": 376.385,
       "close": 376.58,
-      "volume": 3425575
+      "volume": 3426616
     }
   ]
 }

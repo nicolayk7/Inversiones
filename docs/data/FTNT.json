@@ -1,6 +1,6 @@
 {
   "ticker": "FTNT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 18, 2009"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -136,7 +158,7 @@
       },
       {
         "label": "Insider Own",
-        "value": "17.23%"
+        "value": "17.22%"
       },
       {
         "label": "Inst Own",
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,157,798"
+        "value": "5,157,816"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 154.44,
       "low": 150.16,
       "close": 150.79,
-      "volume": 5157798
+      "volume": 5157816
     }
   ]
 }

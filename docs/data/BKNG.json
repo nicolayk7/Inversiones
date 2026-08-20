@@ -1,6 +1,6 @@
 {
   "ticker": "BKNG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 30, 1999"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.53 (0.73%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.61 (0.77%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "23.19%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,852,821"
+        "value": "3,852,831"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 213,
       "low": 209.51,
       "close": 209.87,
-      "volume": 3852821
+      "volume": 3852831
     }
   ]
 }

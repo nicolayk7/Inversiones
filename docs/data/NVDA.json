@@ -1,6 +1,6 @@
 {
   "ticker": "NVDA",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 22, 1999"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.72 (0.33%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.28 (0.13%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "25.99% 14.87%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.82%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "92,345,394"
+        "value": "92,377,281"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 219.86,
       "low": 215.66,
       "close": 216.85,
-      "volume": 92345394
+      "volume": 92377281
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "UNH",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 17, 1984"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "9.06 (2.36%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "8.95 (2.33%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.90% 12.57%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "65.97%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,496,719"
+        "value": "4,496,856"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 392.71,
       "low": 383.83,
       "close": 384.85,
-      "volume": 4496719
+      "volume": 4496856
     }
   ]
 }

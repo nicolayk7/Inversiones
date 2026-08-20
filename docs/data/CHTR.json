@@ -1,6 +1,6 @@
 {
   "ticker": "CHTR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 02, 2009"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.07 (0.04%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,606,125"
+        "value": "3,606,127"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 153.97,
       "low": 144.82,
       "close": 147.76,
-      "volume": 3606125
+      "volume": 3606127
     }
   ]
 }

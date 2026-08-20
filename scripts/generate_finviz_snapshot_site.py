@@ -52,16 +52,18 @@ silently as more capabilities get added to this generator.
 
 FIELD_LAYOUT is a curated, high-confidence subset of the ~84 fields Finviz's quote page exposes —
 every entry's tooltip key was verified present on a live fetch during development, cross-checked
-against `provider.get_snapshot(ticker)["fields"]`'s actual key list (72 of 84), not assumed from
-the visible page alone. 12 real fields (the three "Short interest*" rows, Recom, Target Price,
-Dividend Est./TTM/Ex-Date/Gr., Payout, EPS/Sales Surpr., Earnings date) are silently absent from
-EVERY fetch, not just missing their value — their on-page label `<div>` holds something other than
-plain text in the raw HTML (an icon, most likely), which `finviz.py`'s `_ROW_PATTERN` regex
-(deliberately strict: `[^<]*` inside the label div) does not match, so the whole row never enters
-`get_snapshot`'s fields dict at all. Verified by diffing `get_snapshot`'s actual key count (72)
-against every tooltip enumerated from the raw page during development (84) — the 12-field gap is
-exactly this set. Omitted from this layout rather than guessed at or shown as a false "-", per this
-codebase's disclosure-over-guessing rule (see finviz.py's module docstring for the same principle).
+against `provider.get_snapshot(ticker)["fields"]`'s actual key list, not assumed from the visible
+page alone.
+
+CORRECTION (2026-08-20): an earlier version of this docstring claimed 12 fields (the three "Short
+interest*" rows, Recom, Target Price, Dividend Est./TTM/Ex-Date/Gr., Payout, EPS/Sales Surpr.,
+Earnings date) were permanently unavailable — "their on-page label `<div>` holds something other
+than plain text in the raw HTML (an icon, most likely)". That was a guess, not a verified cause,
+and it was wrong: the real cause was `finviz.py`'s `_ROW_PATTERN` regex requiring the label div to
+contain plain text only (`[^<]*`), when these 12 labels are actually wrapped in a plain `<a
+href="...">` link to that metric's own chart view — confirmed by reading the raw HTML directly.
+Fixed in `_ROW_PATTERN` (now `.*?`, skips over the wrapping tag); all 84 fields resolve as of this
+fix, not 72. The dividend fields below were added once this was confirmed working live.
 
 ETFs (confirmed live 2026-08-20 against SPY/QQQ/VT): Finviz's ETF quote pages carry a COMPLETELY
 DIFFERENT field set — no P/E, no EPS, no ROE (none of FIELD_LAYOUT's equity fields resolve for
@@ -199,6 +201,15 @@ FIELD_LAYOUT: list[list[tuple[str, str]]] = [
         ("Cash/sh", "Cash per share (mrq)"),
         ("Employees", "Full time employees"),
         ("IPO Date", "IPO Date"),
+    ],
+    [
+        # Dividend fields — unavailable until the _ROW_PATTERN fix above (2026-08-20); "-" here is
+        # a genuine, correct "no dividend" for a non-payer, not a parsing gap.
+        ("Dividend Est.", "Analysts' Dividend Estimate (Fiscal Year)"),
+        ("Dividend TTM", "Trailing 12 Months Dividend"),
+        ("Dividend Ex-Date", "Ex-Dividend Date"),
+        ("Dividend Gr. 3/5Y", "Dividend growth over 3 and 5 years"),
+        ("Payout Ratio", "Dividend Payout Ratio (ttm)"),
     ],
     [
         ("P/E", "Price-to-Earnings (ttm)"),

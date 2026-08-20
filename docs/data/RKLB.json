@@ -1,6 +1,6 @@
 {
   "ticker": "RKLB",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 24, 2020"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "16,639,423"
+        "value": "16,652,623"
       },
       {
         "label": "RSI (14)",
@@ -1483,7 +1505,7 @@
       "high": 75.37,
       "low": 71.75,
       "close": 72.95,
-      "volume": 16639423
+      "volume": 16652623
     }
   ]
 }

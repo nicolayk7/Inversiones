@@ -1,6 +1,6 @@
 {
   "ticker": "FE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 10, 1997"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.85 (3.93%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.82 (3.86%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 07, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.10% 2.44%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "99.73%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,392,830"
+        "value": "3,392,829"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 47.775,
       "low": 47.09,
       "close": 47.18,
-      "volume": 3392830
+      "volume": 3392829
     }
   ]
 }

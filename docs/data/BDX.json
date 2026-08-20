@@ -1,6 +1,6 @@
 {
   "ticker": "BDX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 25, 1963"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.99 (2.13%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.74 (1.99%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 09, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.13% 5.65%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "71.53%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,972,636"
+        "value": "1,972,638"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 190.01,
       "low": 185.36,
       "close": 187.62,
-      "volume": 1972636
+      "volume": 1972638
     }
   ]
 }

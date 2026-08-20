@@ -1,6 +1,6 @@
 {
   "ticker": "MKC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.93 (3.49%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.89 (3.42%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 06, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.74% 7.74%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "61.43%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,885,418"
+        "value": "2,885,877"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 56.87,
       "low": 54.85,
       "close": 55.22,
-      "volume": 2885418
+      "volume": 2885877
     }
   ]
 }

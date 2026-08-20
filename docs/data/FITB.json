@@ -1,6 +1,6 @@
 {
   "ticker": "FITB",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.63 (2.99%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.60 (2.94%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.92% 7.35%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "43.59%"
       }
     ],
     [

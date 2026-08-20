@@ -1,6 +1,6 @@
 {
   "ticker": "NTRS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.36 (1.84%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.20 (1.75%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.25% 2.06%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "35.49%"
       }
     ],
     [

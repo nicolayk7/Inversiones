@@ -1,6 +1,6 @@
 {
   "ticker": "HRL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 10, 1962"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.17 (4.86%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.17 (4.84%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 13, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "3.71% 4.52%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "133.53%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,441,721"
+        "value": "3,443,521"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 24.41,
       "low": 23.965,
       "close": 24.08,
-      "volume": 3441721
+      "volume": 3443521
     }
   ]
 }

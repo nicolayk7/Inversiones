@@ -1,6 +1,6 @@
 {
   "ticker": "SHW",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 02, 1962"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.98 (0.86%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.18 (0.92%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "9.60% 12.04%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "30.81%"
       }
     ],
     [

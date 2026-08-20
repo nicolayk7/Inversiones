@@ -1,6 +1,6 @@
 {
   "ticker": "CCL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 24, 1987"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.56 (2.22%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.45 (1.77%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 07, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "26,790,693"
+        "value": "26,796,607"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 26.275,
       "low": 25.19,
       "close": 25.37,
-      "volume": 26792008
+      "volume": 26796607
     }
   ]
 }

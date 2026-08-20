@@ -1,6 +1,6 @@
 {
   "ticker": "CTSH",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 19, 1998"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.32 (2.16%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.30 (2.13%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 18, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.71% 7.10%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.19%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,752,354"
+        "value": "4,752,356"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 61.81,
       "low": 60.26,
       "close": 60.92,
-      "volume": 4752354
+      "volume": 4752356
     }
   ]
 }

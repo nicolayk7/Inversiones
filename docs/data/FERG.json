@@ -1,6 +1,6 @@
 {
   "ticker": "FERG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 31, 2003"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.22 (1.35%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.50 (1.46%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.48% 9.80%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "35.63%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "968,806"
+        "value": "968,542"
       },
       {
         "label": "RSI (14)",
@@ -1521,7 +1543,7 @@
       "high": 242.82,
       "low": 238.83,
       "close": 239.44,
-      "volume": 968806
+      "volume": 968542
     }
   ]
 }

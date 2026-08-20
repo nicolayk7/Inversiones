@@ -1,6 +1,6 @@
 {
   "ticker": "NCLH",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 18, 2013"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "22,051,390"
+        "value": "22,055,990"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 17.16,
       "low": 16.42,
       "close": 16.75,
-      "volume": 22051390
+      "volume": 22055990
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "NKE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 02, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.63 (4.06%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.63 (4.05%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.28% 8.78%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "77.67%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "16,647,481"
+        "value": "16,652,827"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 40.635,
       "low": 39.805,
       "close": 40.21,
-      "volume": 16647481
+      "volume": 16652827
     }
   ]
 }

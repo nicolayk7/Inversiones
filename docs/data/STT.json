@@ -1,6 +1,6 @@
 {
   "ticker": "STT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.52 (1.92%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.36 (1.84%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Oct 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.06% 9.00%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "34.04%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,380,096"
+        "value": "1,380,489"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 187.793,
       "low": 182.96,
       "close": 183.07,
-      "volume": 1380096
+      "volume": 1380489
     }
   ]
 }

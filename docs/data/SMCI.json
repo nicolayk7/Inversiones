@@ -1,6 +1,6 @@
 {
   "ticker": "SMCI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 29, 2007"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "51,231,271"
+        "value": "51,246,763"
       },
       {
         "label": "RSI (14)",
@@ -1523,7 +1545,7 @@
       "high": 38.74,
       "low": 35.582,
       "close": 36.5,
-      "volume": 51231271
+      "volume": 51246763
     }
   ]
 }

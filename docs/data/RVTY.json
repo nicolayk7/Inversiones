@@ -1,6 +1,6 @@
 {
   "ticker": "RVTY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 06, 1965"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.29 (0.23%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.28 (0.23%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Oct 23, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% 0.00%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "13.49%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,344,486"
+        "value": "2,344,656"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 124.49,
       "low": 116.955,
       "close": 124.13,
-      "volume": 2344486
+      "volume": 2344656
     }
   ]
 }

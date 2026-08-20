@@ -1,6 +1,6 @@
 {
   "ticker": "PBR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 10, 2000"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.69 (8.91%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.42 (2.21%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 25, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "-45.64% 21.83%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "33.50%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "26,871,007"
+        "value": "26,871,195"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 19.255,
       "low": 18.76,
       "close": 19.01,
-      "volume": 26871007
+      "volume": 26871195
     }
   ]
 }

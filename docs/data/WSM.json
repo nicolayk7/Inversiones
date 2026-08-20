@@ -1,6 +1,6 @@
 {
   "ticker": "WSM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 07, 1983"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.96 (1.25%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.84 (1.20%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 17, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "19.17% 21.19%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "29.87%"
       }
     ],
     [

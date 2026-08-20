@@ -1,6 +1,6 @@
 {
   "ticker": "AIG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 03, 1972"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.94 (2.56%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.85 (2.44%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 16, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.99% 6.45%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "32.24%"
       }
     ],
     [

@@ -1,6 +1,6 @@
 {
   "ticker": "DE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 29, 1933"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.69 (1.08%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.48 (1.04%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "14.12% 16.34%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "35.02%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,199,661"
+        "value": "3,199,787"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 639,
       "low": 586.475,
       "close": 620.94,
-      "volume": 3199661
+      "volume": 3199787
     }
   ]
 }

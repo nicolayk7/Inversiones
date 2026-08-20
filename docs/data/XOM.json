@@ -1,6 +1,6 @@
 {
   "ticker": "XOM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 01, 1920"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.16 (2.50%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.12 (2.48%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 17, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.06% 2.82%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "59.70%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "13,798,118"
+        "value": "13,801,058"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 168.64,
       "low": 166.07,
       "close": 166.15,
-      "volume": 13798118
+      "volume": 13801058
     }
   ]
 }

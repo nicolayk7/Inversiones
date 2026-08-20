@@ -1,6 +1,6 @@
 {
   "ticker": "ROP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 13, 1992"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.59 (0.87%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.55 (0.87%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Oct 02, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "9.99% 9.99%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "23.84%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "580,572"
+        "value": "580,574"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 412.63,
       "low": 405.44,
       "close": 410.45,
-      "volume": 580572
+      "volume": 580574
     }
   ]
 }

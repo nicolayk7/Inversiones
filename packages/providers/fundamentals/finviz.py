@@ -103,8 +103,20 @@ _USER_AGENT = (
 
 # Matches one snapshot-grid cell pair: a labeled td (keyed by its unique tooltip, not the short
 # on-screen label — see module docstring) followed immediately by its value td.
+#
+# The label div's inner content is `.*?` (any content, non-greedy), NOT `[^<]*` (plain text only)
+# — corrected 2026-08-20 after finding a real bug: 12 fields (Dividend Est./TTM/Ex-Date/Gr.,
+# Payout, Recom, Target Price, the three "Short interest*" rows, EPS/Sales Surpr., Earnings date)
+# were silently absent from every fetch. The earlier docstring guessed "an icon, most likely" —
+# that guess was wrong, not verified against the actual markup. The real cause, confirmed by
+# reading the raw HTML directly: these labels are wrapped in a plain `<a href="...">` link (e.g.
+# `<div class="snapshot-td-label"><a href="stock?t=AAPL&ty=dv" ...>Dividend TTM</a></div>`, linking
+# to that metric's own detail-chart view) — the OLD pattern's `[^<]*` cannot match past that `<a`,
+# so the whole row silently failed to match. `.*?` (with re.S already in effect) correctly skips
+# over the wrapping tag to find the label div's real closing `</div>`, restoring all 12 fields with
+# no other change needed.
 _ROW_PATTERN = re.compile(
-    r'data-boxover-html="(?P<tooltip>[^"]*)"><div class="snapshot-td-label">[^<]*</div></td>'
+    r'data-boxover-html="(?P<tooltip>[^"]*)"><div class="snapshot-td-label">.*?</div></td>'
     r'<td[^>]*><div class="snapshot-td-content">(?P<value>.*?)</div>',
     re.S,
 )

@@ -1,6 +1,6 @@
 {
   "ticker": "ACGL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 14, 1995"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.17 (0.17%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Nov 18, 2024"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,673,028"
+        "value": "1,673,038"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 99.85,
       "low": 98,
       "close": 99.31,
-      "volume": 1673028
+      "volume": 1673038
     }
   ]
 }

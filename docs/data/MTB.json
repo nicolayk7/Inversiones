@@ -1,6 +1,6 @@
 {
   "ticker": "MTB",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.17 (2.59%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.00 (2.52%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.90% 5.31%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "33.53%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,801,961"
+        "value": "1,801,732"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 244.245,
       "low": 238.13,
       "close": 238.25,
-      "volume": 1801961
+      "volume": 1801732
     }
   ]
 }

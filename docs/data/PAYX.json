@@ -1,6 +1,6 @@
 {
   "ticker": "PAYX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 26, 1983"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.99 (4.06%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.54 (3.69%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 28, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.76% 11.94%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "90.61%"
       }
     ],
     [

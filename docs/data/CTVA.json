@@ -1,6 +1,6 @@
 {
   "ticker": "CTVA",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 24, 2019"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.74 (0.93%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.72 (0.91%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.47% 6.13%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "43.60%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,927,718"
+        "value": "4,927,740"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 82.12,
       "low": 78.82,
       "close": 79.46,
-      "volume": 4927718
+      "volume": 4927740
     }
   ]
 }

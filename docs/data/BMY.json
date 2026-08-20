@@ -1,6 +1,6 @@
 {
   "ticker": "BMY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 05, 1929"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.34 (3.57%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.51 (3.83%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 02, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.37% 6.24%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "71.98%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "9,487,680"
+        "value": "9,488,395"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 67.54,
       "low": 65.45,
       "close": 65.47,
-      "volume": 9487680
+      "volume": 9488395
     }
   ]
 }

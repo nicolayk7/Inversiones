@@ -1,6 +1,6 @@
 {
   "ticker": "VRSK",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 07, 2009"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.00 (1.06%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.90 (1.01%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "13.23% 10.76%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.76%"
       }
     ],
     [

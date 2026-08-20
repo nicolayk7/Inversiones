@@ -1,6 +1,6 @@
 {
   "ticker": "XYL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 13, 2011"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.60 (1.41%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.66 (1.46%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 27, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.06% 9.00%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "40.79%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,510,803"
+        "value": "1,511,286"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 116.2,
       "low": 113,
       "close": 113.44,
-      "volume": 1510803
+      "volume": 1511286
     }
   ]
 }

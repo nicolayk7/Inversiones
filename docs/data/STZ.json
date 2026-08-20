@@ -1,6 +1,6 @@
 {
   "ticker": "STZ",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 01, 1982"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.13 (3.08%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.10 (3.06%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.44% 6.34%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "42.47%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,499,277"
+        "value": "1,499,278"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 134.84,
       "low": 131.21,
       "close": 134.14,
-      "volume": 1499277
+      "volume": 1499278
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "Q",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 03, 2025"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.24 (0.18%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.22 (0.16%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "1.82%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,291,945"
+        "value": "4,291,959"
       },
       {
         "label": "RSI (14)",
@@ -1473,7 +1495,7 @@
       "high": 134.395,
       "low": 125.312,
       "close": 133.52,
-      "volume": 4291945
+      "volume": 4291959
     }
   ]
 }

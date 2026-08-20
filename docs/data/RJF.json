@@ -1,6 +1,6 @@
 {
   "ticker": "RJF",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 01, 1983"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.15 (1.25%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.12 (1.23%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "13.72% 15.10%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "19.43%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,099,243"
+        "value": "1,099,451"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 178.12,
       "low": 171.91,
       "close": 172.35,
-      "volume": 1099243
+      "volume": 1099451
     }
   ]
 }

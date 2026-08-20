@@ -1,6 +1,6 @@
 {
   "ticker": "TFC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 18, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.10 (4.19%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.08 (4.14%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "1.32% 2.93%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "54.48%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,504,422"
+        "value": "5,505,010"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 51.06,
       "low": 50.225,
       "close": 50.23,
-      "volume": 5504422
+      "volume": 5505010
     }
   ]
 }

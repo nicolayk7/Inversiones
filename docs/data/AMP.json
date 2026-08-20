@@ -1,6 +1,6 @@
 {
   "ticker": "AMP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 15, 2005"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.75 (1.23%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.60 (1.21%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 03, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.77% 8.96%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "17.31%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "383,126"
+        "value": "383,127"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 564.472,
       "low": 546.66,
       "close": 547.09,
-      "volume": 383126
+      "volume": 383127
     }
   ]
 }

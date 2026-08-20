@@ -1,6 +1,6 @@
 {
   "ticker": "HD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 22, 1981"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "9.27 (2.77%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "9.26 (2.77%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.58% 8.92%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "64.67%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,026,957"
+        "value": "4,027,087"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 338.875,
       "low": 331.59,
       "close": 334.49,
-      "volume": 4026957
+      "volume": 4027087
     }
   ]
 }

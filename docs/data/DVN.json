@@ -1,6 +1,6 @@
 {
   "ticker": "DVN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1992"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.15 (2.33%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.04 (2.11%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "-42.95% 17.98%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "23.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "10,358,159"
+        "value": "10,358,373"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 49.72,
       "low": 48.93,
       "close": 49.3,
-      "volume": 10358159
+      "volume": 10358373
     }
   ]
 }

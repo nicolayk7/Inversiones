@@ -1,6 +1,6 @@
 {
   "ticker": "INVH",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 01, 2017"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.20 (3.97%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.19 (3.93%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 25, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "9.96% 14.29%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "194.58%"
       }
     ],
     [

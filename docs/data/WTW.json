@@ -1,6 +1,6 @@
 {
   "ticker": "WTW",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 12, 2001"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.79 (1.11%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.76 (1.10%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "3.91% 6.00%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "22.70%"
       }
     ],
     [

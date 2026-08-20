@@ -1,6 +1,6 @@
 {
   "ticker": "MPC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 23, 2011"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.07 (1.13%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.00 (1.12%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 19, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "14.42% 9.96%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "28.23%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,895,754"
+        "value": "2,895,777"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 367.595,
       "low": 356.69,
       "close": 358.23,
-      "volume": 2895754
+      "volume": 2895777
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "NWSA",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 19, 2013"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.20 (0.68%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.20 (0.67%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 09, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% 0.00%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "19.49%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,519,773"
+        "value": "2,519,788"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 29.725,
       "low": 29.12,
       "close": 29.65,
-      "volume": 2519773
+      "volume": 2519788
     }
   ]
 }

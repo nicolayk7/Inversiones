@@ -1,6 +1,6 @@
 {
   "ticker": "CI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 16, 1979"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.20 (2.26%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.14 (2.24%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 08, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.47% 172.77%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.23%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,088,660"
+        "value": "1,088,675"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 278.8,
       "low": 274.04,
       "close": 274.41,
-      "volume": 1088660
+      "volume": 1088675
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "HCA",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 10, 2011"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.80 (0.69%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.00 (0.74%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 16, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.74% 46.28%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "10.17%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,063,634"
+        "value": "1,063,637"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 411.14,
       "low": 403.35,
       "close": 406.27,
-      "volume": 1063634
+      "volume": 1063637
     }
   ]
 }

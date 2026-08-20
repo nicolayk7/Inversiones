@@ -1,6 +1,6 @@
 {
   "ticker": "CAT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 02, 1929"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.21 (0.76%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.16 (0.76%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 20, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.04% 7.59%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "31.58%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,934,708"
+        "value": "2,936,403"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 818.93,
       "low": 801,
       "close": 815.39,
-      "volume": 2934708
+      "volume": 2936403
     }
   ]
 }

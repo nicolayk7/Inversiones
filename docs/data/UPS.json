@@ -1,6 +1,6 @@
 {
   "ticker": "UPS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 10, 1999"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.56 (6.39%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.56 (6.40%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 17, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.57% 10.18%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "100.07%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,739,239"
+        "value": "3,740,034"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 103.4,
       "low": 101.57,
       "close": 102.58,
-      "volume": 3739239
+      "volume": 3740034
     }
   ]
 }

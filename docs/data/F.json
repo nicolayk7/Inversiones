@@ -1,6 +1,6 @@
 {
   "ticker": "F",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 01, 1972"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.60 (4.29%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.60 (4.29%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "14.47% 37.97%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "41,141,498"
+        "value": "41,169,552"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 14.3,
       "low": 13.82,
       "close": 13.99,
-      "volume": 41141498
+      "volume": 41169552
     }
   ]
 }

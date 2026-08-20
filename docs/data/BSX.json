@@ -1,6 +1,6 @@
 {
   "ticker": "BSX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 19, 1992"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "20,371,760"
+        "value": "20,372,121"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 51.8,
       "low": 49.36,
       "close": 49.37,
-      "volume": 20371760
+      "volume": 20372121
     }
   ]
 }

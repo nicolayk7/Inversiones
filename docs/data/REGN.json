@@ -1,6 +1,6 @@
 {
   "ticker": "REGN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 02, 1991"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.43 (0.42%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.70 (0.45%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 18, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "8.49%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "596,449"
+        "value": "596,454"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 840.82,
       "low": 826.05,
       "close": 826.64,
-      "volume": 596449
+      "volume": 596454
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "GNRC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 11, 2010"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 10, 2013"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "746,216"
+        "value": "746,234"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 210.585,
       "low": 204.39,
       "close": 206.75,
-      "volume": 746216
+      "volume": 746234
     }
   ]
 }

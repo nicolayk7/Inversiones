@@ -1,6 +1,6 @@
 {
   "ticker": "A",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 18, 1999"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.02 (0.65%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.01 (0.65%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.63% 6.58%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "21.70%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,829,294"
+        "value": "2,830,304"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 159.94,
       "low": 152.115,
       "close": 156.3,
-      "volume": 2829294
+      "volume": 2830304
     }
   ]
 }

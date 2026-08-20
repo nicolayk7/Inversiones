@@ -1,6 +1,6 @@
 {
   "ticker": "ROK",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 29, 1956"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.42 (1.26%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.52 (1.28%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 17, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.36% 5.13%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "68.36%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "698,972"
+        "value": "698,979"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 439.43,
       "low": 428.216,
       "close": 431.45,
-      "volume": 698972
+      "volume": 698979
     }
   ]
 }

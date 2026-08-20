@@ -1,6 +1,6 @@
 {
   "ticker": "O",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 18, 1994"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.26 (5.16%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.24 (5.13%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.73% 2.83%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "277.37%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,588,574"
+        "value": "3,588,792"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 63.54,
       "low": 62.8,
       "close": 63.17,
-      "volume": 3588574
+      "volume": 3588792
     }
   ]
 }

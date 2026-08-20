@@ -1,6 +1,6 @@
 {
   "ticker": "WMT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 20, 1972"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.00 (0.96%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.97 (0.93%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.82% 5.48%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "34.44%"
       }
     ],
     [
@@ -160,11 +182,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "3.48"
+        "value": "3.49"
       },
       {
         "label": "Volume",
-        "value": "83,530,508"
+        "value": "83,556,614"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 107,
       "low": 102.85,
       "close": 103.84,
-      "volume": 83530508
+      "volume": 83556614
     }
   ]
 }

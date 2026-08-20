@@ -1,6 +1,6 @@
 {
   "ticker": "SO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 30, 1949"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.03 (3.31%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.00 (3.28%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 17, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.88% 2.97%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "75.11%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "6,415,352"
+        "value": "6,415,355"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 92.65,
       "low": 91.41,
       "close": 91.43,
-      "volume": 6415352
+      "volume": 6415355
     }
   ]
 }

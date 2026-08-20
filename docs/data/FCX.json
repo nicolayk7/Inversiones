@@ -1,6 +1,6 @@
 {
   "ticker": "FCX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 10, 1995"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.60 (0.84%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.30 (0.42%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "39.41%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "17,637,505"
+        "value": "17,640,993"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 71.515,
       "low": 67.72,
       "close": 71.22,
-      "volume": 17637505
+      "volume": 17640993
     }
   ]
 }

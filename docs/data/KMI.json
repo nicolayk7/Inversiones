@@ -1,6 +1,6 @@
 {
   "ticker": "KMI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 11, 2011"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.19 (3.77%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.18 (3.73%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 03, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.08% 2.38%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "85.19%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "13,721,607"
+        "value": "13,721,806"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 32.29,
       "low": 31.13,
       "close": 31.61,
-      "volume": 13721607
+      "volume": 13721806
     }
   ]
 }

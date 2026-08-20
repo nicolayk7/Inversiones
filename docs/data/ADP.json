@@ -1,6 +1,6 @@
 {
   "ticker": "ADP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 26, 1967"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.99 (2.50%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.64 (2.38%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "11.50% 12.41%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "60.68%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,684,969"
+        "value": "1,685,063"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 281.67,
       "low": 276.93,
       "close": 279.21,
-      "volume": 1684969
+      "volume": 1685063
     }
   ]
 }

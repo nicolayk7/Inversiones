@@ -1,6 +1,6 @@
 {
   "ticker": "CMS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 03, 1947"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.28 (3.27%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.25 (3.22%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 07, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.65% 5.89%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "61.56%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,018,078"
+        "value": "4,017,867"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 70.95,
       "low": 69.76,
       "close": 69.83,
-      "volume": 4018078
+      "volume": 4017867
     }
   ]
 }

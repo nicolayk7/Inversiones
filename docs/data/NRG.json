@@ -1,6 +1,6 @@
 {
   "ticker": "NRG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 02, 2003"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.93 (1.68%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.86 (1.62%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 03, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.93% 7.96%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "43.95%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,791,264"
+        "value": "2,791,977"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 121.1,
       "low": 114.9,
       "close": 115.36,
-      "volume": 2791264
+      "volume": 2791977
     }
   ]
 }

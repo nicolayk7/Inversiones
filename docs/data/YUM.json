@@ -1,6 +1,6 @@
 {
   "ticker": "YUM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 12, 1997"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.98 (1.96%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.92 (1.92%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "May 27, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.60% 8.60%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "51.19%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,280,891"
+        "value": "4,281,775"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 152.4,
       "low": 145.324,
       "close": 152.33,
-      "volume": 4280891
+      "volume": 4281775
     }
   ]
 }

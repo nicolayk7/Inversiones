@@ -1,6 +1,6 @@
 {
   "ticker": "ECL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.94 (1.04%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.84 (1.01%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "9.17% 7.23%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "36.82%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,862,806"
+        "value": "1,862,808"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 286.6,
       "low": 280.33,
       "close": 281.48,
-      "volume": 1862806
+      "volume": 1862808
     }
   ]
 }

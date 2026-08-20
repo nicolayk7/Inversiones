@@ -1,6 +1,6 @@
 {
   "ticker": "KVUE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 04, 2023"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.85 (4.47%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.83 (4.41%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 12, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "107.98%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "17,706,663"
+        "value": "17,706,404"
       },
       {
         "label": "RSI (14)",
@@ -1509,7 +1531,7 @@
       "high": 19.16,
       "low": 18.87,
       "close": 18.93,
-      "volume": 17706663
+      "volume": 17706404
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "FIX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 27, 1997"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.27 (0.20%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.00 (0.18%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 13, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "51.57% 35.94%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "6.75%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "361,550"
+        "value": "361,565"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 1707.41,
       "low": 1656.147,
       "close": 1672.94,
-      "volume": 361550
+      "volume": 361565
     }
   ]
 }

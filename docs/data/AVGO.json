@@ -1,6 +1,6 @@
 {
   "ticker": "AVGO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -39,12 +39,34 @@
     ],
     [
       {
+        "label": "Dividend Est.",
+        "value": "2.62 (0.72%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.54 (0.70%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 22, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "12.90% 12.67%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "49.52%"
+      }
+    ],
+    [
+      {
         "label": "P/E",
         "value": "60.60"
       },
       {
         "label": "Forward P/E",
-        "value": "18.59"
+        "value": "18.61"
       },
       {
         "label": "PEG",
@@ -86,11 +108,11 @@
       },
       {
         "label": "EPS next Y ($)",
-        "value": "19.59"
+        "value": "19.56"
       },
       {
         "label": "EPS next Y (%)",
-        "value": "68.98%"
+        "value": "68.70%"
       },
       {
         "label": "EPS next 5Y",
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "19,700,617"
+        "value": "19,710,758"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 367.12,
       "low": 362.25,
       "close": 364.03,
-      "volume": 19700663
+      "volume": 19710758
     }
   ]
 }

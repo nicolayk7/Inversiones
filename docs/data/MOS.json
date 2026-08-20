@@ -1,6 +1,6 @@
 {
   "ticker": "MOS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 26, 1988"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.88 (3.76%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.88 (3.77%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "May 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "16.26% 34.49%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "51.90%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "12,615,179"
+        "value": "12,616,762"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 23.445,
       "low": 22.31,
       "close": 23.35,
-      "volume": 12615179
+      "volume": 12616762
     }
   ]
 }

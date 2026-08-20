@@ -1,6 +1,6 @@
 {
   "ticker": "GLW",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 21, 1945"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.17 (0.77%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.12 (0.74%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "1.22% 4.94%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "61.12%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "10,577,212"
+        "value": "10,579,316"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 154.06,
       "low": 149.25,
       "close": 151.45,
-      "volume": 10577212
+      "volume": 10579316
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "BNY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 04, 1969"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.32 (1.48%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.22 (1.41%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 27, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "12.09% 10.03%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.02%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,205,194"
+        "value": "2,205,220"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 161.015,
       "low": 157.15,
       "close": 157.24,
-      "volume": 2205194
+      "volume": 2205220
     }
   ]
 }

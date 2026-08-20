@@ -1,6 +1,6 @@
 {
   "ticker": "CSGP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 01, 1998"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "6,620,964"
+        "value": "6,621,317"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 33.63,
       "low": 31.72,
       "close": 32.26,
-      "volume": 6620964
+      "volume": 6621317
     }
   ]
 }

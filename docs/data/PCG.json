@@ -1,6 +1,6 @@
 {
   "ticker": "PCG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 24, 1919"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.20 (1.10%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.18 (0.97%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "10.61%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "49,680,739"
+        "value": "49,681,050"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 18.405,
       "low": 17.615,
       "close": 17.96,
-      "volume": 49680739
+      "volume": 49681050
     }
   ]
 }

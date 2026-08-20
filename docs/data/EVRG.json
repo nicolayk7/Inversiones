@@ -1,6 +1,6 @@
 {
   "ticker": "EVRG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 24, 2018"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.77 (3.33%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.78 (3.34%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 18, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.04% 5.66%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "73.65%"
       }
     ],
     [

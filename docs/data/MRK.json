@@ -1,6 +1,6 @@
 {
   "ticker": "MRK",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 15, 1946"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.41 (2.29%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.36 (2.26%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.42% 5.75%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "45.05%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "16,203,426"
+        "value": "16,203,668"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 152.515,
       "low": 148.516,
       "close": 148.99,
-      "volume": 16203426
+      "volume": 16203668
     }
   ]
 }

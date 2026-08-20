@@ -1,6 +1,6 @@
 {
   "ticker": "BRO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 01, 1982"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.68 (0.94%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.66 (0.92%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 12, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "13.25% 11.75%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "19.46%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,459,791"
+        "value": "1,459,565"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 72.74,
       "low": 70.835,
       "close": 72.08,
-      "volume": 1459791
+      "volume": 1459565
     }
   ]
 }

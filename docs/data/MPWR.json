@@ -1,6 +1,6 @@
 {
   "ticker": "MPWR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 19, 2004"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "7.52 (0.57%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "7.12 (0.54%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "27.65% 25.55%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "48.50%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "437,068"
+        "value": "437,091"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 1327,
       "low": 1295.02,
       "close": 1310.6,
-      "volume": 437068
+      "volume": 437091
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "GLD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": true,
   "columns": [
     [
@@ -76,7 +76,7 @@
     [
       {
         "label": "Volume",
-        "value": "13,868,299"
+        "value": "13,884,229"
       },
       {
         "label": "Avg Volume",
@@ -1154,7 +1154,7 @@
       "high": 416.45,
       "low": 409.82,
       "close": 415.26,
-      "volume": 13868299
+      "volume": 13884229
     }
   ]
 }

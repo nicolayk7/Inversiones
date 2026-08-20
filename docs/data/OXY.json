@@ -1,6 +1,6 @@
 {
   "ticker": "OXY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 02, 1962"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.01 (1.65%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.00 (1.63%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 10, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "22.67% 3.20%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "59.56%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "8,954,484"
+        "value": "8,955,594"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 62.145,
       "low": 60.94,
       "close": 61.52,
-      "volume": 8954484
+      "volume": 8955594
     }
   ]
 }

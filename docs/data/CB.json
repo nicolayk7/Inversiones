@@ -1,6 +1,6 @@
 {
   "ticker": "CB",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 25, 1993"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.01 (1.17%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.93 (1.15%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.10% 4.33%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "14.88%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,068,254"
+        "value": "2,068,358"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 344.31,
       "low": 340.19,
       "close": 342.87,
-      "volume": 2068254
+      "volume": 2068358
     }
   ]
 }

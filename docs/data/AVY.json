@@ -1,6 +1,6 @@
 {
   "ticker": "AVY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 20, 1967"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.97 (2.17%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.82 (2.09%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 02, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.09% 9.41%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "42.11%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "554,751"
+        "value": "554,868"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 184.11,
       "low": 179.1,
       "close": 182.68,
-      "volume": 554751
+      "volume": 554868
     }
   ]
 }

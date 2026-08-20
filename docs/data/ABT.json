@@ -1,6 +1,6 @@
 {
   "ticker": "ABT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 01, 1937"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.58 (2.26%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.48 (2.17%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.72% 9.42%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "64.54%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,785,013"
+        "value": "5,785,157"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 115.23,
       "low": 113.99,
       "close": 114.14,
-      "volume": 5785013
+      "volume": 5785157
     }
   ]
 }

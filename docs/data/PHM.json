@@ -1,6 +1,6 @@
 {
   "ticker": "PHM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 07, 1972"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.97 (0.76%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.00 (0.78%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 16, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "14.68% 12.97%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "8.27%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,270,421"
+        "value": "1,270,690"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 128.67,
       "low": 126.03,
       "close": 127.67,
-      "volume": 1270421
+      "volume": 1270690
     }
   ]
 }

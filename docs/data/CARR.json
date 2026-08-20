@@ -1,6 +1,6 @@
 {
   "ticker": "CARR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 19, 2020"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.95 (1.58%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.94 (1.57%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "12.86% 26.86%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "52.40%"
       }
     ],
     [

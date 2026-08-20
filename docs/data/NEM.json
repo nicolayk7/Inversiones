@@ -1,6 +1,6 @@
 {
   "ticker": "NEM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 27, 1940"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.04 (0.81%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.02 (0.80%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 03, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "-23.11% -0.78%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "15.64%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "9,669,736"
+        "value": "9,672,181"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 128.69,
       "low": 123.71,
       "close": 127.64,
-      "volume": 9669736
+      "volume": 9672181
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "ZTS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 01, 2013"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.15 (2.86%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.09 (2.79%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 20, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "14.57% 19.02%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "33.71%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,914,732"
+        "value": "3,914,875"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 77.295,
       "low": 74.935,
       "close": 75.02,
-      "volume": 3914732
+      "volume": 3914875
     }
   ]
 }

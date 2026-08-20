@@ -1,6 +1,6 @@
 {
   "ticker": "NOC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 10, 1951"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "9.70 (1.72%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "9.40 (1.67%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "9.97% 9.66%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "30.91%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,236,124"
+        "value": "1,236,209"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 586,
       "low": 563.425,
       "close": 563.86,
-      "volume": 1236124
+      "volume": 1236209
     }
   ]
 }

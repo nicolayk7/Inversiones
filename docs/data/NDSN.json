@@ -1,6 +1,6 @@
 {
   "ticker": "NDSN",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 18, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.35 (1.00%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.28 (0.98%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 18, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "13.17% 15.61%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "37.12%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,255,918"
+        "value": "1,255,929"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 336.695,
       "low": 308.42,
       "close": 334.7,
-      "volume": 1255918
+      "volume": 1255929
     }
   ]
 }

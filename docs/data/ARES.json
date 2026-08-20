@@ -1,6 +1,6 @@
 {
   "ticker": "ARES",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 02, 2014"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.42 (3.86%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.94 (3.52%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 16, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "22.45% 22.87%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "253.90%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,169,698"
+        "value": "2,169,494"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 144.07,
       "low": 139.76,
       "close": 140.23,
-      "volume": 2169698
+      "volume": 2169494
     }
   ]
 }

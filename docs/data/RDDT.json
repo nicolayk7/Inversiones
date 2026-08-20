@@ -1,6 +1,6 @@
 {
   "ticker": "RDDT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 21, 2024"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "7,658,863"
+        "value": "7,662,201"
       },
       {
         "label": "RSI (14)",
@@ -1497,7 +1519,7 @@
       "high": 150.77,
       "low": 144.05,
       "close": 150.31,
-      "volume": 7658863
+      "volume": 7662201
     }
   ]
 }

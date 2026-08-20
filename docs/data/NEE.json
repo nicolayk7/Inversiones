@@ -1,6 +1,6 @@
 {
   "ticker": "NEE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 15, 1950"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.47 (2.91%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.38 (2.80%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 28, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.12% 10.15%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "68.65%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "15,235,699"
+        "value": "15,235,715"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 85.99,
       "low": 84.6,
       "close": 85.03,
-      "volume": 15235699
+      "volume": 15235715
     }
   ]
 }

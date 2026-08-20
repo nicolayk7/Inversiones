@@ -1,6 +1,6 @@
 {
   "ticker": "IWM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": true,
   "columns": [
     [
@@ -76,7 +76,7 @@
     [
       {
         "label": "Volume",
-        "value": "21,602,753"
+        "value": "21,612,772"
       },
       {
         "label": "Avg Volume",
@@ -1154,7 +1154,7 @@
       "high": 300.04,
       "low": 297.04,
       "close": 297.67,
-      "volume": 21602753
+      "volume": 21612772
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "RSG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 01, 1998"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.55 (1.16%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.50 (1.14%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Oct 02, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.06% 7.74%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "35.17%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,392,665"
+        "value": "1,392,670"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 222.1,
       "low": 219.36,
       "close": 219.5,
-      "volume": 1392665
+      "volume": 1392670
     }
   ]
 }

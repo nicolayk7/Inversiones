@@ -1,6 +1,6 @@
 {
   "ticker": "CRH",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 10, 1989"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.57 (1.68%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.54 (1.65%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.71% 5.64%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.23%"
       }
     ],
     [
@@ -160,11 +182,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "1.24"
+        "value": "1.23"
       },
       {
         "label": "Volume",
-        "value": "5,720,013"
+        "value": "5,719,651"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 94.37,
       "low": 92.52,
       "close": 93.09,
-      "volume": 5720013
+      "volume": 5719651
     }
   ]
 }

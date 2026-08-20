@@ -1,6 +1,6 @@
 {
   "ticker": "LH",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 07, 1988"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.94 (0.88%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.88 (0.87%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 28, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.06% -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.54%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "732,163"
+        "value": "732,166"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 338.19,
       "low": 326.74,
       "close": 332.81,
-      "volume": 732163
+      "volume": 732166
     }
   ]
 }

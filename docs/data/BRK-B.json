@@ -1,6 +1,6 @@
 {
   "ticker": "BRK-B",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 09, 1996"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,282,887"
+        "value": "3,283,345"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 500.44,
       "low": 496.48,
       "close": 496.86,
-      "volume": 3282887
+      "volume": 3283345
     }
   ]
 }

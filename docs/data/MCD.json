@@ -1,6 +1,6 @@
 {
   "ticker": "MCD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 05, 1966"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "7.50 (2.79%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "7.35 (2.73%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.20% 7.30%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "59.99%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,525,776"
+        "value": "3,525,998"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 271.88,
       "low": 266.91,
       "close": 269.13,
-      "volume": 3525776
+      "volume": 3525998
     }
   ]
 }

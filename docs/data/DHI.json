@@ -1,6 +1,6 @@
 {
   "ticker": "DHI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 05, 1992"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.79 (1.21%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.80 (1.22%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 06, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "21.14% 17.98%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "13.83%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,759,776"
+        "value": "1,760,532"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 150.125,
       "low": 146.49,
       "close": 147.33,
-      "volume": 1759776
+      "volume": 1760532
     }
   ]
 }

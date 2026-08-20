@@ -1,6 +1,6 @@
 {
   "ticker": "JCI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 14, 1967"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.56 (1.09%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.60 (1.12%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.80% 7.74%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "55.15%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,979,889"
+        "value": "2,980,027"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 146.17,
       "low": 142.84,
       "close": 143.16,
-      "volume": 2979889
+      "volume": 2980027
     }
   ]
 }

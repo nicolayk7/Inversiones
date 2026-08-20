@@ -1,6 +1,6 @@
 {
   "ticker": "FICO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 22, 1987"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Mar 01, 2017"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "263,471"
+        "value": "263,470"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 1178.65,
       "low": 1135.18,
       "close": 1149.75,
-      "volume": 263471
+      "volume": 263470
     }
   ]
 }

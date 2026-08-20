@@ -1,6 +1,6 @@
 {
   "ticker": "VZ",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 21, 1983"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.83 (5.75%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.80 (5.68%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 10, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "1.90% 1.94%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "67.38%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "12,545,135"
+        "value": "12,545,381"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 49.59,
       "low": 49.139,
       "close": 49.19,
-      "volume": 12545135
+      "volume": 12545381
     }
   ]
 }

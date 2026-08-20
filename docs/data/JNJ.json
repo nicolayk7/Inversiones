@@ -1,6 +1,6 @@
 {
   "ticker": "JNJ",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 25, 1944"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.38 (2.01%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.24 (1.96%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 25, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.92% 5.25%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "46.59%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "6,473,698"
+        "value": "6,474,580"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 273.4,
       "low": 267.37,
       "close": 267.37,
-      "volume": 6473698
+      "volume": 6474580
     }
   ]
 }

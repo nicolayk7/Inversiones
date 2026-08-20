@@ -1,6 +1,6 @@
 {
   "ticker": "VRT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 30, 2018"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.23 (0.09%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.22 (0.08%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "157.13% 76.23%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "5.13%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,218,673"
+        "value": "5,219,073"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 264.95,
       "low": 252.16,
       "close": 264.63,
-      "volume": 5218673
+      "volume": 5219073
     }
   ]
 }

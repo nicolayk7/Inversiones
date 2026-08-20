@@ -1,6 +1,6 @@
 {
   "ticker": "SBUX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 26, 1992"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.52 (2.42%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.48 (2.38%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.57% 8.27%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "149.81%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "7,582,690"
+        "value": "7,582,757"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 105.74,
       "low": 102.965,
       "close": 103.99,
-      "volume": 7582690
+      "volume": 7582757
     }
   ]
 }

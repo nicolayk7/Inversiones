@@ -1,6 +1,6 @@
 {
   "ticker": "ODFL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 24, 1991"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.17 (0.57%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.14 (0.56%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 02, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "23.13% 30.14%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "23.15%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,045,783"
+        "value": "1,045,859"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 206.775,
       "low": 202.23,
       "close": 204.52,
-      "volume": 1045783
+      "volume": 1045859
     }
   ]
 }

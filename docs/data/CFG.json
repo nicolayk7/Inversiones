@@ -1,6 +1,6 @@
 {
   "ticker": "CFG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 24, 2014"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.89 (2.71%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.84 (2.64%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.02% 1.97%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "44.52%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,118,086"
+        "value": "2,118,236"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 70.805,
       "low": 69.675,
       "close": 69.71,
-      "volume": 2118086
+      "volume": 2118236
     }
   ]
 }

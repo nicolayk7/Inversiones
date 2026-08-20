@@ -1,6 +1,6 @@
 {
   "ticker": "KKR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 15, 2010"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.78 (0.73%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.76 (0.71%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 10, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.17% 6.61%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "31.17%"
       }
     ],
     [

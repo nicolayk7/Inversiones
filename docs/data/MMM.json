@@ -1,6 +1,6 @@
 {
   "ticker": "MMM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 14, 1946"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.13 (1.76%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.02 (1.70%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 24, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "-21.17% -13.06%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "48.63%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,499,952"
+        "value": "3,499,957"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 181.97,
       "low": 177.9,
       "close": 178.09,
-      "volume": 3499952
+      "volume": 3499957
     }
   ]
 }

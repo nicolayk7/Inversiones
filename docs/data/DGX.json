@@ -1,6 +1,6 @@
 {
   "ticker": "DGX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 17, 1996"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.33 (1.38%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.32 (1.38%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Oct 06, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.62% 7.39%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "36.60%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,139,758"
+        "value": "1,139,768"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 245.675,
       "low": 237.525,
       "close": 241.3,
-      "volume": 1139758
+      "volume": 1139768
     }
   ]
 }

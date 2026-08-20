@@ -1,6 +1,6 @@
 {
   "ticker": "EME",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 28, 1995"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.53 (0.19%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.45 (0.18%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "22.80% 25.59%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "3.55%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "286,104"
+        "value": "286,106"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 807.417,
       "low": 784.89,
       "close": 787.39,
-      "volume": 286104
+      "volume": 286106
     }
   ]
 }

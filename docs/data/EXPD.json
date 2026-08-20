@@ -1,6 +1,6 @@
 {
   "ticker": "EXPD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 26, 1984"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.62 (0.87%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.58 (0.85%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.75% 8.17%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "25.89%"
       }
     ],
     [

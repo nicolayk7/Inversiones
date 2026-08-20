@@ -1,6 +1,6 @@
 {
   "ticker": "KMB",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 09, 1929"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "5.15 (4.74%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "5.08 (4.67%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.79% 3.32%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "83.09%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,430,814"
+        "value": "2,430,818"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 110,
       "low": 108.09,
       "close": 108.69,
-      "volume": 2430814
+      "volume": 2430818
     }
   ]
 }

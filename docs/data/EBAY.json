@@ -1,6 +1,6 @@
 {
   "ticker": "EBAY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 24, 1998"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.23 (1.18%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.20 (1.15%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 28, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "9.65% 12.63%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "26.73%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,580,038"
+        "value": "5,580,054"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 105.3,
       "low": 102.62,
       "close": 104.61,
-      "volume": 5580038
+      "volume": 5580054
     }
   ]
 }

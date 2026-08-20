@@ -1,6 +1,6 @@
 {
   "ticker": "HUM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 02, 1969"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.69 (0.97%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.54 (0.93%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 26, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "3.97% 7.20%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "36.00%"
       }
     ],
     [

@@ -1,6 +1,6 @@
 {
   "ticker": "MDT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 21, 1977"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.90 (3.14%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.85 (3.09%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 26, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "1.45% 4.13%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "76.20%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "6,348,822"
+        "value": "6,348,837"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 94.53,
       "low": 92.23,
       "close": 92.3,
-      "volume": 6348822
+      "volume": 6348837
     }
   ]
 }

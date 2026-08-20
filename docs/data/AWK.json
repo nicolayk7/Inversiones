@@ -1,6 +1,6 @@
 {
   "ticker": "AWK",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 23, 2008"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.52 (2.57%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.45 (2.51%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 11, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.10% 8.51%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "58.10%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,661,705"
+        "value": "1,661,718"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 139.34,
       "low": 137.09,
       "close": 137.21,
-      "volume": 1661705
+      "volume": 1661718
     }
   ]
 }

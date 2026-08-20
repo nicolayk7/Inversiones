@@ -1,6 +1,6 @@
 {
   "ticker": "EG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 03, 1995"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "8.18 (2.22%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "8.00 (2.17%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 09, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.17% 5.23%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "21.16%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "264,619"
+        "value": "264,517"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 370.485,
       "low": 362.58,
       "close": 368.36,
-      "volume": 264619
+      "volume": 264517
     }
   ]
 }

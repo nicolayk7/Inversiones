@@ -1,6 +1,6 @@
 {
   "ticker": "MGM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 02, 1988"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Dec 08, 2022"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,445,794"
+        "value": "1,445,618"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 43.19,
       "low": 42.58,
       "close": 43.17,
-      "volume": 1445794
+      "volume": 1445618
     }
   ]
 }

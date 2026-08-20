@@ -1,6 +1,6 @@
 {
   "ticker": "CBOE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 15, 2010"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.12 (1.06%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.88 (0.98%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "11.27% 11.60%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "25.92%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,447,292"
+        "value": "1,447,303"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 297.2,
       "low": 280.76,
       "close": 294.11,
-      "volume": 1447292
+      "volume": 1447303
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "VOO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": true,
   "columns": [
     [
@@ -76,7 +76,7 @@
     [
       {
         "label": "Volume",
-        "value": "8,445,761"
+        "value": "8,448,889"
       },
       {
         "label": "Avg Volume",
@@ -1154,7 +1154,7 @@
       "high": 706.08,
       "low": 700.472,
       "close": 701.01,
-      "volume": 8445761
+      "volume": 8448889
     }
   ]
 }

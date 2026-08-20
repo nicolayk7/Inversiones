@@ -1,6 +1,6 @@
 {
   "ticker": "TPL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 01, 1927"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.40 (0.65%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.27 (0.61%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "17.00% 13.92%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "30.59%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,095,667"
+        "value": "1,095,844"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 396.78,
       "low": 357.68,
       "close": 369.56,
-      "volume": 1095667
+      "volume": 1095844
     }
   ]
 }

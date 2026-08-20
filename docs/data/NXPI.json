@@ -1,6 +1,6 @@
 {
   "ticker": "NXPI",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 06, 2010"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.19 (1.88%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.06 (1.82%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 24, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.30% 22.04%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "50.72%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,124,561"
+        "value": "2,124,602"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 227.75,
       "low": 222.6,
       "close": 222.97,
-      "volume": 2124561
+      "volume": 2124602
     }
   ]
 }

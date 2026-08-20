@@ -1,6 +1,6 @@
 {
   "ticker": "EQIX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 11, 2000"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "20.67 (1.91%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "20.17 (1.86%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 19, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "14.80% 12.01%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "136.36%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "358,108"
+        "value": "358,110"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 1086.67,
       "low": 1064.615,
       "close": 1082.61,
-      "volume": 358108
+      "volume": 358110
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "ALL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 03, 1993"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.31 (1.69%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.16 (1.63%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 31, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.57% 13.12%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "10.51%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,944,674"
+        "value": "1,944,678"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 258.79,
       "low": 252.831,
       "close": 254.54,
-      "volume": 1944674
+      "volume": 1944678
     }
   ]
 }

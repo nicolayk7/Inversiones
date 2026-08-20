@@ -1,6 +1,6 @@
 {
   "ticker": "NBIS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 24, 2011"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "-"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "-"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "0.00%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "28,437,826"
+        "value": "28,448,019"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 223,
       "low": 212.04,
       "close": 220.11,
-      "volume": 28437826
+      "volume": 28448019
     }
   ]
 }

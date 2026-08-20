@@ -1,6 +1,6 @@
 {
   "ticker": "QQQ",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": true,
   "columns": [
     [
@@ -76,7 +76,7 @@
     [
       {
         "label": "Volume",
-        "value": "33,330,943"
+        "value": "33,356,725"
       },
       {
         "label": "Avg Volume",
@@ -1154,7 +1154,7 @@
       "high": 714.94,
       "low": 708.52,
       "close": 710.93,
-      "volume": 33330943
+      "volume": 33356725
     }
   ]
 }

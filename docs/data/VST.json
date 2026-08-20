@@ -1,6 +1,6 @@
 {
   "ticker": "VST",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 04, 2016"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.00 (0.72%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.91 (0.65%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.72% 10.76%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "41.44%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,734,195"
+        "value": "3,735,136"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 143.5,
       "low": 138.33,
       "close": 138.94,
-      "volume": 3734195
+      "volume": 3735136
     }
   ]
 }

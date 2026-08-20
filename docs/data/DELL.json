@@ -1,6 +1,6 @@
 {
   "ticker": "DELL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 17, 2016"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.48 (0.57%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.31 (0.53%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "16.74% -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "24.20%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,630,178"
+        "value": "3,630,537"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 443.73,
       "low": 432,
       "close": 434.78,
-      "volume": 3630178
+      "volume": 3630537
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "LLY",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 09, 1970"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.88 (0.55%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.69 (0.54%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "15.24% 15.18%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "26.14%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,620,863"
+        "value": "2,621,020"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 1280.28,
       "low": 1243.23,
       "close": 1244.4,
-      "volume": 2620863
+      "volume": 2621020
     }
   ]
 }

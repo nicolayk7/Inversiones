@@ -1,6 +1,6 @@
 {
   "ticker": "MSFT",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 13, 1986"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.90 (0.81%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.64 (0.76%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 20, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.20% 10.20%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "20.28%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "20,013,792"
+        "value": "20,015,650"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 484.16,
       "low": 479.5,
       "close": 481.15,
-      "volume": 20013792
+      "volume": 20015650
     }
   ]
 }

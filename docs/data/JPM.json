@@ -1,6 +1,6 @@
 {
   "ticker": "JPM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 05, 1969"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.39 (1.82%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.00 (1.71%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 06, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "13.19% 10.01%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "28.97%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "6,797,882"
+        "value": "6,798,577"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 357.95,
       "low": 351.55,
       "close": 351.55,
-      "volume": 6797882
+      "volume": 6798577
     }
   ]
 }

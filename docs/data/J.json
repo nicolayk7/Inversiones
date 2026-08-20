@@ -1,6 +1,6 @@
 {
   "ticker": "J",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 27, 1971"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.30 (0.88%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.36 (0.92%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 21, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "11.64% 10.99%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "53.77%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "909,947"
+        "value": "909,949"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 149,
       "low": 145.57,
       "close": 147.94,
-      "volume": 909947
+      "volume": 909949
     }
   ]
 }

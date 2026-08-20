@@ -1,6 +1,6 @@
 {
   "ticker": "ARE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 23, 1997"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.88 (5.44%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.48 (6.57%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "-0.28% 1.99%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,964,810"
+        "value": "2,964,910"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 53.295,
       "low": 50.145,
       "close": 52.94,
-      "volume": 2964810
+      "volume": 2964910
     }
   ]
 }

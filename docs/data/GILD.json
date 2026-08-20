@@ -1,6 +1,6 @@
 {
   "ticker": "GILD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 22, 1992"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.25 (2.27%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.22 (2.24%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "2.67% 3.04%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "46.60%"
       }
     ],
     [
@@ -136,7 +158,7 @@
       },
       {
         "label": "Insider Own",
-        "value": "0.15%"
+        "value": "0.17%"
       },
       {
         "label": "Inst Own",
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "7,167,570"
+        "value": "7,167,571"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 146.82,
       "low": 143.19,
       "close": 143.44,
-      "volume": 7167570
+      "volume": 7167571
     }
   ]
 }

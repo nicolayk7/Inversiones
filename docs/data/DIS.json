@@ -1,6 +1,6 @@
 {
   "ticker": "DIS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 02, 1962"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.38 (1.29%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.50 (1.40%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- 2.59%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "14.60%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "7,970,569"
+        "value": "7,970,700"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 108.69,
       "low": 106.42,
       "close": 107.32,
-      "volume": 7970569
+      "volume": 7970700
     }
   ]
 }

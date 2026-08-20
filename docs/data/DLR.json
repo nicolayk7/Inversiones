@@ -1,6 +1,6 @@
 {
   "ticker": "DLR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Oct 29, 2004"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "4.89 (2.52%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "4.88 (2.51%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% 1.73%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "136.30%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,365,416"
+        "value": "1,367,115"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 195.14,
       "low": 191.27,
       "close": 194.3,
-      "volume": 1365416
+      "volume": 1367115
     }
   ]
 }

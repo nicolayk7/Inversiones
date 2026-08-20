@@ -1,6 +1,6 @@
 {
   "ticker": "GD",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 25, 1952"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "6.30 (1.63%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "6.18 (1.60%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Oct 09, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.98% 6.40%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "38.83%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "933,008"
+        "value": "933,010"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 394.68,
       "low": 385.18,
       "close": 386.07,
-      "volume": 933008
+      "volume": 933010
     }
   ]
 }

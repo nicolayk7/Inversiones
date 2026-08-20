@@ -1,6 +1,6 @@
 {
   "ticker": "EIX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "May 27, 1926"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.50 (4.68%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.46 (4.64%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 07, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.76% 5.43%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "29.09%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,660,978"
+        "value": "3,660,979"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 75.9,
       "low": 72.5,
       "close": 74.66,
-      "volume": 3660978
+      "volume": 3660979
     }
   ]
 }

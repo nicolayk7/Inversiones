@@ -1,6 +1,6 @@
 {
   "ticker": "DOC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 19, 2013"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.23 (5.78%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.22 (5.77%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 14, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.55% -3.79%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "1204.37%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "4,809,148"
+        "value": "4,808,669"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 21.32,
       "low": 20.69,
       "close": 21.2,
-      "volume": 4809148
+      "volume": 4808669
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "VXUS",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": true,
   "columns": [
     [
@@ -76,7 +76,7 @@
     [
       {
         "label": "Volume",
-        "value": "4,166,086"
+        "value": "4,166,805"
       },
       {
         "label": "Avg Volume",
@@ -1154,7 +1154,7 @@
       "high": 87.41,
       "low": 86.805,
       "close": 87.03,
-      "volume": 4166086
+      "volume": 4166805
     }
   ]
 }

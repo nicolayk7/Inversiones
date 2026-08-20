@@ -1,6 +1,6 @@
 {
   "ticker": "KHC",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jul 06, 2015"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.60 (6.27%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.60 (6.26%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 04, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "0.00% 0.00%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "-"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "11,953,846"
+        "value": "11,954,121"
       },
       {
         "label": "RSI (14)",
@@ -1526,7 +1548,7 @@
       "high": 25.795,
       "low": 25.31,
       "close": 25.57,
-      "volume": 11953846
+      "volume": 11954121
     }
   ]
 }

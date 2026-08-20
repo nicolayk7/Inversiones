@@ -1,6 +1,6 @@
 {
   "ticker": "APA",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 02, 1963"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.00 (2.26%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.00 (2.25%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 22, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.06% 58.49%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "25.04%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "6,279,641"
+        "value": "6,279,712"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 45.05,
       "low": 44.2,
       "close": 44.39,
-      "volume": 6279641
+      "volume": 6279712
     }
   ]
 }

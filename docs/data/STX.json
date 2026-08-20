@@ -1,6 +1,6 @@
 {
   "ticker": "STX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 11, 2002"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.04 (0.36%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.94 (0.35%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 24, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "1.64% 2.02%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "21.15%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,237,397"
+        "value": "3,237,799"
       },
       {
         "label": "RSI (14)",
@@ -1518,7 +1540,7 @@
       "high": 869.71,
       "low": 827.6,
       "close": 850.24,
-      "volume": 3237397
+      "volume": 3237799
     }
   ]
 }

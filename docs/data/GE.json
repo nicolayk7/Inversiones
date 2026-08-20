@@ -1,6 +1,6 @@
 {
   "ticker": "GE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 23, 1892"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.79 (0.52%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.66 (0.48%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jul 06, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "65.10% 35.10%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "17.71%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "6,053,943"
+        "value": "6,054,750"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 354.5,
       "low": 343.56,
       "close": 344.64,
-      "volume": 6053943
+      "volume": 6054750
     }
   ]
 }

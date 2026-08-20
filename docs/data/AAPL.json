@@ -1,6 +1,6 @@
 {
   "ticker": "AAPL",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 12, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "1.08 (0.35%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.06 (0.34%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 10, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "4.26% 4.98%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "13.66%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "40,930,641"
+        "value": "40,938,733"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 320.28,
       "low": 310.65,
       "close": 311.3,
-      "volume": 40930641
+      "volume": 40938733
     }
   ]
 }

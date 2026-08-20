@@ -1,6 +1,6 @@
 {
   "ticker": "BG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Aug 02, 2001"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.88 (2.47%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.84 (2.44%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Nov 17, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.27% 6.96%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "56.91%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "904,857"
+        "value": "904,858"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 118.57,
       "low": 114,
       "close": 116.57,
-      "volume": 904857
+      "volume": 904858
     }
   ]
 }

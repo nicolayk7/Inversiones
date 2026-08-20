@@ -1,6 +1,6 @@
 {
   "ticker": "FOX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 13, 2019"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.58 (0.96%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.56 (0.93%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 02, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "3.85% 4.01%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "14.59%"
       }
     ],
     [

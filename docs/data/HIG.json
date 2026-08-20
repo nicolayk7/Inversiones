@@ -1,6 +1,6 @@
 {
   "ticker": "HIG",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Dec 15, 1995"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.44 (1.78%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.32 (1.69%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 01, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "10.99% 10.69%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "16.22%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "905,305"
+        "value": "905,123"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 138.025,
       "low": 136.39,
       "close": 137.12,
-      "volume": 905305
+      "volume": 905123
     }
   ]
 }

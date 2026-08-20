@@ -1,6 +1,6 @@
 {
   "ticker": "ALLE",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Nov 18, 2013"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "2.17 (1.34%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "2.12 (1.31%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 15, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.55% 9.77%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "27.44%"
       }
     ],
     [

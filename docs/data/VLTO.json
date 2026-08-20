@@ -1,6 +1,6 @@
 {
   "ticker": "VLTO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Sep 27, 2023"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.43 (0.43%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.50 (0.50%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "- -"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "12.25%"
       }
     ],
     [

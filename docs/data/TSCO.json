@@ -1,6 +1,6 @@
 {
   "ticker": "TSCO",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Feb 18, 1994"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.97 (2.76%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.94 (2.68%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 24, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "7.53% 25.12%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "44.67%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "7,545,514"
+        "value": "7,545,518"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 35.18,
       "low": 34.59,
       "close": 35.05,
-      "volume": 7545514
+      "volume": 7545518
     }
   ]
 }

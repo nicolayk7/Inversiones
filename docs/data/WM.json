@@ -1,6 +1,6 @@
 {
   "ticker": "WM",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 03, 1988"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.77 (1.68%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.54 (1.57%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 05, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.27% 8.65%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "49.26%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,719,269"
+        "value": "1,719,292"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 226.295,
       "low": 224.11,
       "close": 224.92,
-      "volume": 1719269
+      "volume": 1719292
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "ticker": "KDP",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Apr 28, 2008"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "0.94 (2.97%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "0.92 (2.91%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 26, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "5.66% 8.92%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "60.31%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "10,828,560"
+        "value": "10,828,617"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 32,
       "low": 31,
       "close": 31.66,
-      "volume": 10828560
+      "volume": 10828617
     }
   ]
 }

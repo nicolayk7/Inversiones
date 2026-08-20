@@ -1,6 +1,6 @@
 {
   "ticker": "CINF",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.76 (2.24%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.62 (2.15%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Jun 23, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "8.03% 7.71%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "22.93%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "426,802"
+        "value": "426,803"
       },
       {
         "label": "RSI (14)",
@@ -1519,7 +1541,7 @@
       "high": 169.05,
       "low": 166.73,
       "close": 168.19,
-      "volume": 426802
+      "volume": 426803
     }
   ]
 }

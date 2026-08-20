@@ -1,6 +1,6 @@
 {
   "ticker": "CVX",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jun 24, 1921"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "7.14 (3.47%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "7.05 (3.43%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 19, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.39% 5.80%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "103.22%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "8,192,591"
+        "value": "8,194,937"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 208.98,
       "low": 205.52,
       "close": 205.77,
-      "volume": 8192591
+      "volume": 8194937
     }
   ]
 }

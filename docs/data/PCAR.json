@@ -1,6 +1,6 @@
 {
   "ticker": "PCAR",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Jan 03, 1978"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.26 (2.53%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "1.36 (1.05%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Aug 12, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "11.59% 9.20%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "29.27%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,453,237"
+        "value": "2,455,637"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 129.87,
       "low": 126.215,
       "close": 128.94,
-      "volume": 2453237
+      "volume": 2455637
     }
   ]
 }

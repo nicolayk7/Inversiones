@@ -1,6 +1,6 @@
 {
   "ticker": "SYK",
-  "generated_at": "2026-08-20T22:31:15.530068+00:00",
+  "generated_at": "2026-08-20T22:57:37.306627+00:00",
   "is_etf": false,
   "columns": [
     [
@@ -35,6 +35,28 @@
       {
         "label": "IPO Date",
         "value": "Mar 17, 1980"
+      }
+    ],
+    [
+      {
+        "label": "Dividend Est.",
+        "value": "3.53 (1.08%)"
+      },
+      {
+        "label": "Dividend TTM",
+        "value": "3.48 (1.06%)"
+      },
+      {
+        "label": "Dividend Ex-Date",
+        "value": "Sep 30, 2026"
+      },
+      {
+        "label": "Dividend Gr. 3/5Y",
+        "value": "6.31% 7.67%"
+      },
+      {
+        "label": "Payout Ratio",
+        "value": "40.48%"
       }
     ],
     [
@@ -164,7 +186,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,232,116"
+        "value": "2,232,203"
       },
       {
         "label": "RSI (14)",
@@ -1533,7 +1555,7 @@
       "high": 342.35,
       "low": 327.47,
       "close": 327.7,
-      "volume": 2232116
+      "volume": 2232203
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
   "ticker": "KDP",
-  "generated_at": "2026-08-20T20:35:59.331727+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.75"
+        "value": "0.77"
       },
       {
         "label": "Volume",
-        "value": "10,553,408"
+        "value": "10,828,460"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Defensive",
+    "industry": "Beverages - Non-Alcoholic",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 32.09,
+        "sector_median": 22.655,
+        "sector_n": 30,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.14,
+        "sector_median": 1.915,
+        "sector_n": 34,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 19.05,
+        "sector_median": 13.379999999999999,
+        "sector_n": 34,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.0571,
+        "sector_median": 0.2121,
+        "sector_n": 32,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.4656,
+        "sector_median": 0.36734999999999995,
+        "sector_n": 34,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.16949999999999998,
+        "sector_median": 0.15439999999999998,
+        "sector_n": 34,
+        "read": "en l\u00ednea con la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 21.0% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Defensive\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

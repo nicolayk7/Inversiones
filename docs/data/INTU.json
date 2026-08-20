@@ -1,6 +1,7 @@
 {
   "ticker": "INTU",
-  "generated_at": "2026-08-20T20:35:43.756447+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "90.60%"
+        "value": "90.46%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,281,215"
+        "value": "3,287,847"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Technology",
+    "industry": "Software - Application",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 21.91,
+        "sector_median": 34.81,
+        "sector_n": 86,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 4.73,
+        "sector_median": 6.51,
+        "sector_n": 93,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 15.05,
+        "sector_median": 20.95,
+        "sector_n": 92,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.225,
+        "sector_median": 0.225,
+        "sector_n": 89,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.7764,
+        "sector_median": 0.552,
+        "sector_n": 93,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.2747,
+        "sector_median": 0.2187,
+        "sector_n": 93,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 11.1% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Technology\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

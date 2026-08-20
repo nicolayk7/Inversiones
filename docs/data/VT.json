@@ -1,0 +1,110 @@
+{
+  "ticker": "VT",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": true,
+  "columns": [
+    [
+      {
+        "label": "Price",
+        "value": "159.93"
+      },
+      {
+        "label": "Prev Close",
+        "value": "160.70"
+      },
+      {
+        "label": "Change %",
+        "value": "-0.48%"
+      },
+      {
+        "label": "AUM",
+        "value": "81.21B"
+      },
+      {
+        "label": "Expense Ratio",
+        "value": "0.06%"
+      },
+      {
+        "label": "Inception Date",
+        "value": "Jun 26, 2008"
+      }
+    ],
+    [
+      {
+        "label": "Category",
+        "value": "Global or ExUS Equities - Broad / Regional"
+      },
+      {
+        "label": "Asset Type",
+        "value": "Equities (Stocks)"
+      },
+      {
+        "label": "Tracked Index",
+        "value": "FTSE Global All Cap Index"
+      },
+      {
+        "label": "Fund Manager",
+        "value": "Vanguard"
+      },
+      {
+        "label": "Holdings",
+        "value": "10086"
+      }
+    ],
+    [
+      {
+        "label": "1Y Return",
+        "value": "22.53%"
+      },
+      {
+        "label": "3Y Return",
+        "value": "20.41%"
+      },
+      {
+        "label": "5Y Return",
+        "value": "10.96%"
+      },
+      {
+        "label": "10Y Return",
+        "value": "-"
+      },
+      {
+        "label": "YTD Fund Flows",
+        "value": "17.73%"
+      }
+    ],
+    [
+      {
+        "label": "Volume",
+        "value": "2,070,797"
+      },
+      {
+        "label": "Avg Volume",
+        "value": "3.13M"
+      },
+      {
+        "label": "Beta",
+        "value": "0.93"
+      },
+      {
+        "label": "52W High",
+        "value": "162.71 -1.71%"
+      },
+      {
+        "label": "52W Low",
+        "value": "131.86 21.29%"
+      }
+    ]
+  ],
+  "charts": null,
+  "analysis": {
+    "type": "etf",
+    "expense_ratio": 0.0006,
+    "expense_ratio_read": "costo muy bajo (\u2264 0.10%) \u2014 t\u00edpico de fondos indexados grandes",
+    "holdings_count": "10086",
+    "tracked_index": "FTSE Global All Cap Index",
+    "category": "Global or ExUS Equities - Broad / Regional",
+    "manager": "Vanguard",
+    "methodology": "Este es un fondo (ETF), no una empresa operativa \u2014 no aplica comparaci\u00f3n de P/E, m\u00e1rgenes ni ROE contra un sector. Lectura de costo basada en umbrales fijos y p\u00fablicos de la industria, no calculados de este dataset."
+  }
+}

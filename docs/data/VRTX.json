@@ -1,6 +1,7 @@
 {
   "ticker": "VRTX",
-  "generated_at": "2026-08-20T20:39:11.350750+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "97.01%"
+        "value": "96.99%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.67"
+        "value": "0.68"
       },
       {
         "label": "Volume",
-        "value": "1,055,253"
+        "value": "1,062,325"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Healthcare",
+    "industry": "Biotechnology",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 31.43,
+        "sector_median": 31.174999999999997,
+        "sector_n": 54,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 10.78,
+        "sector_median": 3.4450000000000003,
+        "sector_n": 60,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 25.01,
+        "sector_median": 15.415,
+        "sector_n": 54,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.2354,
+        "sector_median": 0.13985,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.8612000000000001,
+        "sector_median": 0.6025,
+        "sector_n": 55,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.3954,
+        "sector_median": 0.1895,
+        "sector_n": 60,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 5.2% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Healthcare\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

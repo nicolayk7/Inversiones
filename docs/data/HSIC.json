@@ -1,6 +1,7 @@
 {
   "ticker": "HSIC",
-  "generated_at": "2026-08-20T20:35:31.312078+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.63"
+        "value": "0.64"
       },
       {
         "label": "Volume",
-        "value": "851,463"
+        "value": "865,705"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Healthcare",
+    "industry": "Medical Distribution",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 25.78,
+        "sector_median": 31.174999999999997,
+        "sector_n": 54,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 0.72,
+        "sector_median": 3.4450000000000003,
+        "sector_n": 60,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 13.23,
+        "sector_median": 15.415,
+        "sector_n": 54,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.12210000000000001,
+        "sector_median": 0.13985,
+        "sector_n": 56,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.293,
+        "sector_median": 0.6025,
+        "sector_n": 55,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.059800000000000006,
+        "sector_median": 0.1895,
+        "sector_n": 60,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 3.2% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Healthcare\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

@@ -1,6 +1,7 @@
 {
   "ticker": "TXT",
-  "generated_at": "2026-08-20T20:38:52.060362+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.84"
+        "value": "0.85"
       },
       {
         "label": "Volume",
-        "value": "1,312,795"
+        "value": "1,322,603"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 15.92,
+        "sector_median": 29.44,
+        "sector_n": 75,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 0.95,
+        "sector_median": 3.505,
+        "sector_n": 76,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 12.01,
+        "sector_median": 17.119999999999997,
+        "sector_n": 74,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.1213,
+        "sector_median": 0.20129999999999998,
+        "sector_n": 73,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.1777,
+        "sector_median": 0.33545,
+        "sector_n": 76,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.06709999999999999,
+        "sector_median": 0.17895,
+        "sector_n": 76,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 3.4% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Industrials\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

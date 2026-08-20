@@ -1,6 +1,7 @@
 {
   "ticker": "AZO",
-  "generated_at": "2026-08-20T20:32:49.721436+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "1.01"
+        "value": "1.02"
       },
       {
         "label": "Volume",
-        "value": "343,871"
+        "value": "346,306"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,49 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 20.36,
+        "sector_median": 21.32,
+        "sector_n": 54,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.42,
+        "sector_median": 2.185,
+        "sector_n": 56,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 14.23,
+        "sector_median": 14.23,
+        "sector_n": 55,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.5175,
+        "sector_median": 0.3266,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1802,
+        "sector_median": 0.12845,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 5.5% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Cyclical\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

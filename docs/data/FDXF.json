@@ -1,6 +1,7 @@
 {
   "ticker": "FDXF",
-  "generated_at": "2026-08-20T20:34:47.261752+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "60.93%"
+        "value": "60.92%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,093,210"
+        "value": "1,093,456"
       },
       {
         "label": "RSI (14)",
@@ -250,5 +251,13 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Industrials",
+    "industry": "Integrated Freight & Logistics",
+    "comparisons": [],
+    "growth_note": "Ventas cayendo 1.1% interanual (2024 \u2192 2025).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Industrials\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

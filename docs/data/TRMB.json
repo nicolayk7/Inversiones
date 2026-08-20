@@ -1,6 +1,7 @@
 {
   "ticker": "TRMB",
-  "generated_at": "2026-08-20T20:38:43.362801+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "102.15%"
+        "value": "102.16%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "1.10"
+        "value": "1.14"
       },
       {
         "label": "Volume",
-        "value": "3,293,167"
+        "value": "3,402,752"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,49 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Technology",
+    "industry": "Scientific & Technical Instruments",
+    "comparisons": [
+      {
+        "metric": "P/S",
+        "value": 3.68,
+        "sector_median": 6.51,
+        "sector_n": 93,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 16.69,
+        "sector_median": 20.95,
+        "sector_n": 92,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": -0.0194,
+        "sector_median": 0.225,
+        "sector_n": 89,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.6692,
+        "sector_median": 0.552,
+        "sector_n": 93,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1867,
+        "sector_median": 0.2187,
+        "sector_n": 93,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 5.5% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Technology\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

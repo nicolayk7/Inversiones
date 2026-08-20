@@ -1,6 +1,7 @@
 {
   "ticker": "PODD",
-  "generated_at": "2026-08-20T20:37:39.303082+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "1,212,052"
+        "value": "1,212,147"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Healthcare",
+    "industry": "Medical Devices",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 29.12,
+        "sector_median": 31.174999999999997,
+        "sector_n": 54,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 3.34,
+        "sector_median": 3.4450000000000003,
+        "sector_n": 60,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 16.57,
+        "sector_median": 15.415,
+        "sector_n": 54,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.2602,
+        "sector_median": 0.13985,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.7216,
+        "sector_median": 0.6025,
+        "sector_n": 55,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.16879999999999998,
+        "sector_median": 0.1895,
+        "sector_n": 60,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 12.8% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Healthcare\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

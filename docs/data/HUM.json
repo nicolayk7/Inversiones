@@ -1,6 +1,7 @@
 {
   "ticker": "HUM",
-  "generated_at": "2026-08-20T20:35:35.045954+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "100.31%"
+        "value": "99.58%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.94"
+        "value": "0.95"
       },
       {
         "label": "Volume",
-        "value": "1,304,380"
+        "value": "1,316,613"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,42 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Healthcare",
+    "industry": "Healthcare Plans",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 36.06,
+        "sector_median": 31.174999999999997,
+        "sector_n": 54,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 0.31,
+        "sector_median": 3.4450000000000003,
+        "sector_n": 60,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.0683,
+        "sector_median": 0.13985,
+        "sector_n": 56,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.018600000000000002,
+        "sector_median": 0.1895,
+        "sector_n": 60,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 12.3% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Healthcare\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

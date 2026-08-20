@@ -1,6 +1,7 @@
 {
   "ticker": "CNC",
-  "generated_at": "2026-08-20T20:33:35.043580+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "98.75%"
+        "value": "98.65%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,267,830"
+        "value": "3,267,977"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,35 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Healthcare",
+    "industry": "Healthcare Plans",
+    "comparisons": [
+      {
+        "metric": "P/S",
+        "value": 0.16,
+        "sector_median": 3.4450000000000003,
+        "sector_n": 60,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": -0.2041,
+        "sector_median": 0.13985,
+        "sector_n": 56,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.008100000000000001,
+        "sector_median": 0.1895,
+        "sector_n": 60,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 4.2% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Healthcare\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

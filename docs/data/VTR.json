@@ -1,6 +1,7 @@
 {
   "ticker": "VTR",
-  "generated_at": "2026-08-20T20:39:13.141183+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "103.49%"
+        "value": "103.48%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,090,998"
+        "value": "2,090,710"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Real Estate",
+    "industry": "REIT - Healthcare Facilities",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 169.99,
+        "sector_median": 35.26,
+        "sector_n": 28,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 7.54,
+        "sector_median": 7.609999999999999,
+        "sector_n": 30,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 26.24,
+        "sector_median": 20.869999999999997,
+        "sector_n": 30,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.020099999999999996,
+        "sector_median": 0.0732,
+        "sector_n": 28,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.1838,
+        "sector_median": 0.34065,
+        "sector_n": 30,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1483,
+        "sector_median": 0.2753,
+        "sector_n": 30,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 10.4% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Real Estate\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

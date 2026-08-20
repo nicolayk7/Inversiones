@@ -1,6 +1,7 @@
 {
   "ticker": "SOLV",
-  "generated_at": "2026-08-20T20:38:14.380429+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.50"
+        "value": "0.51"
       },
       {
         "label": "Volume",
-        "value": "794,880"
+        "value": "805,044"
       },
       {
         "label": "RSI (14)",
@@ -385,5 +386,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Healthcare",
+    "industry": "Medical Instruments & Supplies",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 10.83,
+        "sector_median": 31.174999999999997,
+        "sector_n": 54,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 1.82,
+        "sector_median": 3.4450000000000003,
+        "sector_n": 60,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 16.86,
+        "sector_median": 15.415,
+        "sector_n": 54,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.3396,
+        "sector_median": 0.13985,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.5521,
+        "sector_median": 0.6025,
+        "sector_n": 55,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.0848,
+        "sector_median": 0.1895,
+        "sector_n": 60,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas cayendo 0.2% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Healthcare\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

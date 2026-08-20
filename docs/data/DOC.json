@@ -1,6 +1,7 @@
 {
   "ticker": "DOC",
-  "generated_at": "2026-08-20T20:34:10.956621+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.64"
+        "value": "0.66"
       },
       {
         "label": "Volume",
-        "value": "4,665,344"
+        "value": "4,809,143"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Real Estate",
+    "industry": "REIT - Healthcare Facilities",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 60.61,
+        "sector_median": 35.26,
+        "sector_n": 28,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 5.08,
+        "sector_median": 7.609999999999999,
+        "sector_n": 30,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 15.51,
+        "sector_median": 20.869999999999997,
+        "sector_n": 30,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.0308,
+        "sector_median": 0.0732,
+        "sector_n": 28,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.2087,
+        "sector_median": 0.34065,
+        "sector_n": 30,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1795,
+        "sector_median": 0.2753,
+        "sector_n": 30,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 4.5% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Real Estate\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

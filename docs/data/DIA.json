@@ -1,0 +1,110 @@
+{
+  "ticker": "DIA",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": true,
+  "columns": [
+    [
+      {
+        "label": "Price",
+        "value": "527.51"
+      },
+      {
+        "label": "Prev Close",
+        "value": "534.27"
+      },
+      {
+        "label": "Change %",
+        "value": "-1.27%"
+      },
+      {
+        "label": "AUM",
+        "value": "45.62B"
+      },
+      {
+        "label": "Expense Ratio",
+        "value": "0.16%"
+      },
+      {
+        "label": "Inception Date",
+        "value": "Jan 20, 1998"
+      }
+    ],
+    [
+      {
+        "label": "Category",
+        "value": "US Equities - Broad Market & Size"
+      },
+      {
+        "label": "Asset Type",
+        "value": "Equities (Stocks)"
+      },
+      {
+        "label": "Tracked Index",
+        "value": "Dow Jones Industrial Average Index"
+      },
+      {
+        "label": "Fund Manager",
+        "value": "State Street (SPDR)"
+      },
+      {
+        "label": "Holdings",
+        "value": "31"
+      }
+    ],
+    [
+      {
+        "label": "1Y Return",
+        "value": "20.70%"
+      },
+      {
+        "label": "3Y Return",
+        "value": "16.68%"
+      },
+      {
+        "label": "5Y Return",
+        "value": "10.44%"
+      },
+      {
+        "label": "10Y Return",
+        "value": "-"
+      },
+      {
+        "label": "YTD Fund Flows",
+        "value": "-7.19%"
+      }
+    ],
+    [
+      {
+        "label": "Volume",
+        "value": "2,860,816"
+      },
+      {
+        "label": "Avg Volume",
+        "value": "4.42M"
+      },
+      {
+        "label": "Beta",
+        "value": "0.86"
+      },
+      {
+        "label": "52W High",
+        "value": "546.75 -3.52%"
+      },
+      {
+        "label": "52W Low",
+        "value": "445.88 18.31%"
+      }
+    ]
+  ],
+  "charts": null,
+  "analysis": {
+    "type": "etf",
+    "expense_ratio": 0.0016,
+    "expense_ratio_read": "costo bajo-moderado (0.10%-0.50%)",
+    "holdings_count": "31",
+    "tracked_index": "Dow Jones Industrial Average Index",
+    "category": "US Equities - Broad Market & Size",
+    "manager": "State Street (SPDR)",
+    "methodology": "Este es un fondo (ETF), no una empresa operativa \u2014 no aplica comparaci\u00f3n de P/E, m\u00e1rgenes ni ROE contra un sector. Lectura de costo basada en umbrales fijos y p\u00fablicos de la industria, no calculados de este dataset."
+  }
+}

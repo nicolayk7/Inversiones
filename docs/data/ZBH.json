@@ -1,6 +1,7 @@
 {
   "ticker": "ZBH",
-  "generated_at": "2026-08-20T20:39:34.966189+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "105.42%"
+        "value": "105.41%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.56"
+        "value": "0.57"
       },
       {
         "label": "Volume",
-        "value": "1,313,091"
+        "value": "1,333,531"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Healthcare",
+    "industry": "Medical Devices",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 24.08,
+        "sector_median": 31.174999999999997,
+        "sector_n": 54,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.22,
+        "sector_median": 3.4450000000000003,
+        "sector_n": 60,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 10.39,
+        "sector_median": 15.415,
+        "sector_n": 54,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.0642,
+        "sector_median": 0.13985,
+        "sector_n": 56,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.6143,
+        "sector_median": 0.6025,
+        "sector_n": 55,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.16329999999999997,
+        "sector_median": 0.1895,
+        "sector_n": 60,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 3.4% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Healthcare\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

@@ -1,6 +1,7 @@
 {
   "ticker": "VRSN",
-  "generated_at": "2026-08-20T20:39:09.521875+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -433,5 +434,49 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 30.05,
+        "sector_median": 34.81,
+        "sector_n": 86,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 14.64,
+        "sector_median": 6.51,
+        "sector_n": 93,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 22.18,
+        "sector_median": 20.95,
+        "sector_n": 92,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.8847,
+        "sector_median": 0.552,
+        "sector_n": 93,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.6786,
+        "sector_median": 0.2187,
+        "sector_n": 93,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 3.1% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Technology\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

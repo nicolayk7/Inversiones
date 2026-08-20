@@ -17,6 +17,7 @@ from packages.providers.fundamentals.finviz import (
     FinvizFundamentalsProvider,
     FinvizNotFoundError,
     FinvizResponseError,
+    _parse_categories,
     _parse_number,
 )
 
@@ -72,6 +73,26 @@ _AAPL_QUOTE_HTML_WITH_CHARTS = _AAPL_QUOTE_HTML.replace(
     "</body></html>",
     f'<script id="fa-init-data-0" type="application/json">{_CHART_JSON}</script></body></html>',
 )
+
+# Real-shaped header categories block — equity form (all 5 links) confirmed live against AAPL.
+_AAPL_CATEGORIES_HTML = """
+<div class="quote-header_categories">
+<a href="screener?v=111&f=sec_technology" class="quote-header_category">Technology</a>
+<a href="screener?v=111&f=ind_consumerelectronics" class="quote-header_category" title="Consumer Electronics"><span class="min-w-0 truncate">Consumer Electronics</span></a>
+<a href="screener?v=111&f=geo_usa" class="quote-header_category">USA</a>
+<a href="screener?v=111&f=cap_mega" class="quote-header_category">Mega</a>
+<a href="screener?v=111&f=exch_nasd" class="quote-header_category">NASD</a>
+</div>
+"""
+# ETF form — confirmed live against SPY: the cap_ link is entirely absent (not blank, MISSING).
+_ETF_CATEGORIES_HTML = """
+<div class="quote-header_categories">
+<a href="screener?v=111&f=sec_financial" class="quote-header_category">Financial</a>
+<a href="screener?v=111&f=ind_exchangetradedfund" class="quote-header_category" title="Exchange Traded Fund"><span class="min-w-0 truncate">Exchange Traded Fund</span></a>
+<a href="screener?v=111&f=geo_usa" class="quote-header_category">USA</a>
+<a href="screener?v=111&f=exch_nyse" class="quote-header_category">NYSE</a>
+</div>
+"""
 
 
 def _client(handler) -> httpx.Client:
@@ -211,6 +232,45 @@ def test_get_snapshot_returns_fields_and_charts_from_one_fetch():
     assert snapshot["charts"]["sales"]["annual"][-1]["value"] == 466823
     assert snapshot["charts"]["shares_outstanding"]["annual"][-1]["value"] == 14608.9
     assert snapshot["charts"]["eps"]["quarterly"][0]["name"] == "Q3 '26"
+
+
+# -- _parse_categories -------------------------------------------------------------------------
+
+
+def test_parse_categories_equity_form_has_all_five():
+    result = _parse_categories(_AAPL_CATEGORIES_HTML)
+    assert result == {
+        "sector": "Technology", "industry": "Consumer Electronics", "country": "USA",
+        "cap_size": "Mega", "exchange": "NASD",
+    }
+
+
+def test_parse_categories_etf_form_omits_cap_size():
+    """Confirmed live against SPY/QQQ/VT: ETF pages never carry a cap_ link at all — not blank,
+    absent — so cap_size must be missing from the result, not present-with-empty-string."""
+    result = _parse_categories(_ETF_CATEGORIES_HTML)
+    assert result == {
+        "sector": "Financial", "industry": "Exchange Traded Fund", "country": "USA",
+        "exchange": "NYSE",
+    }
+    assert "cap_size" not in result
+
+
+def test_parse_categories_returns_empty_dict_when_block_absent():
+    assert _parse_categories("<html><body>no categories here</body></html>") == {}
+
+
+def test_get_snapshot_includes_categories():
+    html = _AAPL_QUOTE_HTML_WITH_CHARTS.replace(
+        "</body></html>", _AAPL_CATEGORIES_HTML + "</body></html>"
+    )
+
+    def handler(request):
+        return httpx.Response(200, text=html)
+
+    snapshot = _provider(handler).get_snapshot("AAPL")
+    assert snapshot["categories"]["sector"] == "Technology"
+    assert snapshot["categories"]["industry"] == "Consumer Electronics"
 
 
 def test_get_snapshot_charts_is_none_when_block_absent():

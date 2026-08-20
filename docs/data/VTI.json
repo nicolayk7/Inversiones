@@ -1,0 +1,110 @@
+{
+  "ticker": "VTI",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": true,
+  "columns": [
+    [
+      {
+        "label": "Price",
+        "value": "376.58"
+      },
+      {
+        "label": "Prev Close",
+        "value": "379.99"
+      },
+      {
+        "label": "Change %",
+        "value": "-0.90%"
+      },
+      {
+        "label": "AUM",
+        "value": "690.21B"
+      },
+      {
+        "label": "Expense Ratio",
+        "value": "0.03%"
+      },
+      {
+        "label": "Inception Date",
+        "value": "May 31, 2001"
+      }
+    ],
+    [
+      {
+        "label": "Category",
+        "value": "US Equities - Broad Market & Size"
+      },
+      {
+        "label": "Asset Type",
+        "value": "Equities (Stocks)"
+      },
+      {
+        "label": "Tracked Index",
+        "value": "CRSP US Total Market Index"
+      },
+      {
+        "label": "Fund Manager",
+        "value": "Vanguard"
+      },
+      {
+        "label": "Holdings",
+        "value": "3529"
+      }
+    ],
+    [
+      {
+        "label": "1Y Return",
+        "value": "21.43%"
+      },
+      {
+        "label": "3Y Return",
+        "value": "21.04%"
+      },
+      {
+        "label": "5Y Return",
+        "value": "12.18%"
+      },
+      {
+        "label": "10Y Return",
+        "value": "-"
+      },
+      {
+        "label": "YTD Fund Flows",
+        "value": "6.29%"
+      }
+    ],
+    [
+      {
+        "label": "Volume",
+        "value": "3,423,898"
+      },
+      {
+        "label": "Avg Volume",
+        "value": "3.36M"
+      },
+      {
+        "label": "Beta",
+        "value": "1.02"
+      },
+      {
+        "label": "52W High",
+        "value": "385.12 -2.22%"
+      },
+      {
+        "label": "52W Low",
+        "value": "310.40 21.32%"
+      }
+    ]
+  ],
+  "charts": null,
+  "analysis": {
+    "type": "etf",
+    "expense_ratio": 0.0003,
+    "expense_ratio_read": "costo muy bajo (\u2264 0.10%) \u2014 t\u00edpico de fondos indexados grandes",
+    "holdings_count": "3529",
+    "tracked_index": "CRSP US Total Market Index",
+    "category": "US Equities - Broad Market & Size",
+    "manager": "Vanguard",
+    "methodology": "Este es un fondo (ETF), no una empresa operativa \u2014 no aplica comparaci\u00f3n de P/E, m\u00e1rgenes ni ROE contra un sector. Lectura de costo basada en umbrales fijos y p\u00fablicos de la industria, no calculados de este dataset."
+  }
+}

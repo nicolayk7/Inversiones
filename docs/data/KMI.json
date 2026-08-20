@@ -1,6 +1,7 @@
 {
   "ticker": "KMI",
-  "generated_at": "2026-08-20T20:36:06.525658+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "70.72%"
+        "value": "70.68%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "13,700,376"
+        "value": "13,721,583"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Energy",
+    "industry": "Oil & Gas Midstream",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 20.39,
+        "sector_median": 18.05,
+        "sector_n": 22,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 3.93,
+        "sector_median": 2.2199999999999998,
+        "sector_n": 22,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 13.34,
+        "sector_median": 8.350000000000001,
+        "sector_n": 22,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.1105,
+        "sector_median": 0.1561,
+        "sector_n": 22,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.3632,
+        "sector_median": 0.27135,
+        "sector_n": 22,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.2961,
+        "sector_median": 0.22615000000000002,
+        "sector_n": 22,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 6.5% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Energy\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

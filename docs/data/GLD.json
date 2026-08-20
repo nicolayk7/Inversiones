@@ -1,0 +1,110 @@
+{
+  "ticker": "GLD",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": true,
+  "columns": [
+    [
+      {
+        "label": "Price",
+        "value": "415.26"
+      },
+      {
+        "label": "Prev Close",
+        "value": "413.84"
+      },
+      {
+        "label": "Change %",
+        "value": "0.34%"
+      },
+      {
+        "label": "AUM",
+        "value": "148.36B"
+      },
+      {
+        "label": "Expense Ratio",
+        "value": "0.40%"
+      },
+      {
+        "label": "Inception Date",
+        "value": "Nov 18, 2004"
+      }
+    ],
+    [
+      {
+        "label": "Category",
+        "value": "Commodities & Metals - Gold / Metals"
+      },
+      {
+        "label": "Asset Type",
+        "value": "Commodities & Metals"
+      },
+      {
+        "label": "Tracked Index",
+        "value": "LBMA Gold Price PM"
+      },
+      {
+        "label": "Fund Manager",
+        "value": "State Street (SPDR)"
+      },
+      {
+        "label": "Holdings",
+        "value": "1"
+      }
+    ],
+    [
+      {
+        "label": "1Y Return",
+        "value": "34.82%"
+      },
+      {
+        "label": "3Y Return",
+        "value": "32.71%"
+      },
+      {
+        "label": "5Y Return",
+        "value": "20.34%"
+      },
+      {
+        "label": "10Y Return",
+        "value": "-"
+      },
+      {
+        "label": "YTD Fund Flows",
+        "value": "-3.14%"
+      }
+    ],
+    [
+      {
+        "label": "Volume",
+        "value": "13,835,195"
+      },
+      {
+        "label": "Avg Volume",
+        "value": "7.81M"
+      },
+      {
+        "label": "Beta",
+        "value": "0.19"
+      },
+      {
+        "label": "52W High",
+        "value": "509.70 -18.53%"
+      },
+      {
+        "label": "52W Low",
+        "value": "306.43 35.52%"
+      }
+    ]
+  ],
+  "charts": null,
+  "analysis": {
+    "type": "etf",
+    "expense_ratio": 0.004,
+    "expense_ratio_read": "costo bajo-moderado (0.10%-0.50%)",
+    "holdings_count": "1",
+    "tracked_index": "LBMA Gold Price PM",
+    "category": "Commodities & Metals - Gold / Metals",
+    "manager": "State Street (SPDR)",
+    "methodology": "Este es un fondo (ETF), no una empresa operativa \u2014 no aplica comparaci\u00f3n de P/E, m\u00e1rgenes ni ROE contra un sector. Lectura de costo basada en umbrales fijos y p\u00fablicos de la industria, no calculados de este dataset."
+  }
+}

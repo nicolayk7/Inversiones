@@ -1,6 +1,7 @@
 {
   "ticker": "V",
-  "generated_at": "2026-08-20T20:39:02.444241+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -89,7 +90,7 @@
       },
       {
         "label": "EPS next Y (%)",
-        "value": "13.64%"
+        "value": "13.62%"
       },
       {
         "label": "EPS next 5Y",
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "81.59%"
+        "value": "81.51%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.71"
+        "value": "0.75"
       },
       {
         "label": "Volume",
-        "value": "5,839,205"
+        "value": "6,149,568"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Financial",
+    "industry": "Credit Services",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 31.39,
+        "sector_median": 15.565000000000001,
+        "sector_n": 68,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 15.35,
+        "sector_median": 2.465,
+        "sector_n": 70,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 22.18,
+        "sector_median": 14.53,
+        "sector_n": 33,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.6067,
+        "sector_median": 0.158,
+        "sector_n": 69,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.7716,
+        "sector_median": 0.768,
+        "sector_n": 33,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.6704000000000001,
+        "sector_median": 0.2311,
+        "sector_n": 70,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 11.2% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Financial\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

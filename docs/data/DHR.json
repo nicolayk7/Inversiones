@@ -1,6 +1,7 @@
 {
   "ticker": "DHR",
-  "generated_at": "2026-08-20T20:34:07.495355+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "83.47%"
+        "value": "83.46%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,500,185"
+        "value": "5,503,067"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Healthcare",
+    "industry": "Diagnostics & Research",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 38.34,
+        "sector_median": 31.174999999999997,
+        "sector_n": 54,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 6.05,
+        "sector_median": 3.4450000000000003,
+        "sector_n": 60,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 22.33,
+        "sector_median": 15.415,
+        "sector_n": 54,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.0761,
+        "sector_median": 0.13985,
+        "sector_n": 56,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.5897,
+        "sector_median": 0.6025,
+        "sector_n": 55,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.2119,
+        "sector_median": 0.1895,
+        "sector_n": 60,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 2.2% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Healthcare\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

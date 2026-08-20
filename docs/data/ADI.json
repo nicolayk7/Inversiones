@@ -1,6 +1,7 @@
 {
   "ticker": "ADI",
-  "generated_at": "2026-08-20T20:32:10.125459+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "92.51%"
+        "value": "92.45%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.73"
+        "value": "0.74"
       },
       {
         "label": "Volume",
-        "value": "3,468,572"
+        "value": "3,496,055"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Technology",
+    "industry": "Semiconductors",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 43.94,
+        "sector_median": 34.81,
+        "sector_n": 86,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 12.99,
+        "sector_median": 6.51,
+        "sector_n": 93,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 27.01,
+        "sector_median": 20.95,
+        "sector_n": 92,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.1223,
+        "sector_median": 0.225,
+        "sector_n": 89,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.6039,
+        "sector_median": 0.552,
+        "sector_n": 93,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.35719999999999996,
+        "sector_median": 0.2187,
+        "sector_n": 93,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 26.0% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Technology\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

@@ -1,6 +1,7 @@
 {
   "ticker": "HONA",
-  "generated_at": "2026-08-20T20:35:26.924051+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.80"
+        "value": "0.83"
       },
       {
         "label": "Volume",
-        "value": "2,927,698"
+        "value": "3,035,099"
       },
       {
         "label": "RSI (14)",
@@ -243,5 +244,13 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "comparisons": [],
+    "growth_note": null,
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Industrials\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

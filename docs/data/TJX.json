@@ -1,6 +1,7 @@
 {
   "ticker": "TJX",
-  "generated_at": "2026-08-20T20:38:36.345744+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -43,11 +44,11 @@
       },
       {
         "label": "Forward P/E",
-        "value": "24.26"
+        "value": "24.32"
       },
       {
         "label": "PEG",
-        "value": "2.18"
+        "value": "2.19"
       },
       {
         "label": "P/S",
@@ -85,11 +86,11 @@
       },
       {
         "label": "EPS next Y ($)",
-        "value": "5.80"
+        "value": "5.79"
       },
       {
         "label": "EPS next Y (%)",
-        "value": "9.82%"
+        "value": "9.56%"
       },
       {
         "label": "EPS next 5Y",
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "94.30%"
+        "value": "94.28%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "12,291,667"
+        "value": "12,325,934"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Retail",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 26.02,
+        "sector_median": 21.32,
+        "sector_n": 54,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.49,
+        "sector_median": 2.185,
+        "sector_n": 56,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 17.91,
+        "sector_median": 14.23,
+        "sector_n": 55,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.6217,
+        "sector_median": 0.3154,
+        "sector_n": 45,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.33520000000000005,
+        "sector_median": 0.3266,
+        "sector_n": 56,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.12539999999999998,
+        "sector_median": 0.12845,
+        "sector_n": 56,
+        "read": "en l\u00ednea con la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 3.3% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Cyclical\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

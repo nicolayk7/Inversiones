@@ -1,6 +1,7 @@
 {
   "ticker": "ORLY",
-  "generated_at": "2026-08-20T20:37:18.994876+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.87"
+        "value": "0.89"
       },
       {
         "label": "Volume",
-        "value": "6,647,130"
+        "value": "6,790,515"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,49 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Cyclical",
+    "industry": "Auto Parts",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 28.33,
+        "sector_median": 21.32,
+        "sector_n": 54,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 3.88,
+        "sector_median": 2.185,
+        "sector_n": 56,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 19.52,
+        "sector_median": 14.23,
+        "sector_n": 55,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.5164,
+        "sector_median": 0.3266,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1956,
+        "sector_median": 0.12845,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 4.4% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Cyclical\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

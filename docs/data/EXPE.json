@@ -1,6 +1,7 @@
 {
   "ticker": "EXPE",
-  "generated_at": "2026-08-20T20:34:40.318883+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "103.12%"
+        "value": "102.76%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.58"
+        "value": "0.59"
       },
       {
         "label": "Volume",
-        "value": "917,896"
+        "value": "934,202"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Cyclical",
+    "industry": "Travel Services",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 20.22,
+        "sector_median": 21.32,
+        "sector_n": 54,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.48,
+        "sector_median": 2.185,
+        "sector_n": 56,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 10.34,
+        "sector_median": 14.23,
+        "sector_n": 55,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 1.9912,
+        "sector_median": 0.3154,
+        "sector_n": 45,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.8469,
+        "sector_median": 0.3266,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1664,
+        "sector_median": 0.12845,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 6.6% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Cyclical\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

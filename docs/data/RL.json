@@ -1,6 +1,7 @@
 {
   "ticker": "RL",
-  "generated_at": "2026-08-20T20:37:55.849059+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "574,347"
+        "value": "574,484"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Cyclical",
+    "industry": "Apparel Manufacturing",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 23.49,
+        "sector_median": 21.32,
+        "sector_n": 54,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.65,
+        "sector_median": 2.185,
+        "sector_n": 56,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 14.27,
+        "sector_median": 14.23,
+        "sector_n": 55,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.3754,
+        "sector_median": 0.3154,
+        "sector_n": 45,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.6769,
+        "sector_median": 0.3266,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.16670000000000001,
+        "sector_median": 0.12845,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 3.0% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Cyclical\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

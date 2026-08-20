@@ -1,6 +1,7 @@
 {
   "ticker": "GL",
-  "generated_at": "2026-08-20T20:35:09.546518+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "87.03%"
+        "value": "87.02%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "443,463"
+        "value": "443,305"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,42 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Financial",
+    "industry": "Insurance - Life",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 11.32,
+        "sector_median": 15.565000000000001,
+        "sector_n": 68,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.12,
+        "sector_median": 2.465,
+        "sector_n": 70,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.2095,
+        "sector_median": 0.158,
+        "sector_n": 69,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.2686,
+        "sector_median": 0.2311,
+        "sector_n": 70,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 3.3% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Financial\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

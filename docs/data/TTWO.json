@@ -1,6 +1,7 @@
 {
   "ticker": "TTWO",
-  "generated_at": "2026-08-20T20:38:50.311730+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "87.94%"
+        "value": "87.93%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,427,316"
+        "value": "2,444,343"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,49 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Communication Services",
+    "industry": "Electronic Gaming & Multimedia",
+    "comparisons": [
+      {
+        "metric": "P/S",
+        "value": 6.72,
+        "sector_median": 1.8650000000000002,
+        "sector_n": 24,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 35.56,
+        "sector_median": 11.225,
+        "sector_n": 24,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": -0.0904,
+        "sector_median": 0.1429,
+        "sector_n": 24,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.5456,
+        "sector_median": 0.48050000000000004,
+        "sector_n": 24,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": -0.0096,
+        "sector_median": 0.2041,
+        "sector_n": 24,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 0.5% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Communication Services\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

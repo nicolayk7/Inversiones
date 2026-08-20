@@ -1,6 +1,7 @@
 {
   "ticker": "TMUS",
-  "generated_at": "2026-08-20T20:38:38.987578+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "43.93%"
+        "value": "43.26%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.70"
+        "value": "0.78"
       },
       {
         "label": "Volume",
-        "value": "3,699,906"
+        "value": "4,088,735"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Communication Services",
+    "industry": "Telecom Services",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 18.96,
+        "sector_median": 18.96,
+        "sector_n": 19,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.11,
+        "sector_median": 1.8650000000000002,
+        "sector_n": 24,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 9.16,
+        "sector_median": 11.225,
+        "sector_n": 24,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.17989999999999998,
+        "sector_median": 0.1429,
+        "sector_n": 24,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.46590000000000004,
+        "sector_median": 0.48050000000000004,
+        "sector_n": 24,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.21170000000000003,
+        "sector_median": 0.2041,
+        "sector_n": 24,
+        "read": "en l\u00ednea con la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 4.4% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Communication Services\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

@@ -1,6 +1,7 @@
 {
   "ticker": "MPWR",
-  "generated_at": "2026-08-20T20:36:43.886731+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "98.41%"
+        "value": "98.39%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "434,866"
+        "value": "436,990"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Technology",
+    "industry": "Semiconductors",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 80.31,
+        "sector_median": 34.81,
+        "sector_n": 86,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 19.68,
+        "sector_median": 6.51,
+        "sector_n": 93,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 62.99,
+        "sector_median": 20.95,
+        "sector_n": 92,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.21899999999999997,
+        "sector_median": 0.225,
+        "sector_n": 89,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.552,
+        "sector_median": 0.552,
+        "sector_n": 93,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.2872,
+        "sector_median": 0.2187,
+        "sector_n": 93,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 17.3% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Technology\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

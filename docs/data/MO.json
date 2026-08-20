@@ -1,6 +1,7 @@
 {
   "ticker": "MO",
-  "generated_at": "2026-08-20T20:36:41.297327+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "10,269,956"
+        "value": "10,275,098"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,49 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Defensive",
+    "industry": "Tobacco",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 14.1,
+        "sector_median": 22.655,
+        "sector_n": 30,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 5.46,
+        "sector_median": 1.915,
+        "sector_n": 34,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 9.01,
+        "sector_median": 13.379999999999999,
+        "sector_n": 34,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.83,
+        "sector_median": 0.36734999999999995,
+        "sector_n": 34,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.7158,
+        "sector_median": 0.15439999999999998,
+        "sector_n": 34,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 1.7% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Defensive\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

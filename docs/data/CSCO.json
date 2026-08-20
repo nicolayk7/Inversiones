@@ -1,6 +1,7 @@
 {
   "ticker": "CSCO",
-  "generated_at": "2026-08-20T20:33:50.112666+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "82.51%"
+        "value": "82.45%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "12,618,339"
+        "value": "12,626,659"
       },
       {
         "label": "RSI (14)",
@@ -423,5 +424,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Technology",
+    "industry": "Communication Equipment",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 32.91,
+        "sector_median": 34.81,
+        "sector_n": 86,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 6.82,
+        "sector_median": 6.51,
+        "sector_n": 93,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 24.07,
+        "sector_median": 20.95,
+        "sector_n": 92,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.2732,
+        "sector_median": 0.225,
+        "sector_n": 89,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.6325,
+        "sector_median": 0.552,
+        "sector_n": 93,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.2523,
+        "sector_median": 0.2187,
+        "sector_n": 93,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 11.8% interanual (2025 \u2192 2026).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Technology\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

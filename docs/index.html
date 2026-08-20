@@ -134,6 +134,59 @@
   .loading, .error { color: var(--muted); font-size: 13px; padding: 20px; }
   .error { color: var(--neg); }
   a { color: var(--accent); }
+
+  .section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 24px 0 10px;
+  }
+  .panel-note {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .analysis-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 4px 16px;
+  }
+  .analysis-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 9px 0 2px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .analysis-row:first-child { border-top: none; }
+  .analysis-label { color: var(--muted); }
+  .analysis-value { font-weight: 600; text-align: right; }
+  .analysis-vs { font-weight: 500; margin-left: 6px; }
+  .analysis-vs.pos { color: var(--pos); }
+  .analysis-vs.neg { color: var(--neg); }
+  .analysis-submeta { font-size: 11px; color: var(--muted); padding-bottom: 8px; text-align: right; }
+  .analysis-growth {
+    margin-top: 4px;
+    padding: 10px 0;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .analysis-footnote {
+    margin-top: 4px;
+    padding: 10px 0 12px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
 </style>
 </head>
 <body>
@@ -143,9 +196,12 @@
     <a href="https://finviz.com" target="_blank" rel="noopener">finviz.com</a> — sin backend, sin base de datos.
   </div>
   <div class="disclaimer">
-    Datos con fines informativos/educativos únicamente, no es asesoría de inversión. Actualizado
-    periódicamente (ver "generado" abajo), no en tiempo real. Fuente: Finviz (cotizaciones con
-    hasta 1 minuto de delay para NASDAQ/NYSE/AMEX, según Finviz).
+    Datos con fines informativos/educativos únicamente, no es asesoría de inversión. Incluye
+    acciones (S&amp;P 500 + Nasdaq-100 + algunas adicionales) y ETFs. El "Análisis" al final de
+    cada ticker es 100% calculado por código determinista sobre estos mismos datos — sin
+    inteligencia artificial de por medio. Actualizado periódicamente (ver "generado" abajo), no en
+    tiempo real. Fuente: Finviz (cotizaciones con hasta 1 minuto de delay para NASDAQ/NYSE/AMEX,
+    según Finviz).
   </div>
 
   <div class="search-wrap">
@@ -225,6 +281,73 @@ function renderCharts(charts) {
   return `<div class="charts">${panels}</div>`;
 }
 
+// Metrics compared as percentages (Finviz/this analysis stores them as fractions, e.g. 0.307 for
+// 30.7%) vs. plain ratios (P/E, P/S, EV/EBITDA) — must match _EQUITY_ANALYSIS_METRICS in
+// scripts/generate_finviz_snapshot_site.py.
+const ANALYSIS_PERCENT_METRICS = new Set(["ROE", "Margen bruto", "Margen operativo"]);
+
+function fmtMetricValue(metric, v) {
+  if (v === null || v === undefined) return "-";
+  return ANALYSIS_PERCENT_METRICS.has(metric) ? (v * 100).toFixed(1) + "%" : v.toFixed(2);
+}
+
+function fmtExpenseRatio(v) {
+  if (v === null || v === undefined) return "-";
+  return (v * 100).toFixed(2) + "%";
+}
+
+function readClass(read) {
+  if (!read) return "";
+  if (read.includes("barato") || read.includes("por encima")) return "pos";
+  if (read.includes("caro") || read.includes("por debajo")) return "neg";
+  return "";
+}
+
+// Deterministic, computed at generation time (no LLM, no live call) — see
+// scripts/generate_finviz_snapshot_site.py's module docstring for why and how.
+function renderAnalysis(analysis) {
+  if (!analysis) {
+    return `<div class="section-title">Análisis</div>
+      <div class="panel-note">
+        No hay suficientes acciones del mismo sector en este dataset generado (mínimo 3) para una
+        comparación con sentido — se omite en vez de mostrar una mediana poco confiable.
+      </div>`;
+  }
+
+  if (analysis.type === "etf") {
+    return `
+      <div class="section-title">Análisis del fondo</div>
+      <div class="analysis-panel">
+        <div class="analysis-row"><span class="analysis-label">Índice replicado</span><span class="analysis-value">${analysis.tracked_index}</span></div>
+        <div class="analysis-row"><span class="analysis-label">Categoría</span><span class="analysis-value">${analysis.category}</span></div>
+        <div class="analysis-row"><span class="analysis-label">Gestora</span><span class="analysis-value">${analysis.manager}</span></div>
+        <div class="analysis-row"><span class="analysis-label">Holdings</span><span class="analysis-value">${analysis.holdings_count}</span></div>
+        ${analysis.expense_ratio_read ? `<div class="analysis-growth">Expense ratio ${fmtExpenseRatio(analysis.expense_ratio)}: ${analysis.expense_ratio_read}.</div>` : ""}
+        <div class="analysis-footnote">${analysis.methodology}</div>
+      </div>`;
+  }
+
+  const rows = analysis.comparisons.map(c => `
+    <div class="analysis-row">
+      <span class="analysis-label">${c.metric}</span>
+      <span class="analysis-value">${fmtMetricValue(c.metric, c.value)}<span class="analysis-vs ${readClass(c.read)}">${c.read}</span></span>
+    </div>
+    <div class="analysis-submeta">mediana ${analysis.sector} (n=${c.sector_n}): ${fmtMetricValue(c.metric, c.sector_median)}</div>
+  `).join("");
+
+  return `
+    <div class="section-title">Análisis vs. sector — ${analysis.sector}${analysis.industry ? " · " + analysis.industry : ""}</div>
+    <div class="analysis-panel">
+      ${rows || `<div class="panel-note" style="border:none;padding:12px 0;">Sin métricas suficientes para comparar.</div>`}
+      ${analysis.growth_note ? `<div class="analysis-growth">${analysis.growth_note}</div>` : ""}
+      <div class="analysis-footnote">${analysis.methodology}</div>
+    </div>`;
+}
+
+function renderTickerContent(data) {
+  return renderGrid(data.columns) + renderCharts(data.charts) + renderAnalysis(data.analysis);
+}
+
 async function loadTicker(ticker) {
   document.querySelectorAll("#tickers button").forEach(b => b.classList.toggle("active", b.dataset.ticker === ticker));
   document.getElementById("content").innerHTML = `<div class="loading">Cargando ${ticker}…</div>`;
@@ -234,7 +357,7 @@ async function loadTicker(ticker) {
     const data = await res.json();
     document.getElementById("meta").textContent =
       `${data.ticker} · generado: ${new Date(data.generated_at).toLocaleString()}`;
-    document.getElementById("content").innerHTML = renderGrid(data.columns) + renderCharts(data.charts);
+    document.getElementById("content").innerHTML = renderTickerContent(data);
     attachCadenceHandlers(data);
   } catch (err) {
     document.getElementById("content").innerHTML = `<div class="error">No se pudo cargar ${ticker}: ${err.message}</div>`;
@@ -245,7 +368,7 @@ function attachCadenceHandlers(data) {
   document.querySelectorAll(".cadence-toggle button").forEach(btn => {
     btn.addEventListener("click", () => {
       currentCadence = btn.dataset.cadence;
-      document.getElementById("content").innerHTML = renderGrid(data.columns) + renderCharts(data.charts);
+      document.getElementById("content").innerHTML = renderTickerContent(data);
       attachCadenceHandlers(data);
     });
   });
@@ -258,7 +381,7 @@ function attachCadenceHandlers(data) {
 // index at render time — see init() — so a ticker here that ever drops out of the watchlist
 // silently disappears from this row instead of rendering a dead button.
 const QUICK_PICKS = [
-  "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "TSLA", "AVGO", "JPM", "BRK-B",
+  "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "TSLA", "AVGO", "JPM", "BRK-B", "SPY", "QQQ",
 ];
 
 function setupSearch(allTickers) {

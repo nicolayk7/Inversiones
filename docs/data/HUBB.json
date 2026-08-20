@@ -1,6 +1,7 @@
 {
   "ticker": "HUBB",
-  "generated_at": "2026-08-20T20:35:33.971358+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "334,608"
+        "value": "339,191"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Industrials",
+    "industry": "Electrical Equipment & Parts",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 27.81,
+        "sector_median": 29.44,
+        "sector_n": 75,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 3.99,
+        "sector_median": 3.505,
+        "sector_n": 76,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 19.5,
+        "sector_median": 17.119999999999997,
+        "sector_n": 74,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.2434,
+        "sector_median": 0.20129999999999998,
+        "sector_n": 73,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.35340000000000005,
+        "sector_median": 0.33545,
+        "sector_n": 76,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.2087,
+        "sector_median": 0.17895,
+        "sector_n": 76,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 6.5% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Industrials\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

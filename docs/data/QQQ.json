@@ -1,0 +1,110 @@
+{
+  "ticker": "QQQ",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": true,
+  "columns": [
+    [
+      {
+        "label": "Price",
+        "value": "710.93"
+      },
+      {
+        "label": "Prev Close",
+        "value": "716.08"
+      },
+      {
+        "label": "Change %",
+        "value": "-0.72%"
+      },
+      {
+        "label": "AUM",
+        "value": "489.09B"
+      },
+      {
+        "label": "Expense Ratio",
+        "value": "0.18%"
+      },
+      {
+        "label": "Inception Date",
+        "value": "Mar 10, 1999"
+      }
+    ],
+    [
+      {
+        "label": "Category",
+        "value": "US Equities - Broad Market & Size"
+      },
+      {
+        "label": "Asset Type",
+        "value": "Equities (Stocks)"
+      },
+      {
+        "label": "Tracked Index",
+        "value": "Nasdaq 100 Index"
+      },
+      {
+        "label": "Fund Manager",
+        "value": "Invesco"
+      },
+      {
+        "label": "Holdings",
+        "value": "107"
+      }
+    ],
+    [
+      {
+        "label": "1Y Return",
+        "value": "24.68%"
+      },
+      {
+        "label": "3Y Return",
+        "value": "25.30%"
+      },
+      {
+        "label": "5Y Return",
+        "value": "15.04%"
+      },
+      {
+        "label": "10Y Return",
+        "value": "-"
+      },
+      {
+        "label": "YTD Fund Flows",
+        "value": "3.19%"
+      }
+    ],
+    [
+      {
+        "label": "Volume",
+        "value": "33,248,135"
+      },
+      {
+        "label": "Avg Volume",
+        "value": "42.76M"
+      },
+      {
+        "label": "Beta",
+        "value": "1.23"
+      },
+      {
+        "label": "52W High",
+        "value": "748.65 -5.04%"
+      },
+      {
+        "label": "52W Low",
+        "value": "555.60 27.96%"
+      }
+    ]
+  ],
+  "charts": null,
+  "analysis": {
+    "type": "etf",
+    "expense_ratio": 0.0018,
+    "expense_ratio_read": "costo bajo-moderado (0.10%-0.50%)",
+    "holdings_count": "107",
+    "tracked_index": "Nasdaq 100 Index",
+    "category": "US Equities - Broad Market & Size",
+    "manager": "Invesco",
+    "methodology": "Este es un fondo (ETF), no una empresa operativa \u2014 no aplica comparaci\u00f3n de P/E, m\u00e1rgenes ni ROE contra un sector. Lectura de costo basada en umbrales fijos y p\u00fablicos de la industria, no calculados de este dataset."
+  }
+}

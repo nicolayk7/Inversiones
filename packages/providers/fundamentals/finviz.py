@@ -115,6 +115,42 @@ def _clean_text(html_fragment: str) -> str:
     return _TAG_PATTERN.sub("", html_fragment).strip()
 
 
+# Sector/Industry/Country/Cap-size/Exchange live in a SEPARATE header block
+# (`class="quote-header_categories"`), not the snapshot-table2 grid — up to 5 links, each tagged by
+# its own screener filter prefix (sec_/ind_/geo_/cap_/exch_) rather than position, since a ticker
+# can be missing one (confirmed live: ETF pages omit the cap_ link entirely). Confirmed live
+# 2026-08-20 against both equities (AAPL: Technology/Consumer Electronics/USA/Mega/NASD) and ETFs
+# (SPY/QQQ/VT: Financial/Exchange Traded Fund/USA/-/NYSE-or-NASD) — ETFs DO have this block, but
+# Finviz classifies every ETF under the same generic sector="Financial",
+# industry="Exchange Traded Fund" pair, which is not a real operating sector and must not be used
+# for equity-style sector-relative comparison (see scripts/generate_finviz_snapshot_site.py's
+# analysis module, which instead detects "is this an ETF" from the presence of the "Assets Under
+# Management" field — a signal no equity page carries — rather than from this generic label).
+_CATEGORY_PATTERN = re.compile(
+    r'<a href="screener\?v=111&f=(?P<kind>sec|ind|geo|cap|exch)_[^"]*" '
+    r'class="quote-header_category"[^>]*>(?P<text>.*?)</a>',
+    re.S,
+)
+_CATEGORY_KIND_NAMES = {
+    "sec": "sector", "ind": "industry", "geo": "country", "cap": "cap_size", "exch": "exchange",
+}
+
+
+def _parse_categories(body: str) -> dict[str, str]:
+    """Returns whatever subset of {sector, industry, country, cap_size, exchange} this page's
+    header block actually has — never guesses a missing one. Scoped to the header block only (the
+    first ~800 chars after its marker class), not searched over the whole page, so it can't
+    accidentally match an unrelated `quote-header_category`-styled link elsewhere."""
+    start = body.find("quote-header_categories")
+    if start == -1:
+        return {}
+    block = body[start : start + 800]
+    return {
+        _CATEGORY_KIND_NAMES[m.group("kind")]: html.unescape(_clean_text(m.group("text")))
+        for m in _CATEGORY_PATTERN.finditer(block)
+    }
+
+
 def _parse_fields(body: str, ticker: str) -> dict[str, str]:
     """The snapshot grid only (tooltip-keyed), from an already-fetched page body. Tooltip keys are
     HTML-entity-decoded (`html.unescape`) — some contain literal `&#39;`/`&lt;br&gt;` in the raw
@@ -309,15 +345,18 @@ class FinvizFundamentalsProvider:
         """Everything on the quote page, in ONE fetch (not `get_quarterly_fundamentals`'s
         curated FundamentalsRecord subset, and not two separate requests) — built for
         `scripts/generate_finviz_snapshot_site.py`'s static-visualization use case, which wants
-        the raw grid plus the historical charts together. Returns
-        `{"ticker": ..., "fields": {<tooltip>: <raw string value>, ...}, "charts": {...} | None}`.
-        `fields` is unfiltered — every tooltip->value pair on the page, not a hand-picked subset —
-        so a caller can choose what to display without this provider needing to know in advance."""
+        the raw grid plus the historical charts together. Returns `{"ticker": ...,
+        "fields": {<tooltip>: <raw string value>, ...}, "charts": {...} | None,
+        "categories": {"sector": ..., "industry": ..., ...} (whatever subset is present, see
+        _parse_categories)}`. `fields` is unfiltered — every tooltip->value pair on the page, not a
+        hand-picked subset — so a caller can choose what to display without this provider needing
+        to know in advance."""
         body = self._fetch_page(ticker)
         return {
             "ticker": ticker.upper(),
             "fields": _parse_fields(body, ticker),
             "charts": _parse_charts(body),
+            "categories": _parse_categories(body),
         }
 
 

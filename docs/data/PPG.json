@@ -1,6 +1,7 @@
 {
   "ticker": "PPG",
-  "generated_at": "2026-08-20T20:37:40.164009+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "91.66%"
+        "value": "91.68%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.68"
+        "value": "0.82"
       },
       {
         "label": "Volume",
-        "value": "1,311,011"
+        "value": "1,575,116"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Basic Materials",
+    "industry": "Specialty Chemicals",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 16.15,
+        "sector_median": 31.07,
+        "sector_n": 15,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 1.52,
+        "sector_median": 2.5700000000000003,
+        "sector_n": 20,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 11.33,
+        "sector_median": 12.855,
+        "sector_n": 20,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.1956,
+        "sector_median": 0.13379999999999997,
+        "sector_n": 20,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.3746,
+        "sector_median": 0.32275,
+        "sector_n": 20,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1322,
+        "sector_median": 0.15925,
+        "sector_n": 20,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 3.4% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Basic Materials\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

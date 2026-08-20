@@ -1,6 +1,7 @@
 {
   "ticker": "AVY",
-  "generated_at": "2026-08-20T20:32:46.209395+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "98.74%"
+        "value": "98.77%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "554,867"
+        "value": "554,751"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Cyclical",
+    "industry": "Packaging & Containers",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 19.99,
+        "sector_median": 21.32,
+        "sector_n": 54,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 1.5,
+        "sector_median": 2.185,
+        "sector_n": 56,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 11.01,
+        "sector_median": 14.23,
+        "sector_n": 55,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.3116,
+        "sector_median": 0.3154,
+        "sector_n": 45,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.2898,
+        "sector_median": 0.3266,
+        "sector_n": 56,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1332,
+        "sector_median": 0.12845,
+        "sector_n": 56,
+        "read": "en l\u00ednea con la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 4.4% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Cyclical\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

@@ -1,6 +1,7 @@
 {
   "ticker": "SNPS",
-  "generated_at": "2026-08-20T20:38:12.656837+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "89.91%"
+        "value": "89.67%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.58"
+        "value": "0.59"
       },
       {
         "label": "Volume",
-        "value": "1,146,703"
+        "value": "1,163,017"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Technology",
+    "industry": "Software - Infrastructure",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 92.06,
+        "sector_median": 34.81,
+        "sector_n": 86,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 8.78,
+        "sector_median": 6.51,
+        "sector_n": 93,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 32.78,
+        "sector_median": 20.95,
+        "sector_n": 92,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.0383,
+        "sector_median": 0.225,
+        "sector_n": 89,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.6487999999999999,
+        "sector_median": 0.552,
+        "sector_n": 93,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1202,
+        "sector_median": 0.2187,
+        "sector_n": 93,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 23.0% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Technology\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

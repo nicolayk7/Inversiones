@@ -1,0 +1,110 @@
+{
+  "ticker": "SPY",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": true,
+  "columns": [
+    [
+      {
+        "label": "Price",
+        "value": "762.60"
+      },
+      {
+        "label": "Prev Close",
+        "value": "769.06"
+      },
+      {
+        "label": "Change %",
+        "value": "-0.84%"
+      },
+      {
+        "label": "AUM",
+        "value": "820.11B"
+      },
+      {
+        "label": "Expense Ratio",
+        "value": "0.09%"
+      },
+      {
+        "label": "Inception Date",
+        "value": "Jan 29, 1993"
+      }
+    ],
+    [
+      {
+        "label": "Category",
+        "value": "US Equities - Broad Market & Size"
+      },
+      {
+        "label": "Asset Type",
+        "value": "Equities (Stocks)"
+      },
+      {
+        "label": "Tracked Index",
+        "value": "S&P 500 Index"
+      },
+      {
+        "label": "Fund Manager",
+        "value": "State Street (SPDR)"
+      },
+      {
+        "label": "Holdings",
+        "value": "505"
+      }
+    ],
+    [
+      {
+        "label": "1Y Return",
+        "value": "20.87%"
+      },
+      {
+        "label": "3Y Return",
+        "value": "21.22%"
+      },
+      {
+        "label": "5Y Return",
+        "value": "13.14%"
+      },
+      {
+        "label": "10Y Return",
+        "value": "-"
+      },
+      {
+        "label": "YTD Fund Flows",
+        "value": "2.18%"
+      }
+    ],
+    [
+      {
+        "label": "Volume",
+        "value": "45,416,152"
+      },
+      {
+        "label": "Avg Volume",
+        "value": "51.45M"
+      },
+      {
+        "label": "Beta",
+        "value": "1.01"
+      },
+      {
+        "label": "52W High",
+        "value": "779.37 -2.15%"
+      },
+      {
+        "label": "52W Low",
+        "value": "629.28 21.19%"
+      }
+    ]
+  ],
+  "charts": null,
+  "analysis": {
+    "type": "etf",
+    "expense_ratio": 0.0009,
+    "expense_ratio_read": "costo muy bajo (\u2264 0.10%) \u2014 t\u00edpico de fondos indexados grandes",
+    "holdings_count": "505",
+    "tracked_index": "S&P 500 Index",
+    "category": "US Equities - Broad Market & Size",
+    "manager": "State Street (SPDR)",
+    "methodology": "Este es un fondo (ETF), no una empresa operativa \u2014 no aplica comparaci\u00f3n de P/E, m\u00e1rgenes ni ROE contra un sector. Lectura de costo basada en umbrales fijos y p\u00fablicos de la industria, no calculados de este dataset."
+  }
+}

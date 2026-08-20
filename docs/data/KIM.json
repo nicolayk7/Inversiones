@@ -1,6 +1,7 @@
 {
   "ticker": "KIM",
-  "generated_at": "2026-08-20T20:36:03.028405+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "2,957,442"
+        "value": "2,957,443"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Real Estate",
+    "industry": "REIT - Retail",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 28.32,
+        "sector_median": 35.26,
+        "sector_n": 28,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 7.37,
+        "sector_median": 7.609999999999999,
+        "sector_n": 30,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 18.04,
+        "sector_median": 20.869999999999997,
+        "sector_n": 30,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.0582,
+        "sector_median": 0.0732,
+        "sector_n": 28,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.40979999999999994,
+        "sector_median": 0.34065,
+        "sector_n": 30,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.34509999999999996,
+        "sector_median": 0.2753,
+        "sector_n": 30,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 2.1% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Real Estate\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

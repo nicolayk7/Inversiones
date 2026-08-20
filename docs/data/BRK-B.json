@@ -1,6 +1,7 @@
 {
   "ticker": "BRK-B",
-  "generated_at": "2026-08-20T20:33:05.314813+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "43.82%"
+        "value": "43.77%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "3,270,523"
+        "value": "3,278,104"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Financial",
+    "industry": "Insurance - Diversified",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 12.49,
+        "sector_median": 15.565000000000001,
+        "sector_n": 68,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.49,
+        "sector_median": 2.465,
+        "sector_n": 70,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 9.45,
+        "sector_median": 14.53,
+        "sector_n": 33,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.1211,
+        "sector_median": 0.158,
+        "sector_n": 69,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.2352,
+        "sector_median": 0.768,
+        "sector_n": 33,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1625,
+        "sector_median": 0.2311,
+        "sector_n": 70,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 3.6% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Financial\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

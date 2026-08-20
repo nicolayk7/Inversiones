@@ -1,6 +1,7 @@
 {
   "ticker": "MOS",
-  "generated_at": "2026-08-20T20:36:42.159313+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "1.44"
+        "value": "1.46"
       },
       {
         "label": "Volume",
-        "value": "12,385,856"
+        "value": "12,613,213"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,49 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Basic Materials",
+    "industry": "Agricultural Inputs",
+    "comparisons": [
+      {
+        "metric": "P/S",
+        "value": 0.61,
+        "sector_median": 2.5700000000000003,
+        "sector_n": 20,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 6.42,
+        "sector_median": 12.855,
+        "sector_n": 20,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": -0.053399999999999996,
+        "sector_median": 0.13379999999999997,
+        "sector_n": 20,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.1097,
+        "sector_median": 0.32275,
+        "sector_n": 20,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.0679,
+        "sector_median": 0.15925,
+        "sector_n": 20,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 1.6% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Basic Materials\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

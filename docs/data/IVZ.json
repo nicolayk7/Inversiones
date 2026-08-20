@@ -1,6 +1,7 @@
 {
   "ticker": "IVZ",
-  "generated_at": "2026-08-20T20:35:51.705560+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.87"
+        "value": "0.88"
       },
       {
         "label": "Volume",
-        "value": "4,456,555"
+        "value": "4,467,473"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,49 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Financial",
+    "industry": "Asset Management",
+    "comparisons": [
+      {
+        "metric": "P/S",
+        "value": 1.94,
+        "sector_median": 2.465,
+        "sector_n": 70,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 9.91,
+        "sector_median": 14.53,
+        "sector_n": 33,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": -0.0049,
+        "sector_median": 0.158,
+        "sector_n": 69,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.6511,
+        "sector_median": 0.768,
+        "sector_n": 33,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.2263,
+        "sector_median": 0.2311,
+        "sector_n": 70,
+        "read": "en l\u00ednea con la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 10.5% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Financial\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

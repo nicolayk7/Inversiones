@@ -1,6 +1,7 @@
 {
   "ticker": "KR",
-  "generated_at": "2026-08-20T20:36:08.271716+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "88.03%"
+        "value": "88.01%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "1.08"
+        "value": "1.23"
       },
       {
         "label": "Volume",
-        "value": "8,501,839"
+        "value": "9,700,665"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Defensive",
+    "industry": "Grocery Stores",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 32.94,
+        "sector_median": 22.655,
+        "sector_n": 30,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 0.23,
+        "sector_median": 1.915,
+        "sector_n": 34,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 6.37,
+        "sector_median": 13.379999999999999,
+        "sector_n": 34,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.1349,
+        "sector_median": 0.2121,
+        "sector_n": 32,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.20980000000000001,
+        "sector_median": 0.36734999999999995,
+        "sector_n": 34,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.0318,
+        "sector_median": 0.15439999999999998,
+        "sector_n": 34,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 0.7% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Defensive\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

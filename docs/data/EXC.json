@@ -1,6 +1,7 @@
 {
   "ticker": "EXC",
-  "generated_at": "2026-08-20T20:34:37.723401+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "94.79%"
+        "value": "94.77%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.56"
+        "value": "0.57"
       },
       {
         "label": "Volume",
-        "value": "4,794,369"
+        "value": "4,863,343"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Utilities",
+    "industry": "Utilities - Regulated Electric",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 16.51,
+        "sector_median": 21.07,
+        "sector_n": 31,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 1.84,
+        "sector_median": 2.88,
+        "sector_n": 31,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 10.76,
+        "sector_median": 13.77,
+        "sector_n": 31,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.0971,
+        "sector_median": 0.10099999999999999,
+        "sector_n": 31,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.2753,
+        "sector_median": 0.2922,
+        "sector_n": 31,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.2079,
+        "sector_median": 0.2324,
+        "sector_n": 31,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 4.4% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Utilities\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

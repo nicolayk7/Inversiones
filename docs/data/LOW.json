@@ -1,6 +1,7 @@
 {
   "ticker": "LOW",
-  "generated_at": "2026-08-20T20:36:19.602372+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -43,11 +44,11 @@
       },
       {
         "label": "Forward P/E",
-        "value": "16.62"
+        "value": "16.65"
       },
       {
         "label": "PEG",
-        "value": "3.18"
+        "value": "3.23"
       },
       {
         "label": "P/S",
@@ -85,15 +86,15 @@
       },
       {
         "label": "EPS next Y ($)",
-        "value": "13.07"
+        "value": "13.05"
       },
       {
         "label": "EPS next Y (%)",
-        "value": "6.24%"
+        "value": "6.17%"
       },
       {
         "label": "EPS next 5Y",
-        "value": "5.23%"
+        "value": "5.15%"
       },
       {
         "label": "EPS past 3/5Y",
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "80.19%"
+        "value": "80.14%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,889,605"
+        "value": "5,891,785"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,49 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Cyclical",
+    "industry": "Home Improvement Retail",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 18.38,
+        "sector_median": 21.32,
+        "sector_n": 54,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 1.35,
+        "sector_median": 2.185,
+        "sector_n": 56,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 12.66,
+        "sector_median": 14.23,
+        "sector_n": 55,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.3068,
+        "sector_median": 0.3266,
+        "sector_n": 56,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.11380000000000001,
+        "sector_median": 0.12845,
+        "sector_n": 56,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 4.8% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Cyclical\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

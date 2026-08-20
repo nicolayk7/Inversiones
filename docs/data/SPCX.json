@@ -1,6 +1,7 @@
 {
   "ticker": "SPCX",
-  "generated_at": "2026-08-20T20:38:15.236756+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "10.40%"
+        "value": "10.35%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "119,150,086"
+        "value": "119,499,660"
       },
       {
         "label": "RSI (14)",
@@ -291,5 +292,13 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Industrials",
+    "industry": "Aerospace & Defense",
+    "comparisons": [],
+    "growth_note": "Ventas creciendo 33.2% interanual (2024 \u2192 2025).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Industrials\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

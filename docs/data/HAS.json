@@ -1,6 +1,7 @@
 {
   "ticker": "HAS",
-  "generated_at": "2026-08-20T20:35:19.994090+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.53"
+        "value": "0.68"
       },
       {
         "label": "Volume",
-        "value": "1,136,871"
+        "value": "1,474,544"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Cyclical",
+    "industry": "Leisure",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 16.82,
+        "sector_median": 21.32,
+        "sector_n": 54,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.65,
+        "sector_median": 2.185,
+        "sector_n": 56,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 10.11,
+        "sector_median": 14.23,
+        "sector_n": 55,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 1.6783000000000001,
+        "sector_median": 0.3154,
+        "sector_n": 45,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.6269,
+        "sector_median": 0.3266,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.2813,
+        "sector_median": 0.12845,
+        "sector_n": 56,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 5.8% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Cyclical\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

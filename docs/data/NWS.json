@@ -1,6 +1,7 @@
 {
   "ticker": "NWS",
-  "generated_at": "2026-08-20T20:37:11.127978+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "743,367"
+        "value": "743,325"
       },
       {
         "label": "RSI (14)",
@@ -418,5 +419,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Communication Services",
+    "industry": "Entertainment",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 32.88,
+        "sector_median": 18.96,
+        "sector_n": 19,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 1.86,
+        "sector_median": 1.8650000000000002,
+        "sector_n": 24,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 11.27,
+        "sector_median": 11.225,
+        "sector_n": 24,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.0662,
+        "sector_median": 0.1429,
+        "sector_n": 24,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.515,
+        "sector_median": 0.48050000000000004,
+        "sector_n": 24,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.1264,
+        "sector_median": 0.2041,
+        "sector_n": 24,
+        "read": "por debajo de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 6.8% interanual (2025 \u2192 2026).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Communication Services\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

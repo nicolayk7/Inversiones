@@ -1,6 +1,7 @@
 {
   "ticker": "MDLZ",
-  "generated_at": "2026-08-20T20:36:32.639336+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "88.42%"
+        "value": "88.41%"
       },
       {
         "label": "52W High",
@@ -163,7 +164,7 @@
       },
       {
         "label": "Volume",
-        "value": "5,996,798"
+        "value": "5,996,909"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Consumer Defensive",
+    "industry": "Confectioners",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 23.53,
+        "sector_median": 22.655,
+        "sector_n": 30,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.06,
+        "sector_median": 1.915,
+        "sector_n": 34,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 13.32,
+        "sector_median": 13.379999999999999,
+        "sector_n": 34,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.1331,
+        "sector_median": 0.2121,
+        "sector_n": 32,
+        "read": "por debajo de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.35009999999999997,
+        "sector_median": 0.36734999999999995,
+        "sector_n": 34,
+        "read": "en l\u00ednea con la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.15839999999999999,
+        "sector_median": 0.15439999999999998,
+        "sector_n": 34,
+        "read": "en l\u00ednea con la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 3.0% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Consumer Defensive\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

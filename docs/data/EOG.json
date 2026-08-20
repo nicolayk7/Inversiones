@@ -1,6 +1,7 @@
 {
   "ticker": "EOG",
-  "generated_at": "2026-08-20T20:34:29.094704+00:00",
+  "generated_at": "2026-08-20T21:48:05.170616+00:00",
+  "is_etf": false,
   "columns": [
     [
       {
@@ -139,7 +140,7 @@
       },
       {
         "label": "Inst Own",
-        "value": "97.12%"
+        "value": "97.10%"
       },
       {
         "label": "52W High",
@@ -159,11 +160,11 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.70"
+        "value": "0.71"
       },
       {
         "label": "Volume",
-        "value": "2,389,426"
+        "value": "2,427,238"
       },
       {
         "label": "RSI (14)",
@@ -433,5 +434,56 @@
         }
       ]
     }
+  },
+  "analysis": {
+    "type": "equity",
+    "sector": "Energy",
+    "industry": "Oil & Gas E&P",
+    "comparisons": [
+      {
+        "metric": "P/E",
+        "value": 11.84,
+        "sector_median": 18.05,
+        "sector_n": 22,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "P/S",
+        "value": 2.99,
+        "sector_median": 2.2199999999999998,
+        "sector_n": 22,
+        "read": "m\u00e1s caro que la mediana del sector"
+      },
+      {
+        "metric": "EV/EBITDA",
+        "value": 5.79,
+        "sector_median": 8.350000000000001,
+        "sector_n": 22,
+        "read": "m\u00e1s barato que la mediana del sector"
+      },
+      {
+        "metric": "ROE",
+        "value": 0.22510000000000002,
+        "sector_median": 0.1561,
+        "sector_n": 22,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen bruto",
+        "value": 0.4324,
+        "sector_median": 0.27135,
+        "sector_n": 22,
+        "read": "por encima de la mediana del sector"
+      },
+      {
+        "metric": "Margen operativo",
+        "value": 0.35119999999999996,
+        "sector_median": 0.22615000000000002,
+        "sector_n": 22,
+        "read": "por encima de la mediana del sector"
+      }
+    ],
+    "growth_note": "Ventas creciendo 17.9% interanual (2025 \u2192 TTM).",
+    "methodology": "Comparaci\u00f3n calculada contra la mediana real de las acciones del sector \u2018Energy\u2019 presentes en este mismo dataset generado (no un promedio de mercado externo) \u2014 determinista, sin IA."
   }
 }

@@ -10,8 +10,24 @@ input, and its output must never be wired into Wealth Engine's storage/pipeline 
 concern that happens to use the same underlying provider).
 
 TICKERS is independent of `scripts/ingest_mvp_universe.py`'s MVP_TICKERS — this script needs no CIK
-mapping (Finviz scraping doesn't require one), so it isn't restricted to that set. Kept equal to it
-by default only for consistency with the rest of this MVP; pass tickers as CLI args to override.
+mapping (Finviz scraping doesn't require one), so it isn't restricted to that set. It is a
+hand-picked "commonly searched, liquid large-cap" watchlist for this static site's search box —
+NOT an index constituent list, NOT the Wealth Engine's `universe_definition`, and must never be
+conflated with either (CLAUDE.md's Equity Universe vs. Market Context split governs THAT list, not
+this one — this generator's output never reaches Wealth Engine). Pass tickers as CLI args to
+override or narrow it for a single run.
+
+On-demand, arbitrary-ticker search from the browser is deliberately NOT how this works: a static
+site's client-side JS cannot fetch finviz.com directly (no CORS allow-origin from Finviz, and even
+if there were, it would mean every visitor's browser independently scraping Finviz — unbounded
+volume, the opposite of the low-volume discipline finviz.py's module docstring commits to). The
+approach here instead: pre-generate a broad-but-bounded watchlist once a day from ONE controlled
+runner (the GitHub Actions cron), and let the page's search box filter that already-fetched index
+client-side. `docs/index.html`'s search feels instant because it's a local filter, not a live call.
+
+A larger TICKERS list means more sequential requests per run — `_REQUEST_DELAY_SECONDS` adds a
+small pause between them so a ~100-ticker run still reads as "one script working through a list
+slowly," not a burst.
 
 FIELD_LAYOUT is a curated, high-confidence subset of the ~84 fields Finviz's quote page exposes —
 every entry's tooltip key was verified present on a live fetch during development, cross-checked
@@ -34,6 +50,7 @@ Usage:
 import json
 import logging
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -42,7 +59,40 @@ from packages.providers.fundamentals.finviz import FinvizError, FinvizFundamenta
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger("generate_finviz_snapshot_site")
 
-TICKERS = ["AAPL", "MSFT", "AMZN", "GOOGL"]
+_REQUEST_DELAY_SECONDS = 0.6
+
+# Hand-picked large-cap/liquid watchlist spanning sectors — see module docstring for what this
+# list is (and isn't). Feel free to extend; each entry needs nothing beyond being a real Finviz
+# ticker symbol (no CIK, no pre-registration anywhere else in this repo).
+TICKERS = [
+    # Technology
+    "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "TSLA", "AVGO", "ORCL", "ADBE",
+    "CRM", "AMD", "INTC", "CSCO", "QCOM", "TXN", "IBM", "NOW", "INTU", "UBER",
+    "SHOP", "PANW", "SNPS", "CDNS", "ADI", "MU", "LRCX", "AMAT", "KLAC", "PYPL",
+    # Financials
+    "JPM", "BAC", "WFC", "GS", "MS", "C", "BLK", "SCHW", "AXP", "V",
+    "MA", "SPGI", "ICE", "CME",
+    # Healthcare
+    "UNH", "JNJ", "LLY", "ABBV", "MRK", "PFE", "TMO", "ABT", "DHR", "BMY",
+    "AMGN", "GILD", "ISRG", "CVS", "MDT",
+    # Consumer
+    "WMT", "PG", "KO", "PEP", "COST", "MCD", "NKE", "SBUX", "HD", "LOW",
+    "TGT", "DIS", "NFLX", "CMCSA", "BKNG",
+    # Industrials
+    "BA", "CAT", "GE", "HON", "UPS", "RTX", "LMT", "DE", "UNP", "MMM", "ETN",
+    # Energy
+    "XOM", "CVX", "COP", "SLB", "EOG",
+    # Communications / Telecom
+    "T", "VZ", "TMUS",
+    # Materials
+    "LIN", "APD",
+    # Utilities
+    "NEE", "DUK",
+    # Real Estate
+    "AMT", "PLD",
+    # Industrials/other
+    "ADP",
+]
 
 _OUTPUT_DIR = Path(__file__).resolve().parents[1] / "docs" / "data"
 
@@ -125,15 +175,17 @@ def main(tickers: list[str]) -> None:
     index = {"tickers": [], "generated_at": generated_at}
 
     with FinvizFundamentalsProvider() as provider:
-        for ticker in tickers:
+        for i, ticker in enumerate(tickers):
             try:
                 data = _generate_one(ticker, provider)
             except FinvizError as exc:
                 logger.warning("[%s] failed, skipping: %s", ticker, exc)
-                continue
-            (_OUTPUT_DIR / f"{ticker}.json").write_text(json.dumps(data, indent=2))
-            index["tickers"].append(ticker)
-            logger.info("[%s] snapshot written.", ticker)
+            else:
+                (_OUTPUT_DIR / f"{ticker}.json").write_text(json.dumps(data, indent=2))
+                index["tickers"].append(ticker)
+                logger.info("[%s] snapshot written.", ticker)
+            if i < len(tickers) - 1:
+                time.sleep(_REQUEST_DELAY_SECONDS)
 
     (_OUTPUT_DIR / "index.json").write_text(json.dumps(index, indent=2))
     logger.info("Wrote %d ticker(s) + index.json to %s", len(index["tickers"]), _OUTPUT_DIR)

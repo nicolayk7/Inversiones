@@ -35,6 +35,45 @@
     color: var(--muted);
     margin-bottom: 16px;
   }
+  .search-wrap { position: relative; max-width: 320px; margin-bottom: 12px; }
+  .search-wrap input {
+    width: 100%;
+    font-size: 14px;
+    padding: 9px 12px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    background: #0f1115;
+    color: var(--text);
+  }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); }
+  .search-results {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 5;
+    display: none;
+  }
+  .search-results.open { display: block; }
+  .search-results button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-size: 13px;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .search-results button:hover, .search-results button.highlighted { background: var(--border); }
+  .search-empty { padding: 8px 12px; font-size: 12px; color: var(--muted); }
+  .tickers-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
   .tickers { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
   .tickers button {
     font-size: 13px;
@@ -109,6 +148,11 @@
     hasta 1 minuto de delay para NASDAQ/NYSE/AMEX, según Finviz).
   </div>
 
+  <div class="search-wrap">
+    <input id="search" type="text" placeholder="Buscar ticker (ej. NVDA)…" autocomplete="off">
+    <div id="searchResults" class="search-results"></div>
+  </div>
+  <div class="tickers-label">Populares</div>
   <div id="tickers" class="tickers"></div>
   <div id="meta" class="meta"></div>
   <div id="content"><div class="loading">Cargando…</div></div>
@@ -207,18 +251,74 @@ function attachCadenceHandlers(data) {
   });
 }
 
+// How many quick-pick buttons to show above the fold — the rest of the (possibly much larger)
+// TICKERS list is reachable only through the search box, not as a wall of buttons.
+const QUICK_PICK_COUNT = 10;
+
+function setupSearch(allTickers) {
+  const input = document.getElementById("search");
+  const results = document.getElementById("searchResults");
+
+  function closeResults() {
+    results.classList.remove("open");
+    results.innerHTML = "";
+  }
+
+  function renderResults(query) {
+    const q = query.trim().toUpperCase();
+    if (!q) { closeResults(); return; }
+    const matches = allTickers.filter(t => t.includes(q)).slice(0, 12);
+    if (matches.length === 0) {
+      results.innerHTML = `<div class="search-empty">Sin coincidencias en el watchlist generado. Prueba ampliar TICKERS en scripts/generate_finviz_snapshot_site.py.</div>`;
+    } else {
+      results.innerHTML = matches.map((t, i) =>
+        `<button data-ticker="${t}" class="${i === 0 ? "highlighted" : ""}">${t}</button>`
+      ).join("");
+      results.querySelectorAll("button").forEach(b =>
+        b.addEventListener("click", () => {
+          loadTicker(b.dataset.ticker);
+          input.value = "";
+          closeResults();
+        })
+      );
+    }
+    results.classList.add("open");
+  }
+
+  input.addEventListener("input", () => renderResults(input.value));
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const first = results.querySelector("button");
+      if (first) { first.click(); }
+    } else if (e.key === "Escape") {
+      input.value = "";
+      closeResults();
+    }
+  });
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".search-wrap")) closeResults();
+  });
+}
+
 async function init() {
   try {
     const res = await fetch("data/index.json", { cache: "no-store" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const index = await res.json();
+
     const tickerBar = document.getElementById("tickers");
-    tickerBar.innerHTML = index.tickers.map(t =>
+    const quickPicks = index.tickers.slice(0, QUICK_PICK_COUNT);
+    tickerBar.innerHTML = quickPicks.map(t =>
       `<button data-ticker="${t}">${t}</button>`
     ).join("");
     tickerBar.querySelectorAll("button").forEach(b =>
       b.addEventListener("click", () => loadTicker(b.dataset.ticker))
     );
+
+    setupSearch(index.tickers);
+    document.querySelector(".tickers-label").textContent =
+      `Populares (${quickPicks.length} de ${index.tickers.length} disponibles — usa el buscador para el resto)`;
+
     if (index.tickers.length > 0) loadTicker(index.tickers[0]);
     else document.getElementById("content").innerHTML = `<div class="error">No hay tickers generados todavía.</div>`;
   } catch (err) {

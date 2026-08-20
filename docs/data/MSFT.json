@@ -1,15 +1,15 @@
 {
   "ticker": "MSFT",
-  "generated_at": "2026-08-20T19:32:48.055439+00:00",
+  "generated_at": "2026-08-20T19:57:34.105493+00:00",
   "columns": [
     [
       {
         "label": "Market Cap",
-        "value": "3576.63B"
+        "value": "3569.61B"
       },
       {
         "label": "Enterprise Value",
-        "value": "3628.60B"
+        "value": "3621.58B"
       },
       {
         "label": "Income (ttm)",
@@ -39,11 +39,11 @@
     [
       {
         "label": "P/E",
-        "value": "26.84"
+        "value": "26.79"
       },
       {
         "label": "Forward P/E",
-        "value": "20.52"
+        "value": "20.47"
       },
       {
         "label": "PEG",
@@ -51,23 +51,23 @@
       },
       {
         "label": "P/S",
-        "value": "10.78"
+        "value": "10.76"
       },
       {
         "label": "P/B",
-        "value": "8.09"
+        "value": "8.07"
       },
       {
         "label": "P/FCF",
-        "value": "53.39"
+        "value": "53.29"
       },
       {
         "label": "EV/EBITDA",
-        "value": "18.26"
+        "value": "18.23"
       },
       {
         "label": "EV/Sales",
-        "value": "10.93"
+        "value": "10.91"
       },
       {
         "label": "Debt/Eq",
@@ -143,11 +143,11 @@
       },
       {
         "label": "52W High",
-        "value": "553.72 -13.01%"
+        "value": "553.72 -13.18%"
       },
       {
         "label": "52W Low",
-        "value": "349.20 37.93%"
+        "value": "349.20 37.66%"
       },
       {
         "label": "Beta",
@@ -159,15 +159,15 @@
       },
       {
         "label": "Rel Volume",
-        "value": "0.25"
+        "value": "0.28"
       },
       {
         "label": "Volume",
-        "value": "9,138,426"
+        "value": "11,038,104"
       },
       {
         "label": "RSI (14)",
-        "value": "61.92"
+        "value": "61.36"
       },
       {
         "label": "Prev Close",
@@ -175,11 +175,11 @@
       },
       {
         "label": "Price",
-        "value": "481.67"
+        "value": "480.72"
       },
       {
         "label": "Change %",
-        "value": "-0.55%"
+        "value": "-0.74%"
       }
     ]
   ],

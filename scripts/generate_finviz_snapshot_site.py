@@ -37,11 +37,18 @@ runner (the GitHub Actions cron), and let the page's search box filter that alre
 client-side. `docs/index.html`'s search feels instant because it's a local filter, not a live call.
 
 A larger TICKERS list means more sequential requests per run — `_REQUEST_DELAY_SECONDS` adds a
-small pause between them so a 518-ticker run (~12 minutes end to end) still reads as "one script
-working through a list slowly," not a burst. That is a real, deliberate increase in daily request
-volume over this generator's original 4/100-ticker versions — still one controlled runner, one
-request at a time, once a day, but worth being explicit about rather than letting the list grow
-without remark.
+small pause between them so a run still reads as "one script working through a list slowly," not a
+burst. That is a real, deliberate increase in daily request volume over this generator's original
+4/100-ticker versions — still one controlled runner, one request at a time, once a day, but worth
+being explicit about rather than letting the list grow without remark.
+
+Each ticker now costs TWO requests, not one: `get_snapshot` (the quote page) plus
+`get_price_history` (the internal chart-data API, added for docs/index.html's candlestick chart —
+see finviz.py's module docstring for that endpoint's own, separately-disclosed risk profile,
+explicitly approved by the user before being added). ~529 tickers x 2 requests x
+`_REQUEST_DELAY_SECONDS` between each puts a full run at roughly 20-25 minutes — still one
+sequential runner, still once a day, but real enough to name here rather than let it drift up
+silently as more capabilities get added to this generator.
 
 FIELD_LAYOUT is a curated, high-confidence subset of the ~84 fields Finviz's quote page exposes —
 every entry's tooltip key was verified present on a live fetch during development, cross-checked
@@ -434,17 +441,32 @@ def main(tickers: list[str]) -> None:
     _OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     generated_at = datetime.now(timezone.utc).isoformat()
 
-    # Pass 1: fetch every ticker's raw snapshot (fields + charts + categories). Kept in memory,
-    # not yet written — sector medians (pass 2) need the whole dataset fetched first.
+    # Pass 1: fetch every ticker's raw snapshot (fields + charts + categories) AND its price
+    # history — two requests per ticker now, not one (see finviz.py's get_price_history docstring
+    # for why that's a second, distinct endpoint). Kept in memory, not yet written — sector
+    # medians (pass 2) need the whole dataset fetched first.
     raw_snapshots: dict[str, dict] = {}
     with FinvizFundamentalsProvider() as provider:
         for i, ticker in enumerate(tickers):
             try:
-                raw_snapshots[ticker] = provider.get_snapshot(ticker)
+                snapshot = provider.get_snapshot(ticker)
             except FinvizError as exc:
                 logger.warning("[%s] failed, skipping: %s", ticker, exc)
+                continue
+            finally:
+                time.sleep(_REQUEST_DELAY_SECONDS)
+
+            try:
+                snapshot["price_history"] = provider.get_price_history(ticker)
+            except FinvizError as exc:
+                # Grid + analysis are still worth having even if the chart can't be built — don't
+                # drop the whole ticker over a second, independent endpoint failing.
+                logger.warning("[%s] price history failed, chart will be empty: %s", ticker, exc)
+                snapshot["price_history"] = []
             if i < len(tickers) - 1:
                 time.sleep(_REQUEST_DELAY_SECONDS)
+
+            raw_snapshots[ticker] = snapshot
 
     logger.info("Fetched %d/%d tickers — computing sector medians...", len(raw_snapshots), len(tickers))
 
@@ -482,6 +504,7 @@ def main(tickers: list[str]) -> None:
             "columns": _extract_columns(snapshot["fields"], is_etf),
             "charts": snapshot["charts"],
             "analysis": analysis,
+            "price_history": snapshot["price_history"],
         }
         (_OUTPUT_DIR / f"{ticker}.json").write_text(json.dumps(data, indent=2))
         index["tickers"].append(ticker)

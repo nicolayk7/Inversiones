@@ -63,18 +63,35 @@ implement `get_daily_bars` would mean either fabricating Open/High/Low from Clos
 `packages.providers.market.massive` explicitly refuses to do for even a single missing field) or
 silently returning a one-bar list for any multi-day range and calling it something it structurally
 isn't. `get_current_price` names what it actually is instead: a live scalar, not a bar.
+
+`get_price_history` (added for docs/index.html's technical-analysis candlestick chart, 2026-08-20,
+EXPLICITLY approved by the user after being told the risk profile below — do not extend this
+further without the same explicit check-in): real daily OHLCV bars, but NOT from the public quote
+page — from `finviz.com/api/quote`, an UNDOCUMENTED internal JSON API that Finviz's own quote page
+calls client-side to feed its interactive chart widget (confirmed live 2026-08-20 via the page's
+own network requests, `GET /api/quote?ticker=...&timeframe=d&dateFrom=...&dateTo=...&
+instrument=stock`). This is a meaningfully different, more aggressive access pattern than the rest
+of this module: not a page a human is meant to read, but a backend endpoint meant only for
+Finviz's own frontend. Disclosed plainly rather than blurred into the same "public page" framing
+as everything else here. Kept to the same low-volume discipline regardless (one request per ticker
+per scheduled run, not per visitor — see `scripts/generate_finviz_snapshot_site.py`, which is the
+only caller). Confirmed: works with a plain, unauthenticated GET (no cookies, no session) and
+returns HTTP 404 with `{"ticker": ..., "timeframe": ...}` (no OHLCV keys) for an unknown ticker,
+mirroring the quote page's own 404 behavior.
 """
 
 import html
 import json
 import re
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 
 import httpx
 
 from packages.shared.schemas import FundamentalsRecord
 
 _QUOTE_URL = "https://finviz.com/quote?t={ticker}"
+_PRICE_API_URL = "https://finviz.com/api/quote"
+_PRICE_HISTORY_DAYS = 190  # ~190 calendar days -> ~120-130 trading days, roughly 6 months
 
 # Browser-like UA — finviz.com returns HTTP 200 with the full fundamentals grid for this UA
 # (confirmed live, 2026-08-20). A bare httpx default UA is untested here and risks being treated
@@ -358,6 +375,65 @@ class FinvizFundamentalsProvider:
             "charts": _parse_charts(body),
             "categories": _parse_categories(body),
         }
+
+    def get_price_history(self, ticker: str, days: int = _PRICE_HISTORY_DAYS) -> list[dict]:
+        """Real daily OHLCV bars for the trailing `days` calendar days, from Finviz's internal
+        chart-data API — see module docstring's dedicated disclosure for what this endpoint is and
+        why it's a different risk profile than the rest of this provider. Returns a list of
+        `{"date": "YYYY-MM-DD", "open", "high", "low", "close", "volume"}` dicts, oldest first.
+
+        `date` is derived from the API's Unix-timestamp `date[i]` by taking its UTC calendar date —
+        confirmed live (2026-08-20) that these timestamps land at 13:00-14:00 UTC (US market-open
+        time translated to UTC), never near a UTC midnight boundary, so this can't roll to the
+        wrong calendar day the way a literal midnight timestamp could (same reasoning
+        `packages.providers.market.massive` already documents for its own timestamp handling).
+
+        Raises `FinvizNotFoundError` for an unknown ticker (confirmed: 404 with no OHLCV keys in
+        the body) and `FinvizResponseError` if the response is missing any of the six required
+        arrays, or if they disagree in length — never zips mismatched arrays and silently
+        misaligns a date against the wrong bar."""
+        date_to = datetime.now(timezone.utc)
+        date_from = date_to - timedelta(days=days)
+        response = self._client.get(_PRICE_API_URL, params={
+            "ticker": ticker.upper(), "timeframe": "d", "instrument": "stock",
+            "dateFrom": int(date_from.timestamp()), "dateTo": int(date_to.timestamp()),
+        })
+        if response.status_code == 404:
+            raise FinvizNotFoundError(f"Finviz has no price history for {ticker!r}")
+        response.raise_for_status()
+        try:
+            body = response.json()
+        except ValueError as exc:
+            raise FinvizResponseError(
+                f"Finviz price API returned a non-JSON response for {ticker!r}"
+            ) from exc
+
+        required = ("date", "open", "high", "low", "close", "volume")
+        missing = [k for k in required if k not in body]
+        if missing:
+            raise FinvizResponseError(
+                f"Finviz price API response for {ticker!r} is missing {missing} — refusing to "
+                "build a partial price history"
+            )
+        lengths = {k: len(body[k]) for k in required}
+        if len(set(lengths.values())) > 1:
+            raise FinvizResponseError(
+                f"Finviz price API response for {ticker!r} has mismatched array lengths "
+                f"{lengths} — refusing to zip them and risk misaligning a date against the "
+                "wrong bar"
+            )
+
+        return [
+            {
+                "date": datetime.fromtimestamp(body["date"][i], tz=timezone.utc).date().isoformat(),
+                "open": body["open"][i],
+                "high": body["high"][i],
+                "low": body["low"][i],
+                "close": body["close"][i],
+                "volume": body["volume"][i],
+            }
+            for i in range(lengths["date"])
+        ]
 
 
 __all__ = [

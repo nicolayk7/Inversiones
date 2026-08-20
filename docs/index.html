@@ -344,8 +344,82 @@ function renderAnalysis(analysis) {
     </div>`;
 }
 
+// Candlestick + volume chart, plain inline SVG built as a string — no charting library, matching
+// the rest of this static site. Data comes from finviz.py's get_price_history (the internal
+// finviz.com/api/quote endpoint, a real daily OHLCV series — see that method's own docstring for
+// the access-pattern disclosure). "Técnico" here means price action itself, distinct from the
+// fundamentals-vs-sector "Análisis" section below it.
+function renderPriceChart(bars) {
+  if (!bars || bars.length === 0) {
+    return `<div class="section-title">Análisis técnico</div>
+      <div class="panel-note">Sin historial de precio disponible para este ticker.</div>`;
+  }
+
+  const W = 900, priceH = 230, volH = 70, gap = 14, padTop = 10, padBottom = 22, padLeft = 56, padRight = 10;
+  const plotW = W - padLeft - padRight;
+  const n = bars.length;
+  const barSlot = plotW / n;
+  const bodyW = Math.max(1, barSlot * 0.62);
+  const volTopY = padTop + priceH + gap;
+  const volBottomY = volTopY + volH;
+
+  const maxPrice = Math.max(...bars.map(b => b.high));
+  const minPrice = Math.min(...bars.map(b => b.low));
+  const priceRange = (maxPrice - minPrice) || 1;
+  const maxVol = Math.max(...bars.map(b => b.volume), 1);
+
+  const yPrice = p => padTop + (1 - (p - minPrice) / priceRange) * priceH;
+  const yVolTop = v => volBottomY - (v / maxVol) * volH;
+
+  const candles = bars.map((b, i) => {
+    const x = padLeft + i * barSlot + barSlot / 2;
+    const color = b.close >= b.open ? "var(--pos)" : "var(--neg)";
+    const bodyTop = Math.min(yPrice(b.open), yPrice(b.close));
+    const bodyH = Math.max(0.75, Math.abs(yPrice(b.close) - yPrice(b.open)));
+    const volY = yVolTop(b.volume);
+    return `<line x1="${x}" y1="${yPrice(b.high)}" x2="${x}" y2="${yPrice(b.low)}" style="stroke:${color};stroke-width:1"/>
+      <rect x="${x - bodyW / 2}" y="${bodyTop}" width="${bodyW}" height="${bodyH}" style="fill:${color}"/>
+      <rect x="${x - bodyW / 2}" y="${volY}" width="${bodyW}" height="${volBottomY - volY}" style="fill:${color};opacity:0.55"/>`;
+  }).join("");
+
+  const priceTicks = 4;
+  const priceGrid = Array.from({ length: priceTicks + 1 }, (_, i) => {
+    const p = minPrice + (priceRange * i) / priceTicks;
+    const y = yPrice(p);
+    return `<line x1="${padLeft}" y1="${y}" x2="${W - padRight}" y2="${y}" style="stroke:var(--border);stroke-width:0.5"/>
+      <text x="${padLeft - 6}" y="${y + 3}" text-anchor="end" font-size="9" fill="var(--muted)">${p.toFixed(2)}</text>`;
+  }).join("");
+
+  const xTickCount = Math.min(6, n);
+  const xLabels = Array.from({ length: xTickCount }, (_, i) => {
+    const idx = Math.round((i * (n - 1)) / Math.max(1, xTickCount - 1));
+    const x = padLeft + idx * barSlot + barSlot / 2;
+    return `<text x="${x}" y="${volBottomY + 14}" text-anchor="middle" font-size="9" fill="var(--muted)">${bars[idx].date.slice(5)}</text>`;
+  }).join("");
+
+  const totalH = volBottomY + padBottom;
+  const first = bars[0], last = bars[bars.length - 1];
+  const periodChangePct = first.close ? ((last.close - first.close) / first.close) * 100 : null;
+  const changeCls = periodChangePct === null ? "" : periodChangePct >= 0 ? "pos" : "neg";
+  const changeLabel = periodChangePct === null ? "" :
+    ` · ${bars.length} sesiones: <span class="${changeCls}">${periodChangePct >= 0 ? "+" : ""}${periodChangePct.toFixed(1)}%</span>`;
+
+  return `
+    <div class="section-title">Análisis técnico — precio y volumen (${bars[0].date} a ${bars[bars.length - 1].date})</div>
+    <div class="chart-panel" style="overflow-x:auto;">
+      <div class="chart-header">
+        <div class="chart-title">Velas diarias${changeLabel}</div>
+      </div>
+      <svg viewBox="0 0 ${W} ${totalH}" style="width:100%;height:auto;display:block;min-width:480px;">
+        ${priceGrid}
+        ${candles}
+        ${xLabels}
+      </svg>
+    </div>`;
+}
+
 function renderTickerContent(data) {
-  return renderGrid(data.columns) + renderCharts(data.charts) + renderAnalysis(data.analysis);
+  return renderPriceChart(data.price_history) + renderGrid(data.columns) + renderCharts(data.charts) + renderAnalysis(data.analysis);
 }
 
 async function loadTicker(ticker) {

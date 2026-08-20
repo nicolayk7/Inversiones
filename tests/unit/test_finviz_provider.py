@@ -366,6 +366,88 @@ def test_http_error_propagates():
         _provider(handler).get_quarterly_fundamentals("AAPL")
 
 
+# -- get_price_history -------------------------------------------------------------------------
+
+# Shaped exactly like the real finviz.com/api/quote response (confirmed live 2026-08-20),
+# condensed to 3 bars.
+_PRICE_API_JSON = {
+    "date": [1771009200, 1771095600, 1771182000],
+    "open": [100.0, 101.5, 99.0],
+    "high": [102.0, 103.0, 101.0],
+    "low": [99.5, 100.5, 98.0],
+    "close": [101.0, 99.5, 100.5],
+    "volume": [1000000, 1200000, 900000],
+}
+
+
+def test_get_price_history_returns_ohlcv_bars_oldest_first():
+    def handler(request):
+        assert request.url.path == "/api/quote"
+        return httpx.Response(200, json=_PRICE_API_JSON)
+
+    bars = _provider(handler).get_price_history("AAPL")
+
+    assert len(bars) == 3
+    assert bars[0]["open"] == 100.0
+    assert bars[-1]["close"] == 100.5
+    assert bars[0]["date"] < bars[-1]["date"]  # oldest first, ISO strings sort chronologically
+
+
+def test_get_price_history_sends_expected_query_params():
+    captured = {}
+
+    def handler(request):
+        captured["params"] = dict(request.url.params)
+        return httpx.Response(200, json=_PRICE_API_JSON)
+
+    _provider(handler).get_price_history("AAPL", days=30)
+
+    assert captured["params"]["ticker"] == "AAPL"
+    assert captured["params"]["timeframe"] == "d"
+    assert captured["params"]["instrument"] == "stock"
+    date_from = int(captured["params"]["dateFrom"])
+    date_to = int(captured["params"]["dateTo"])
+    assert date_to - date_from == pytest.approx(30 * 86400, abs=5)
+
+
+def test_get_price_history_unknown_ticker_raises_not_found():
+    def handler(request):
+        return httpx.Response(404, json={"ticker": "ZZZZINVALIDTICKER", "timeframe": "d"})
+
+    with pytest.raises(FinvizNotFoundError):
+        _provider(handler).get_price_history("ZZZZINVALIDTICKER")
+
+
+def test_get_price_history_missing_key_raises_response_error():
+    incomplete = dict(_PRICE_API_JSON)
+    del incomplete["volume"]
+
+    def handler(request):
+        return httpx.Response(200, json=incomplete)
+
+    with pytest.raises(FinvizResponseError):
+        _provider(handler).get_price_history("AAPL")
+
+
+def test_get_price_history_mismatched_lengths_raises_response_error():
+    mismatched = dict(_PRICE_API_JSON)
+    mismatched["volume"] = mismatched["volume"][:2]
+
+    def handler(request):
+        return httpx.Response(200, json=mismatched)
+
+    with pytest.raises(FinvizResponseError):
+        _provider(handler).get_price_history("AAPL")
+
+
+def test_get_price_history_non_json_response_raises_response_error():
+    def handler(request):
+        return httpx.Response(200, text="<html>not json</html>")
+
+    with pytest.raises(FinvizResponseError):
+        _provider(handler).get_price_history("AAPL")
+
+
 # -- live smoke test (opt-in only) -------------------------------------------------------------
 
 
@@ -397,3 +479,20 @@ def test_live_finviz_fetches_aapl_current_price():
     assert price > 0
     assert volume is None or volume > 0
     assert observed_at.tzinfo is not None
+
+
+@pytest.mark.skipif(
+    not os.environ.get("RUN_FINVIZ_LIVE_TEST"),
+    reason="Live scrape against the real finviz.com: SKIPPED by default (ToS caution) — set "
+    "RUN_FINVIZ_LIVE_TEST=1 to opt in",
+)
+def test_live_finviz_fetches_aapl_price_history():
+    with FinvizFundamentalsProvider() as provider:
+        bars = provider.get_price_history("AAPL")
+
+    assert len(bars) > 50  # ~190 calendar days should yield well over 50 trading days
+    assert bars[0]["date"] < bars[-1]["date"]
+    for bar in bars:
+        assert bar["low"] <= bar["open"] <= bar["high"]
+        assert bar["low"] <= bar["close"] <= bar["high"]
+        assert bar["volume"] >= 0

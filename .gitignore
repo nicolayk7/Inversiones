@@ -14,3 +14,7 @@ venv/
 .idea/
 
 pgdata/
+
+# Local, machine-specific Claude Code permissions — tied to this user's own paths and history,
+# not shared project config. .claude/launch.json (dev-server preview config) IS committed.
+.claude/settings.local.json

@@ -33,6 +33,25 @@ from packages.shared.schemas import BalanceSheet, CashFlowStatement, IncomeState
 
 TICKER_TO_CIK: dict[str, str] = {
     "AAPL": "0000320193",
+    # Extended for MVP-0 (Investment Intelligence vertical slice). Each CIK below was resolved
+    # against SEC's own https://www.sec.gov/files/company_tickers.json (never guessed), and each
+    # company's live companyfacts response was checked for: the anchor revenue concept
+    # (_ANCHOR_REVENUE_CONCEPT), >=2 distinct full-fiscal-year spans, and >=4 distinct
+    # single-quarter spans under the existing span-banding logic above — same verification rigor
+    # AAPL's own mapping already had, per this module's docstring. No structural code change was
+    # needed for any of them (confirming the docstring's "extending is adding a CIK" claim).
+    #
+    # Field-coverage note, disclosed rather than silently absorbed: not every company tags every
+    # concept this provider looks up (MSFT and AMZN are each missing one D&A concept, AMZN is
+    # missing CommercialPaper, GOOGL is missing CostOfGoodsAndServicesSold/OperatingExpenses and
+    # both D&A concepts). None of this crashes anything — _flow/_instant already return None for
+    # an absent concept, which propagates to MetricResult.na(...) downstream, never fabricated —
+    # but it does mean GOOGL specifically has fewer OK sub-metrics than AAPL/MSFT/AMZN (e.g.
+    # gaap_ebitda needs cogs+operating_expenses+d&a, all three missing for GOOGL, so
+    # ebitda_margin/ebitda_growth are N/A for GOOGL where they're OK for the other three).
+    "MSFT": "0000789019",
+    "AMZN": "0001018724",
+    "GOOGL": "0001652044",
 }
 
 _COMPANY_FACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"

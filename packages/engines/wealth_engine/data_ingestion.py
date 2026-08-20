@@ -232,6 +232,10 @@ async def build_wealth_engine_input_from_storage(
     return WealthEngineInput(
         ticker=ticker,
         as_of=date.fromisoformat(current_income.period_end.isoformat()),
+        # The caller's original PIT cutoff, preserved as-is — added for API contract clarity
+        # (responsible-output audit, 2026-08); does not change the as_of_cutoff filtering above in
+        # any way, purely an additional, distinct field.
+        requested_as_of=as_of,
         sector=sector,
         income_statement=current_income,
         balance_sheet=current_balance,

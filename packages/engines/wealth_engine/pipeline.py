@@ -28,7 +28,7 @@ from packages.quant_core.regime import wealth_score_eligibility as sector_gate_q
 from packages.quant_core.results import MetricResult
 from packages.quant_core.scoring import business_quality_composite as bqc
 from packages.quant_core.scoring import compose_score, wealth_score_raw as compute_wealth_score_raw
-from packages.shared.component_weights import load_component_weights
+from packages.shared.component_weights import WeightApprovalStatus, load_component_weights
 from packages.shared.open_parameters import load_open_parameters
 from packages.shared.schemas import BalanceSheet, CashFlowStatement, IncomeStatement
 from packages.shared.weights import load_weights
@@ -37,6 +37,11 @@ from packages.shared.weights import load_weights
 class WealthEngineInput(BaseModel):
     ticker: str
     as_of: date
+    # PIT cutoff the caller originally requested — distinct from `as_of` above, which is
+    # overwritten with the resolved statement's period_end by
+    # build_wealth_engine_input_from_storage. Optional so directly-constructed WealthEngineInput
+    # fixtures (tests) don't need to supply it; only the real storage-retrieval path sets it.
+    requested_as_of: date | None = None
     sector: SectorProfile
     income_statement: IncomeStatement
     balance_sheet: BalanceSheet
@@ -315,10 +320,22 @@ def compute_wealth_snapshot(inp: WealthEngineInput, *, allow_provisional: bool |
     data_confidence = MetricResult.na("data_confidence roll-up not wired into this MVP pipeline pass")
     data_quality = MetricResult.na("DATA_QUALITY_SCORE not wired into this MVP pipeline pass")
 
+    # Worst-status-wins across the four loaded component-weight sets: PROVISIONAL if any group is
+    # PROVISIONAL, APPROVED only if all four are. Never fabricated — read directly off what
+    # load_component_weights actually returned for this call, not assumed.
+    component_weight_sets = (quality_weights, growth_weights, fcf_weights, valuation_weights)
+    component_weights_status = (
+        WeightApprovalStatus.APPROVED
+        if all(w.status == WeightApprovalStatus.APPROVED for w in component_weight_sets)
+        else WeightApprovalStatus.PROVISIONAL
+    )
+
     return WealthEngineOutput(
         ticker=inp.ticker,
         as_of=inp.as_of.isoformat(),
+        requested_as_of=inp.requested_as_of.isoformat() if inp.requested_as_of else None,
         sector=inp.sector.value,
+        component_weights_status=component_weights_status.value,
         wealth_score=ScoredField.from_metric_result(wealth),
         wealth_score_raw=ScoredField.from_metric_result(wealth_raw),
         quality_score=ScoredField.from_metric_result(quality_score),

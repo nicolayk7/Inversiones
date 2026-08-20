@@ -27,8 +27,10 @@ from datetime import date, datetime, timezone
 
 import pytest
 from sqlalchemy import delete
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from packages.engines.wealth_engine import data_ingestion
+from packages.engines.wealth_engine.data_ingestion import _QUARTERLY_SOURCE
 from packages.engines.wealth_engine.pipeline import compute_wealth_snapshot
 from packages.quant_core.regime import SectorProfile
 from packages.shared.schemas import BalanceSheet, CashFlowStatement, IncomeStatement, OHLCVBar
@@ -46,16 +48,31 @@ pytestmark = pytest.mark.integration
 TICKER = "AAPL"
 
 
+async def _delete_annual_aapl_rows(session: AsyncSession) -> None:
+    """Cleanup scoped to exactly what this suite re-ingests (annual statements) — never touches
+    quarterly-sourced rows (source == _QUARTERLY_SOURCE). Regression guard for a real incident
+    found during the MVP-0 responsible-output audit: the original, unscoped
+    `delete(IncomeStatementModel).where(ticker == TICKER)` wiped Phase 7C-1's quarterly revenue
+    series every time this suite ran, silently degrading `growth_score` to `INSUFFICIENT_DATA`
+    for AAPL with no error or warning anywhere. Same source-scoping technique
+    `test_trailing_yoy_growth_rates.py` already uses. See
+    `test_clean_aapl_storage_never_deletes_quarterly_rows` below for the direct regression test."""
+    await session.execute(delete(IncomeStatementModel).where(
+        IncomeStatementModel.ticker == TICKER, IncomeStatementModel.source != _QUARTERLY_SOURCE,
+    ))
+    await session.execute(delete(BalanceSheetModel).where(BalanceSheetModel.ticker == TICKER))
+    await session.execute(delete(CashFlowStatementModel).where(CashFlowStatementModel.ticker == TICKER))
+    await session.commit()
+
+
 @pytest.fixture
 async def clean_aapl_storage():
     async with SessionLocal() as s:
-        await s.execute(delete(IncomeStatementModel).where(IncomeStatementModel.ticker == TICKER))
-        await s.execute(delete(BalanceSheetModel).where(BalanceSheetModel.ticker == TICKER))
-        await s.execute(delete(CashFlowStatementModel).where(CashFlowStatementModel.ticker == TICKER))
-        await s.commit()
+        await _delete_annual_aapl_rows(s)
     yield
-    # No teardown: the ingested AAPL rows are this vertical's demonstration dataset, not scratch
-    # data, and re-running this test is idempotent (ingest upserts on the same vintage).
+    # No teardown: the ingested AAPL rows (annual + quarterly, both re-ingested by the test body
+    # below) are this vertical's demonstration dataset, not scratch data, and re-running this
+    # suite is idempotent (ingest upserts on the same vintage).
 
 
 def _provider_construction_forbidden(*args, **kwargs):
@@ -66,9 +83,15 @@ def _provider_construction_forbidden(*args, **kwargs):
 
 
 async def test_aapl_real_data_flows_provider_to_storage_to_wealth_engine(clean_aapl_storage, monkeypatch):
-    # Phase 1 — ingestion: SEC EDGAR -> canonical DTOs -> PostgreSQL.
+    # Phase 1 — ingestion: SEC EDGAR -> canonical DTOs -> PostgreSQL. Both annual
+    # (ingest_fundamentals) and quarterly (ingest_quarterly_revenue, Phase 7C-1) are ingested here
+    # so this test always leaves AAPL's storage complete, regardless of what earlier runs left
+    # behind — see _delete_annual_aapl_rows above for why the cleanup fixture no longer touches
+    # quarterly rows.
     async with SessionLocal() as ingest_session:
         await data_ingestion.ingest_fundamentals(TICKER, ingest_session)
+    async with SessionLocal() as ingest_session:
+        await data_ingestion.ingest_quarterly_revenue(TICKER, ingest_session)
 
     # Phase 2 — retrieval + compute: provider construction is now forbidden. If retrieval bypassed
     # storage and called the provider directly, this monkeypatch makes that fail immediately.
@@ -86,6 +109,11 @@ async def test_aapl_real_data_flows_provider_to_storage_to_wealth_engine(clean_a
     assert inp.prior_income_statement is not None
     assert inp.prior_income_statement.period_end < inp.income_statement.period_end
 
+    # Quarterly revenue series (Phase 7C-1) must have survived this test's own cleanup+ingest —
+    # the exact regression this fix guards against.
+    assert inp.trailing_yoy_growth_rates is not None
+    assert len(inp.trailing_yoy_growth_rates) >= 2
+
     output = compute_wealth_snapshot(inp)
 
     # wealth_score is null by design (BalanceSheetMultiplier blocked) — not a failure.
@@ -100,8 +128,58 @@ async def test_aapl_real_data_flows_provider_to_storage_to_wealth_engine(clean_a
     assert output.quality_score.status == "OK"
     assert output.fcf_score.status == "OK"
 
+    # Growth, too, now that quarterly data is guaranteed present — the direct proof that
+    # restoring the quarterly series (not just having it exist in isolation) actually matters.
+    assert output.growth_score.status == "OK"
+
     # ROIC is a raw, unclipped metric — must not be silently absent.
     assert output.roic is not None
+
+
+async def test_clean_aapl_storage_never_deletes_quarterly_rows():
+    """Direct regression test for the MVP-0 audit finding (see _delete_annual_aapl_rows above):
+    seed a synthetic AAPL quarterly row, run the exact cleanup clean_aapl_storage uses, and
+    confirm the quarterly row survives untouched — only annual-sourced rows may be removed.
+
+    _delete_annual_aapl_rows also unconditionally clears balance_sheets/cash_flow_statements (§
+    those tables carry no quarterly/annual distinction to preserve), so — same "restore what you
+    remove" discipline this test exists to enforce on the fixture — this test re-ingests real
+    annual data at the end via ingest_fundamentals, exactly like the main test above, so it can
+    never itself leave AAPL's shared dev-DB row incomplete for a later test or demo."""
+    marker_period_end = date(2030, 3, 31)  # far-future, cannot collide with real AAPL data
+    quarterly_row = IncomeStatement(
+        ticker=TICKER, period_end=marker_period_end, reported_at=date(2030, 5, 1),
+        available_at=datetime(2030, 5, 1, 23, 59, 59, tzinfo=timezone.utc),
+        source=_QUARTERLY_SOURCE, revenue=999.0,
+    )
+    async with SessionLocal() as s:
+        await fundamentals_repository.save_income_statements(s, [quarterly_row])
+
+    async with SessionLocal() as s:
+        await _delete_annual_aapl_rows(s)
+
+    async with SessionLocal() as s:
+        remaining = await fundamentals_repository.get_income_statements(
+            s, TICKER, datetime(2099, 1, 1, tzinfo=timezone.utc), limit=None
+        )
+    assert any(
+        r.source == _QUARTERLY_SOURCE and r.period_end == marker_period_end for r in remaining
+    ), "clean_aapl_storage's cleanup must never delete quarterly-sourced rows"
+
+    # Remove the synthetic marker row this test added so it doesn't linger in the shared dev DB.
+    async with SessionLocal() as s:
+        await s.execute(delete(IncomeStatementModel).where(
+            IncomeStatementModel.ticker == TICKER,
+            IncomeStatementModel.period_end == marker_period_end,
+            IncomeStatementModel.source == _QUARTERLY_SOURCE,
+        ))
+        await s.commit()
+
+    # Restore what this test's own call to _delete_annual_aapl_rows removed (annual income
+    # statements, balance sheets, cash flow statements) — this test must never be the reason
+    # AAPL's shared dev-DB data is left incomplete for whichever test/demo runs next.
+    async with SessionLocal() as s:
+        await data_ingestion.ingest_fundamentals(TICKER, s)
 
 
 # ==============================================================================================

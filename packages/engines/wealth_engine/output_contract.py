@@ -36,8 +36,23 @@ class WealthEngineOutput(BaseModel):
     Phase 1B (rule 10)."""
 
     ticker: str
-    as_of: str
+    as_of: str  # data vintage — the period_end of the statements actually used, NOT the caller's
+    # requested cutoff (see requested_as_of below). Kept as-is for backwards compatibility;
+    # responsible-output audit (2026-08) flagged this name as ambiguous — not renamed here.
+    requested_as_of: str | None = None  # PIT cutoff the caller asked for (available_at <= this).
+    # None only for WealthEngineInput constructed directly (e.g. test fixtures) without going
+    # through build_wealth_engine_input_from_storage, which always sets it.
     sector: str
+
+    # Distinct from weights_version below (frozen TOP-LEVEL weights, config/weights/v1.0.yaml,
+    # genuinely approved) — this describes the SUB-METRIC ("component") weights within each group
+    # (config/weights/wealth_components/*.yaml), which are all currently status: PROVISIONAL
+    # (dev/test fixtures, not approved methodology values — see packages/shared/component_weights.py).
+    # "PROVISIONAL" here means every quality_score/growth_score/fcf_score/valuation_score value in
+    # this response was computed using an unapproved sub-metric weighting; "APPROVED" would mean
+    # all four groups' weight files carry status: APPROVED. Worst-status-wins across the four
+    # groups (any PROVISIONAL group makes this PROVISIONAL) — never fabricated as APPROVED.
+    component_weights_status: str
 
     wealth_score: ScoredField  # always UNSUPPORTED in Phase 1B — see eligibility.py
     wealth_score_raw: ScoredField  # methodology's own name (§14); NOT the same field as wealth_score

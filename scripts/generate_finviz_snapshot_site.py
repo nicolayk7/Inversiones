@@ -201,6 +201,10 @@ FIELD_LAYOUT: list[list[tuple[str, str]]] = [
         ("Cash/sh", "Cash per share (mrq)"),
         ("Employees", "Full time employees"),
         ("IPO Date", "IPO Date"),
+        # Confirmed live 2026-08-21 against AAPL: tooltip key literally embeds the "BMO/AMC"
+        # legend as <br>-separated HTML in the key itself (Finviz's own markup, not ours) — the
+        # value is just e.g. "Jul 30 AMC". Next/most recent scheduled earnings report date.
+        ("Earnings Date", "Earnings date<br><br>BMO = Before Market Open<br>AMC = After Market Close"),
     ],
     [
         # Dividend fields — unavailable until the _ROW_PATTERN fix above (2026-08-20); "-" here is

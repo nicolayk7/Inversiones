@@ -188,12 +188,27 @@
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 4px 0;
+    padding: 12px 20px;
     margin-bottom: 20px;
     overflow-x: auto;
     box-shadow: var(--shadow);
+    /* Multi-column flow, not CSS Grid: the 5 field columns have different row counts (5 to 13
+       rows), and Grid's auto-fit sizes every ROW by its tallest item -- when the 5th column
+       wraps alone onto its own row, that row's height matches ITS 13 rows while the 3 empty
+       tracks next to it just sit blank, producing a large visible gap on desktop widths. Columns
+       flow content top-to-bottom and pack the next column immediately, no matter how tall the
+       previous one was, so nothing is left blank. */
+    column-width: 230px;
+    column-gap: 24px;
   }
-  table.snapshot { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+  table.snapshot {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12.5px;
+    break-inside: avoid;
+    display: inline-table; /* table elements ignore break-inside unless also inline/block-level here */
+    margin-bottom: 4px;
+  }
   table.snapshot td {
     padding: 8px 14px;
     border-bottom: 1px solid var(--border);
@@ -472,6 +487,7 @@
     .search-wrap { max-width: none; }
     .tickers { gap: 6px; }
     .tickers button { padding: 8px 12px; font-size: 12.5px; }
+    .grid-panel { padding: 10px 12px; column-gap: 12px; }
     table.snapshot td { padding: 9px 10px; font-size: 12px; }
     .analysis-row { font-size: 12.5px; }
     .chart-header { flex-direction: column; align-items: flex-start; }
@@ -527,6 +543,7 @@ const GLOSSARY = {
   "Cash/sh": "Efectivo y equivalentes de efectivo por acción.",
   "Employees": "Número de empleados de tiempo completo.",
   "IPO Date": "Fecha en que la empresa salió a bolsa (oferta pública inicial).",
+  "Earnings Date": "Fecha del próximo (o más reciente) reporte trimestral de resultados. BMO = antes de la apertura del mercado (Before Market Open), AMC = después del cierre (After Market Close). Suele traer volatilidad extra en el precio.",
   "Dividend Est.": "Dividendo anual estimado por analistas para el año fiscal actual, en dólares y como % del precio (yield estimado).",
   "Dividend TTM": "Dividendo realmente pagado en los últimos 12 meses, en dólares y como % del precio (yield).",
   "Dividend Ex-Date": "Fecha ex-dividendo: hay que tener la acción ANTES de esta fecha para recibir el próximo pago.",
@@ -670,7 +687,7 @@ function renderGrid(columns) {
     ).join("");
     return `<table class="snapshot"><tbody>${rows}</tbody></table>`;
   });
-  return `<div class="grid-panel" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));">${cols.join("")}</div>`;
+  return `<div class="grid-panel">${cols.join("")}</div>`;
 }
 
 function renderBars(series) {

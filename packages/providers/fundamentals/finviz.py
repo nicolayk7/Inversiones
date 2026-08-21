@@ -91,7 +91,13 @@ from packages.shared.schemas import FundamentalsRecord
 
 _QUOTE_URL = "https://finviz.com/quote?t={ticker}"
 _PRICE_API_URL = "https://finviz.com/api/quote"
-_PRICE_HISTORY_DAYS = 190  # ~190 calendar days -> ~120-130 trading days, roughly 6 months
+_PRICE_HISTORY_DAYS = 1825  # 5 calendar years -> ~1250 trading days. Widened from the original
+# 190-day (~6 month) window so docs/index.html's Semana/Mes candlestick cadences have enough
+# history to be meaningful (a "monthly" chart with only 6 months behind it is ~6 candles).
+# Confirmed live 2026-08-20 against AAPL: the endpoint happily returns the full 5-year range in
+# one request (1254 daily bars, 2021-08-23 to today) — same endpoint, same timeframe="d" param
+# already approved in this module's docstring, just a larger dateFrom/dateTo span, not a new
+# access pattern.
 
 # Browser-like UA — finviz.com returns HTTP 200 with the full fundamentals grid for this UA
 # (confirmed live, 2026-08-20). A bare httpx default UA is untested here and risks being treated

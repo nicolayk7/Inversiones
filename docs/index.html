@@ -502,21 +502,27 @@ const CHART_TITLES = {
 };
 let currentCadence = "annual";
 
-// d = daily (raw bars as fetched), w = weekly, m = monthly — aggregated client-side from the
-// same ~190 daily bars Finviz's undocumented chart API already returns for every ticker. This
-// does NOT fetch anything new: see packages/providers/fundamentals/finviz.py's own guardrail on
-// extending get_price_history further ("do not extend this further without the same explicit
-// check-in") — an "hora" (intraday) timeframe would need exactly that kind of extension and is
-// deliberately not implemented here.
+// d = daily, w = weekly, m = monthly — aggregated client-side from the ~5 years of daily bars
+// Finviz's undocumented chart API returns for every ticker (packages/providers/fundamentals/
+// finviz.py's _PRICE_HISTORY_DAYS). This does NOT fetch anything new per cadence switch — all
+// three read the same already-fetched array. An "hora" (intraday) timeframe would need a genuinely
+// different, unverified request and is deliberately not implemented — see that constant's own
+// comment on why the daily *range* was widened but not the endpoint's access pattern.
 let currentPriceCadence = "d";
 const PRICE_CADENCE_LABEL = { d: "Día", w: "Semana", m: "Mes" };
+
+// Daily candles stay on-screen only for a recent, legible window — plotting all ~1250 trading
+// days at once would compress each candle to under a pixel. Semana/Mes summarize the full ~5-year
+// fetch instead, which is exactly where that much history is useful.
+const DAILY_VIEW_BARS = 130; // ~6 trading months
 
 // Buckets daily OHLCV bars into ISO weeks (Monday start) or calendar months. Input bars are
 // always oldest-first (see get_price_history's docstring), and Map preserves insertion order, so
 // the aggregate comes out oldest-first too without a separate sort. Open/close are the first/
 // last daily bar folded into each bucket; high/low are the bucket's extremes; volume sums.
 function aggregatePriceBars(bars, cadence) {
-  if (cadence === "d" || !bars || bars.length === 0) return bars;
+  if (!bars || bars.length === 0) return bars;
+  if (cadence === "d") return bars.slice(-DAILY_VIEW_BARS);
   const buckets = new Map();
   for (const b of bars) {
     const d = new Date(`${b.date}T00:00:00Z`);
@@ -712,19 +718,27 @@ function renderPriceChart(rawBars) {
       <text x="${padLeft - 6}" y="${y + 3}" text-anchor="end" font-size="9" fill="var(--muted)">${p.toFixed(2)}</text>`;
   }).join("");
 
+  // A span over ~13 months repeats "MM-DD" across different years with no way to tell them apart
+  // (Semana/Mes can cover up to ~5 years) — switch to "MM/YY" once that's a real risk.
+  const spanDays = (new Date(bars[bars.length - 1].date) - new Date(bars[0].date)) / 86400000;
+  const fmtXLabel = spanDays > 400
+    ? d => `${d.slice(5, 7)}/${d.slice(2, 4)}`
+    : d => d.slice(5);
+
   const xTickCount = Math.min(6, n);
   const xLabels = Array.from({ length: xTickCount }, (_, i) => {
     const idx = Math.round((i * (n - 1)) / Math.max(1, xTickCount - 1));
     const x = padLeft + idx * barSlot + barSlot / 2;
-    return `<text x="${x}" y="${volBottomY + 14}" text-anchor="middle" font-size="9" fill="var(--muted)">${bars[idx].date.slice(5)}</text>`;
+    return `<text x="${x}" y="${volBottomY + 14}" text-anchor="middle" font-size="9" fill="var(--muted)">${fmtXLabel(bars[idx].date)}</text>`;
   }).join("");
 
   const totalH = volBottomY + padBottom;
-  const first = rawBars[0], last = rawBars[rawBars.length - 1];
+  const first = bars[0], last = bars[bars.length - 1];
   const periodChangePct = first.close ? ((last.close - first.close) / first.close) * 100 : null;
   const changeCls = periodChangePct === null ? "" : periodChangePct >= 0 ? "pos" : "neg";
+  const unitLabel = { d: "sesiones", w: "semanas", m: "meses" }[currentPriceCadence];
   const changeLabel = periodChangePct === null ? "" :
-    ` · todo el período: <span class="${changeCls}">${periodChangePct >= 0 ? "+" : ""}${periodChangePct.toFixed(1)}%</span>`;
+    ` · ${bars.length} ${unitLabel}: <span class="${changeCls}">${periodChangePct >= 0 ? "+" : ""}${periodChangePct.toFixed(1)}%</span>`;
 
   const priceCadenceToggle = `
     <div class="cadence-toggle">
@@ -734,10 +748,10 @@ function renderPriceChart(rawBars) {
     </div>`;
 
   return `
-    <div class="section-title">Análisis técnico — precio y volumen (${rawBars[0].date} a ${rawBars[rawBars.length - 1].date})</div>
+    <div class="section-title">Análisis técnico — precio y volumen (${bars[0].date} a ${bars[bars.length - 1].date})</div>
     <div class="chart-panel" style="overflow-x:auto;">
       <div class="chart-header">
-        <div class="chart-title">Velas · ${PRICE_CADENCE_LABEL[currentPriceCadence]} (${bars.length})${changeLabel}</div>
+        <div class="chart-title">Velas · ${PRICE_CADENCE_LABEL[currentPriceCadence]}${changeLabel}</div>
         ${priceCadenceToggle}
       </div>
       <svg viewBox="0 0 ${W} ${totalH}" style="width:100%;height:auto;display:block;min-width:480px;">
@@ -833,9 +847,14 @@ function computeSentiment(data) {
   const rawBars = data.price_history;
   if (!rawBars || rawBars.length < 10) return null;
 
+  // Trend/volatility are meant as a short/medium-term read (this is a "signal", not a 5-year
+  // backtest) — use the same recent window as the Día chart, not the full multi-year fetch that
+  // price_history now carries for the Semana/Mes cadences.
+  const recentBars = rawBars.slice(-DAILY_VIEW_BARS);
+
   const rsi = parseGridNumber(findColumnValue(data.columns, "RSI (14)"));
-  const vol = computeAnnualizedVolatility(rawBars);
-  const trend = computeTrend(rawBars, data.columns);
+  const vol = computeAnnualizedVolatility(recentBars);
+  const trend = computeTrend(recentBars, data.columns);
   const fScore = fundamentalsScore(data.analysis);
   const composite = fScore !== null ? fScore + trend.score : null;
 

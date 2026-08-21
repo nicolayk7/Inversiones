@@ -517,11 +517,15 @@ def main(tickers: list[str]) -> None:
             "analysis": analysis,
             "price_history": snapshot["price_history"],
         }
-        (_OUTPUT_DIR / f"{ticker}.json").write_text(json.dumps(data, indent=2))
+        # Compact, not indent=2: price_history now carries 5 years of daily bars (~1250 entries,
+        # see finviz.py's _PRICE_HISTORY_DAYS), and every ticker click on docs/index.html fetches
+        # this file fresh over the network — pretty-printing was ~38% of the payload for nothing
+        # a browser's fetch()/JSON.parse ever renders. Not meant for humans to read raw.
+        (_OUTPUT_DIR / f"{ticker}.json").write_text(json.dumps(data, separators=(",", ":")))
         index["tickers"].append(ticker)
         logger.info("[%s] snapshot written.", ticker)
 
-    (_OUTPUT_DIR / "index.json").write_text(json.dumps(index, indent=2))
+    (_OUTPUT_DIR / "index.json").write_text(json.dumps(index, separators=(",", ":")))
     logger.info("Wrote %d ticker(s) + index.json to %s", len(index["tickers"]), _OUTPUT_DIR)
 
 

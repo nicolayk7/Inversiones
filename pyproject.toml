@@ -16,13 +16,19 @@ dependencies = [
   "pyyaml>=6.0",
   "anthropic>=0.40",
   "alembic>=1.13",
+  # Runtime dependency, not dev-only: imported directly by packages/providers/fundamentals/
+  # finviz.py, sec_edgar.py, and packages/providers/market/massive.py -- production code, not
+  # just tests. Was previously listed under [dev] only, which worked locally (dev venvs install
+  # both groups) but broke the GH Actions refresh cron's `pip install -e .` (no [dev] extra):
+  # ModuleNotFoundError: No module named 'httpx', confirmed from the actual failed-run log
+  # (2026-08-20 22:23 UTC) rather than guessed.
+  "httpx>=0.27",
 ]
 
 [project.optional-dependencies]
 dev = [
   "pytest>=8.3",
   "pytest-asyncio>=0.24",
-  "httpx>=0.27",
 ]
 
 [build-system]

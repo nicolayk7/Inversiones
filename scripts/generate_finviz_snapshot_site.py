@@ -46,9 +46,12 @@ Each ticker now costs TWO requests, not one: `get_snapshot` (the quote page) plu
 `get_price_history` (the internal chart-data API, added for docs/index.html's candlestick chart —
 see finviz.py's module docstring for that endpoint's own, separately-disclosed risk profile,
 explicitly approved by the user before being added). ~529 tickers x 2 requests x
-`_REQUEST_DELAY_SECONDS` between each puts a full run at roughly 20-25 minutes — still one
-sequential runner, still once a day, but real enough to name here rather than let it drift up
-silently as more capabilities get added to this generator.
+`_REQUEST_DELAY_SECONDS` between each puts a full run at roughly 7-8 minutes — still one
+sequential runner, one request in flight at a time, once a day (the user explicitly chose to keep
+that pattern over adding concurrency when asked, 2026-08-21 — trimmed the artificial pause between
+requests instead, from 0.6s to 0.15s; live-measured actual network time per request is ~0.1-0.6s,
+so this still reads as "working through a list steadily," not a burst), but real enough to name
+here rather than let it drift up silently as more capabilities get added to this generator.
 
 FIELD_LAYOUT is a curated, high-confidence subset of the ~84 fields Finviz's quote page exposes —
 every entry's tooltip key was verified present on a live fetch during development, cross-checked
@@ -114,7 +117,8 @@ from packages.providers.fundamentals.finviz import _parse_number as _parse_finvi
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 logger = logging.getLogger("generate_finviz_snapshot_site")
 
-_REQUEST_DELAY_SECONDS = 0.6
+_REQUEST_DELAY_SECONDS = 0.15  # trimmed from 0.6 (2026-08-21) to shorten the daily refresh; see
+# module docstring's timing paragraph for why this stays sequential rather than adding concurrency.
 
 # S&P 500 ∪ Nasdaq-100, 518 unique tickers, alphabetical — see module docstring for exact sourcing
 # (Wikipedia + slickcharts.com, fetched live 2026-08-20) and the BRK.B/BF.B -> BRK-B/BF-B rewrite.

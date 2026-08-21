@@ -408,6 +408,64 @@
   .sentiment-tag.neg { color: var(--neg); background: var(--neg-soft); border-color: transparent; }
   .sentiment-tag.warn { color: var(--warn); background: var(--warn-soft); border-color: transparent; }
 
+  .sentiment-details {
+    margin: 4px 0 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .sentiment-details summary {
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--accent);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sentiment-details summary::-webkit-details-marker { display: none; }
+  .sentiment-details summary::before {
+    content: "▸";
+    font-size: 10px;
+    transition: transform 0.15s ease;
+  }
+  .sentiment-details[open] summary::before { transform: rotate(90deg); }
+  .sentiment-explanation {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 12px 0;
+  }
+  .sentiment-reasons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sentiment-reasons li {
+    padding: 9px 11px;
+    background: var(--panel-2);
+    border-radius: var(--radius-sm);
+  }
+  .sentiment-reason-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .sentiment-reason-label { font-size: 12px; font-weight: 600; color: var(--text); }
+  .sentiment-reason-detail { font-size: 11.5px; color: var(--muted); line-height: 1.45; margin-top: 3px; }
+  .sentiment-reason-contribution {
+    flex-shrink: 0;
+    font-weight: 700;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: var(--panel);
+    color: var(--muted);
+  }
+  .sentiment-reason-contribution.pos { color: var(--pos); background: var(--pos-soft); }
+  .sentiment-reason-contribution.neg { color: var(--neg); background: var(--neg-soft); }
+
   @media (max-width: 480px) {
     body { padding: 14px 12px 28px; }
     h1 { font-size: 17px; }
@@ -859,31 +917,65 @@ function computeAnnualizedVolatility(bars) {
 
 // -6..+6: tallies the same "read" verdicts already shown in the "Análisis vs. sector" section
 // (cheaper-than-median or above-median-quality = +1, more-expensive or below-median = -1, in
-// line = 0). null for ETFs or when there weren't enough sector peers to compare against.
-function fundamentalsScore(analysis) {
+// line = 0). Returns null for ETFs or when there weren't enough sector peers to compare against.
+// `reasons` carries one entry per metric so the UI can explain exactly which factors pushed the
+// score up or down, not just the final number.
+function fundamentalsBreakdown(analysis) {
   if (!analysis || analysis.type !== "equity" || !analysis.comparisons) return null;
-  let score = 0;
-  for (const c of analysis.comparisons) {
-    if (c.read.includes("más barato") || c.read.includes("por encima")) score += 1;
-    else if (c.read.includes("más caro") || c.read.includes("por debajo")) score -= 1;
-  }
-  return score;
+  const reasons = analysis.comparisons.map(c => {
+    let contribution = 0;
+    if (c.read.includes("más barato") || c.read.includes("por encima")) contribution = 1;
+    else if (c.read.includes("más caro") || c.read.includes("por debajo")) contribution = -1;
+    return { label: c.metric, detail: c.read, contribution };
+  });
+  return { score: reasons.reduce((sum, r) => sum + r.contribution, 0), reasons };
 }
 
-// -2..+2: price change over the whole fetched window, plus proximity to the 52-week high/low.
+// -2..+2: price change over the recent window, plus proximity to the 52-week high/low. Also
+// returns `reasons` (same shape as fundamentalsBreakdown's) so both feed the same explanation UI.
 function computeTrend(rawBars, columns) {
   const first = rawBars[0], last = rawBars[rawBars.length - 1];
   const periodChangePct = first.close ? ((last.close - first.close) / first.close) * 100 : null;
   const distHigh = parseGridNumber(findColumnValue(columns, "52W High"));
   const distLow = parseGridNumber(findColumnValue(columns, "52W Low"));
+  const reasons = [];
   let score = 0;
+
   if (periodChangePct !== null) {
-    if (periodChangePct > 5) score += 1;
-    else if (periodChangePct < -5) score -= 1;
+    if (periodChangePct > 5) {
+      score += 1;
+      reasons.push({ label: "Momentum de precio", contribution: 1,
+        detail: `subió ${periodChangePct.toFixed(1)}% en el período reciente mostrado arriba (más de +5%).` });
+    } else if (periodChangePct < -5) {
+      score -= 1;
+      reasons.push({ label: "Momentum de precio", contribution: -1,
+        detail: `cayó ${Math.abs(periodChangePct).toFixed(1)}% en el período reciente mostrado arriba (más de -5%).` });
+    } else {
+      reasons.push({ label: "Momentum de precio", contribution: 0,
+        detail: `variación de ${periodChangePct >= 0 ? "+" : ""}${periodChangePct.toFixed(1)}% en el período reciente — dentro del rango neutral (-5% a +5%).` });
+    }
   }
-  if (distHigh !== null && distHigh >= -10) score += 1;
-  if (distLow !== null && distLow <= 10) score -= 1;
-  return { score, periodChangePct, distHigh, distLow };
+  if (distHigh !== null) {
+    if (distHigh >= -10) {
+      score += 1;
+      reasons.push({ label: "Cercanía al máximo de 52 semanas", contribution: 1,
+        detail: `a solo ${Math.abs(distHigh).toFixed(1)}% del máximo de 52 semanas — cerca de máximos suele leerse como fortaleza.` });
+    } else {
+      reasons.push({ label: "Cercanía al máximo de 52 semanas", contribution: 0,
+        detail: `${Math.abs(distHigh).toFixed(1)}% por debajo del máximo de 52 semanas.` });
+    }
+  }
+  if (distLow !== null) {
+    if (distLow <= 10) {
+      score -= 1;
+      reasons.push({ label: "Cercanía al mínimo de 52 semanas", contribution: -1,
+        detail: `solo ${distLow.toFixed(1)}% por encima del mínimo de 52 semanas — cerca de mínimos suele leerse como debilidad.` });
+    } else {
+      reasons.push({ label: "Cercanía al mínimo de 52 semanas", contribution: 0,
+        detail: `${distLow.toFixed(1)}% por encima del mínimo de 52 semanas.` });
+    }
+  }
+  return { score, periodChangePct, distHigh, distLow, reasons };
 }
 
 function computeSentiment(data) {
@@ -898,8 +990,10 @@ function computeSentiment(data) {
   const rsi = parseGridNumber(findColumnValue(data.columns, "RSI (14)"));
   const vol = computeAnnualizedVolatility(recentBars);
   const trend = computeTrend(recentBars, data.columns);
-  const fScore = fundamentalsScore(data.analysis);
+  const fBreakdown = fundamentalsBreakdown(data.analysis);
+  const fScore = fBreakdown ? fBreakdown.score : null;
   const composite = fScore !== null ? fScore + trend.score : null;
+  const reasons = [...(fBreakdown ? fBreakdown.reasons : []), ...trend.reasons];
 
   let badge = null;
   let noBadgeReason = null;
@@ -918,6 +1012,27 @@ function computeSentiment(data) {
   }
   // Composite ranges roughly -8..+8 (fundamentals ±6, trend ±2) -> 0..100% gauge position.
   const gaugePct = composite === null ? 50 : Math.max(0, Math.min(100, ((composite + 8) / 16) * 100));
+
+  // Plain-language explanation of WHY this particular verdict came out, referencing the actual
+  // score and the +3/-3 thresholds — not just "trust the badge".
+  let verdictExplanation = null;
+  if (badge) {
+    const favor = reasons.filter(r => r.contribution > 0).length;
+    const contra = reasons.filter(r => r.contribution < 0).length;
+    const neutral = reasons.filter(r => r.contribution === 0).length;
+    const tally = `${favor} a favor, ${contra} en contra${neutral ? `, ${neutral} neutral(es)` : ""}`;
+    if (badge.label === "COMPRAR") {
+      verdictExplanation = `Puntaje compuesto: ${composite >= 0 ? "+" : ""}${composite} (rango posible -8 a +8). `
+        + `Salió COMPRAR porque ${tally}, y el total llegó a +3 o más, el umbral que usa esta señal para sugerir compra.`;
+    } else if (badge.label === "VENDER") {
+      verdictExplanation = `Puntaje compuesto: ${composite} (rango posible -8 a +8). `
+        + `Salió VENDER porque ${tally}, y el total cayó a -3 o menos, el umbral que usa esta señal para sugerir venta.`;
+    } else {
+      verdictExplanation = `Puntaje compuesto: ${composite >= 0 ? "+" : ""}${composite} (rango posible -8 a +8). `
+        + `Salió MANTENER porque ${tally}, y el total quedó entre -2 y +2 — ni suficientemente positivo `
+        + `(se necesita +3 o más para COMPRAR) ni suficientemente negativo (se necesita -3 o menos para VENDER).`;
+    }
+  }
 
   const tags = [];
   if (trend.periodChangePct !== null) {
@@ -939,7 +1054,7 @@ function computeSentiment(data) {
   }
 
   return {
-    badge, noBadgeReason, gaugePct, tags,
+    badge, noBadgeReason, gaugePct, tags, reasons, verdictExplanation,
     methodology: "Señal calculada por reglas fijas y deterministas (sin IA) a partir de: la "
       + "comparación de valoración/calidad vs. mediana del sector (igual que la sección "
       + "“Análisis”), la variación del precio en el período mostrado arriba, la "
@@ -968,12 +1083,32 @@ function renderSentiment(data) {
 
   const tagsMarkup = s.tags.map(t => `<span class="sentiment-tag ${t.cls}">${t.label}</span>`).join("");
 
+  const reasonsMarkup = s.reasons.map(r => {
+    const sign = r.contribution > 0 ? "pos" : r.contribution < 0 ? "neg" : "";
+    const signLabel = r.contribution > 0 ? "+1" : r.contribution < 0 ? "-1" : "0";
+    return `<li>
+      <div class="sentiment-reason-head">
+        <span class="sentiment-reason-label">${r.label}</span>
+        <span class="sentiment-reason-contribution ${sign}">${signLabel}</span>
+      </div>
+      <div class="sentiment-reason-detail">${r.detail.charAt(0).toUpperCase() + r.detail.slice(1)}</div>
+    </li>`;
+  }).join("");
+
+  const detailsMarkup = s.reasons.length ? `
+    <details class="sentiment-details">
+      <summary>¿Por qué ${s.badge ? s.badge.label : "esta lectura"}?</summary>
+      ${s.verdictExplanation ? `<p class="sentiment-explanation">${s.verdictExplanation}</p>` : ""}
+      <ul class="sentiment-reasons">${reasonsMarkup}</ul>
+    </details>` : "";
+
   return `
     <div class="section-title">Señal y sentimiento</div>
     <div class="analysis-panel sentiment-panel">
       ${badgeMarkup}
       ${gaugeMarkup}
       <div class="sentiment-tags">${tagsMarkup}</div>
+      ${detailsMarkup}
       <div class="analysis-footnote"><strong>Esto no es asesoría de inversión.</strong> ${s.methodology}</div>
     </div>`;
 }

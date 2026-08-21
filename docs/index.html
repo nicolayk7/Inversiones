@@ -103,6 +103,25 @@
   }
   table.snapshot td.label { color: var(--muted); }
   .has-glossary { border-bottom: 1px dotted var(--muted); cursor: help; }
+  .analysis-label.has-glossary { cursor: pointer; }
+  .glossary-popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: min(320px, calc(100vw - 24px));
+    background: #23262f;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    z-index: 20;
+    display: none;
+    white-space: normal;
+  }
+  .glossary-popover.open { display: block; }
   table.snapshot td.value { font-weight: 600; text-align: right; }
   .pos { color: var(--pos); }
   .neg { color: var(--neg); }
@@ -187,6 +206,15 @@
     font-size: 11px;
     color: var(--muted);
     line-height: 1.5;
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 12px; }
+    .search-wrap { max-width: none; }
+    .tickers { gap: 6px; }
+    .tickers button { padding: 8px 12px; font-size: 12.5px; }
+    table.snapshot td { padding: 9px 10px; font-size: 12px; }
+    .analysis-row { font-size: 12.5px; }
   }
 </style>
 </head>
@@ -289,9 +317,13 @@ const GLOSSARY = {
   "Margen operativo": "Margen operativo: utilidad operativa entre ventas. Qué % de cada dólar de venta queda después de todos los gastos operativos del negocio.",
 };
 
+// Emits data-glossary (not the native title="" attribute) because title tooltips only appear on
+// mouse hover — there is no hover/cursor on a touch screen, so every explanation was invisible on
+// mobile. A tap-to-toggle popover (setupGlossaryTaps below) reads this attribute instead and works
+// on both touch and mouse.
 function glossaryAttr(label) {
   const text = GLOSSARY[label];
-  return text ? ` title="${text.replace(/"/g, "&quot;")}"` : "";
+  return text ? ` data-glossary="${text.replace(/"/g, "&quot;")}"` : "";
 }
 
 const CADENCE_LABEL = { annual: "Annual", quarterly: "Quarterly" };
@@ -535,7 +567,7 @@ function attachCadenceHandlers(data) {
 // index at render time — see init() — so a ticker here that ever drops out of the watchlist
 // silently disappears from this row instead of rendering a dead button.
 const QUICK_PICKS = [
-  "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "TSLA", "AVGO", "JPM", "BRK-B", "SPY", "QQQ",
+  "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "TSLA", "AVGO", "JPM", "V", "BRK-B", "SPY", "QQQ",
 ];
 
 function setupSearch(allTickers) {
@@ -583,6 +615,44 @@ function setupSearch(allTickers) {
   });
 }
 
+// Tap-to-toggle glossary popover for touch devices (no hover/cursor to reveal a title="" tooltip).
+// Delegated on document since grid/analysis HTML is re-rendered on every ticker/cadence switch.
+function setupGlossaryTaps() {
+  const popover = document.createElement("div");
+  popover.className = "glossary-popover";
+  document.body.appendChild(popover);
+
+  function close() {
+    popover.classList.remove("open");
+  }
+
+  document.addEventListener("click", (e) => {
+    const target = e.target.closest(".has-glossary");
+    if (!target) { close(); return; }
+    const text = target.dataset.glossary;
+    if (!text) { close(); return; }
+    popover.textContent = text;
+    const rect = target.getBoundingClientRect();
+    const top = window.scrollY + rect.bottom + 6;
+    let left = window.scrollX + rect.left;
+    popover.style.top = `${top}px`;
+    popover.style.left = `${left}px`;
+    popover.classList.add("open");
+    // Keep it on-screen: measure after it's visible, then clamp/flip as needed.
+    const pRect = popover.getBoundingClientRect();
+    if (pRect.right > window.innerWidth - 8) {
+      left = Math.max(8, window.scrollX + window.innerWidth - pRect.width - 8);
+      popover.style.left = `${left}px`;
+    }
+    if (pRect.bottom > window.innerHeight - 8) {
+      popover.style.top = `${window.scrollY + rect.top - pRect.height - 6}px`;
+    }
+    e.stopPropagation();
+  });
+  window.addEventListener("scroll", close, { passive: true });
+  window.addEventListener("resize", close);
+}
+
 async function init() {
   try {
     const res = await fetch("data/index.json", { cache: "no-store" });
@@ -600,6 +670,7 @@ async function init() {
     );
 
     setupSearch(index.tickers);
+    setupGlossaryTaps();
     document.querySelector(".tickers-label").textContent =
       `Populares (${quickPicks.length} de ${index.tickers.length} disponibles — usa el buscador para el resto)`;
 

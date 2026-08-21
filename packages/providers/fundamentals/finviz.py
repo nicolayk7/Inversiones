@@ -305,15 +305,15 @@ class FinvizFundamentalsProvider:
         """Returns at most one record: today's live TTM ratio snapshot (see module docstring's
         period_end convention). A past `as_of` is not supported by this free source — raises
         rather than silently returning today's data mislabeled as historical."""
-        if as_of is not None and as_of < date.today():
+        now = datetime.now(timezone.utc)
+        today = now.date()
+        if as_of is not None and as_of < today:
             raise FinvizError(
                 "Finviz free quote page has no historical snapshots — cannot honor a past as_of "
                 f"({as_of}); only the live/current snapshot is available"
             )
 
         fields = self._fetch_fields(ticker)
-        today = date.today()
-        now = datetime.now(timezone.utc)
         return [
             FundamentalsRecord(
                 ticker=ticker.upper(),

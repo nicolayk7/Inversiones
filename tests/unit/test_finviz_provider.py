@@ -228,9 +228,10 @@ def test_period_end_and_reported_at_are_the_scrape_date_not_a_fiscal_period():
         return httpx.Response(200, text=_AAPL_QUOTE_HTML)
 
     record = _provider(handler).get_quarterly_fundamentals("AAPL")[0]
-    assert record.period_end == date.today()
-    assert record.reported_at == date.today()
-    assert record.available_at.date() == date.today()
+    utc_today = datetime.now(timezone.utc).date()
+    assert record.period_end == utc_today
+    assert record.reported_at == utc_today
+    assert record.available_at.date() == utc_today
 
 
 def test_past_as_of_raises_not_silently_returns_todays_data():

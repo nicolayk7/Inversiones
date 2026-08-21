@@ -4,60 +4,98 @@
 <meta charset="utf-8">
 <title>Finviz Snapshot Mirror</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0f1115;
-    --panel: #171a21;
-    --border: #2a2e38;
-    --text: #e6e8ec;
-    --muted: #8a90a0;
+    --bg: #0b0d12;
+    --panel: #151822;
+    --panel-2: #1b202c;
+    --border: #262b38;
+    --text: #e8eaf0;
+    --muted: #8b91a3;
     --accent: #5b8def;
+    --accent-soft: rgba(91, 141, 239, 0.16);
     --pos: #3ecf8e;
-    --neg: #e0563c;
+    --pos-soft: rgba(62, 207, 142, 0.14);
+    --neg: #e2593f;
+    --neg-soft: rgba(226, 89, 63, 0.14);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   }
   * { box-sizing: border-box; }
+  ::selection { background: var(--accent-soft); color: var(--text); }
   body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    margin: 0 auto;
+    max-width: 1120px;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
     background: var(--bg);
     color: var(--text);
-    padding: 20px;
+    padding: 28px 20px 40px;
   }
-  h1 { font-size: 18px; margin: 0 0 4px; }
-  .subtitle { color: var(--muted); font-size: 12px; margin-bottom: 16px; }
+  h1 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+  }
+  .subtitle { color: var(--muted); font-size: 12.5px; margin-bottom: 16px; }
   .disclaimer {
-    background: #171a21;
+    background: var(--panel);
     border: 1px solid var(--border);
     border-left: 3px solid var(--accent);
-    border-radius: 6px;
-    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    padding: 11px 14px;
     font-size: 12px;
+    line-height: 1.55;
     color: var(--muted);
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
-  .search-wrap { position: relative; max-width: 320px; margin-bottom: 12px; }
+  .search-wrap { position: relative; max-width: 340px; margin-bottom: 14px; }
+  .search-wrap::before {
+    content: "🔍";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    opacity: 0.55;
+    pointer-events: none;
+  }
   .search-wrap input {
     width: 100%;
     font-size: 14px;
-    padding: 9px 12px;
-    border-radius: 7px;
+    font-family: inherit;
+    padding: 10px 12px 10px 32px;
+    border-radius: var(--radius-sm);
     border: 1px solid var(--border);
-    background: #0f1115;
+    background: var(--panel);
     color: var(--text);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
-  .search-wrap input:focus { outline: none; border-color: var(--accent); }
+  .search-wrap input::placeholder { color: var(--muted); }
+  .search-wrap input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
   .search-results {
     position: absolute;
-    top: calc(100% + 4px);
+    top: calc(100% + 6px);
     left: 0;
     right: 0;
-    background: var(--panel);
+    background: var(--panel-2);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    max-height: 220px;
+    border-radius: var(--radius-sm);
+    max-height: 240px;
     overflow-y: auto;
     z-index: 5;
     display: none;
+    box-shadow: var(--shadow);
   }
   .search-results.open { display: block; }
   .search-results button {
@@ -65,42 +103,67 @@
     width: 100%;
     text-align: left;
     font-size: 13px;
-    padding: 8px 12px;
+    padding: 9px 12px;
     border: none;
     background: transparent;
     color: var(--text);
     cursor: pointer;
+    transition: background-color 0.1s ease;
   }
   .search-results button:hover, .search-results button.highlighted { background: var(--border); }
-  .search-empty { padding: 8px 12px; font-size: 12px; color: var(--muted); }
-  .tickers-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
-  .tickers { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .search-empty { padding: 9px 12px; font-size: 12px; color: var(--muted); }
+  .tickers-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 7px; }
+  .tickers { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
   .tickers button {
     font-size: 13px;
     font-weight: 600;
+    font-family: inherit;
     padding: 7px 14px;
-    border-radius: 6px;
+    border-radius: 999px;
     border: 1px solid var(--border);
-    background: #0f1115;
+    background: var(--panel);
     color: var(--text);
     cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.1s ease, background-color 0.15s ease;
   }
-  .tickers button.active { background: var(--accent); color: #0f1115; border-color: var(--accent); }
-  .meta { color: var(--muted); font-size: 12px; margin-bottom: 14px; }
+  .tickers button:hover { border-color: var(--accent); }
+  .tickers button:active { transform: scale(0.96); }
+  .tickers button.active {
+    background: var(--accent);
+    color: #0b0d12;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 11.5px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 5px 12px;
+    margin-bottom: 16px;
+  }
   .grid-panel {
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: var(--radius);
     padding: 4px 0;
     margin-bottom: 20px;
     overflow-x: auto;
+    box-shadow: var(--shadow);
   }
   table.snapshot { border-collapse: collapse; width: 100%; font-size: 12.5px; }
   table.snapshot td {
-    padding: 7px 12px;
+    padding: 8px 14px;
     border-bottom: 1px solid var(--border);
     white-space: nowrap;
+    transition: background-color 0.1s ease;
   }
+  table.snapshot tr:hover td { background: var(--panel-2); }
   table.snapshot td.label { color: var(--muted); }
   .has-glossary { border-bottom: 1px dotted var(--muted); cursor: help; }
   .analysis-label.has-glossary { cursor: pointer; }
@@ -129,53 +192,91 @@
   .chart-panel {
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
   }
-  .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .chart-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
   .chart-title { font-size: 13px; font-weight: 600; }
-  .cadence-toggle { display: flex; gap: 4px; }
+  .cadence-toggle { display: flex; gap: 4px; background: var(--panel-2); border-radius: 999px; padding: 3px; }
   .cadence-toggle button {
     font-size: 11px;
-    padding: 4px 8px;
-    border-radius: 5px;
-    border: 1px solid var(--border);
+    font-weight: 500;
+    font-family: inherit;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: none;
     background: transparent;
     color: var(--muted);
     cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
   }
-  .cadence-toggle button.active { background: var(--accent); color: #0f1115; border-color: var(--accent); }
+  .cadence-toggle button:hover:not(.active) { color: var(--text); }
+  .cadence-toggle button.active { background: var(--accent); color: #0b0d12; }
   .bars { display: flex; align-items: flex-end; gap: 4px; height: 150px; }
   .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; min-width: 0; }
   .bar-value { font-size: 9px; color: var(--muted); margin-bottom: 3px; white-space: nowrap; }
-  .bar { width: 100%; border-radius: 3px 3px 0 0; background: var(--accent); }
+  .bar { width: 100%; border-radius: 3px 3px 0 0; background: var(--accent); transition: opacity 0.15s ease; }
+  .bar-col:hover .bar { opacity: 0.8; }
   .bar.outlined { background: #7fa8f2; }
   .bar-label { font-size: 9px; color: var(--muted); margin-top: 4px; white-space: nowrap; }
-  .loading, .error { color: var(--muted); font-size: 13px; padding: 20px; }
+  .loading, .error {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 24px 4px;
+  }
+  .loading::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
   .error { color: var(--neg); }
-  a { color: var(--accent); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  #content { animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
   .section-title {
     font-size: 12px;
     font-weight: 600;
     color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin: 24px 0 10px;
+    letter-spacing: 0.05em;
+    margin: 26px 0 10px;
   }
   .panel-note {
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: var(--radius);
     padding: 14px 16px;
     font-size: 12.5px;
+    line-height: 1.5;
     color: var(--muted);
   }
   .analysis-panel {
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: var(--radius);
     padding: 4px 16px;
+    box-shadow: var(--shadow);
   }
   .analysis-row {
     display: flex;
@@ -189,9 +290,15 @@
   .analysis-row:first-child { border-top: none; }
   .analysis-label { color: var(--muted); }
   .analysis-value { font-weight: 600; text-align: right; }
-  .analysis-vs { font-weight: 500; margin-left: 6px; }
-  .analysis-vs.pos { color: var(--pos); }
-  .analysis-vs.neg { color: var(--neg); }
+  .analysis-vs {
+    font-weight: 500;
+    font-size: 11.5px;
+    margin-left: 6px;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .analysis-vs.pos { color: var(--pos); background: var(--pos-soft); }
+  .analysis-vs.neg { color: var(--neg); background: var(--neg-soft); }
   .analysis-submeta { font-size: 11px; color: var(--muted); padding-bottom: 8px; text-align: right; }
   .analysis-growth {
     margin-top: 4px;
@@ -209,17 +316,20 @@
   }
 
   @media (max-width: 480px) {
-    body { padding: 12px; }
+    body { padding: 14px 12px 28px; }
+    h1 { font-size: 17px; }
     .search-wrap { max-width: none; }
     .tickers { gap: 6px; }
     .tickers button { padding: 8px 12px; font-size: 12.5px; }
     table.snapshot td { padding: 9px 10px; font-size: 12px; }
     .analysis-row { font-size: 12.5px; }
+    .chart-header { flex-direction: column; align-items: flex-start; }
+    .cadence-toggle button { padding: 8px 12px; font-size: 12px; }
   }
 </style>
 </head>
 <body>
-  <h1>Finviz Snapshot Mirror</h1>
+  <h1>📊 Finviz Snapshot Mirror</h1>
   <div class="subtitle">
     Espejo estático, de solo lectura, de datos públicos de
     <a href="https://finviz.com" target="_blank" rel="noopener">finviz.com</a> — sin backend, sin base de datos.
@@ -333,6 +443,46 @@ const CHART_TITLES = {
   shares_outstanding: "Shares Outstanding (mm)",
 };
 let currentCadence = "annual";
+
+// d = daily (raw bars as fetched), w = weekly, m = monthly — aggregated client-side from the
+// same ~190 daily bars Finviz's undocumented chart API already returns for every ticker. This
+// does NOT fetch anything new: see packages/providers/fundamentals/finviz.py's own guardrail on
+// extending get_price_history further ("do not extend this further without the same explicit
+// check-in") — an "hora" (intraday) timeframe would need exactly that kind of extension and is
+// deliberately not implemented here.
+let currentPriceCadence = "d";
+const PRICE_CADENCE_LABEL = { d: "Día", w: "Semana", m: "Mes" };
+
+// Buckets daily OHLCV bars into ISO weeks (Monday start) or calendar months. Input bars are
+// always oldest-first (see get_price_history's docstring), and Map preserves insertion order, so
+// the aggregate comes out oldest-first too without a separate sort. Open/close are the first/
+// last daily bar folded into each bucket; high/low are the bucket's extremes; volume sums.
+function aggregatePriceBars(bars, cadence) {
+  if (cadence === "d" || !bars || bars.length === 0) return bars;
+  const buckets = new Map();
+  for (const b of bars) {
+    const d = new Date(`${b.date}T00:00:00Z`);
+    let key;
+    if (cadence === "w") {
+      const isoDow = (d.getUTCDay() + 6) % 7; // Monday = 0 ... Sunday = 6
+      const monday = new Date(d);
+      monday.setUTCDate(d.getUTCDate() - isoDow);
+      key = monday.toISOString().slice(0, 10);
+    } else {
+      key = `${b.date.slice(0, 7)}-01`;
+    }
+    const bucket = buckets.get(key);
+    if (!bucket) {
+      buckets.set(key, { date: key, open: b.open, high: b.high, low: b.low, close: b.close, volume: b.volume });
+    } else {
+      bucket.high = Math.max(bucket.high, b.high);
+      bucket.low = Math.min(bucket.low, b.low);
+      bucket.close = b.close;
+      bucket.volume += b.volume;
+    }
+  }
+  return [...buckets.values()];
+}
 
 function fmtNum(v) {
   if (v === null || v === undefined) return "-";
@@ -461,17 +611,19 @@ function renderAnalysis(analysis) {
 // finviz.com/api/quote endpoint, a real daily OHLCV series — see that method's own docstring for
 // the access-pattern disclosure). "Técnico" here means price action itself, distinct from the
 // fundamentals-vs-sector "Análisis" section below it.
-function renderPriceChart(bars) {
-  if (!bars || bars.length === 0) {
+function renderPriceChart(rawBars) {
+  if (!rawBars || rawBars.length === 0) {
     return `<div class="section-title">Análisis técnico</div>
       <div class="panel-note">Sin historial de precio disponible para este ticker.</div>`;
   }
+
+  const bars = aggregatePriceBars(rawBars, currentPriceCadence);
 
   const W = 900, priceH = 230, volH = 70, gap = 14, padTop = 10, padBottom = 22, padLeft = 56, padRight = 10;
   const plotW = W - padLeft - padRight;
   const n = bars.length;
   const barSlot = plotW / n;
-  const bodyW = Math.max(1, barSlot * 0.62);
+  const bodyW = Math.max(1, Math.min(barSlot * 0.62, 34));
   const volTopY = padTop + priceH + gap;
   const volBottomY = volTopY + volH;
 
@@ -510,17 +662,25 @@ function renderPriceChart(bars) {
   }).join("");
 
   const totalH = volBottomY + padBottom;
-  const first = bars[0], last = bars[bars.length - 1];
+  const first = rawBars[0], last = rawBars[rawBars.length - 1];
   const periodChangePct = first.close ? ((last.close - first.close) / first.close) * 100 : null;
   const changeCls = periodChangePct === null ? "" : periodChangePct >= 0 ? "pos" : "neg";
   const changeLabel = periodChangePct === null ? "" :
-    ` · ${bars.length} sesiones: <span class="${changeCls}">${periodChangePct >= 0 ? "+" : ""}${periodChangePct.toFixed(1)}%</span>`;
+    ` · todo el período: <span class="${changeCls}">${periodChangePct >= 0 ? "+" : ""}${periodChangePct.toFixed(1)}%</span>`;
+
+  const priceCadenceToggle = `
+    <div class="cadence-toggle">
+      ${Object.keys(PRICE_CADENCE_LABEL).map(c =>
+        `<button data-price-cadence="${c}" class="${currentPriceCadence === c ? "active" : ""}">${PRICE_CADENCE_LABEL[c]}</button>`
+      ).join("")}
+    </div>`;
 
   return `
-    <div class="section-title">Análisis técnico — precio y volumen (${bars[0].date} a ${bars[bars.length - 1].date})</div>
+    <div class="section-title">Análisis técnico — precio y volumen (${rawBars[0].date} a ${rawBars[rawBars.length - 1].date})</div>
     <div class="chart-panel" style="overflow-x:auto;">
       <div class="chart-header">
-        <div class="chart-title">Velas diarias${changeLabel}</div>
+        <div class="chart-title">Velas · ${PRICE_CADENCE_LABEL[currentPriceCadence]} (${bars.length})${changeLabel}</div>
+        ${priceCadenceToggle}
       </div>
       <svg viewBox="0 0 ${W} ${totalH}" style="width:100%;height:auto;display:block;min-width:480px;">
         ${priceGrid}
@@ -543,19 +703,32 @@ async function loadTicker(ticker) {
     const data = await res.json();
     document.getElementById("meta").textContent =
       `${data.ticker} · generado: ${new Date(data.generated_at).toLocaleString()}`;
-    document.getElementById("content").innerHTML = renderTickerContent(data);
-    attachCadenceHandlers(data);
+    rerenderContent(data);
   } catch (err) {
     document.getElementById("content").innerHTML = `<div class="error">No se pudo cargar ${ticker}: ${err.message}</div>`;
   }
 }
 
-function attachCadenceHandlers(data) {
-  document.querySelectorAll(".cadence-toggle button").forEach(btn => {
+// Re-renders #content from scratch (both the fundamentals-history cadence and the price-chart
+// timeframe toggles work this way — simplest way to keep the whole ticker view consistent) and
+// re-attaches handlers, since innerHTML replacement drops the previous listeners.
+function rerenderContent(data) {
+  const content = document.getElementById("content");
+  content.innerHTML = renderTickerContent(data);
+  attachContentHandlers(data);
+}
+
+function attachContentHandlers(data) {
+  document.querySelectorAll(".cadence-toggle button[data-cadence]").forEach(btn => {
     btn.addEventListener("click", () => {
       currentCadence = btn.dataset.cadence;
-      document.getElementById("content").innerHTML = renderTickerContent(data);
-      attachCadenceHandlers(data);
+      rerenderContent(data);
+    });
+  });
+  document.querySelectorAll(".cadence-toggle button[data-price-cadence]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentPriceCadence = btn.dataset.priceCadence;
+      rerenderContent(data);
     });
   });
 }

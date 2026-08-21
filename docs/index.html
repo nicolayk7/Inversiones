@@ -22,6 +22,8 @@
     --pos-soft: rgba(62, 207, 142, 0.14);
     --neg: #e2593f;
     --neg-soft: rgba(226, 89, 63, 0.14);
+    --warn: #e8b339;
+    --warn-soft: rgba(232, 179, 57, 0.14);
     --radius: 12px;
     --radius-sm: 8px;
     --shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
@@ -314,6 +316,62 @@
     color: var(--muted);
     line-height: 1.5;
   }
+
+  .sentiment-panel { padding: 18px 16px 4px; }
+  .sentiment-badge {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 8px 22px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+    background: var(--panel-2);
+    color: var(--text);
+  }
+  .sentiment-badge.pos { background: var(--pos-soft); color: var(--pos); }
+  .sentiment-badge.neg { background: var(--neg-soft); color: var(--neg); }
+  .sentiment-gauge { margin-bottom: 20px; }
+  .sentiment-gauge-track {
+    position: relative;
+    height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--neg) 0%, var(--warn) 50%, var(--pos) 100%);
+  }
+  .sentiment-gauge-marker {
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--text);
+    border: 3px solid var(--panel);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 1px var(--border);
+  }
+  .sentiment-gauge-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+  }
+  .sentiment-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .sentiment-tag {
+    font-size: 11.5px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--panel-2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+  .sentiment-tag.pos { color: var(--pos); background: var(--pos-soft); border-color: transparent; }
+  .sentiment-tag.neg { color: var(--neg); background: var(--neg-soft); border-color: transparent; }
+  .sentiment-tag.warn { color: var(--warn); background: var(--warn-soft); border-color: transparent; }
 
   @media (max-width: 480px) {
     body { padding: 14px 12px 28px; }
@@ -690,8 +748,176 @@ function renderPriceChart(rawBars) {
     </div>`;
 }
 
+// -- Signal / sentiment section (client-side, deterministic, no AI, no extra Finviz requests) --
+// Reuses data this ticker's own JSON already carries: the RSI/Beta/52-week fields shown in the
+// grid above, the same price_history behind the candlestick chart, and (for equities) the
+// sector-median valuation/quality comparisons already computed server-side for the "Análisis"
+// section. Fixed rules, same for every ticker and every visitor — not a personalized
+// recommendation, just a mechanical reading of public numbers, same spirit as the rest of this
+// page (see CLAUDE.md: every number here comes from code, never an LLM guess).
+
+// Parses a grid cell's display string back into a number: "-" -> null, trailing "%" -> stripped
+// (kept as a plain percentage number, e.g. "-2.20%" -> -2.20, NOT a fraction), K/M/B/T suffix
+// handled, and for compound cells like 52W High's "373.97 -2.20%" only the LAST whitespace-
+// separated token is used (the % distance, not the price).
+function parseGridNumber(raw) {
+  if (raw === undefined || raw === null) return null;
+  const text = String(raw).trim();
+  if (!text || text === "-") return null;
+  let token = text.split(/\s+/).pop().replace(/,/g, "");
+  const isPct = token.endsWith("%");
+  if (isPct) token = token.slice(0, -1);
+  const suffix = token.slice(-1);
+  const mult = { K: 1e3, M: 1e6, B: 1e9, T: 1e12 }[suffix];
+  if (mult) token = token.slice(0, -1);
+  const n = parseFloat(token);
+  if (Number.isNaN(n)) return null;
+  return mult ? n * mult : n;
+}
+
+function findColumnValue(columns, label) {
+  for (const col of columns) {
+    const f = col.find(x => x.label === label);
+    if (f) return f.value;
+  }
+  return null;
+}
+
+// Realized volatility of the actual candles shown above: daily-return std dev, annualized
+// (× √252 trading days/year) and expressed as a percentage — a measure of how much THIS asset's
+// own price has swung, independent of Finviz's Beta (which measures movement relative to the
+// broad market, not in absolute terms).
+function computeAnnualizedVolatility(bars) {
+  if (!bars || bars.length < 10) return null;
+  const returns = [];
+  for (let i = 1; i < bars.length; i++) {
+    const prev = bars[i - 1].close;
+    if (prev) returns.push((bars[i].close - prev) / prev);
+  }
+  if (returns.length < 5) return null;
+  const mean = returns.reduce((a, b) => a + b, 0) / returns.length;
+  const variance = returns.reduce((a, b) => a + (b - mean) ** 2, 0) / (returns.length - 1);
+  return Math.sqrt(variance) * Math.sqrt(252) * 100;
+}
+
+// -6..+6: tallies the same "read" verdicts already shown in the "Análisis vs. sector" section
+// (cheaper-than-median or above-median-quality = +1, more-expensive or below-median = -1, in
+// line = 0). null for ETFs or when there weren't enough sector peers to compare against.
+function fundamentalsScore(analysis) {
+  if (!analysis || analysis.type !== "equity" || !analysis.comparisons) return null;
+  let score = 0;
+  for (const c of analysis.comparisons) {
+    if (c.read.includes("más barato") || c.read.includes("por encima")) score += 1;
+    else if (c.read.includes("más caro") || c.read.includes("por debajo")) score -= 1;
+  }
+  return score;
+}
+
+// -2..+2: price change over the whole fetched window, plus proximity to the 52-week high/low.
+function computeTrend(rawBars, columns) {
+  const first = rawBars[0], last = rawBars[rawBars.length - 1];
+  const periodChangePct = first.close ? ((last.close - first.close) / first.close) * 100 : null;
+  const distHigh = parseGridNumber(findColumnValue(columns, "52W High"));
+  const distLow = parseGridNumber(findColumnValue(columns, "52W Low"));
+  let score = 0;
+  if (periodChangePct !== null) {
+    if (periodChangePct > 5) score += 1;
+    else if (periodChangePct < -5) score -= 1;
+  }
+  if (distHigh !== null && distHigh >= -10) score += 1;
+  if (distLow !== null && distLow <= 10) score -= 1;
+  return { score, periodChangePct, distHigh, distLow };
+}
+
+function computeSentiment(data) {
+  const rawBars = data.price_history;
+  if (!rawBars || rawBars.length < 10) return null;
+
+  const rsi = parseGridNumber(findColumnValue(data.columns, "RSI (14)"));
+  const vol = computeAnnualizedVolatility(rawBars);
+  const trend = computeTrend(rawBars, data.columns);
+  const fScore = fundamentalsScore(data.analysis);
+  const composite = fScore !== null ? fScore + trend.score : null;
+
+  let badge = null;
+  let noBadgeReason = null;
+  if (composite !== null) {
+    if (composite >= 3) badge = { label: "COMPRAR", cls: "pos" };
+    else if (composite <= -3) badge = { label: "VENDER", cls: "neg" };
+    else badge = { label: "MANTENER", cls: "" };
+  } else if (data.analysis && data.analysis.type === "etf") {
+    noBadgeReason = "Los ETFs no reciben esta señal compuesta: no aplica una comparación de "
+      + "valoración/calidad vs. sector a un fondo (mismo criterio que en “Análisis del "
+      + "fondo” arriba). Sí se muestran abajo las lecturas de tendencia, volatilidad y RSI.";
+  } else {
+    noBadgeReason = "No hay suficientes acciones del mismo sector en este dataset generado para "
+      + "la parte de valoración de esta señal (ver sección “Análisis” arriba) — se "
+      + "omite en vez de mostrar algo poco confiable.";
+  }
+  // Composite ranges roughly -8..+8 (fundamentals ±6, trend ±2) -> 0..100% gauge position.
+  const gaugePct = composite === null ? 50 : Math.max(0, Math.min(100, ((composite + 8) / 16) * 100));
+
+  const tags = [];
+  if (trend.periodChangePct !== null) {
+    if (trend.periodChangePct > 5) tags.push({ label: "TENDENCIA ALCISTA", cls: "pos" });
+    else if (trend.periodChangePct < -5) tags.push({ label: "TENDENCIA BAJISTA", cls: "neg" });
+    else tags.push({ label: "TENDENCIA LATERAL", cls: "" });
+  }
+  if (rsi !== null) {
+    if (rsi >= 70) tags.push({ label: "SOBRECOMPRADO (RSI)", cls: "warn" });
+    else if (rsi <= 30) tags.push({ label: "SOBREVENDIDO (RSI)", cls: "warn" });
+  }
+  if (vol !== null) {
+    if (vol >= 45) tags.push({ label: "ALTA VOLATILIDAD", cls: "warn" });
+    else if (vol <= 18) tags.push({ label: "BAJA VOLATILIDAD", cls: "pos" });
+  }
+  if (rsi !== null && trend.periodChangePct !== null) {
+    if (rsi <= 30 && trend.periodChangePct < -10) tags.push({ label: "MERCADO CON MIEDO", cls: "neg" });
+    else if (rsi >= 70 && trend.periodChangePct > 10) tags.push({ label: "MERCADO CON EUFORIA", cls: "warn" });
+  }
+
+  return {
+    badge, noBadgeReason, gaugePct, tags,
+    methodology: "Señal calculada por reglas fijas y deterministas (sin IA) a partir de: la "
+      + "comparación de valoración/calidad vs. mediana del sector (igual que la sección "
+      + "“Análisis”), la variación del precio en el período mostrado arriba, la "
+      + "posición frente al máximo/mínimo de 52 semanas, el RSI(14) y la volatilidad realizada "
+      + "de las propias velas diarias. Es una lectura mecánica de datos públicos, igual criterio "
+      + "que el resto de este sitio — no es una recomendación personalizada ni predice el futuro.",
+  };
+}
+
+function renderSentiment(data) {
+  const s = computeSentiment(data);
+  if (!s) {
+    return `<div class="section-title">Señal y sentimiento</div>
+      <div class="panel-note">Sin suficiente historial de precio para calcular una señal.</div>`;
+  }
+
+  const badgeMarkup = s.badge
+    ? `<div class="sentiment-badge ${s.badge.cls}">${s.badge.label}</div>`
+    : `<div class="panel-note" style="border:none;padding:0 0 16px;">${s.noBadgeReason}</div>`;
+
+  const gaugeMarkup = s.badge ? `
+    <div class="sentiment-gauge">
+      <div class="sentiment-gauge-track"><div class="sentiment-gauge-marker" style="left:${s.gaugePct}%"></div></div>
+      <div class="sentiment-gauge-labels"><span>Vender</span><span>Mantener</span><span>Comprar</span></div>
+    </div>` : "";
+
+  const tagsMarkup = s.tags.map(t => `<span class="sentiment-tag ${t.cls}">${t.label}</span>`).join("");
+
+  return `
+    <div class="section-title">Señal y sentimiento</div>
+    <div class="analysis-panel sentiment-panel">
+      ${badgeMarkup}
+      ${gaugeMarkup}
+      <div class="sentiment-tags">${tagsMarkup}</div>
+      <div class="analysis-footnote"><strong>Esto no es asesoría de inversión.</strong> ${s.methodology}</div>
+    </div>`;
+}
+
 function renderTickerContent(data) {
-  return renderPriceChart(data.price_history) + renderGrid(data.columns) + renderCharts(data.charts) + renderAnalysis(data.analysis);
+  return renderPriceChart(data.price_history) + renderGrid(data.columns) + renderCharts(data.charts) + renderAnalysis(data.analysis) + renderSentiment(data);
 }
 
 async function loadTicker(ticker) {

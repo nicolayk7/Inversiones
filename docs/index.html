@@ -192,31 +192,32 @@
     margin-bottom: 20px;
     overflow-x: auto;
     box-shadow: var(--shadow);
-    /* Multi-column flow, not CSS Grid: the 5 field columns have different row counts (5 to 13
-       rows), and Grid's auto-fit sizes every ROW by its tallest item -- when the 5th column
-       wraps alone onto its own row, that row's height matches ITS 13 rows while the 3 empty
-       tracks next to it just sit blank, producing a large visible gap on desktop widths. Columns
-       flow content top-to-bottom and pack the next column immediately, no matter how tall the
-       previous one was, so nothing is left blank. */
+    /* Multi-column flow, not CSS Grid: field counts vary a lot per section. Grid's auto-fit
+       sizes every ROW by its tallest item, so a lone tall column stranded on its own row leaves
+       the tracks beside it blank. CSS columns pack content top-to-bottom, next column starts
+       immediately regardless of what came before -- but that packing is only as fine-grained as
+       the units it's allowed to break between. Grouping fields into 5 unbreakable per-section
+       <table>s meant it could only ever cut between those 5 big chunks (9/5/10/12/13 rows), and
+       no 3-way split of those chunk sizes is close to even -- still visibly lopsided columns.
+       Fixed by flattening every field into one flat sequence of individually-breakable rows (see
+       renderGrid) so the browser balances at row granularity instead, which is what actually
+       closes the gap. */
     column-width: 230px;
     column-gap: 24px;
   }
-  table.snapshot {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 12.5px;
-    break-inside: avoid;
-    display: inline-table; /* table elements ignore break-inside unless also inline/block-level here */
-    margin-bottom: 4px;
-  }
-  table.snapshot td {
+  .grid-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
     padding: 8px 14px;
+    font-size: 12.5px;
     border-bottom: 1px solid var(--border);
-    white-space: nowrap;
+    break-inside: avoid;
     transition: background-color 0.1s ease;
   }
-  table.snapshot tr:hover td { background: var(--panel-2); }
-  table.snapshot td.label { color: var(--muted); }
+  .grid-row:hover { background: var(--panel-2); }
+  .grid-row .label { color: var(--muted); white-space: nowrap; }
   .has-glossary { border-bottom: 1px dotted var(--muted); cursor: help; }
   .analysis-label.has-glossary { cursor: pointer; }
   .glossary-popover {
@@ -237,7 +238,7 @@
     white-space: normal;
   }
   .glossary-popover.open { display: block; }
-  table.snapshot td.value { font-weight: 600; text-align: right; }
+  .grid-row .value { font-weight: 600; text-align: right; white-space: nowrap; }
   .pos { color: var(--pos); }
   .neg { color: var(--neg); }
   .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
@@ -488,7 +489,7 @@
     .tickers { gap: 6px; }
     .tickers button { padding: 8px 12px; font-size: 12.5px; }
     .grid-panel { padding: 10px 12px; column-gap: 12px; }
-    table.snapshot td { padding: 9px 10px; font-size: 12px; }
+    .grid-row { padding: 9px 10px; font-size: 12px; }
     .analysis-row { font-size: 12.5px; }
     .chart-header { flex-direction: column; align-items: flex-start; }
     .cadence-toggle button { padding: 8px 12px; font-size: 12px; }
@@ -680,14 +681,14 @@ function colorClass(value) {
   return "";
 }
 
+// One flat sequence of rows (not 5 separate non-breakable tables) so the CSS multi-column layout
+// on .grid-panel can balance at row granularity instead of only being able to cut between 5 big
+// chunks — see .grid-panel's own CSS comment for why that's what actually closes the gap.
 function renderGrid(columns) {
-  const cols = columns.map(col => {
-    const rows = col.map(f =>
-      `<tr><td class="label has-glossary"${glossaryAttr(f.label)}>${f.label}</td><td class="value ${colorClass(f.value)}">${f.value}</td></tr>`
-    ).join("");
-    return `<table class="snapshot"><tbody>${rows}</tbody></table>`;
-  });
-  return `<div class="grid-panel">${cols.join("")}</div>`;
+  const rows = columns.flat().map(f =>
+    `<div class="grid-row"><span class="label has-glossary"${glossaryAttr(f.label)}>${f.label}</span><span class="value ${colorClass(f.value)}">${f.value}</span></div>`
+  ).join("");
+  return `<div class="grid-panel">${rows}</div>`;
 }
 
 function renderBars(series) {

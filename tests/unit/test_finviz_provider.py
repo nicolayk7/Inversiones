@@ -18,6 +18,7 @@ from packages.providers.fundamentals.finviz import (
     FinvizNotFoundError,
     FinvizResponseError,
     _parse_categories,
+    _parse_company_name,
     _parse_number,
 )
 
@@ -263,6 +264,40 @@ def test_get_snapshot_returns_fields_and_charts_from_one_fetch():
     assert snapshot["charts"]["sales"]["annual"][-1]["value"] == 466823
     assert snapshot["charts"]["shares_outstanding"]["annual"][-1]["value"] == 14608.9
     assert snapshot["charts"]["eps"]["quarterly"][0]["name"] == "Q3 '26"
+
+
+# -- _parse_company_name -----------------------------------------------------------------------
+# Shapes copied from live pages (2026-09-24): name inside an <a> to the company site, CRLF +
+# indentation whitespace, and "&amp;" entity-encoded in the raw HTML (SPY).
+
+_V_COMPANY_HTML = (
+    '<h2 class="quote-header_ticker-wrapper_company text-lg">\r\n'
+    '                            <a class="tab-link block truncate" href="http://usa.visa.com" '
+    'target="_blank" rel="nofollow">\r\n                            Visa Inc\r\n'
+    "                            </a>\r\n                        </h2>"
+)
+_SPY_COMPANY_HTML = (
+    '<h2 class="quote-header_ticker-wrapper_company text-lg">\r\n'
+    '    <a class="tab-link block truncate" href="https://www.ssga.com/" rel="nofollow">\r\n'
+    "    SPDR S&amp;P 500 ETF Trust\r\n    </a>\r\n</h2>"
+)
+
+
+def test_parse_company_name_strips_link_and_whitespace():
+    assert _parse_company_name(_V_COMPANY_HTML) == "Visa Inc"
+
+
+def test_parse_company_name_unescapes_html_entities():
+    assert _parse_company_name(_SPY_COMPANY_HTML) == "SPDR S&P 500 ETF Trust"
+
+
+def test_parse_company_name_handles_plain_text_without_link():
+    html_ = '<h2 class="quote-header_ticker-wrapper_company text-lg">  Acme  Corp </h2>'
+    assert _parse_company_name(html_) == "Acme Corp"
+
+
+def test_parse_company_name_returns_none_when_block_absent():
+    assert _parse_company_name("<html><title>X - Something Stock Price</title></html>") is None
 
 
 # -- _parse_categories -------------------------------------------------------------------------

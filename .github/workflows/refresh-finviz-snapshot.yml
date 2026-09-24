@@ -34,6 +34,16 @@ jobs:
       - name: Generate snapshot JSON
         run: python scripts/generate_finviz_snapshot_site.py
 
+      # Safety net before publishing: the site's own logic tests include one that loads the
+      # freshly generated JSON for several tickers and checks every chart cadence and the signal
+      # still compute. If the data came out malformed, this step fails and nothing is committed —
+      # the live site keeps yesterday's good data instead of breaking.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate generated data
+        run: node --test "tests/js/*.test.cjs"
+
       - name: Commit updated snapshot (if anything changed)
         run: |
           git config user.name "github-actions[bot]"

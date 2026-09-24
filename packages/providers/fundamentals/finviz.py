@@ -186,6 +186,24 @@ def _parse_categories(body: str) -> dict[str, str]:
     }
 
 
+# Company/fund display name, confirmed live 2026-09-24 against V ("Visa Inc"), BRK-B ("Berkshire
+# Hathaway Inc") and SPY ("SPDR S&amp;P 500 ETF Trust" — entity-encoded in the raw HTML, hence
+# html.unescape): an <h2 class="quote-header_ticker-wrapper_company ..."> whose text is usually
+# wrapped in an <a> to the company's website. Scoped to that one <h2>, tags stripped, whitespace
+# collapsed; returns None when the block is absent rather than guessing from <title>.
+_COMPANY_BLOCK_PATTERN = re.compile(
+    r'quote-header_ticker-wrapper_company[^"]*">(?P<inner>.*?)</h2>', re.S
+)
+
+
+def _parse_company_name(body: str) -> str | None:
+    m = _COMPANY_BLOCK_PATTERN.search(body)
+    if not m:
+        return None
+    name = " ".join(html.unescape(_clean_text(m.group("inner"))).split())
+    return name or None
+
+
 def _parse_fields(body: str, ticker: str) -> dict[str, str]:
     """The snapshot grid only (tooltip-keyed), from an already-fetched page body. Tooltip keys are
     HTML-entity-decoded (`html.unescape`) — some contain literal `&#39;`/`&lt;br&gt;` in the raw
@@ -383,7 +401,8 @@ class FinvizFundamentalsProvider:
         the raw grid plus the historical charts together. Returns `{"ticker": ...,
         "fields": {<tooltip>: <raw string value>, ...}, "charts": {...} | None,
         "categories": {"sector": ..., "industry": ..., ...} (whatever subset is present, see
-        _parse_categories)}`. `fields` is unfiltered — every tooltip->value pair on the page, not a
+        _parse_categories), "company_name": str | None (see _parse_company_name)}`. `fields` is
+        unfiltered — every tooltip->value pair on the page, not a
         hand-picked subset — so a caller can choose what to display without this provider needing
         to know in advance."""
         body = self._fetch_page(ticker)
@@ -392,6 +411,7 @@ class FinvizFundamentalsProvider:
             "fields": _parse_fields(body, ticker),
             "charts": _parse_charts(body),
             "categories": _parse_categories(body),
+            "company_name": _parse_company_name(body),
         }
 
     def get_price_history(self, ticker: str, days: int = _PRICE_HISTORY_DAYS) -> list[dict]:

@@ -4,6 +4,21 @@
 <meta charset="utf-8">
 <title>Nicolas Invest</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Fundamentales, gráfico de velas y señal de mercado de 529 acciones del S&amp;P 500 y Nasdaq-100 y ETFs. Datos públicos de Finviz, actualizados a diario. Gratis.">
+<meta name="theme-color" content="#0b0d12">
+<link rel="canonical" href="https://nicolayk7.github.io/Inversiones/">
+<!-- Link previews (WhatsApp, X, Telegram, LinkedIn). og:image must be an absolute URL. Crawlers
+     ignore the #TICKER fragment, so every shared link gets this same site-level card. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nicolas Invest">
+<meta property="og:title" content="Nicolas Invest — acciones y ETFs, explicados">
+<meta property="og:description" content="Fundamentales, velas y señal de mercado de 529 acciones y ETFs. Datos públicos, actualizados a diario.">
+<meta property="og:url" content="https://nicolayk7.github.io/Inversiones/">
+<meta property="og:image" content="https://nicolayk7.github.io/Inversiones/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -482,6 +497,107 @@
   .sentiment-reason-contribution.pos { color: var(--pos); background: var(--pos-soft); }
   .sentiment-reason-contribution.neg { color: var(--neg); background: var(--neg-soft); }
 
+  /* Keyboard users see where they are; mouse clicks don't get a ring. */
+  button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .stale-notice {
+    background: var(--warn-soft);
+    border: 1px solid var(--warn);
+    color: var(--warn);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .meta-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .meta-bar .meta { margin-bottom: 0; font-family: inherit; }
+  .meta strong { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--text); }
+  .meta-stale { color: var(--warn); font-weight: 600; }
+  .meta-actions { display: flex; gap: 8px; }
+  .chip-btn {
+    font: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+  .chip-btn:hover { border-color: var(--accent); }
+  .chip-btn.active { border-color: var(--warn); color: var(--warn); background: var(--warn-soft); }
+
+  .search-results button { display: flex; align-items: baseline; gap: 10px; }
+  .sr-ticker { font-weight: 700; font-family: "JetBrains Mono", ui-monospace, monospace; flex-shrink: 0; }
+  .sr-name { color: var(--muted); font-size: 12px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .chart-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; font-size: 11.5px; color: var(--muted); margin: -4px 0 10px; }
+  .chart-legend span, .compare-legend > span { display: inline-flex; align-items: center; gap: 6px; }
+  .chart-legend i, .compare-legend i, .chart-tooltip i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; }
+  .chart-legend-hint { font-style: italic; opacity: 0.8; }
+  .price-chart-wrap { position: relative; min-width: 480px; }
+  .price-svg { cursor: crosshair; }
+  .chart-tooltip {
+    position: absolute;
+    top: 8px;
+    transform: translateX(12px);
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+    padding: 8px 10px;
+    font-size: 11.5px;
+    pointer-events: none;
+    z-index: 4;
+    min-width: 150px;
+  }
+  .chart-tooltip.flip { transform: translateX(calc(-100% - 12px)); }
+  .chart-tooltip[hidden] { display: none; }
+  .chart-tooltip .tt-date { font-weight: 600; margin-bottom: 4px; color: var(--text); }
+  .chart-tooltip table { border-collapse: collapse; width: 100%; }
+  .chart-tooltip td { padding: 1px 0; color: var(--muted); white-space: nowrap; }
+  .chart-tooltip td + td { text-align: right; color: var(--text); font-weight: 600; padding-left: 12px; white-space: nowrap; }
+
+  .promo-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: linear-gradient(90deg, var(--accent-soft), var(--panel-2));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: 12.5px;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: border-color 0.15s ease;
+  }
+  .promo-inline:hover { border-color: var(--accent); text-decoration: none; }
+  .promo-inline-text { flex: 1; min-width: 200px; }
+
+  .compare-panel { padding: 16px; }
+  .compare-head { display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 14px; }
+  .compare-picker { flex: 1; min-width: 220px; max-width: 360px; margin-bottom: 0; }
+  .compare-empty { border: none; padding: 12px 0 0; }
+  .compare-panel > .compare-picker { max-width: 360px; }
+  .compare-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; font-size: 12px; margin: -4px 0 8px; }
+  .compare-chart { overflow-x: auto; margin-bottom: 14px; }
+  .compare-table-wrap { overflow-x: auto; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .compare-table th, .compare-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); text-align: right; white-space: nowrap; }
+  .compare-table thead th { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--text); }
+  .compare-table tbody th { text-align: left; font-weight: 400; color: var(--muted); }
+  .compare-table td { font-weight: 600; }
+
   @media (max-width: 480px) {
     body { padding: 14px 12px 28px; }
     h1 { font-size: 17px; }
@@ -489,6 +605,10 @@
     .tickers { gap: 6px; }
     .tickers button { padding: 8px 12px; font-size: 12.5px; }
     .grid-panel { padding: 10px 12px; column-gap: 12px; }
+    .compare-panel { padding: 12px; }
+    .compare-table { font-size: 12px; }
+    .compare-table th, .compare-table td { padding: 7px 5px; }
+    .meta-bar { align-items: flex-start; }
     .grid-row { padding: 9px 10px; font-size: 12px; }
     .analysis-row { font-size: 12.5px; }
     .chart-header { flex-direction: column; align-items: flex-start; }
@@ -500,7 +620,10 @@
 </style>
 </head>
 <body>
-  <a class="promo-banner" href="https://go.hotmart.com/A102144397E?dp=1" target="_blank" rel="noopener sponsored">
+  <!-- src= is Hotmart's own sales-source parameter (confirmed 2026-09-24: carried through the
+       redirect as hsrc=, alphanumeric only — Hotmart strips hyphens), so sales from this banner vs.
+       the in-panel CTA show up separately in Hotmart's reports. data-promo feeds analytics events. -->
+  <a class="promo-banner" href="https://go.hotmart.com/A102144397E?dp=1&amp;src=nicolasinvestbanner" target="_blank" rel="noopener sponsored" data-promo="banner">
     <span class="promo-banner-tag">Publicidad</span>
     <span class="promo-banner-text"><strong>Portafolio Inteligente + Derivados</strong><span class="promo-banner-detail"> — guía premium para inversionistas intermedios que quieren proteger su capital y aprovechar oportunidades avanzadas en los mercados.</span></span>
     <span class="promo-banner-cta">Ver guía →</span>
@@ -514,20 +637,34 @@
     Datos con fines informativos/educativos únicamente, no es asesoría de inversión. Incluye
     acciones (S&amp;P 500 + Nasdaq-100 + algunas adicionales) y ETFs. El "Análisis" al final de
     cada ticker es 100% calculado por código determinista sobre estos mismos datos — sin
-    inteligencia artificial de por medio. Actualizado periódicamente (ver "generado" abajo), no en
-    tiempo real. Fuente: Finviz (cotizaciones con hasta 1 minuto de delay para NASDAQ/NYSE/AMEX,
+    inteligencia artificial de por medio. Actualizado una vez al día (ver "actualizado" abajo), no
+    en tiempo real. Fuente: Finviz (cotizaciones con hasta 1 minuto de delay para NASDAQ/NYSE/AMEX,
     según Finviz).
   </div>
+  <div id="staleNotice" class="stale-notice" role="status" hidden></div>
 
   <div class="search-wrap">
-    <input id="search" type="text" placeholder="Buscar ticker (ej. NVDA)…" autocomplete="off">
-    <div id="searchResults" class="search-results"></div>
+    <input id="search" type="text" placeholder="Buscar ticker o empresa (ej. NVDA, Visa)…" autocomplete="off"
+      role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="searchResults"
+      aria-label="Buscar acción o ETF por ticker o nombre de empresa">
+    <div id="searchResults" class="search-results" role="listbox" aria-label="Resultados de búsqueda"></div>
   </div>
-  <div class="tickers-label">Populares</div>
+  <div id="favoritesWrap" hidden>
+    <div class="tickers-label">Tus favoritos</div>
+    <div id="favorites" class="tickers"></div>
+  </div>
+  <div class="tickers-label" id="popularLabel">Populares</div>
   <div id="tickers" class="tickers"></div>
-  <div id="meta" class="meta"></div>
+  <div class="meta-bar">
+    <div id="meta" class="meta"></div>
+    <div class="meta-actions">
+      <button id="favBtn" class="chip-btn" type="button" aria-pressed="false" hidden>☆ Favorito</button>
+      <button id="shareBtn" class="chip-btn" type="button" hidden>🔗 Compartir</button>
+    </div>
+  </div>
   <div id="content"><div class="loading">Cargando…</div></div>
 
+<script src="js/logic.js"></script>
 <script>
 // Plain-language explanation for every field label used anywhere on this page (grid + analysis
 // section) — shown as a native browser tooltip (title attribute) on hover/long-press, so a reader
@@ -621,51 +758,21 @@ const CHART_TITLES = {
 };
 let currentCadence = "annual";
 
-// d = daily, w = weekly, m = monthly — aggregated client-side from the ~5 years of daily bars
-// Finviz's undocumented chart API returns for every ticker (packages/providers/fundamentals/
-// finviz.py's _PRICE_HISTORY_DAYS). This does NOT fetch anything new per cadence switch — all
-// three read the same already-fetched array. An "hora" (intraday) timeframe would need a genuinely
-// different, unverified request and is deliberately not implemented — see that constant's own
-// comment on why the daily *range* was widened but not the endpoint's access pattern.
+// d/w/m/y = day/week/month/year — aggregated client-side (docs/js/logic.js) from the ~5 years of
+// daily bars Finviz's undocumented chart API returns for every ticker (packages/providers/
+// fundamentals/finviz.py's _PRICE_HISTORY_DAYS). Switching cadence fetches nothing new. An "hora"
+// (intraday) timeframe would need a genuinely different, unverified request and is deliberately
+// not implemented — see that constant's own comment.
 let currentPriceCadence = "d";
-const PRICE_CADENCE_LABEL = { d: "Día", w: "Semana", m: "Mes" };
+const PRICE_CADENCE_LABEL = { d: "Día", w: "Semana", m: "Mes", y: "Año" };
+const PRICE_CADENCE_UNIT = { d: "sesiones", w: "semanas", m: "meses", y: "años" };
+const SMA_COLORS = ["#e8b339", "#b58cf2"]; // short / long — distinct from candle green/red
+let chartState = null; // set by renderPriceChart, read by attachChartTooltip
 
-// Daily candles stay on-screen only for a recent, legible window — plotting all ~1250 trading
-// days at once would compress each candle to under a pixel. Semana/Mes summarize the full ~5-year
-// fetch instead, which is exactly where that much history is useful.
-const DAILY_VIEW_BARS = 130; // ~6 trading months
+// Same product as the top banner, placed where a reader has just finished the analysis. Its own
+// src= value so Hotmart's reports tell the two placements apart.
+const PROMO_URL_SIGNAL = "https://go.hotmart.com/A102144397E?dp=1&src=nicolasinvestsenal";
 
-// Buckets daily OHLCV bars into ISO weeks (Monday start) or calendar months. Input bars are
-// always oldest-first (see get_price_history's docstring), and Map preserves insertion order, so
-// the aggregate comes out oldest-first too without a separate sort. Open/close are the first/
-// last daily bar folded into each bucket; high/low are the bucket's extremes; volume sums.
-function aggregatePriceBars(bars, cadence) {
-  if (!bars || bars.length === 0) return bars;
-  if (cadence === "d") return bars.slice(-DAILY_VIEW_BARS);
-  const buckets = new Map();
-  for (const b of bars) {
-    const d = new Date(`${b.date}T00:00:00Z`);
-    let key;
-    if (cadence === "w") {
-      const isoDow = (d.getUTCDay() + 6) % 7; // Monday = 0 ... Sunday = 6
-      const monday = new Date(d);
-      monday.setUTCDate(d.getUTCDate() - isoDow);
-      key = monday.toISOString().slice(0, 10);
-    } else {
-      key = `${b.date.slice(0, 7)}-01`;
-    }
-    const bucket = buckets.get(key);
-    if (!bucket) {
-      buckets.set(key, { date: key, open: b.open, high: b.high, low: b.low, close: b.close, volume: b.volume });
-    } else {
-      bucket.high = Math.max(bucket.high, b.high);
-      bucket.low = Math.min(bucket.low, b.low);
-      bucket.close = b.close;
-      bucket.volume += b.volume;
-    }
-  }
-  return [...buckets.values()];
-}
 
 function fmtNum(v) {
   if (v === null || v === undefined) return "-";
@@ -796,11 +903,14 @@ function renderAnalysis(analysis) {
 // fundamentals-vs-sector "Análisis" section below it.
 function renderPriceChart(rawBars) {
   if (!rawBars || rawBars.length === 0) {
+    chartState = null;
     return `<div class="section-title">Análisis técnico</div>
       <div class="panel-note">Sin historial de precio disponible para este ticker.</div>`;
   }
 
-  const bars = aggregatePriceBars(rawBars, currentPriceCadence);
+  const cadence = currentPriceCadence;
+  const bars = aggregatePriceBars(rawBars, cadence);
+  const smaLines = smaSeriesForView(rawBars, cadence);
 
   const W = 900, priceH = 230, volH = 70, gap = 14, padTop = 10, padBottom = 22, padLeft = 56, padRight = 10;
   const plotW = W - padLeft - padRight;
@@ -810,16 +920,20 @@ function renderPriceChart(rawBars) {
   const volTopY = padTop + priceH + gap;
   const volBottomY = volTopY + volH;
 
-  const maxPrice = Math.max(...bars.map(b => b.high));
-  const minPrice = Math.min(...bars.map(b => b.low));
+  // Y range covers the SMA lines too, so a long average sitting outside the candles' own range
+  // isn't clipped off the top/bottom of the plot.
+  const smaValues = smaLines.flatMap(l => l.values.filter(v => v !== null));
+  const maxPrice = Math.max(...bars.map(b => b.high), ...smaValues);
+  const minPrice = Math.min(...bars.map(b => b.low), ...smaValues);
   const priceRange = (maxPrice - minPrice) || 1;
   const maxVol = Math.max(...bars.map(b => b.volume), 1);
 
+  const xOf = i => padLeft + i * barSlot + barSlot / 2;
   const yPrice = p => padTop + (1 - (p - minPrice) / priceRange) * priceH;
   const yVolTop = v => volBottomY - (v / maxVol) * volH;
 
   const candles = bars.map((b, i) => {
-    const x = padLeft + i * barSlot + barSlot / 2;
+    const x = xOf(i);
     const color = b.close >= b.open ? "var(--pos)" : "var(--neg)";
     const bodyTop = Math.min(yPrice(b.open), yPrice(b.close));
     const bodyH = Math.max(0.75, Math.abs(yPrice(b.close) - yPrice(b.open)));
@@ -827,6 +941,21 @@ function renderPriceChart(rawBars) {
     return `<line x1="${x}" y1="${yPrice(b.high)}" x2="${x}" y2="${yPrice(b.low)}" style="stroke:${color};stroke-width:1"/>
       <rect x="${x - bodyW / 2}" y="${bodyTop}" width="${bodyW}" height="${bodyH}" style="fill:${color}"/>
       <rect x="${x - bodyW / 2}" y="${volY}" width="${bodyW}" height="${volBottomY - volY}" style="fill:${color};opacity:0.55"/>`;
+  }).join("");
+
+  // One polyline per SMA; a null value (not enough history yet) breaks the line rather than
+  // drawing a fake partial average.
+  const smaPaths = smaLines.map((line, li) => {
+    const segments = [];
+    let current = [];
+    line.values.forEach((v, i) => {
+      if (v === null) { if (current.length) segments.push(current); current = []; }
+      else current.push(`${xOf(i).toFixed(1)},${yPrice(v).toFixed(1)}`);
+    });
+    if (current.length) segments.push(current);
+    return segments.filter(sg => sg.length > 1).map(sg =>
+      `<polyline points="${sg.join(" ")}" fill="none" stroke="${SMA_COLORS[li]}" stroke-width="1.6" stroke-linejoin="round" opacity="0.95"/>`
+    ).join("");
   }).join("");
 
   const priceTicks = 4;
@@ -838,249 +967,66 @@ function renderPriceChart(rawBars) {
   }).join("");
 
   // A span over ~13 months repeats "MM-DD" across different years with no way to tell them apart
-  // (Semana/Mes can cover up to ~5 years) — switch to "MM/YY" once that's a real risk.
+  // — switch to "MM/YY" then; yearly candles just show the year.
   const spanDays = (new Date(bars[bars.length - 1].date) - new Date(bars[0].date)) / 86400000;
-  const fmtXLabel = spanDays > 400
-    ? d => `${d.slice(5, 7)}/${d.slice(2, 4)}`
+  const fmtXLabel = cadence === "y" ? d => d.slice(0, 4)
+    : spanDays > 400 ? d => `${d.slice(5, 7)}/${d.slice(2, 4)}`
     : d => d.slice(5);
 
   const xTickCount = Math.min(6, n);
   const xLabels = Array.from({ length: xTickCount }, (_, i) => {
     const idx = Math.round((i * (n - 1)) / Math.max(1, xTickCount - 1));
-    const x = padLeft + idx * barSlot + barSlot / 2;
-    return `<text x="${x}" y="${volBottomY + 14}" text-anchor="middle" font-size="9" fill="var(--muted)">${fmtXLabel(bars[idx].date)}</text>`;
+    return `<text x="${xOf(idx)}" y="${volBottomY + 14}" text-anchor="middle" font-size="9" fill="var(--muted)">${fmtXLabel(bars[idx].date)}</text>`;
   }).join("");
 
   const totalH = volBottomY + padBottom;
   const first = bars[0], last = bars[bars.length - 1];
   const periodChangePct = first.close ? ((last.close - first.close) / first.close) * 100 : null;
   const changeCls = periodChangePct === null ? "" : periodChangePct >= 0 ? "pos" : "neg";
-  const unitLabel = { d: "sesiones", w: "semanas", m: "meses" }[currentPriceCadence];
   const changeLabel = periodChangePct === null ? "" :
-    ` · ${bars.length} ${unitLabel}: <span class="${changeCls}">${periodChangePct >= 0 ? "+" : ""}${periodChangePct.toFixed(1)}%</span>`;
+    ` · ${bars.length} ${PRICE_CADENCE_UNIT[cadence]}: <span class="${changeCls}">${periodChangePct >= 0 ? "+" : ""}${periodChangePct.toFixed(1)}%</span>`;
 
   const priceCadenceToggle = `
     <div class="cadence-toggle">
       ${Object.keys(PRICE_CADENCE_LABEL).map(c =>
-        `<button data-price-cadence="${c}" class="${currentPriceCadence === c ? "active" : ""}">${PRICE_CADENCE_LABEL[c]}</button>`
+        `<button data-price-cadence="${c}" class="${cadence === c ? "active" : ""}">${PRICE_CADENCE_LABEL[c]}</button>`
       ).join("")}
     </div>`;
+
+  const legend = smaLines.length ? `<div class="chart-legend">
+      ${smaLines.map((l, li) => `<span><i style="background:${SMA_COLORS[li]}"></i>SMA ${l.period} ${PRICE_CADENCE_UNIT[cadence]}</span>`).join("")}
+      <span class="chart-legend-hint">Pasa el cursor o toca el gráfico para ver cada vela</span>
+    </div>` : `<div class="chart-legend"><span class="chart-legend-hint">Pasa el cursor o toca el gráfico para ver cada vela</span></div>`;
+
+  // Everything the hover/tap handler needs to map a pointer x back to a bar (attachChartTooltip).
+  chartState = { bars, smaLines, cadence, W, padLeft, barSlot, xOf, yPrice, padTop, volBottomY };
 
   return `
     <div class="section-title">Análisis técnico — precio y volumen (${bars[0].date} a ${bars[bars.length - 1].date})</div>
     <div class="chart-panel" style="overflow-x:auto;">
       <div class="chart-header">
-        <div class="chart-title">Velas · ${PRICE_CADENCE_LABEL[currentPriceCadence]}${changeLabel}</div>
+        <div class="chart-title">Velas · ${PRICE_CADENCE_LABEL[cadence]}${changeLabel}</div>
         ${priceCadenceToggle}
       </div>
-      <svg viewBox="0 0 ${W} ${totalH}" style="width:100%;height:auto;display:block;min-width:480px;">
-        ${priceGrid}
-        ${candles}
-        ${xLabels}
-      </svg>
+      ${legend}
+      <div class="price-chart-wrap">
+        <svg class="price-svg" viewBox="0 0 ${W} ${totalH}" role="img"
+          aria-label="Gráfico de velas ${PRICE_CADENCE_LABEL[cadence].toLowerCase()} de ${bars[0].date} a ${last.date}"
+          style="width:100%;height:auto;display:block;min-width:480px;">
+          ${priceGrid}
+          ${candles}
+          ${smaPaths}
+          ${xLabels}
+          <g class="xhair" visibility="hidden">
+            <line class="xhair-v" x1="0" y1="${padTop}" x2="0" y2="${volBottomY}" stroke="var(--muted)" stroke-width="0.8" stroke-dasharray="3 3"/>
+            <circle class="xhair-dot" r="3.5" fill="var(--text)"/>
+          </g>
+        </svg>
+        <div class="chart-tooltip" hidden></div>
+      </div>
     </div>`;
 }
 
-// -- Signal / sentiment section (client-side, deterministic, no AI, no extra Finviz requests) --
-// Reuses data this ticker's own JSON already carries: the RSI/Beta/52-week fields shown in the
-// grid above, the same price_history behind the candlestick chart, and (for equities) the
-// sector-median valuation/quality comparisons already computed server-side for the "Análisis"
-// section. Fixed rules, same for every ticker and every visitor — not a personalized
-// recommendation, just a mechanical reading of public numbers, same spirit as the rest of this
-// page (see CLAUDE.md: every number here comes from code, never an LLM guess).
-
-// Parses a grid cell's display string back into a number: "-" -> null, trailing "%" -> stripped
-// (kept as a plain percentage number, e.g. "-2.20%" -> -2.20, NOT a fraction), K/M/B/T suffix
-// handled, and for compound cells like 52W High's "373.97 -2.20%" only the LAST whitespace-
-// separated token is used (the % distance, not the price).
-function parseGridNumber(raw) {
-  if (raw === undefined || raw === null) return null;
-  const text = String(raw).trim();
-  if (!text || text === "-") return null;
-  let token = text.split(/\s+/).pop().replace(/,/g, "");
-  const isPct = token.endsWith("%");
-  if (isPct) token = token.slice(0, -1);
-  const suffix = token.slice(-1);
-  const mult = { K: 1e3, M: 1e6, B: 1e9, T: 1e12 }[suffix];
-  if (mult) token = token.slice(0, -1);
-  const n = parseFloat(token);
-  if (Number.isNaN(n)) return null;
-  return mult ? n * mult : n;
-}
-
-function findColumnValue(columns, label) {
-  for (const col of columns) {
-    const f = col.find(x => x.label === label);
-    if (f) return f.value;
-  }
-  return null;
-}
-
-// Realized volatility of the actual candles shown above: daily-return std dev, annualized
-// (× √252 trading days/year) and expressed as a percentage — a measure of how much THIS asset's
-// own price has swung, independent of Finviz's Beta (which measures movement relative to the
-// broad market, not in absolute terms).
-function computeAnnualizedVolatility(bars) {
-  if (!bars || bars.length < 10) return null;
-  const returns = [];
-  for (let i = 1; i < bars.length; i++) {
-    const prev = bars[i - 1].close;
-    if (prev) returns.push((bars[i].close - prev) / prev);
-  }
-  if (returns.length < 5) return null;
-  const mean = returns.reduce((a, b) => a + b, 0) / returns.length;
-  const variance = returns.reduce((a, b) => a + (b - mean) ** 2, 0) / (returns.length - 1);
-  return Math.sqrt(variance) * Math.sqrt(252) * 100;
-}
-
-// -6..+6: tallies the same "read" verdicts already shown in the "Análisis vs. sector" section
-// (cheaper-than-median or above-median-quality = +1, more-expensive or below-median = -1, in
-// line = 0). Returns null for ETFs or when there weren't enough sector peers to compare against.
-// `reasons` carries one entry per metric so the UI can explain exactly which factors pushed the
-// score up or down, not just the final number.
-function fundamentalsBreakdown(analysis) {
-  if (!analysis || analysis.type !== "equity" || !analysis.comparisons) return null;
-  const reasons = analysis.comparisons.map(c => {
-    let contribution = 0;
-    if (c.read.includes("más barato") || c.read.includes("por encima")) contribution = 1;
-    else if (c.read.includes("más caro") || c.read.includes("por debajo")) contribution = -1;
-    return { label: c.metric, detail: c.read, contribution };
-  });
-  return { score: reasons.reduce((sum, r) => sum + r.contribution, 0), reasons };
-}
-
-// -2..+2: price change over the recent window, plus proximity to the 52-week high/low. Also
-// returns `reasons` (same shape as fundamentalsBreakdown's) so both feed the same explanation UI.
-function computeTrend(rawBars, columns) {
-  const first = rawBars[0], last = rawBars[rawBars.length - 1];
-  const periodChangePct = first.close ? ((last.close - first.close) / first.close) * 100 : null;
-  const distHigh = parseGridNumber(findColumnValue(columns, "52W High"));
-  const distLow = parseGridNumber(findColumnValue(columns, "52W Low"));
-  const reasons = [];
-  let score = 0;
-
-  if (periodChangePct !== null) {
-    if (periodChangePct > 5) {
-      score += 1;
-      reasons.push({ label: "Momentum de precio", contribution: 1,
-        detail: `subió ${periodChangePct.toFixed(1)}% en el período reciente mostrado arriba (más de +5%).` });
-    } else if (periodChangePct < -5) {
-      score -= 1;
-      reasons.push({ label: "Momentum de precio", contribution: -1,
-        detail: `cayó ${Math.abs(periodChangePct).toFixed(1)}% en el período reciente mostrado arriba (más de -5%).` });
-    } else {
-      reasons.push({ label: "Momentum de precio", contribution: 0,
-        detail: `variación de ${periodChangePct >= 0 ? "+" : ""}${periodChangePct.toFixed(1)}% en el período reciente — dentro del rango neutral (-5% a +5%).` });
-    }
-  }
-  if (distHigh !== null) {
-    if (distHigh >= -10) {
-      score += 1;
-      reasons.push({ label: "Cercanía al máximo de 52 semanas", contribution: 1,
-        detail: `a solo ${Math.abs(distHigh).toFixed(1)}% del máximo de 52 semanas — cerca de máximos suele leerse como fortaleza.` });
-    } else {
-      reasons.push({ label: "Cercanía al máximo de 52 semanas", contribution: 0,
-        detail: `${Math.abs(distHigh).toFixed(1)}% por debajo del máximo de 52 semanas.` });
-    }
-  }
-  if (distLow !== null) {
-    if (distLow <= 10) {
-      score -= 1;
-      reasons.push({ label: "Cercanía al mínimo de 52 semanas", contribution: -1,
-        detail: `solo ${distLow.toFixed(1)}% por encima del mínimo de 52 semanas — cerca de mínimos suele leerse como debilidad.` });
-    } else {
-      reasons.push({ label: "Cercanía al mínimo de 52 semanas", contribution: 0,
-        detail: `${distLow.toFixed(1)}% por encima del mínimo de 52 semanas.` });
-    }
-  }
-  return { score, periodChangePct, distHigh, distLow, reasons };
-}
-
-function computeSentiment(data) {
-  const rawBars = data.price_history;
-  if (!rawBars || rawBars.length < 10) return null;
-
-  // Trend/volatility are meant as a short/medium-term read (this is a "signal", not a 5-year
-  // backtest) — use the same recent window as the Día chart, not the full multi-year fetch that
-  // price_history now carries for the Semana/Mes cadences.
-  const recentBars = rawBars.slice(-DAILY_VIEW_BARS);
-
-  const rsi = parseGridNumber(findColumnValue(data.columns, "RSI (14)"));
-  const vol = computeAnnualizedVolatility(recentBars);
-  const trend = computeTrend(recentBars, data.columns);
-  const fBreakdown = fundamentalsBreakdown(data.analysis);
-  const fScore = fBreakdown ? fBreakdown.score : null;
-  const composite = fScore !== null ? fScore + trend.score : null;
-  const reasons = [...(fBreakdown ? fBreakdown.reasons : []), ...trend.reasons];
-
-  let badge = null;
-  let noBadgeReason = null;
-  if (composite !== null) {
-    if (composite >= 3) badge = { label: "COMPRAR", cls: "pos" };
-    else if (composite <= -3) badge = { label: "VENDER", cls: "neg" };
-    else badge = { label: "MANTENER", cls: "" };
-  } else if (data.analysis && data.analysis.type === "etf") {
-    noBadgeReason = "Los ETFs no reciben esta señal compuesta: no aplica una comparación de "
-      + "valoración/calidad vs. sector a un fondo (mismo criterio que en “Análisis del "
-      + "fondo” arriba). Sí se muestran abajo las lecturas de tendencia, volatilidad y RSI.";
-  } else {
-    noBadgeReason = "No hay suficientes acciones del mismo sector en este dataset generado para "
-      + "la parte de valoración de esta señal (ver sección “Análisis” arriba) — se "
-      + "omite en vez de mostrar algo poco confiable.";
-  }
-  // Composite ranges roughly -8..+8 (fundamentals ±6, trend ±2) -> 0..100% gauge position.
-  const gaugePct = composite === null ? 50 : Math.max(0, Math.min(100, ((composite + 8) / 16) * 100));
-
-  // Plain-language explanation of WHY this particular verdict came out, referencing the actual
-  // score and the +3/-3 thresholds — not just "trust the badge".
-  let verdictExplanation = null;
-  if (badge) {
-    const favor = reasons.filter(r => r.contribution > 0).length;
-    const contra = reasons.filter(r => r.contribution < 0).length;
-    const neutral = reasons.filter(r => r.contribution === 0).length;
-    const tally = `${favor} a favor, ${contra} en contra${neutral ? `, ${neutral} neutral(es)` : ""}`;
-    if (badge.label === "COMPRAR") {
-      verdictExplanation = `Puntaje compuesto: ${composite >= 0 ? "+" : ""}${composite} (rango posible -8 a +8). `
-        + `Salió COMPRAR porque ${tally}, y el total llegó a +3 o más, el umbral que usa esta señal para sugerir compra.`;
-    } else if (badge.label === "VENDER") {
-      verdictExplanation = `Puntaje compuesto: ${composite} (rango posible -8 a +8). `
-        + `Salió VENDER porque ${tally}, y el total cayó a -3 o menos, el umbral que usa esta señal para sugerir venta.`;
-    } else {
-      verdictExplanation = `Puntaje compuesto: ${composite >= 0 ? "+" : ""}${composite} (rango posible -8 a +8). `
-        + `Salió MANTENER porque ${tally}, y el total quedó entre -2 y +2 — ni suficientemente positivo `
-        + `(se necesita +3 o más para COMPRAR) ni suficientemente negativo (se necesita -3 o menos para VENDER).`;
-    }
-  }
-
-  const tags = [];
-  if (trend.periodChangePct !== null) {
-    if (trend.periodChangePct > 5) tags.push({ label: "TENDENCIA ALCISTA", cls: "pos" });
-    else if (trend.periodChangePct < -5) tags.push({ label: "TENDENCIA BAJISTA", cls: "neg" });
-    else tags.push({ label: "TENDENCIA LATERAL", cls: "" });
-  }
-  if (rsi !== null) {
-    if (rsi >= 70) tags.push({ label: "SOBRECOMPRADO (RSI)", cls: "warn" });
-    else if (rsi <= 30) tags.push({ label: "SOBREVENDIDO (RSI)", cls: "warn" });
-  }
-  if (vol !== null) {
-    if (vol >= 45) tags.push({ label: "ALTA VOLATILIDAD", cls: "warn" });
-    else if (vol <= 18) tags.push({ label: "BAJA VOLATILIDAD", cls: "pos" });
-  }
-  if (rsi !== null && trend.periodChangePct !== null) {
-    if (rsi <= 30 && trend.periodChangePct < -10) tags.push({ label: "MERCADO CON MIEDO", cls: "neg" });
-    else if (rsi >= 70 && trend.periodChangePct > 10) tags.push({ label: "MERCADO CON EUFORIA", cls: "warn" });
-  }
-
-  return {
-    badge, noBadgeReason, gaugePct, tags, reasons, verdictExplanation,
-    methodology: "Señal calculada por reglas fijas y deterministas (sin IA) a partir de: la "
-      + "comparación de valoración/calidad vs. mediana del sector (igual que la sección "
-      + "“Análisis”), la variación del precio en el período mostrado arriba, la "
-      + "posición frente al máximo/mínimo de 52 semanas, el RSI(14) y la volatilidad realizada "
-      + "de las propias velas diarias. Es una lectura mecánica de datos públicos, igual criterio "
-      + "que el resto de este sitio — no es una recomendación personalizada ni predice el futuro.",
-  };
-}
 
 function renderSentiment(data) {
   const s = computeSentiment(data);
@@ -1128,50 +1074,486 @@ function renderSentiment(data) {
       <div class="sentiment-tags">${tagsMarkup}</div>
       ${detailsMarkup}
       <div class="analysis-footnote"><strong>Esto no es asesoría de inversión.</strong> ${s.methodology}</div>
+    </div>
+    <a class="promo-inline" href="${PROMO_URL_SIGNAL}" target="_blank" rel="noopener sponsored" data-promo="senal">
+      <span class="promo-banner-tag">Publicidad</span>
+      <span class="promo-inline-text">¿Quieres ir más allá de una señal mecánica? <strong>Portafolio Inteligente + Derivados</strong>
+        es una guía para proteger tu capital y usar derivados con control.</span>
+      <span class="promo-banner-cta">Ver guía →</span>
+    </a>`;
+}
+
+// -- Comparison section -------------------------------------------------------------------------
+
+const COMPARE_RANGES = [{ key: 126, label: "6M" }, { key: 252, label: "1A" }, { key: 0, label: "5A" }];
+let compareLookback = 252; // sessions; 0 = everything both tickers have
+const COMPARE_COLORS = ["var(--accent)", "var(--warn)"];
+
+// Grid rows worth putting side by side. A row is shown only if at least one of the two tickers
+// actually has a value for it (equity-vs-ETF comparisons would otherwise be mostly dashes).
+const COMPARE_ROWS = [
+  "Price", "Change %", "Market Cap", "AUM", "P/E", "Forward P/E", "P/S", "EV/EBITDA", "ROE",
+  "Profit Margin", "Expense Ratio", "Dividend TTM", "1Y Return", "Beta", "RSI (14)", "52W High",
+];
+
+function comparePicker(data) {
+  return `<div class="search-wrap compare-picker">
+      <input id="compareSearch" type="text" autocomplete="off"
+        placeholder="Comparar ${escapeHtml(data.ticker)} con… (ej. MSFT, Visa)"
+        role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="compareResults"
+        aria-label="Elegir un activo para comparar con ${escapeHtml(data.ticker)}">
+      <div id="compareResults" class="search-results" role="listbox" aria-label="Activos para comparar"></div>
+    </div>`;
+}
+
+function renderCompare(data) {
+  const title = `<div class="section-title">Comparar con otro activo</div>`;
+  if (!compareTicker) {
+    return `${title}<div class="analysis-panel compare-panel">${comparePicker(data)}
+      <div class="panel-note compare-empty">Elige otro activo para ver el rendimiento de ambos desde el
+      mismo punto de partida (base 100) y sus métricas clave lado a lado.</div></div>`;
+  }
+  if (!compareData) {
+    return `${title}<div class="analysis-panel compare-panel">${comparePicker(data)}
+      <div class="error">No se pudo cargar ${escapeHtml(compareTicker)} para comparar.</div></div>`;
+  }
+
+  const series = rebasedComparison(data.price_history, compareData.price_history, compareLookback || undefined);
+  const tickers = [data.ticker, compareData.ticker];
+  let chart = `<div class="panel-note compare-empty">No hay suficientes fechas en común para graficar.</div>`;
+  let legend = "";
+  if (series) {
+    const W = 900, H = 230, padL = 48, padR = 12, padT = 10, padB = 22;
+    const all = series.flatMap(p => [p.a, p.b]);
+    const lo = Math.min(...all), hi = Math.max(...all), range = (hi - lo) || 1;
+    const x = i => padL + (i / Math.max(1, series.length - 1)) * (W - padL - padR);
+    const y = v => padT + (1 - (v - lo) / range) * (H - padT - padB);
+    const line = (key, color) => `<polyline fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"
+      points="${series.map((p, i) => `${x(i).toFixed(1)},${y(p[key]).toFixed(1)}`).join(" ")}"/>`;
+    const ticks = Array.from({ length: 5 }, (_, i) => {
+      const v = lo + (range * i) / 4;
+      return `<line x1="${padL}" y1="${y(v)}" x2="${W - padR}" y2="${y(v)}" stroke="var(--border)" stroke-width="0.5"/>
+        <text x="${padL - 6}" y="${y(v) + 3}" text-anchor="end" font-size="9" fill="var(--muted)">${v.toFixed(0)}</text>`;
+    }).join("");
+    const base = y(100);
+    const last = series.length - 1;
+    const dates = [0, Math.floor(last / 2), last].map(i =>
+      `<text x="${x(i)}" y="${H - 6}" text-anchor="${i === 0 ? "start" : i === last ? "end" : "middle"}" font-size="9" fill="var(--muted)">${series[i].date}</text>`
+    ).join("");
+    chart = `<svg viewBox="0 0 ${W} ${H}" role="img" style="width:100%;height:auto;display:block;min-width:420px;"
+        aria-label="Rendimiento base 100 de ${tickers[0]} y ${tickers[1]} desde ${series[0].date}">
+        ${ticks}
+        <line x1="${padL}" y1="${base}" x2="${W - padR}" y2="${base}" stroke="var(--muted)" stroke-width="0.8" stroke-dasharray="4 3"/>
+        ${line("a", COMPARE_COLORS[0])}${line("b", COMPARE_COLORS[1])}${dates}
+      </svg>`;
+    const lastP = series[last];
+    legend = `<div class="compare-legend">${["a", "b"].map((k, i) => {
+      const r = lastP[k] - 100;
+      return `<span><i style="background:${COMPARE_COLORS[i]}"></i><strong>${escapeHtml(tickers[i])}</strong>
+        <span class="${r >= 0 ? "pos" : "neg"}">${r >= 0 ? "+" : ""}${r.toFixed(1)}%</span></span>`;
+    }).join("")}<span class="chart-legend-hint">desde ${series[0].date} (${series.length} sesiones en común)</span></div>`;
+  }
+
+  const rangeToggle = `<div class="cadence-toggle">${COMPARE_RANGES.map(r =>
+    `<button data-compare-range="${r.key}" class="${compareLookback === r.key ? "active" : ""}">${r.label}</button>`).join("")}</div>`;
+
+  const rows = COMPARE_ROWS.map(label => {
+    const a = findColumnValue(data.columns, label), b = findColumnValue(compareData.columns, label);
+    if ((a === null || a === "-") && (b === null || b === "-")) return "";
+    const cell = v => `<td class="${colorClass(v || "")}">${escapeHtml(v ?? "-")}</td>`;
+    return `<tr><th class="has-glossary"${glossaryAttr(label)}>${label}</th>${cell(a)}${cell(b)}</tr>`;
+  }).join("");
+
+  return `${title}
+    <div class="analysis-panel compare-panel">
+      <div class="compare-head">
+        ${comparePicker(data)}
+        <button type="button" class="chip-btn" id="compareClear">✕ Quitar ${escapeHtml(compareTicker)}</button>
+      </div>
+      <div class="chart-header"><div class="chart-title">Rendimiento base 100</div>${rangeToggle}</div>
+      ${legend}
+      <div class="compare-chart">${chart}</div>
+      <div class="compare-table-wrap"><table class="compare-table">
+        <thead><tr><th></th><th>${escapeHtml(tickers[0])}</th><th>${escapeHtml(tickers[1])}</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>
     </div>`;
 }
 
 function renderTickerContent(data) {
-  return renderPriceChart(data.price_history) + renderGrid(data.columns) + renderCharts(data.charts) + renderAnalysis(data.analysis) + renderSentiment(data);
+  return renderPriceChart(data.price_history) + renderGrid(data.columns) + renderCharts(data.charts)
+    + renderAnalysis(data.analysis) + renderSentiment(data) + renderCompare(data);
 }
 
-async function loadTicker(ticker) {
-  document.querySelectorAll("#tickers button").forEach(b => b.classList.toggle("active", b.dataset.ticker === ticker));
-  document.getElementById("content").innerHTML = `<div class="loading">Cargando ${ticker}…</div>`;
+// -- App state, data cache, routing ---------------------------------------------------------------
+
+let appIndex = { tickers: [], names: {} };
+let availableTickers = new Set();
+let currentTicker = null, currentData = null;
+let compareTicker = null, compareData = null;
+
+// In-memory per-session cache of ticker JSON (a promise, so a prefetch and a click for the same
+// ticker share one request). cache:"no-cache" revalidates with GitHub Pages (ETag -> 304) instead
+// of the old "no-store", which re-downloaded the full file on every single click.
+const dataCache = new Map();
+
+function fetchTicker(ticker) {
+  if (dataCache.has(ticker)) return dataCache.get(ticker);
+  const p = fetch(`data/${encodeURIComponent(ticker)}.json`, { cache: "no-cache" })
+    .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); });
+  dataCache.set(ticker, p);
+  p.catch(() => dataCache.delete(ticker)); // don't cache failures
+  return p;
+}
+
+// All navigation goes through the URL fragment (#AAPL, #AAPL+MSFT), so every view is a shareable
+// link, the back button works, and a reload stays on the same ticker.
+function navigate(ticker, compare) {
+  const h = routeHash(ticker, compare);
+  if (location.hash === h) route(); else location.hash = h;
+}
+
+function defaultTicker() {
+  const picks = QUICK_PICKS.filter(t => availableTickers.has(t));
+  return favorites[0] || picks[0] || appIndex.tickers[0] || null;
+}
+
+async function route() {
+  let { ticker, compare } = parseRoute(location.hash, availableTickers);
+  if (!ticker) {
+    ticker = defaultTicker();
+    if (!ticker) {
+      document.getElementById("content").innerHTML = `<div class="error">No hay tickers generados todavía.</div>`;
+      return;
+    }
+    history.replaceState(null, "", routeHash(ticker, null));
+  }
+  await showTicker(ticker, compare);
+}
+
+async function showTicker(ticker, compare) {
+  const tickerChanged = ticker !== currentTicker;
+  currentTicker = ticker;
+  compareTicker = compare;
+  highlightTickerButtons();
+  const content = document.getElementById("content");
+  if (tickerChanged) content.innerHTML = `<div class="loading">Cargando ${escapeHtml(ticker)}…</div>`;
   try {
-    const res = await fetch(`data/${ticker}.json`, { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    document.getElementById("meta").textContent =
-      `${data.ticker} · generado: ${new Date(data.generated_at).toLocaleString()}`;
-    rerenderContent(data);
+    const data = await fetchTicker(ticker);
+    let other = null;
+    if (compare) other = await fetchTicker(compare).catch(() => null);
+    // A newer navigation may have started while we were waiting — let it win.
+    if (currentTicker !== ticker || compareTicker !== compare) return;
+    currentData = data;
+    compareData = other;
+    updateMeta(data);
+    rerenderContent();
+    if (tickerChanged) track(`/${ticker}`, document.title);
   } catch (err) {
-    document.getElementById("content").innerHTML = `<div class="error">No se pudo cargar ${ticker}: ${err.message}</div>`;
+    if (currentTicker !== ticker) return;
+    content.innerHTML = `<div class="error">No se pudo cargar ${escapeHtml(ticker)}: ${escapeHtml(err.message)}</div>`;
   }
 }
 
-// Re-renders #content from scratch (both the fundamentals-history cadence and the price-chart
-// timeframe toggles work this way — simplest way to keep the whole ticker view consistent) and
-// re-attaches handlers, since innerHTML replacement drops the previous listeners.
-function rerenderContent(data) {
-  const content = document.getElementById("content");
-  content.innerHTML = renderTickerContent(data);
-  attachContentHandlers(data);
+function updateMeta(data) {
+  const f = dataFreshness(data.generated_at, Date.now());
+  const exact = new Date(data.generated_at).toLocaleString();
+  document.getElementById("meta").innerHTML =
+    `<strong>${escapeHtml(data.ticker)}</strong>${data.name ? ` · ${escapeHtml(data.name)}` : ""}`
+    + (f ? ` · <span class="${f.stale ? "meta-stale" : ""}" title="${escapeHtml(exact)}">actualizado ${f.label}</span>` : "");
+  const notice = document.getElementById("staleNotice");
+  if (f && f.stale) {
+    notice.textContent = `⚠ Estos datos tienen más de 2 días (última actualización: ${exact}). La `
+      + "actualización automática diaria pudo haber fallado — los números pueden estar desactualizados.";
+    notice.hidden = false;
+  } else {
+    notice.hidden = true;
+  }
+  document.title = `${data.ticker}${data.name ? ` · ${data.name}` : ""} — Nicolas Invest`;
+  updateFavButton();
+  document.getElementById("shareBtn").hidden = false;
 }
 
-function attachContentHandlers(data) {
-  document.querySelectorAll(".cadence-toggle button[data-cadence]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      currentCadence = btn.dataset.cadence;
-      rerenderContent(data);
+// Re-renders #content from scratch (cadence toggles, comparisons) and re-attaches handlers, since
+// innerHTML replacement drops the previous listeners.
+function rerenderContent() {
+  if (!currentData) return;
+  document.getElementById("content").innerHTML = renderTickerContent(currentData);
+  attachContentHandlers();
+}
+
+function attachContentHandlers() {
+  document.querySelectorAll(".cadence-toggle button[data-cadence]").forEach(btn =>
+    btn.addEventListener("click", () => { currentCadence = btn.dataset.cadence; rerenderContent(); }));
+  document.querySelectorAll(".cadence-toggle button[data-price-cadence]").forEach(btn =>
+    btn.addEventListener("click", () => { currentPriceCadence = btn.dataset.priceCadence; rerenderContent(); }));
+  document.querySelectorAll(".cadence-toggle button[data-compare-range]").forEach(btn =>
+    btn.addEventListener("click", () => { compareLookback = Number(btn.dataset.compareRange); rerenderContent(); }));
+  const clear = document.getElementById("compareClear");
+  if (clear) clear.addEventListener("click", () => navigate(currentTicker, null));
+  const cInput = document.getElementById("compareSearch");
+  if (cInput) {
+    attachSearchBox(cInput, document.getElementById("compareResults"),
+      t => navigate(currentTicker, t), () => currentTicker);
+  }
+  attachChartTooltip();
+}
+
+// -- Candlestick hover/tap tooltip ----------------------------------------------------------------
+
+function attachChartTooltip() {
+  const svg = document.querySelector(".price-svg");
+  const tip = document.querySelector(".chart-tooltip");
+  const st = chartState;
+  if (!svg || !tip || !st) return;
+  const xhair = svg.querySelector(".xhair"), xv = svg.querySelector(".xhair-v"), dot = svg.querySelector(".xhair-dot");
+
+  // Pointer x -> bar index. The SVG is scaled by its viewBox, so map through its rendered width.
+  const indexAt = clientX => {
+    const r = svg.getBoundingClientRect();
+    const xView = ((clientX - r.left) / r.width) * st.W;
+    return Math.max(0, Math.min(st.bars.length - 1, Math.floor((xView - st.padLeft) / st.barSlot)));
+  };
+
+  function show(i) {
+    const b = st.bars[i];
+    const prev = i > 0 ? st.bars[i - 1].close : null;
+    const chg = prev ? ((b.close - prev) / prev) * 100 : null;
+    const x = st.xOf(i);
+    xv.setAttribute("x1", x); xv.setAttribute("x2", x);
+    dot.setAttribute("cx", x); dot.setAttribute("cy", st.yPrice(b.close));
+    xhair.setAttribute("visibility", "visible");
+    const smaRows = st.smaLines.map((l, li) => l.values[i] === null ? "" :
+      `<tr><td><i style="background:${SMA_COLORS[li]}"></i>SMA ${l.period}</td><td>${l.values[i].toFixed(2)}</td></tr>`).join("");
+    tip.innerHTML = `<div class="tt-date">${escapeHtml(formatBarLabel(b.date, st.cadence))}</div>
+      <table>
+        <tr><td>Apertura</td><td>${b.open.toFixed(2)}</td></tr>
+        <tr><td>Máximo</td><td>${b.high.toFixed(2)}</td></tr>
+        <tr><td>Mínimo</td><td>${b.low.toFixed(2)}</td></tr>
+        <tr><td>Cierre</td><td>${b.close.toFixed(2)}${chg === null ? "" :
+          ` <span class="${chg >= 0 ? "pos" : "neg"}">${chg >= 0 ? "+" : ""}${chg.toFixed(2)}%</span>`}</td></tr>
+        <tr><td>Volumen</td><td>${formatVolume(b.volume)}</td></tr>
+        ${smaRows}
+      </table>`;
+    const leftPct = (x / st.W) * 100;
+    tip.style.left = `${leftPct}%`;
+    tip.classList.toggle("flip", leftPct > 55);
+    tip.hidden = false;
+  }
+
+  svg.addEventListener("pointermove", e => { if (e.pointerType !== "touch") show(indexAt(e.clientX)); });
+  svg.addEventListener("pointerleave", e => { if (e.pointerType !== "touch") hideChartTooltip(); });
+  // Taps on touch screens (a touch pointermove would fight the panel's horizontal scroll).
+  svg.addEventListener("click", e => show(indexAt(e.clientX)));
+}
+
+function hideChartTooltip() {
+  const tip = document.querySelector(".chart-tooltip");
+  const xhair = document.querySelector(".price-svg .xhair");
+  if (tip) tip.hidden = true;
+  if (xhair) xhair.setAttribute("visibility", "hidden");
+}
+
+// -- Search box (main search + compare picker share this) ---------------------------------------
+
+// Registry of live search boxes so ONE document-level click handler can close whichever is open
+// (the compare picker is re-rendered on every view change — per-box document listeners would leak).
+const searchBoxes = new Set();
+
+// Accessible combobox: ↑/↓ move the highlighted option, Enter picks it, Esc clears. Matches
+// ticker symbols AND company names (searchTickers in docs/js/logic.js).
+function attachSearchBox(input, results, onPick, excludeTicker) {
+  let items = [];
+  let active = -1;
+  const optId = i => `${results.id}-opt-${i}`;
+
+  function close() {
+    results.classList.remove("open");
+    results.innerHTML = "";
+    items = [];
+    active = -1;
+    input.setAttribute("aria-expanded", "false");
+    input.removeAttribute("aria-activedescendant");
+  }
+  function setActive(i) {
+    active = i;
+    results.querySelectorAll("[role=option]").forEach((el, j) => {
+      el.classList.toggle("highlighted", j === i);
+      el.setAttribute("aria-selected", j === i ? "true" : "false");
     });
+    if (i >= 0) {
+      input.setAttribute("aria-activedescendant", optId(i));
+      const el = document.getElementById(optId(i));
+      if (el) el.scrollIntoView({ block: "nearest" });
+    } else {
+      input.removeAttribute("aria-activedescendant");
+    }
+  }
+  function render() {
+    if (!input.value.trim()) { close(); return; }
+    const skip = excludeTicker ? excludeTicker() : null;
+    items = searchTickers(input.value, appIndex.tickers, appIndex.names, 12).filter(r => r.ticker !== skip);
+    results.innerHTML = items.length
+      ? items.map((r, i) => `<button type="button" role="option" id="${optId(i)}" aria-selected="false" data-idx="${i}">
+          <span class="sr-ticker">${escapeHtml(r.ticker)}</span>${r.name ? `<span class="sr-name">${escapeHtml(r.name)}</span>` : ""}
+        </button>`).join("")
+      : `<div class="search-empty">Sin coincidencias entre los ${appIndex.tickers.length} activos disponibles.</div>`;
+    results.classList.add("open");
+    input.setAttribute("aria-expanded", "true");
+    setActive(items.length ? 0 : -1);
+  }
+  function pick(i) {
+    const r = items[i];
+    if (!r) return;
+    input.value = "";
+    close();
+    input.blur();
+    onPick(r.ticker);
+  }
+
+  input.addEventListener("input", render);
+  input.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") {
+      if (!items.length) render();
+      if (items.length) { e.preventDefault(); setActive((active + 1) % items.length); }
+    } else if (e.key === "ArrowUp") {
+      if (items.length) { e.preventDefault(); setActive((active - 1 + items.length) % items.length); }
+    } else if (e.key === "Enter") {
+      if (active >= 0) { e.preventDefault(); pick(active); }
+    } else if (e.key === "Escape") {
+      input.value = "";
+      close();
+    }
   });
-  document.querySelectorAll(".cadence-toggle button[data-price-cadence]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      currentPriceCadence = btn.dataset.priceCadence;
-      rerenderContent(data);
-    });
+  results.addEventListener("mousedown", e => e.preventDefault()); // keep focus in the input
+  results.addEventListener("click", e => {
+    const opt = e.target.closest("[role=option]");
+    if (opt) pick(Number(opt.dataset.idx));
   });
+  searchBoxes.add({ input, close });
+}
+
+// -- Favorites (this browser only) ----------------------------------------------------------------
+
+const FAV_KEY = "nicolasinvest:favorites";
+let favorites = [];
+
+// localStorage can throw (private mode, blocked storage) — favorites just don't persist then.
+function loadFavorites() {
+  try {
+    const v = JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
+    return Array.isArray(v) ? v.filter(t => availableTickers.has(t)) : [];
+  } catch { return []; }
+}
+function saveFavorites() {
+  try { localStorage.setItem(FAV_KEY, JSON.stringify(favorites)); } catch { /* not persisted */ }
+}
+function renderFavorites() {
+  document.getElementById("favoritesWrap").hidden = favorites.length === 0;
+  document.getElementById("favorites").innerHTML =
+    favorites.map(t => `<button data-ticker="${escapeHtml(t)}">★ ${escapeHtml(t)}</button>`).join("");
+  highlightTickerButtons();
+}
+function updateFavButton() {
+  const btn = document.getElementById("favBtn");
+  const on = favorites.includes(currentTicker);
+  btn.hidden = !currentTicker;
+  btn.textContent = on ? "★ En favoritos" : "☆ Favorito";
+  btn.setAttribute("aria-pressed", on ? "true" : "false");
+  btn.classList.toggle("active", on);
+}
+function toggleFavorite() {
+  if (!currentTicker) return;
+  favorites = favorites.includes(currentTicker)
+    ? favorites.filter(t => t !== currentTicker)
+    : [...favorites, currentTicker];
+  saveFavorites();
+  renderFavorites();
+  updateFavButton();
+}
+
+function highlightTickerButtons() {
+  document.querySelectorAll("#tickers button, #favorites button")
+    .forEach(b => b.classList.toggle("active", b.dataset.ticker === currentTicker));
+}
+
+// -- Share ----------------------------------------------------------------------------------------
+
+async function shareCurrent() {
+  const btn = document.getElementById("shareBtn");
+  const url = location.href;
+  const flash = text => {
+    btn.textContent = text;
+    clearTimeout(btn._t);
+    btn._t = setTimeout(() => { btn.textContent = "🔗 Compartir"; }, 1800);
+  };
+  // Native share sheet on phones; plain copy on desktop (where the OS sheet is more hassle).
+  if (navigator.share && window.matchMedia("(pointer: coarse)").matches) {
+    try { await navigator.share({ title: document.title, url }); track("share", "share", true); } catch { /* cancelled */ }
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+  } catch {
+    const tmp = Object.assign(document.createElement("textarea"), { value: url });
+    document.body.appendChild(tmp);
+    tmp.select();
+    const ok = document.execCommand("copy");
+    tmp.remove();
+    if (!ok) { flash("No se pudo copiar"); return; }
+  }
+  flash("✓ Link copiado");
+  track("share", "share", true);
+}
+
+// -- Analytics (off until configured) --------------------------------------------------------------
+
+// Privacy-friendly, cookie-free analytics via GoatCounter (free for personal sites). To turn it on:
+// create an account at https://www.goatcounter.com, then put your site code here — e.g. "nicolas"
+// for https://nicolas.goatcounter.com. Left empty, NOTHING is loaded and nothing is tracked.
+// Tracked when on: one view per ticker opened (path "/AAPL"), clicks on each promo placement
+// (events "promo-banner" / "promo-senal"), and shares.
+const GOATCOUNTER_CODE = "";
+
+function setupAnalytics() {
+  if (!GOATCOUNTER_CODE) return;
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://gc.zgo.at/count.js";
+  s.dataset.goatcounter = `https://${GOATCOUNTER_CODE}.goatcounter.com/count`;
+  // no_onload: ticker views are counted by hand (hash routing never reloads the page).
+  s.dataset.goatcounterSettings = JSON.stringify({ no_onload: true });
+  s.addEventListener("load", flushTracks);
+  document.head.appendChild(s);
+}
+
+const pendingTracks = [];
+function track(path, title, event = false) {
+  const gc = window.goatcounter;
+  if (gc && typeof gc.count === "function") gc.count({ path, title, event });
+  else if (GOATCOUNTER_CODE) pendingTracks.push({ path, title, event });
+}
+function flushTracks() {
+  while (pendingTracks.length) {
+    const t = pendingTracks.shift();
+    track(t.path, t.title, t.event);
+  }
+}
+
+// -- Prefetch -------------------------------------------------------------------------------------
+
+// Warm the cache for the tickers people are most likely to click next, one at a time and only
+// when the browser is idle — skipped entirely if the visitor asked to save data.
+function prefetch(tickers) {
+  const conn = navigator.connection;
+  if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ""))) return;
+  const queue = tickers.filter(t => availableTickers.has(t) && !dataCache.has(t));
+  const idle = cb => ("requestIdleCallback" in window ? requestIdleCallback(cb, { timeout: 3000 }) : setTimeout(cb, 400));
+  const next = () => {
+    const t = queue.shift();
+    if (t) fetchTicker(t).catch(() => {}).finally(() => idle(next));
+  };
+  idle(next);
 }
 
 // Fixed, hand-picked "recognizable name" shortlist for the row above the fold — NOT the first N
@@ -1183,51 +1565,6 @@ function attachContentHandlers(data) {
 const QUICK_PICKS = [
   "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN", "META", "TSLA", "AVGO", "JPM", "V", "BRK-B", "SPY", "QQQ",
 ];
-
-function setupSearch(allTickers) {
-  const input = document.getElementById("search");
-  const results = document.getElementById("searchResults");
-
-  function closeResults() {
-    results.classList.remove("open");
-    results.innerHTML = "";
-  }
-
-  function renderResults(query) {
-    const q = query.trim().toUpperCase();
-    if (!q) { closeResults(); return; }
-    const matches = allTickers.filter(t => t.includes(q)).slice(0, 12);
-    if (matches.length === 0) {
-      results.innerHTML = `<div class="search-empty">Sin coincidencias en el watchlist generado. Prueba ampliar TICKERS en scripts/generate_finviz_snapshot_site.py.</div>`;
-    } else {
-      results.innerHTML = matches.map((t, i) =>
-        `<button data-ticker="${t}" class="${i === 0 ? "highlighted" : ""}">${t}</button>`
-      ).join("");
-      results.querySelectorAll("button").forEach(b =>
-        b.addEventListener("click", () => {
-          loadTicker(b.dataset.ticker);
-          input.value = "";
-          closeResults();
-        })
-      );
-    }
-    results.classList.add("open");
-  }
-
-  input.addEventListener("input", () => renderResults(input.value));
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      const first = results.querySelector("button");
-      if (first) { first.click(); }
-    } else if (e.key === "Escape") {
-      input.value = "";
-      closeResults();
-    }
-  });
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest(".search-wrap")) closeResults();
-  });
-}
 
 // Tap-to-toggle glossary popover for touch devices (no hover/cursor to reveal a title="" tooltip).
 // Delegated on document since grid/analysis HTML is re-rendered on every ticker/cadence switch.
@@ -1267,33 +1604,56 @@ function setupGlossaryTaps() {
   window.addEventListener("resize", close);
 }
 
+// One document-level click handler: closes whichever search box / chart tooltip the click
+// landed outside of, and records promo clicks (links marked data-promo) for analytics.
+function setupGlobalClicks() {
+  document.addEventListener("click", e => {
+    for (const box of searchBoxes) {
+      if (!document.contains(box.input)) { searchBoxes.delete(box); continue; } // re-rendered away
+      if (!box.input.parentElement.contains(e.target)) box.close();
+    }
+    if (!e.target.closest(".price-chart-wrap")) hideChartTooltip();
+    const promo = e.target.closest("[data-promo]");
+    if (promo) track(`promo-${promo.dataset.promo}`, `Clic promo (${promo.dataset.promo})`, true);
+  });
+}
+
 async function init() {
+  setupAnalytics();
+  setupGlossaryTaps();
+  setupGlobalClicks();
   try {
-    const res = await fetch("data/index.json", { cache: "no-store" });
+    const res = await fetch("data/index.json", { cache: "no-cache" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const index = await res.json();
+    appIndex = { tickers: index.tickers, names: index.names || {} };
+    availableTickers = new Set(index.tickers);
 
-    const tickerBar = document.getElementById("tickers");
-    const availableTickers = new Set(index.tickers);
     const quickPicks = QUICK_PICKS.filter(t => availableTickers.has(t));
-    tickerBar.innerHTML = quickPicks.map(t =>
-      `<button data-ticker="${t}">${t}</button>`
-    ).join("");
-    tickerBar.querySelectorAll("button").forEach(b =>
-      b.addEventListener("click", () => loadTicker(b.dataset.ticker))
-    );
-
-    setupSearch(index.tickers);
-    setupGlossaryTaps();
-    document.querySelector(".tickers-label").textContent =
+    document.getElementById("tickers").innerHTML =
+      quickPicks.map(t => `<button data-ticker="${escapeHtml(t)}">${escapeHtml(t)}</button>`).join("");
+    document.getElementById("popularLabel").textContent =
       `Populares (${quickPicks.length} de ${index.tickers.length} disponibles — usa el buscador para el resto)`;
+    favorites = loadFavorites();
+    renderFavorites();
 
-    if (quickPicks.length > 0) loadTicker(quickPicks[0]);
-    else if (index.tickers.length > 0) loadTicker(index.tickers[0]);
-    else document.getElementById("content").innerHTML = `<div class="error">No hay tickers generados todavía.</div>`;
+    for (const id of ["tickers", "favorites"]) {
+      document.getElementById(id).addEventListener("click", e => {
+        const b = e.target.closest("button[data-ticker]");
+        if (b) navigate(b.dataset.ticker, null);
+      });
+    }
+    document.getElementById("favBtn").addEventListener("click", toggleFavorite);
+    document.getElementById("shareBtn").addEventListener("click", shareCurrent);
+    attachSearchBox(document.getElementById("search"), document.getElementById("searchResults"),
+      t => navigate(t, null));
+
+    window.addEventListener("hashchange", route);
+    await route();
+    prefetch([...favorites, ...quickPicks.slice(0, 6)]);
   } catch (err) {
     document.getElementById("content").innerHTML =
-      `<div class="error">No se pudo cargar el índice de datos: ${err.message}. ¿Corriste scripts/generate_finviz_snapshot_site.py?</div>`;
+      `<div class="error">No se pudo cargar el índice de datos: ${escapeHtml(err.message)}. ¿Corriste scripts/generate_finviz_snapshot_site.py?</div>`;
   }
 }
 

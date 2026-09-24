@@ -456,7 +456,7 @@ def _build_etf_analysis(fields: dict[str, str]) -> dict:
     }
 
 
-def main(tickers: list[str]) -> None:
+def main(tickers: list[str], merge_index: bool = False) -> None:
     _OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     generated_at = datetime.now(timezone.utc).isoformat()
 
@@ -504,10 +504,22 @@ def main(tickers: list[str]) -> None:
             "module docstring for what this scraper depends on."
         )
 
+    if merge_index:
+        # Sector medians come from THIS run's tickers only. A handful of CLI tickers means most
+        # sectors have < _MIN_SECTOR_SAMPLE peers, so their "Análisis vs. sector" (and the site's
+        # COMPRAR/VENDER badge built on it) comes out empty — confirmed 2026-09-24 when a partial
+        # V/SPY/BRK-B run wiped V's analysis. Fine for a quick look; never commit a partial run's
+        # output — do a full run first.
+        logger.warning(
+            "Partial run (%d tickers): sector-relative analysis uses only these tickers as peers "
+            "and will be missing for most of them. Run with no arguments before committing.",
+            len(raw_snapshots),
+        )
     sector_stats = _compute_sector_stats(raw_snapshots)
 
     # Pass 2: build each ticker's columns + analysis (now that sector_stats exists) and write.
-    index = {"tickers": [], "generated_at": generated_at}
+    # `names` feeds docs/index.html's search-by-company-name (ticker -> display name).
+    index = {"tickers": [], "names": {}, "generated_at": generated_at}
     for ticker, snapshot in raw_snapshots.items():
         is_etf = _is_etf(snapshot["fields"])
         analysis = (
@@ -518,6 +530,7 @@ def main(tickers: list[str]) -> None:
         )
         data = {
             "ticker": snapshot["ticker"],
+            "name": snapshot.get("company_name"),
             "generated_at": generated_at,
             "is_etf": is_etf,
             "columns": _extract_columns(snapshot["fields"], is_etf),
@@ -531,12 +544,36 @@ def main(tickers: list[str]) -> None:
         # a browser's fetch()/JSON.parse ever renders. Not meant for humans to read raw.
         (_OUTPUT_DIR / f"{ticker}.json").write_text(json.dumps(data, separators=(",", ":")))
         index["tickers"].append(ticker)
+        if snapshot.get("company_name"):
+            index["names"][ticker] = snapshot["company_name"]
         logger.info("[%s] snapshot written.", ticker)
 
+    if merge_index:
+        index = _merge_into_existing_index(index)
     (_OUTPUT_DIR / "index.json").write_text(json.dumps(index, separators=(",", ":")))
-    logger.info("Wrote %d ticker(s) + index.json to %s", len(index["tickers"]), _OUTPUT_DIR)
+    logger.info("Wrote %d ticker(s) + index.json to %s", len(raw_snapshots), _OUTPUT_DIR)
+
+
+def _merge_into_existing_index(partial: dict) -> dict:
+    """A partial run (tickers passed as CLI args) used to overwrite index.json with ONLY those
+    tickers — silently dropping the other ~500 from the site's search and quick picks. Merge
+    instead: keep every ticker already listed, add any new ones, refresh names. `generated_at`
+    stays the existing index's (the last FULL run), since that's still what most data reflects."""
+    path = _OUTPUT_DIR / "index.json"
+    try:
+        existing = json.loads(path.read_text())
+    except (FileNotFoundError, ValueError):
+        return partial
+    tickers = list(existing.get("tickers", []))
+    tickers += [t for t in partial["tickers"] if t not in set(tickers)]
+    names = {**existing.get("names", {}), **partial["names"]}
+    return {
+        "tickers": tickers,
+        "names": names,
+        "generated_at": existing.get("generated_at", partial["generated_at"]),
+    }
 
 
 if __name__ == "__main__":
-    requested = [t.upper() for t in sys.argv[1:]] or TICKERS
-    main(requested)
+    cli_tickers = [t.upper() for t in sys.argv[1:]]
+    main(cli_tickers or TICKERS, merge_index=bool(cli_tickers))

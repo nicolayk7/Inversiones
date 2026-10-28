@@ -342,13 +342,20 @@ function tickerFromHash(hash, available) {
 // "#AAPL" -> { ticker: "AAPL", compare: null }; "#AAPL+MSFT" -> compare MSFT too. Anything not in
 // `available` is dropped (a bad compare half doesn't invalidate the main ticker), and comparing a
 // ticker with itself is treated as no comparison.
+// `unknown` lists requested symbols this site doesn't have (anymore) — an old shared link to a
+// delisted ticker (#WBD after 2026-10) should say so, not silently show something else.
 function parseRoute(hash, available) {
   const raw = (hash || "").replace(/^#/, "");
   const [main, other] = raw.split("+");
+  const asSymbol = part => {
+    if (!part) return null;
+    try { return decodeURIComponent(part).trim().toUpperCase() || null; } catch { return null; }
+  };
+  const unknown = [main, other].map(asSymbol).filter(s => s && !available.has(s));
   const ticker = tickerFromHash(main, available);
-  if (!ticker) return { ticker: null, compare: null };
+  if (!ticker) return { ticker: null, compare: null, unknown };
   const compare = other ? tickerFromHash(other, available) : null;
-  return { ticker, compare: compare && compare !== ticker ? compare : null };
+  return { ticker, compare: compare && compare !== ticker ? compare : null, unknown };
 }
 
 function routeHash(ticker, compare) {

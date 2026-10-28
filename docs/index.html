@@ -642,6 +642,7 @@
     según Finviz).
   </div>
   <div id="staleNotice" class="stale-notice" role="status" hidden></div>
+  <div id="routeNotice" class="stale-notice" role="status" hidden></div>
 
   <div class="search-wrap">
     <input id="search" type="text" placeholder="Buscar ticker o empresa (ej. NVDA, Visa)…" autocomplete="off"
@@ -664,7 +665,9 @@
   </div>
   <div id="content"><div class="loading">Cargando…</div></div>
 
-<script src="js/logic.js"></script>
+<!-- ?v= busts GitHub Pages' 10-min cache so a visitor never pairs this page with a stale
+     logic.js — bump it whenever docs/js/logic.js changes in a way this page depends on. -->
+<script src="js/logic.js?v=2026-10-28"></script>
 <script>
 // Plain-language explanation for every field label used anywhere on this page (grid + analysis
 // section) — shown as a native browser tooltip (title attribute) on hover/long-press, so a reader
@@ -993,10 +996,15 @@ function renderPriceChart(rawBars) {
       ).join("")}
     </div>`;
 
-  const legend = smaLines.length ? `<div class="chart-legend">
-      ${smaLines.map((l, li) => `<span><i style="background:${SMA_COLORS[li]}"></i>SMA ${l.period} ${PRICE_CADENCE_UNIT[cadence]}</span>`).join("")}
+  // Only advertise averages that actually got drawn: a recent listing (e.g. VYLR, 19 sessions in
+  // 2026-10) has no SMA-50 yet, and a legend entry for an invisible line reads like a bug.
+  const drawnSmas = smaLines.map((l, li) => ({ ...l, color: SMA_COLORS[li] })).filter(l => l.values.some(v => v !== null));
+  const missingSmas = smaLines.filter(l => l.values.every(v => v === null)).map(l => l.period);
+  const legend = `<div class="chart-legend">
+      ${drawnSmas.map(l => `<span><i style="background:${l.color}"></i>SMA ${l.period} ${PRICE_CADENCE_UNIT[cadence]}</span>`).join("")}
+      ${missingSmas.length ? `<span class="chart-legend-hint">Historial corto (${rawBars.length} sesiones): aún no hay datos para la SMA ${missingSmas.join("/")}</span>` : ""}
       <span class="chart-legend-hint">Pasa el cursor o toca el gráfico para ver cada vela</span>
-    </div>` : `<div class="chart-legend"><span class="chart-legend-hint">Pasa el cursor o toca el gráfico para ver cada vela</span></div>`;
+    </div>`;
 
   // Everything the hover/tap handler needs to map a pointer x back to a bar (attachChartTooltip).
   chartState = { bars, smaLines, cadence, W, padLeft, barSlot, xOf, yPrice, padTop, volBottomY };
@@ -1219,7 +1227,13 @@ function defaultTicker() {
 }
 
 async function route() {
-  let { ticker, compare } = parseRoute(location.hash, availableTickers);
+  let { ticker, compare, unknown = [] } = parseRoute(location.hash, availableTickers);
+  const notice = document.getElementById("routeNotice");
+  notice.hidden = unknown.length === 0;
+  if (unknown.length) {
+    notice.textContent = `«${unknown.join(", ")}» no está disponible: dejó de cotizar con ese símbolo o salió `
+      + `del S&P 500 / Nasdaq-100 que cubre este sitio. Búscalo por su nombre por si cambió de ticker.`;
+  }
   if (!ticker) {
     ticker = defaultTicker();
     if (!ticker) {

@@ -236,14 +236,16 @@ test("tickerFromHash accepts known tickers in any case, rejects everything else"
 
 test("parseRoute / routeHash round-trip, including a comparison", () => {
   const avail = new Set(TICKERS);
-  assert.deepEqual(L.parseRoute("#aapl", avail), { ticker: "AAPL", compare: null });
-  assert.deepEqual(L.parseRoute("#AAPL+v", avail), { ticker: "AAPL", compare: "V" });
-  assert.deepEqual(L.parseRoute("#AAPL+ZZZZ", avail), { ticker: "AAPL", compare: null });
-  assert.deepEqual(L.parseRoute("#AAPL+AAPL", avail), { ticker: "AAPL", compare: null });
-  assert.deepEqual(L.parseRoute("#ZZZZ+AAPL", avail), { ticker: null, compare: null });
+  assert.deepEqual(L.parseRoute("#aapl", avail), { ticker: "AAPL", compare: null, unknown: [] });
+  assert.deepEqual(L.parseRoute("#AAPL+v", avail), { ticker: "AAPL", compare: "V", unknown: [] });
+  assert.deepEqual(L.parseRoute("#AAPL+ZZZZ", avail), { ticker: "AAPL", compare: null, unknown: ["ZZZZ"] });
+  assert.deepEqual(L.parseRoute("#AAPL+AAPL", avail), { ticker: "AAPL", compare: null, unknown: [] });
+  assert.deepEqual(L.parseRoute("#ZZZZ+AAPL", avail), { ticker: null, compare: null, unknown: ["ZZZZ"] });
+  assert.deepEqual(L.parseRoute("", avail), { ticker: null, compare: null, unknown: [] });
+  assert.deepEqual(L.parseRoute("#wbd", avail).unknown, ["WBD"]);
   assert.equal(L.routeHash("AAPL", "V"), "#AAPL+V");
   assert.equal(L.routeHash("BRK-B", null), "#BRK-B");
-  assert.deepEqual(L.parseRoute(L.routeHash("BRK-B", "V"), avail), { ticker: "BRK-B", compare: "V" });
+  assert.deepEqual(L.parseRoute(L.routeHash("BRK-B", "V"), avail), { ticker: "BRK-B", compare: "V", unknown: [] });
 });
 
 test("escapeHtml neutralizes markup in scraped names", () => {
@@ -280,20 +282,51 @@ test("rebasedComparison uses common dates only and starts both series at 100", (
 
 // -- real generated data (structure only — values change daily) ---------------------------------
 
-test("every quick-pick ticker's real JSON produces a well-formed signal", () => {
-  const dataDir = path.join(__dirname, "..", "..", "docs", "data");
-  for (const t of ["AAPL", "V", "SPY", "BRK-B"]) {
-    const file = path.join(dataDir, `${t}.json`);
-    if (!fs.existsSync(file)) continue;
-    const data = JSON.parse(fs.readFileSync(file, "utf8"));
-    const s = L.computeSentiment(data);
-    assert.ok(s, `${t}: no signal`);
-    assert.ok(s.gaugePct >= 0 && s.gaugePct <= 100, `${t}: gauge out of range`);
-    assert.equal(Boolean(s.badge), !data.is_etf && data.analysis !== null, `${t}: badge presence`);
-    for (const c of ["d", "w", "m", "y"]) {
-      const shown = L.aggregatePriceBars(data.price_history, c);
-      assert.ok(shown.length > 0, `${t}/${c}: no bars`);
-      L.smaSeriesForView(data.price_history, c).forEach(l => assert.equal(l.values.length, shown.length));
+// This block is also the daily refresh workflow's gate before it commits new data: it walks EVERY
+// ticker in the freshly generated index, so a malformed file anywhere blocks publishing instead of
+// shipping a broken page for that ticker.
+const DATA_DIR = path.join(__dirname, "..", "..", "docs", "data");
+const INDEX_FILE = path.join(DATA_DIR, "index.json");
+const hasData = fs.existsSync(INDEX_FILE);
+
+test("generated index and data files match one-to-one", { skip: !hasData && "no docs/data" }, () => {
+  const index = JSON.parse(fs.readFileSync(INDEX_FILE, "utf8"));
+  assert.ok(index.tickers.length > 400, `only ${index.tickers.length} tickers in index.json`);
+  assert.equal(new Set(index.tickers).size, index.tickers.length, "duplicate tickers in index.json");
+  const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith(".json") && f !== "index.json").map(f => f.slice(0, -5));
+  const listed = new Set(index.tickers);
+  assert.deepEqual(index.tickers.filter(t => !files.includes(t)), [], "listed tickers with no data file");
+  assert.deepEqual(files.filter(t => !listed.has(t)), [], "orphaned data files not in index.json");
+  const unnamed = index.tickers.filter(t => !index.names || !index.names[t]);
+  assert.ok(unnamed.length <= 5, `too many tickers without a company name: ${unnamed.join(", ")}`);
+});
+
+test("every generated ticker renders: all cadences, SMAs, and a well-formed signal", { skip: !hasData && "no docs/data" }, () => {
+  const index = JSON.parse(fs.readFileSync(INDEX_FILE, "utf8"));
+  const finite = v => typeof v === "number" && Number.isFinite(v);
+  for (const t of index.tickers) {
+    const data = JSON.parse(fs.readFileSync(path.join(DATA_DIR, `${t}.json`), "utf8"));
+    assert.equal(data.ticker, t, `${t}: ticker field mismatch`);
+    assert.ok(Array.isArray(data.columns) && data.columns.length > 0, `${t}: no grid columns`);
+    assert.ok(!Number.isNaN(Date.parse(data.generated_at)), `${t}: bad generated_at`);
+    const ph = data.price_history || [];
+    for (const b of ph) {
+      assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(b.date) && ["open", "high", "low", "close", "volume"].every(k => finite(b[k])),
+        `${t}: malformed bar ${JSON.stringify(b)}`);
     }
+    for (let i = 1; i < ph.length; i++) assert.ok(ph[i - 1].date < ph[i].date, `${t}: bars not strictly oldest-first at ${ph[i].date}`);
+    if (ph.length === 0) continue; // page shows "Sin historial de precio" — legitimate, not a crash
+    for (const c of ["d", "w", "m", "y"]) {
+      const shown = L.aggregatePriceBars(ph, c);
+      assert.ok(shown.length > 0, `${t}/${c}: no bars`);
+      for (const l of L.smaSeriesForView(ph, c)) {
+        assert.equal(l.values.length, shown.length, `${t}/${c}: SMA ${l.period} misaligned`);
+        assert.ok(l.values.every(v => v === null || finite(v)), `${t}/${c}: non-finite SMA`);
+      }
+    }
+    const s = L.computeSentiment(data);
+    if (ph.length < 10) { assert.equal(s, null, `${t}: signal from <10 bars`); continue; }
+    assert.ok(s && s.gaugePct >= 0 && s.gaugePct <= 100, `${t}: gauge out of range`);
+    assert.equal(Boolean(s.badge), !data.is_etf && Boolean(data.analysis && data.analysis.comparisons), `${t}: badge presence`);
   }
 });

@@ -64,6 +64,19 @@ It can also be run on demand from the Actions tab ("Run workflow").
 
 **Netlify:** import the repo, no build command, publish directory `docs`.
 
+## When something fails
+
+- **One ticker fails** (network blip after 3 retries, odd page): the run keeps that ticker's
+  previous data (up to 7 days old) and carries on. The site shows that ticker's own older
+  "actualizado hace X". Listed as a yellow warning on the Actions run page.
+- **A ticker returns 404** (delisted or renamed — WBD in Oct 2026): it's dropped and its data
+  file deleted; warning "Tickers no longer on Finviz" on the run page. Refresh `TICKERS` (see the
+  comment above `_SP500_NASDAQ100_TICKERS` for the sources).
+- **Most tickers fail at once** (Finviz blocking or redesigned): the run aborts, nothing is
+  committed, the site keeps the last good data and shows a "más de 2 días" warning after 48 h.
+- **Generated data malformed:** the "Validate generated data" step (node tests over every
+  ticker) fails and nothing is committed.
+
 ## Adding tickers / partial runs
 
 Edit `TICKERS` in the generator, or pass tickers as CLI args for a quick look:

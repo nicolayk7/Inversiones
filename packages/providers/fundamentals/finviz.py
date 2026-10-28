@@ -83,6 +83,7 @@ mirroring the quote page's own 404 behavior.
 import html
 import json
 import re
+import time
 from datetime import date, datetime, timedelta, timezone
 
 import httpx
@@ -106,6 +107,17 @@ _USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/125.0 Safari/537.36"
 )
+
+# Transient failures (connection reset, timeout, 429 rate limit, 5xx) are retried before giving
+# up. Added 2026-10-28: before this, ONE such blip among the ~1,060 requests a full
+# scripts/generate_finviz_snapshot_site.py run makes surfaced as a raw httpx exception — not a
+# FinvizError, so the generator's per-ticker handling didn't catch it and the whole daily refresh
+# crashed (the 2026-10-28 00:57 UTC scheduled run failed at "Generate snapshot JSON" while the
+# same code ran clean locally and on every other day that month). Delays are the waits before
+# attempts 2 and 3; a server-sent Retry-After is honored up to _MAX_RETRY_AFTER_SECONDS.
+_RETRY_DELAYS_SECONDS = (2.0, 6.0)
+_RETRYABLE_STATUS = frozenset({429, 500, 502, 503, 504})
+_MAX_RETRY_AFTER_SECONDS = 30.0
 
 # Matches one snapshot-grid cell pair: a labeled td (keyed by its unique tooltip, not the short
 # on-screen label — see module docstring) followed immediately by its value td.
@@ -142,8 +154,13 @@ class FinvizNotFoundError(FinvizError):
 
 class FinvizResponseError(FinvizError):
     """Page fetched but the expected fundamentals grid was not found — Finviz changed its markup,
-    or returned something else (e.g. a bot-check page) instead of the real quote page. Never
-    fabricate a record from this."""
+    or returned something else (e.g. a bot-check page) instead of the real quote page — or a
+    non-retryable HTTP error status (e.g. 403). Never fabricate a record from this."""
+
+
+class FinvizTransientError(FinvizError):
+    """A network failure or retryable HTTP status (429/5xx) that persisted through every retry.
+    Worth trying again later; says nothing about whether the ticker exists."""
 
 
 def _clean_text(html_fragment: str) -> str:
@@ -294,10 +311,18 @@ class FinvizFundamentalsProvider:
     """Partial `FundamentalsProvider` — implements `get_quarterly_fundamentals` only. See module
     docstring for why the normalized-statement methods are intentionally absent."""
 
-    def __init__(self, client: httpx.Client | None = None):
+    def __init__(
+        self,
+        client: httpx.Client | None = None,
+        *,
+        retry_delays: tuple[float, ...] = _RETRY_DELAYS_SECONDS,
+        sleep=time.sleep,
+    ):
         self._client = client or httpx.Client(
             headers={"User-Agent": _USER_AGENT}, timeout=30.0, follow_redirects=True
         )
+        self._retry_delays = tuple(retry_delays)
+        self._sleep = sleep  # injectable so tests don't actually wait
 
     def close(self) -> None:
         self._client.close()
@@ -308,14 +333,48 @@ class FinvizFundamentalsProvider:
     def __exit__(self, *exc) -> None:
         self.close()
 
+    def _get(self, url: str, what: str, params: dict | None = None) -> httpx.Response:
+        """GET with retries for transient failures (see _RETRY_DELAYS_SECONDS). Returns the
+        response for 2xx and 404 (callers turn 404 into FinvizNotFoundError with their own
+        wording). Every other outcome becomes a FinvizError subclass — never a raw httpx
+        exception — so a caller handling FinvizError per ticker handles ALL of them."""
+        attempts = len(self._retry_delays) + 1
+        for attempt in range(attempts):
+            last = attempt == attempts - 1
+            try:
+                response = self._client.get(url, params=params)
+            except httpx.TransportError as exc:
+                if last:
+                    raise FinvizTransientError(
+                        f"{what}: network error after {attempts} attempts ({type(exc).__name__}: {exc})"
+                    ) from exc
+                self._sleep(self._retry_delays[attempt])
+                continue
+            if response.status_code in _RETRYABLE_STATUS:
+                if last:
+                    raise FinvizTransientError(
+                        f"{what}: HTTP {response.status_code} after {attempts} attempts"
+                    )
+                self._sleep(self._retry_wait(response, attempt))
+                continue
+            if response.status_code == 404 or response.is_success:
+                return response
+            raise FinvizResponseError(f"{what}: HTTP {response.status_code}")
+        raise AssertionError("unreachable")  # the loop always returns or raises
+
+    def _retry_wait(self, response: httpx.Response, attempt: int) -> float:
+        retry_after = response.headers.get("Retry-After", "")
+        if retry_after.strip().isdigit():
+            return min(float(retry_after), _MAX_RETRY_AFTER_SECONDS)
+        return self._retry_delays[attempt]
+
     def _fetch_page(self, ticker: str) -> str:
-        """The one HTTP GET every method in this class is built on. Not cached — each call is a
-        fresh live fetch, matching this provider's "no historical snapshots" nature (module
+        """The one quote-page GET every method in this class is built on. Not cached — each call
+        is a fresh live fetch, matching this provider's "no historical snapshots" nature (module
         docstring)."""
-        response = self._client.get(_QUOTE_URL.format(ticker=ticker.upper()))
+        response = self._get(_QUOTE_URL.format(ticker=ticker.upper()), f"quote page {ticker!r}")
         if response.status_code == 404:
             raise FinvizNotFoundError(f"Finviz has no quote page for {ticker!r}")
-        response.raise_for_status()
         return response.text
 
     def _fetch_fields(self, ticker: str) -> dict[str, str]:
@@ -432,13 +491,12 @@ class FinvizFundamentalsProvider:
         misaligns a date against the wrong bar."""
         date_to = datetime.now(timezone.utc)
         date_from = date_to - timedelta(days=days)
-        response = self._client.get(_PRICE_API_URL, params={
+        response = self._get(_PRICE_API_URL, f"price history {ticker!r}", params={
             "ticker": ticker.upper(), "timeframe": "d", "instrument": "stock",
             "dateFrom": int(date_from.timestamp()), "dateTo": int(date_to.timestamp()),
         })
         if response.status_code == 404:
             raise FinvizNotFoundError(f"Finviz has no price history for {ticker!r}")
-        response.raise_for_status()
         try:
             body = response.json()
         except ValueError as exc:

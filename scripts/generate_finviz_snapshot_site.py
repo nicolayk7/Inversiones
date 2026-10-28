@@ -105,13 +105,14 @@ Usage:
 
 import json
 import logging
+import os
 import statistics
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from packages.providers.fundamentals.finviz import FinvizError, FinvizFundamentalsProvider
+from packages.providers.fundamentals.finviz import FinvizFundamentalsProvider, FinvizNotFoundError
 from packages.providers.fundamentals.finviz import _parse_number as _parse_finviz_number
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -120,10 +121,14 @@ logger = logging.getLogger("generate_finviz_snapshot_site")
 _REQUEST_DELAY_SECONDS = 0.15  # trimmed from 0.6 (2026-08-21) to shorten the daily refresh; see
 # module docstring's timing paragraph for why this stays sequential rather than adding concurrency.
 
-# S&P 500 ∪ Nasdaq-100, 518 unique tickers, alphabetical — see module docstring for exact sourcing
-# (Wikipedia + slickcharts.com, fetched live 2026-08-20) and the BRK.B/BF.B -> BRK-B/BF-B rewrite.
-# Re-running the two fetches later will drift from this list as index membership changes; this is
-# a point-in-time snapshot of membership, not a live-synced one.
+# S&P 500 ∪ Nasdaq-100, 518 unique tickers, alphabetical, BRK.B/BF.B -> BRK-B/BF-B (see module
+# docstring). A point-in-time snapshot of membership, not live-synced — it drifts as the indexes
+# change. LAST REFRESHED 2026-10-28 from Wikipedia's "List of S&P 500 companies" (503) and "List of
+# NASDAQ-100 companies" (101) via the MediaWiki API (slickcharts.com, the original 2026-08-20
+# Nasdaq source, now answers 403). Versus 2026-08-20: out BLDR, CTVA, PSKY, TAP, TTD, WBD; in BE,
+# ILMN, P, SKYD, TWLO, VYLR — every new symbol confirmed live on Finviz. WBD had already 404'd on
+# Finviz (gone from the site since 2026-10-18) and PSKY's chart 404'd (it trades as SKYD now).
+# When the daily run reports a "Tickers no longer on Finviz" warning, refresh this list again.
 _SP500_NASDAQ100_TICKERS = [
     "A", "AAPL", "ABBV", "ABNB", "ABT", "ACGL", "ACN", "ADBE", "ADI", "ADM",
     "ADP", "ADSK", "AEE", "AEP", "AES", "AFL", "AIG", "AIZ", "AJG", "AKAM",
@@ -131,25 +136,25 @@ _SP500_NASDAQ100_TICKERS = [
     "AMGN", "AMP", "AMT", "AMZN", "ANET", "AON", "AOS", "APA", "APD", "APH",
     "APO", "APP", "APTV", "ARE", "ARES", "ARM", "ASML", "ATO", "AVGO", "AVY",
     "AWK", "AXON", "AXP", "AZO", "BA", "BAC", "BALL", "BAX", "BBY", "BDX",
-    "BEN", "BF-B", "BG", "BIIB", "BKNG", "BKR", "BLDR", "BLK", "BMY", "BNY",
+    "BE", "BEN", "BF-B", "BG", "BIIB", "BKNG", "BKR", "BLK", "BMY", "BNY",
     "BR", "BRK-B", "BRO", "BSX", "BX", "BXP", "C", "CAH", "CARR", "CASY",
     "CAT", "CB", "CBOE", "CBRE", "CCEP", "CCI", "CCL", "CDNS", "CDW", "CEG",
     "CF", "CFG", "CHD", "CHRW", "CHTR", "CI", "CIEN", "CINF", "CL", "CLX",
     "CMCSA", "CME", "CMG", "CMI", "CMS", "CNC", "CNP", "COF", "COHR", "COIN",
     "COO", "COP", "COR", "COST", "CPAY", "CPRT", "CPT", "CRH", "CRL", "CRM",
-    "CRWD", "CRWV", "CSCO", "CSGP", "CSX", "CTAS", "CTSH", "CTVA", "CVNA", "CVS",
-    "CVX", "D", "DAL", "DASH", "DD", "DDOG", "DE", "DECK", "DELL", "DG",
-    "DGX", "DHI", "DHR", "DIS", "DLR", "DLTR", "DOC", "DOV", "DOW", "DPZ",
-    "DRI", "DTE", "DUK", "DVA", "DVN", "DXCM", "EBAY", "ECHO", "ECL", "ED",
-    "EFX", "EG", "EIX", "EL", "ELV", "EME", "EMR", "EOG", "EQIX", "EQT",
-    "ERIE", "ES", "ESS", "ETN", "ETR", "EVRG", "EW", "EXC", "EXE", "EXPD",
-    "EXPE", "EXR", "F", "FANG", "FAST", "FCX", "FDS", "FDX", "FDXF", "FE",
-    "FER", "FERG", "FFIV", "FICO", "FIS", "FISV", "FITB", "FIX", "FLEX", "FOX",
-    "FOXA", "FRT", "FSLR", "FTNT", "FTV", "GD", "GDDY", "GE", "GEHC", "GEN",
-    "GEV", "GILD", "GIS", "GL", "GLW", "GM", "GNRC", "GOOG", "GOOGL", "GPC",
-    "GPN", "GRMN", "GS", "GWW", "HAL", "HAS", "HBAN", "HCA", "HD", "HIG",
-    "HII", "HLT", "HON", "HONA", "HOOD", "HPE", "HPQ", "HRL", "HSIC", "HST",
-    "HSY", "HUBB", "HUM", "HWM", "IBKR", "IBM", "ICE", "IDXX", "IEX", "IFF",
+    "CRWD", "CRWV", "CSCO", "CSGP", "CSX", "CTAS", "CTSH", "CVNA", "CVS", "CVX",
+    "D", "DAL", "DASH", "DD", "DDOG", "DE", "DECK", "DELL", "DG", "DGX",
+    "DHI", "DHR", "DIS", "DLR", "DLTR", "DOC", "DOV", "DOW", "DPZ", "DRI",
+    "DTE", "DUK", "DVA", "DVN", "DXCM", "EBAY", "ECHO", "ECL", "ED", "EFX",
+    "EG", "EIX", "EL", "ELV", "EME", "EMR", "EOG", "EQIX", "EQT", "ERIE",
+    "ES", "ESS", "ETN", "ETR", "EVRG", "EW", "EXC", "EXE", "EXPD", "EXPE",
+    "EXR", "F", "FANG", "FAST", "FCX", "FDS", "FDX", "FDXF", "FE", "FER",
+    "FERG", "FFIV", "FICO", "FIS", "FISV", "FITB", "FIX", "FLEX", "FOX", "FOXA",
+    "FRT", "FSLR", "FTNT", "FTV", "GD", "GDDY", "GE", "GEHC", "GEN", "GEV",
+    "GILD", "GIS", "GL", "GLW", "GM", "GNRC", "GOOG", "GOOGL", "GPC", "GPN",
+    "GRMN", "GS", "GWW", "HAL", "HAS", "HBAN", "HCA", "HD", "HIG", "HII",
+    "HLT", "HON", "HONA", "HOOD", "HPE", "HPQ", "HRL", "HSIC", "HST", "HSY",
+    "HUBB", "HUM", "HWM", "IBKR", "IBM", "ICE", "IDXX", "IEX", "IFF", "ILMN",
     "INCY", "INTC", "INTU", "INVH", "IP", "IQV", "IR", "IRM", "ISRG", "IT",
     "ITW", "IVZ", "J", "JBHT", "JBL", "JCI", "JKHY", "JNJ", "JPM", "KDP",
     "KEY", "KEYS", "KHC", "KIM", "KKR", "KLAC", "KMB", "KMI", "KO", "KR",
@@ -161,20 +166,20 @@ _SP500_NASDAQ100_TICKERS = [
     "MTB", "MTD", "MU", "NBIS", "NCLH", "NDAQ", "NDSN", "NEE", "NEM", "NFLX",
     "NI", "NKE", "NOC", "NOW", "NRG", "NSC", "NTAP", "NTRS", "NUE", "NVDA",
     "NVR", "NWS", "NWSA", "NXPI", "O", "ODFL", "OKE", "OMC", "ON", "ORCL",
-    "ORLY", "OTIS", "OXY", "PANW", "PAYX", "PCAR", "PCG", "PDD", "PEG", "PEP",
-    "PFE", "PFG", "PG", "PGR", "PH", "PHM", "PKG", "PLD", "PLTR", "PM",
-    "PNC", "PNR", "PNW", "PODD", "PPG", "PPL", "PRU", "PSA", "PSKY", "PSX",
+    "ORLY", "OTIS", "OXY", "P", "PANW", "PAYX", "PCAR", "PCG", "PDD", "PEG",
+    "PEP", "PFE", "PFG", "PG", "PGR", "PH", "PHM", "PKG", "PLD", "PLTR",
+    "PM", "PNC", "PNR", "PNW", "PODD", "PPG", "PPL", "PRU", "PSA", "PSX",
     "PTC", "PWR", "PYPL", "Q", "QCOM", "RCL", "RDDT", "REG", "REGN", "RF",
     "RJF", "RKLB", "RL", "RMD", "ROK", "ROL", "ROP", "ROST", "RSG", "RTX",
-    "RVTY", "SBAC", "SBUX", "SCHW", "SHOP", "SHW", "SJM", "SLB", "SMCI", "SNA",
-    "SNDK", "SNPS", "SO", "SOLV", "SPCX", "SPG", "SPGI", "SRE", "STE", "STLD",
-    "STT", "STX", "STZ", "SW", "SWK", "SWKS", "SYF", "SYK", "SYY", "T",
-    "TAP", "TDG", "TDY", "TECH", "TEL", "TER", "TFC", "TGT", "TJX", "TKO",
+    "RVTY", "SBAC", "SBUX", "SCHW", "SHOP", "SHW", "SJM", "SKYD", "SLB", "SMCI",
+    "SNA", "SNDK", "SNPS", "SO", "SOLV", "SPCX", "SPG", "SPGI", "SRE", "STE",
+    "STLD", "STT", "STX", "STZ", "SW", "SWK", "SWKS", "SYF", "SYK", "SYY",
+    "T", "TDG", "TDY", "TECH", "TEL", "TER", "TFC", "TGT", "TJX", "TKO",
     "TMO", "TMUS", "TPL", "TPR", "TRGP", "TRI", "TRMB", "TROW", "TRV", "TSCO",
-    "TSLA", "TSN", "TT", "TTD", "TTWO", "TXN", "TXT", "TYL", "UAL", "UBER",
+    "TSLA", "TSN", "TT", "TTWO", "TWLO", "TXN", "TXT", "TYL", "UAL", "UBER",
     "UDR", "UHS", "ULTA", "UNH", "UNP", "UPS", "URI", "USB", "V", "VEEV",
     "VICI", "VLO", "VLTO", "VMC", "VMRK", "VRSK", "VRSN", "VRT", "VRTX", "VST",
-    "VTR", "VTRS", "VZ", "WAB", "WAT", "WBD", "WDAY", "WDC", "WEC", "WELL",
+    "VTR", "VTRS", "VYLR", "VZ", "WAB", "WAT", "WDAY", "WDC", "WEC", "WELL",
     "WFC", "WM", "WMB", "WMT", "WRB", "WSM", "WST", "WTW", "WY", "WYNN",
     "XEL", "XOM", "XYL", "XYZ", "YUM", "ZBH", "ZBRA", "ZTS",
 ]
@@ -456,46 +461,110 @@ def _build_etf_analysis(fields: dict[str, str]) -> dict:
     }
 
 
+_CARRY_FORWARD_MAX_AGE = timedelta(days=7)
+
+
+def _load_previous(ticker: str) -> dict | None:
+    """Yesterday's (or older) generated JSON for this ticker, if there is one."""
+    try:
+        return json.loads((_OUTPUT_DIR / f"{ticker}.json").read_text())
+    except (FileNotFoundError, ValueError):
+        return None
+
+
+def _fresh_enough(previous: dict, now: datetime) -> bool:
+    try:
+        return now - datetime.fromisoformat(previous["generated_at"]) <= _CARRY_FORWARD_MAX_AGE
+    except (KeyError, TypeError, ValueError):
+        return False
+
+
+def _gh_warning(title: str, message: str) -> None:
+    """Shows up as a yellow annotation on the GitHub Actions run page (no-op locally) — so a
+    delisted ticker can't just quietly vanish from the site for days, the way WBD did between
+    2026-10-18 and 2026-10-28 without anyone noticing."""
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        print(f"::warning title={title}::{message}", flush=True)
+
+
 def main(tickers: list[str], merge_index: bool = False) -> None:
     _OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    generated_at = datetime.now(timezone.utc).isoformat()
+    now = datetime.now(timezone.utc)
+    generated_at = now.isoformat()
 
     # Pass 1: fetch every ticker's raw snapshot (fields + charts + categories) AND its price
-    # history — two requests per ticker now, not one (see finviz.py's get_price_history docstring
-    # for why that's a second, distinct endpoint). Kept in memory, not yet written — sector
-    # medians (pass 2) need the whole dataset fetched first.
+    # history — two requests per ticker (see finviz.py's get_price_history docstring for why that's
+    # a second, distinct endpoint). Kept in memory, not yet written — sector medians (pass 2) need
+    # the whole dataset fetched first.
+    #
+    # Per-ticker failures never abort the run (finviz.py already retries transient errors):
+    #   - 404 ("gone"): Finviz has no page for the symbol any more (delisted/renamed — WBD,
+    #     2026-10). Dropped from the site; in a full run its stale JSON file is deleted too.
+    #   - anything else ("carried"): keep the previous JSON as-is if it's at most
+    #     _CARRY_FORWARD_MAX_AGE old — the site shows that ticker's own older "actualizado hace X"
+    #     instead of the ticker disappearing over one bad request. Older than that: skipped.
     raw_snapshots: dict[str, dict] = {}
+    carried: dict[str, dict] = {}
+    gone: list[str] = []
+    skipped: list[str] = []
     with FinvizFundamentalsProvider() as provider:
         for i, ticker in enumerate(tickers):
             try:
                 snapshot = provider.get_snapshot(ticker)
-            except FinvizError as exc:
-                logger.warning("[%s] failed, skipping: %s", ticker, exc)
+            except FinvizNotFoundError as exc:
+                logger.warning("[%s] not on Finviz any more, dropping: %s", ticker, exc)
+                gone.append(ticker)
+                continue
+            except Exception as exc:  # FinvizError incl. transient, or a parse surprise on one page
+                previous = _load_previous(ticker)
+                if previous and _fresh_enough(previous, now):
+                    carried[ticker] = previous
+                    logger.warning("[%s] failed (%s) — keeping previous data from %s", ticker, exc,
+                                   previous.get("generated_at"))
+                else:
+                    skipped.append(ticker)
+                    logger.warning("[%s] failed, no recent previous data, skipping: %s", ticker, exc)
                 continue
             finally:
                 time.sleep(_REQUEST_DELAY_SECONDS)
 
             try:
                 snapshot["price_history"] = provider.get_price_history(ticker)
-            except FinvizError as exc:
-                # Grid + analysis are still worth having even if the chart can't be built — don't
-                # drop the whole ticker over a second, independent endpoint failing.
-                logger.warning("[%s] price history failed, chart will be empty: %s", ticker, exc)
-                snapshot["price_history"] = []
+            except Exception as exc:
+                # Grid + analysis are still worth having even if the chart can't be refreshed —
+                # don't drop the whole ticker over a second, independent endpoint failing. Reuse
+                # the previous history when it's recent (a one-day-old chart beats no chart).
+                previous = _load_previous(ticker)
+                if (not isinstance(exc, FinvizNotFoundError) and previous
+                        and _fresh_enough(previous, now) and previous.get("price_history")):
+                    snapshot["price_history"] = previous["price_history"]
+                    logger.warning("[%s] price history failed (%s) — reusing previous", ticker, exc)
+                else:
+                    snapshot["price_history"] = []
+                    logger.warning("[%s] price history failed, chart will be empty: %s", ticker, exc)
             if i < len(tickers) - 1:
                 time.sleep(_REQUEST_DELAY_SECONDS)
 
             raw_snapshots[ticker] = snapshot
 
-    logger.info("Fetched %d/%d tickers — computing sector medians...", len(raw_snapshots), len(tickers))
+    logger.info(
+        "Fetched %d/%d tickers (%d carried forward, %d gone, %d skipped) — computing sector medians...",
+        len(raw_snapshots), len(tickers), len(carried), len(gone), len(skipped),
+    )
+    if gone:
+        _gh_warning("Tickers no longer on Finviz",
+                    f"{', '.join(gone)} returned 404 and were dropped — update TICKERS in "
+                    "scripts/generate_finviz_snapshot_site.py (delisted or renamed?).")
+    if carried or skipped:
+        _gh_warning("Tickers not refreshed today",
+                    f"carried forward: {', '.join(carried) or '-'}; skipped: {', '.join(skipped) or '-'}")
 
     # Operational safety net for the daily GH Actions cron: if Finviz starts blocking this
     # scraper wholesale (redesigned markup, IP block, bot-check page — see finviz.py's own
     # disclosed ToS-risk section), every ticker fails and raw_snapshots ends up empty or tiny.
-    # Without this guard, the loop below would still write an (empty) index.json over yesterday's
-    # good one, and the deployed site would go from "stale but real data" to "broken" in one
-    # commit. Abort loudly instead — the workflow step fails, nothing gets committed, the
-    # currently-published site (last good run) stays up untouched.
+    # Counts FRESH fetches only — carrying everything forward would otherwise mask a total outage.
+    # Abort loudly instead: the workflow step fails, nothing gets committed, the currently-
+    # published site (last good run) stays up untouched.
     if len(raw_snapshots) < max(1, len(tickers) // 2):
         raise RuntimeError(
             f"Only {len(raw_snapshots)}/{len(tickers)} tickers succeeded — aborting without "
@@ -517,10 +586,19 @@ def main(tickers: list[str], merge_index: bool = False) -> None:
         )
     sector_stats = _compute_sector_stats(raw_snapshots)
 
-    # Pass 2: build each ticker's columns + analysis (now that sector_stats exists) and write.
-    # `names` feeds docs/index.html's search-by-company-name (ticker -> display name).
+    # Pass 2: build each ticker's columns + analysis (now that sector_stats exists) and write, in
+    # TICKERS order. Carried-forward tickers keep their previous file untouched (its own older
+    # generated_at is what the site shows). `names` feeds docs/index.html's search-by-name.
     index = {"tickers": [], "names": {}, "generated_at": generated_at}
-    for ticker, snapshot in raw_snapshots.items():
+    for ticker in tickers:
+        if ticker in carried:
+            index["tickers"].append(ticker)
+            if carried[ticker].get("name"):
+                index["names"][ticker] = carried[ticker]["name"]
+            continue
+        snapshot = raw_snapshots.get(ticker)
+        if snapshot is None:
+            continue
         is_etf = _is_etf(snapshot["fields"])
         analysis = (
             _build_etf_analysis(snapshot["fields"]) if is_etf
@@ -538,10 +616,10 @@ def main(tickers: list[str], merge_index: bool = False) -> None:
             "analysis": analysis,
             "price_history": snapshot["price_history"],
         }
-        # Compact, not indent=2: price_history now carries 5 years of daily bars (~1250 entries,
-        # see finviz.py's _PRICE_HISTORY_DAYS), and every ticker click on docs/index.html fetches
-        # this file fresh over the network — pretty-printing was ~38% of the payload for nothing
-        # a browser's fetch()/JSON.parse ever renders. Not meant for humans to read raw.
+        # Compact, not indent=2: price_history carries 5 years of daily bars (~1250 entries, see
+        # finviz.py's _PRICE_HISTORY_DAYS), and every ticker click on docs/index.html fetches this
+        # file over the network — pretty-printing was ~38% of the payload for nothing a browser
+        # ever renders. Not meant for humans to read raw.
         (_OUTPUT_DIR / f"{ticker}.json").write_text(json.dumps(data, separators=(",", ":")))
         index["tickers"].append(ticker)
         if snapshot.get("company_name"):
@@ -550,8 +628,20 @@ def main(tickers: list[str], merge_index: bool = False) -> None:
 
     if merge_index:
         index = _merge_into_existing_index(index)
+    else:
+        _remove_orphaned_files(set(index["tickers"]))
     (_OUTPUT_DIR / "index.json").write_text(json.dumps(index, separators=(",", ":")))
-    logger.info("Wrote %d ticker(s) + index.json to %s", len(raw_snapshots), _OUTPUT_DIR)
+    logger.info("Wrote %d ticker(s) + index.json to %s", len(index["tickers"]), _OUTPUT_DIR)
+
+
+def _remove_orphaned_files(keep: set[str]) -> None:
+    """Full runs only: delete docs/data/<TICKER>.json for anything not in today's index — tickers
+    that left TICKERS or came back 404. Otherwise the old file lingers forever (WBD.json sat
+    there frozen at 2026-10-17, still reachable by URL, after WBD left the index)."""
+    for path in _OUTPUT_DIR.glob("*.json"):
+        if path.name != "index.json" and path.stem not in keep:
+            path.unlink()
+            logger.info("[%s] removed orphaned data file (no longer listed).", path.stem)
 
 
 def _merge_into_existing_index(partial: dict) -> dict:

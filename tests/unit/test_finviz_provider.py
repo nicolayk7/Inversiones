@@ -17,6 +17,7 @@ from packages.providers.fundamentals.finviz import (
     FinvizFundamentalsProvider,
     FinvizNotFoundError,
     FinvizResponseError,
+    FinvizTransientError,
     _parse_categories,
     _parse_company_name,
     _parse_number,
@@ -114,8 +115,10 @@ def _client(handler) -> httpx.Client:
     return httpx.Client(transport=httpx.MockTransport(handler))
 
 
-def _provider(handler) -> FinvizFundamentalsProvider:
-    return FinvizFundamentalsProvider(client=_client(handler))
+def _provider(handler, sleeps: list | None = None) -> FinvizFundamentalsProvider:
+    # Retries keep their real delay values (so tests can assert on them) but never actually wait.
+    record = sleeps if sleeps is not None else []
+    return FinvizFundamentalsProvider(client=_client(handler), sleep=record.append)
 
 
 # -- _parse_number ------------------------------------------------------------------------------
@@ -424,12 +427,84 @@ def test_missing_grid_raises_response_error_not_empty_result():
         _provider(handler).get_quarterly_fundamentals("AAPL")
 
 
-def test_http_error_propagates():
+def test_persistent_5xx_is_retried_then_raises_a_finviz_error_not_raw_httpx():
+    """Regression for the 2026-10-28 cron failure: a raw httpx.HTTPStatusError escaped the
+    generator's `except FinvizError` and killed the whole daily run."""
+    calls, sleeps = [], []
+
     def handler(request):
+        calls.append(request)
         return httpx.Response(500, text="internal error")
 
-    with pytest.raises(httpx.HTTPStatusError):
+    with pytest.raises(FinvizTransientError, match="HTTP 500 after 3 attempts"):
+        _provider(handler, sleeps).get_quarterly_fundamentals("AAPL")
+    assert len(calls) == 3
+    assert sleeps == [2.0, 6.0]
+
+
+def test_transient_5xx_then_success_recovers():
+    responses = iter([httpx.Response(503), httpx.Response(200, text=_AAPL_QUOTE_HTML)])
+
+    def handler(request):
+        return next(responses)
+
+    record = _provider(handler).get_quarterly_fundamentals("AAPL")[0]
+    assert record.ticker == "AAPL"
+
+
+def test_429_honors_retry_after_but_caps_it():
+    sleeps = []
+    responses = iter([
+        httpx.Response(429, headers={"Retry-After": "4"}),
+        httpx.Response(429, headers={"Retry-After": "999"}),
+        httpx.Response(200, text=_AAPL_QUOTE_HTML),
+    ])
+
+    def handler(request):
+        return next(responses)
+
+    _provider(handler, sleeps).get_quarterly_fundamentals("AAPL")
+    assert sleeps == [4.0, 30.0]
+
+
+def test_network_error_is_retried_then_raises_transient():
+    calls = []
+
+    def handler(request):
+        calls.append(request)
+        raise httpx.ConnectTimeout("timed out", request=request)
+
+    with pytest.raises(FinvizTransientError, match="network error after 3 attempts"):
+        _provider(handler).get_price_history("AAPL")
+    assert len(calls) == 3
+
+
+def test_transient_errors_are_finviz_errors():
+    assert issubclass(FinvizTransientError, FinvizError)
+
+
+def test_403_is_not_retried_and_raises_response_error():
+    calls = []
+
+    def handler(request):
+        calls.append(request)
+        return httpx.Response(403, text="blocked")
+
+    with pytest.raises(FinvizResponseError, match="HTTP 403"):
         _provider(handler).get_quarterly_fundamentals("AAPL")
+    assert len(calls) == 1
+
+
+def test_404_is_not_retried():
+    calls = []
+
+    def handler(request):
+        calls.append(request)
+        return httpx.Response(404)
+
+    with pytest.raises(FinvizNotFoundError):
+        _provider(handler).get_snapshot("ZZZZ")
+    assert len(calls) == 1
 
 
 # -- get_price_history -------------------------------------------------------------------------

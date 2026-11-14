@@ -18,9 +18,10 @@ permissions:
   contents: write
 
 # A manual run started while the scheduled one is still going would race it to push — queue
-# instead of overlapping (and never cancel a run halfway through writing data).
+# instead of overlapping (and never cancel a run halfway through writing data). Shared with
+# refresh-sec-fundamentals.yml, which also pushes data to main.
 concurrency:
-  group: refresh-finviz-snapshot
+  group: site-data-refresh
   cancel-in-progress: false
 
 jobs:

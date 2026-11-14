@@ -597,6 +597,15 @@
   .compare-table thead th { font-family: "JetBrains Mono", ui-monospace, monospace; color: var(--text); }
   .compare-table tbody th { text-align: left; font-weight: 400; color: var(--muted); }
   .compare-table td { font-weight: 600; }
+  .sec-panel { padding-top: 6px; }
+  .sec-table thead th:first-child { color: var(--muted); font-weight: 400; text-align: left; }
+  .sec-table td { font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 500; }
+  /* Labels stay put while the years scroll sideways on narrow screens. */
+  .sec-table tbody th, .sec-table thead th:first-child { position: sticky; left: 0; background: var(--panel); z-index: 1; }
+  .sec-check { padding: 9px 0 0; font-size: 12.5px; line-height: 1.45; }
+  .sec-check.warn { color: var(--warn); }
+  .sec-panel .analysis-footnote { margin-top: 10px; }
+  .sec-panel .analysis-footnote a { color: var(--accent); }
 
   @media (max-width: 480px) {
     body { padding: 14px 12px 28px; }
@@ -608,6 +617,8 @@
     .compare-panel { padding: 12px; }
     .compare-table { font-size: 12px; }
     .compare-table th, .compare-table td { padding: 7px 5px; }
+    .sec-table { font-size: 11.5px; }
+    .sec-table tbody th { white-space: normal; min-width: 84px; line-height: 1.25; }
     .meta-bar { align-items: flex-start; }
     .grid-row { padding: 9px 10px; font-size: 12px; }
     .analysis-row { font-size: 12.5px; }
@@ -667,7 +678,7 @@
 
 <!-- ?v= busts GitHub Pages' 10-min cache so a visitor never pairs this page with a stale
      logic.js — bump it whenever docs/js/logic.js changes in a way this page depends on. -->
-<script src="js/logic.js?v=2026-10-28"></script>
+<script src="js/logic.js?v=2026-11-13"></script>
 <script>
 // Plain-language explanation for every field label used anywhere on this page (grid + analysis
 // section) — shown as a native browser tooltip (title attribute) on hover/long-press, so a reader
@@ -834,6 +845,57 @@ function renderCharts(charts) {
     </div>`;
   }).join("");
   return `<div class="charts">${panels}</div>`;
+}
+
+// Official annual figures from each company's own 10-K filings (scripts/generate_sec_fundamentals.py)
+// — a second, independent source next to Finviz's. `sec` is null for ETFs (no file) or if the file
+// failed to load; the section is then simply absent.
+function renderSec(sec, data) {
+  if (!sec) return "";
+  const title = `<div class="section-title">Fundamentales oficiales — SEC EDGAR (10-K)</div>`;
+  if (sec.status !== "ok") {
+    const why = sec.status === "no_10k"
+      ? `${sec.entity_name ? escapeHtml(sec.entity_name) + " no" : "Esta empresa no"} presenta un 10-K con datos XBRL en dólares ante la SEC — normalmente porque es un emisor extranjero que reporta con el formulario 20-F (a menudo en IFRS o en otra moneda), que esta sección no cubre.`
+      : "Este ticker no aparece en el listado de empresas de la SEC.";
+    return `${title}<div class="panel-note">${why}</div>`;
+  }
+
+  const metrics = sec.metrics.filter(m => m.values.some(v => v !== null && v !== undefined));
+  const head = sec.years.map(y =>
+    `<th title="Año fiscal terminado el ${escapeHtml(y.period_end)} · 10-K presentado el ${escapeHtml(y.first_filed)}">${escapeHtml(y.label)}</th>`).join("");
+  const rows = metrics.map(m => `<tr><th>${escapeHtml(m.label)}</th>${m.values.map(v =>
+    `<td class="${typeof v === "number" && v < 0 ? "neg" : ""}">${formatSecValue(v, m.unit)}</td>`).join("")}</tr>`).join("");
+  const missing = sec.metrics.length - metrics.length;
+
+  const checks = secCrossCheck(sec, data.charts).map(c => c.match
+    ? `<div class="sec-check pos">✓ ${c.label} ${c.fiscal} coincide con Finviz (${formatSecValue(c.sec, c.unit)}).</div>`
+    : `<div class="sec-check warn">⚠ ${c.label} ${c.fiscal}: SEC ${formatSecValue(c.sec, c.unit)} vs. Finviz ${formatSecValue(c.finviz, c.unit)} (diferencia ${c.diffPct.toFixed(1)}%). ${c.key === "eps_diluted"
+      ? "Suele deberse a un split o a una escisión posterior al 10-K (Finviz ajusta el histórico; el 10-K conserva la cifra original) o a una re-expresión."
+      : "Suele deberse a que cada fuente define distinto los ingresos (en bancos, Finviz suma los intereses cobrados brutos; aquí se usa el ingreso neto, como en el 10-K), a una re-expresión o a una actualización pendiente."}
+      La cifra de la SEC es la que presentó la empresa.</div>`
+  ).join("");
+  const stale = secIsStale(sec, Date.now())
+    ? `<div class="sec-check warn">⚠ El último año fiscal disponible terminó el ${escapeHtml(sec.years[sec.years.length - 1].period_end)}: falta un 10-K más reciente, así que estas cifras son históricas.</div>`
+    : "";
+  const filing = sec.latest_10k;
+
+  return `${title}
+    <div class="analysis-panel sec-panel">
+      <div class="compare-table-wrap"><table class="compare-table sec-table">
+        <thead><tr><th>USD</th>${head}</tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>
+      ${checks}${stale}
+      <div class="analysis-footnote">
+        Fuente: informes anuales 10-K que ${sec.entity_name ? escapeHtml(sec.entity_name) : "la empresa"} presenta ante la SEC
+        (datos XBRL, API pública y gratuita de EDGAR). Último 10-K presentado el ${escapeHtml(filing.filed)} ·
+        <a href="${escapeHtml(filing.url)}" target="_blank" rel="noopener">ver en sec.gov</a>.
+        Cifras tal como se reportan actualmente (incluyen re-expresiones); el año fiscal se nombra por el año en que termina.
+        Flujo de caja libre = flujo de caja operativo − capex.
+        ${missing ? `Se omiten ${missing} métrica(s) que la empresa no reporta con un concepto estándar (por ejemplo, bancos y aseguradoras no reportan capex ni resultado operativo).` : ""}
+        Son los datos que la propia empresa presentó ante el regulador, no estimaciones.
+      </div>
+    </div>`;
 }
 
 // Metrics compared as percentages (Finviz/this analysis stores them as fractions, e.g. 0.307 for
@@ -1190,7 +1252,7 @@ function renderCompare(data) {
 
 function renderTickerContent(data) {
   return renderPriceChart(data.price_history) + renderGrid(data.columns) + renderCharts(data.charts)
-    + renderAnalysis(data.analysis) + renderSentiment(data) + renderCompare(data);
+    + renderSec(currentSec, data) + renderAnalysis(data.analysis) + renderSentiment(data) + renderCompare(data);
 }
 
 // -- App state, data cache, routing ---------------------------------------------------------------
@@ -1199,6 +1261,7 @@ let appIndex = { tickers: [], names: {} };
 let availableTickers = new Set();
 let currentTicker = null, currentData = null;
 let compareTicker = null, compareData = null;
+let currentSec = null;
 
 // In-memory per-session cache of ticker JSON (a promise, so a prefetch and a click for the same
 // ticker share one request). cache:"no-cache" revalidates with GitHub Pages (ETag -> 304) instead
@@ -1211,6 +1274,19 @@ function fetchTicker(ticker) {
     .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); });
   dataCache.set(ticker, p);
   p.catch(() => dataCache.delete(ticker)); // don't cache failures
+  return p;
+}
+
+// The SEC file is optional (ETFs have none; a fetch problem must never break the page): resolves to
+// null instead of rejecting.
+const secCache = new Map();
+
+function fetchSec(ticker) {
+  if (secCache.has(ticker)) return secCache.get(ticker);
+  const p = fetch(`data/sec/${encodeURIComponent(ticker)}.json`, { cache: "no-cache" })
+    .then(res => (res.ok ? res.json() : null))
+    .catch(() => null);
+  secCache.set(ticker, p);
   return p;
 }
 
@@ -1253,12 +1329,13 @@ async function showTicker(ticker, compare) {
   const content = document.getElementById("content");
   if (tickerChanged) content.innerHTML = `<div class="loading">Cargando ${escapeHtml(ticker)}…</div>`;
   try {
-    const data = await fetchTicker(ticker);
+    const [data, sec] = await Promise.all([fetchTicker(ticker), fetchSec(ticker)]);
     let other = null;
     if (compare) other = await fetchTicker(compare).catch(() => null);
     // A newer navigation may have started while we were waiting — let it win.
     if (currentTicker !== ticker || compareTicker !== compare) return;
     currentData = data;
+    currentSec = sec;
     compareData = other;
     updateMeta(data);
     rerenderContent();
@@ -1297,6 +1374,10 @@ function rerenderContent() {
 }
 
 function attachContentHandlers() {
+  // On a narrow screen the SEC table scrolls sideways — open it on the latest fiscal year, the
+  // one that matters most, instead of the oldest.
+  const secWrap = document.querySelector(".sec-panel .compare-table-wrap");
+  if (secWrap) secWrap.scrollLeft = secWrap.scrollWidth;
   document.querySelectorAll(".cadence-toggle button[data-cadence]").forEach(btn =>
     btn.addEventListener("click", () => { currentCadence = btn.dataset.cadence; rerenderContent(); }));
   document.querySelectorAll(".cadence-toggle button[data-price-cadence]").forEach(btn =>

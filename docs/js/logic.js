@@ -403,6 +403,62 @@ function rebasedComparison(barsA, barsB, lookbackBars) {
   }));
 }
 
+// -- SEC EDGAR fundamentals (docs/data/sec/{TICKER}.json, scripts/generate_sec_fundamentals.py) --
+
+// USD amounts as filed (full dollars) -> "478.8B" / "715.0M" / "-147.8B"; per-share values plain.
+function formatSecValue(v, unit) {
+  if (v === null || v === undefined) return "—";
+  if (unit === "USD/shares") return v.toFixed(2);
+  const abs = Math.abs(v);
+  if (abs >= 1e12) return (v / 1e12).toFixed(2) + "T";
+  if (abs >= 1e9) return (v / 1e9).toFixed(1) + "B";
+  if (abs >= 1e6) return (v / 1e6).toFixed(1) + "M";
+  return v.toLocaleString("en-US");
+}
+
+// Tolerances for "same number": Finviz rounds sales to $1M and EPS to 3 decimals, and may lag a
+// restatement by a few days — anything beyond these is a real difference worth showing.
+const SEC_CHECK_TOLERANCE = { revenue: 0.01, eps_diluted: 0.02 };
+
+// Compares the SEC's latest fiscal year with Finviz's annual bar carrying the same year label
+// (both label a fiscal year by the calendar year it ends in). Returns one row per metric that
+// both sources have for that year; [] when they share none. Purely informational: it never
+// changes either source's numbers.
+function secCrossCheck(sec, charts) {
+  if (!sec || sec.status !== "ok" || !charts || !sec.years || sec.years.length === 0) return [];
+  const last = sec.years.length - 1;
+  const year = sec.years[last].label.replace(/^FY/, "");
+  const checks = [
+    { key: "revenue", label: "Ingresos", chart: "sales", scale: 1e6 }, // Finviz sales are in $mm
+    { key: "eps_diluted", label: "BPA diluido", chart: "eps", scale: 1 },
+  ];
+  const rows = [];
+  for (const c of checks) {
+    const metric = (sec.metrics || []).find(m => m.key === c.key);
+    const secValue = metric ? metric.values[last] : null;
+    const bar = ((charts[c.chart] || {}).annual || []).find(p => String(p.name) === year);
+    if (secValue === null || secValue === undefined || !bar || bar.value === null || bar.value === undefined) continue;
+    const finviz = bar.value * c.scale;
+    const base = Math.max(Math.abs(secValue), Math.abs(finviz));
+    const diff = base === 0 ? 0 : Math.abs(secValue - finviz) / base;
+    rows.push({
+      key: c.key, label: c.label, fiscal: sec.years[last].label, unit: metric.unit,
+      sec: secValue, finviz, diffPct: diff * 100, match: diff <= SEC_CHECK_TOLERANCE[c.key],
+    });
+  }
+  return rows;
+}
+
+// A latest fiscal year that ended more than ~15 months ago means a 10-K is overdue (late filer,
+// acquired, deregistered) — the table is then historical, and the page says so.
+const SEC_STALE_AFTER_DAYS = 460;
+
+function secIsStale(sec, nowMs) {
+  if (!sec || sec.status !== "ok" || !sec.years || sec.years.length === 0) return false;
+  const end = Date.parse(`${sec.years[sec.years.length - 1].period_end}T00:00:00Z`);
+  return Number.isFinite(end) && (nowMs - end) / 86400000 > SEC_STALE_AFTER_DAYS;
+}
+
 if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     DAILY_VIEW_BARS, SMA_PERIODS, STALE_AFTER_HOURS,
@@ -410,5 +466,6 @@ if (typeof module !== "undefined" && module.exports) {
     fundamentalsBreakdown, computeTrend, computeSentiment,
     sma, smaSeriesForView, formatBarLabel, formatVolume, normalizeText, searchTickers, tickerFromHash, parseRoute, routeHash,
     escapeHtml, dataFreshness, rebasedComparison,
+    SEC_CHECK_TOLERANCE, SEC_STALE_AFTER_DAYS, formatSecValue, secCrossCheck, secIsStale,
   };
 }

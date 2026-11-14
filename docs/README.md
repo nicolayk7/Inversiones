@@ -16,6 +16,8 @@ docs/js/logic.js                           pure, DOM-free logic (candle aggregat
 docs/index.html                            fetches the JSON, renders everything
 tests/js/logic.test.cjs                    tests for docs/js/logic.js (node --test, no npm deps)
 .github/workflows/refresh-finviz-snapshot.yml   daily: generate -> validate -> commit
+scripts/generate_sec_fundamentals.py       SEC EDGAR 10-K facts -> docs/data/sec/{TICKER}.json
+.github/workflows/refresh-sec-fundamentals.yml  daily: same loop for the SEC data
 .github/workflows/tests.yml                on every push: pytest + node tests
 ```
 
@@ -43,6 +45,25 @@ node --test "tests/js/*.test.cjs"
 - **Favorites** are stored in the visitor's own browser (`localStorage`) — nothing server-side.
 - **Data freshness.** Each ticker shows "actualizado hace X h"; past 48 h a warning appears, in
   case the daily cron fails again silently (it did once — `httpx` missing, 2026-08-20).
+
+## Second source: SEC EDGAR (official 10-K figures)
+
+Each stock page also shows "Fundamentales oficiales — SEC EDGAR (10-K)": the last 5 fiscal years
+of revenue, operating income, net income, diluted EPS, operating cash flow, capex, free cash flow
+and equity, straight from the XBRL facts each company files with the SEC (free, no API key), plus
+a cross-check of the latest year's revenue and EPS against Finviz's annual bars. Foreign issuers
+that file 20-F instead of 10-K get a note explaining the gap; ETFs get no section. Extraction rules
+(concept fallbacks, how restatements and fiscal years are handled) are in the script's docstring.
+
+SEC asks automated clients to identify themselves: set a repository variable
+`SEC_EDGAR_USER_AGENT` (Settings -> Secrets and variables -> Actions -> Variables) to something
+like `Nicolas Invest site you@example.com`. Without it the script sends a generic User-Agent,
+which works today but may be throttled.
+
+```bash
+python scripts/generate_sec_fundamentals.py              # all equities, ~7 min
+python scripts/generate_sec_fundamentals.py AAPL JPM     # just these
+```
 
 ## Analytics (off by default)
 

@@ -1,0 +1,72 @@
+name: Refresh SEC fundamentals
+
+# Official annual fundamentals (10-K XBRL facts) from SEC EDGAR for the static site — see
+# scripts/generate_sec_fundamentals.py. Free, no API key. Runs separately from the Finviz refresh
+# so a problem with one source never blocks the other from publishing.
+#
+# SEC asks automated clients to identify themselves in the User-Agent, ideally with a contact:
+# set a repository variable SEC_EDGAR_USER_AGENT (Settings -> Secrets and variables -> Actions ->
+# Variables), e.g. "Nicolas Invest site you@example.com". Unset, the script falls back to a
+# generic User-Agent, which data.sec.gov currently accepts.
+
+on:
+  schedule:
+    # Daily, ~12:00 UTC — a new 10-K shows up the day after it's filed. Off-peak from the Finviz
+    # refresh (22:00 UTC).
+    - cron: "0 12 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+# Same group as the Finviz refresh: both push to main, so they queue instead of racing.
+concurrency:
+  group: site-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install project
+        run: pip install -e .
+
+      # Per-ticker failures keep the previous file and show as warnings; the step only fails if
+      # most fetches fail (SEC blocking / outage), in which case nothing is committed.
+      - name: Generate SEC fundamentals JSON
+        env:
+          SEC_EDGAR_USER_AGENT: ${{ vars.SEC_EDGAR_USER_AGENT }}
+        run: python scripts/generate_sec_fundamentals.py
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - name: Validate generated data
+        run: node --test "tests/js/*.test.cjs"
+
+      - name: Commit updated SEC data (if anything changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A docs/data/sec
+          if git diff --cached --quiet; then
+            echo "No SEC data changes — nothing to commit."
+            exit 0
+          fi
+          git commit -m "Refresh SEC fundamentals [automated]"
+          for attempt in 1 2 3; do
+            git push origin HEAD:main && exit 0
+            echo "Push rejected (attempt $attempt) — rebasing onto the latest main and retrying."
+            git pull --rebase origin main
+          done
+          echo "::error::Could not push the refreshed SEC data after 3 attempts."
+          exit 1

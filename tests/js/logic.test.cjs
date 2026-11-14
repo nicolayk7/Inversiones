@@ -330,3 +330,97 @@ test("every generated ticker renders: all cadences, SMAs, and a well-formed sign
     assert.equal(Boolean(s.badge), !data.is_etf && Boolean(data.analysis && data.analysis.comparisons), `${t}: badge presence`);
   }
 });
+
+test("most equities carry a sector analysis (guards the 2026-11-04 silent wipe)", { skip: !hasData && "no docs/data" }, () => {
+  const index = JSON.parse(fs.readFileSync(INDEX_FILE, "utf8"));
+  const equities = index.tickers
+    .map(t => JSON.parse(fs.readFileSync(path.join(DATA_DIR, `${t}.json`), "utf8")))
+    .filter(d => !d.is_etf);
+  const missing = equities.filter(d => !d.analysis).map(d => d.ticker);
+  assert.ok(missing.length <= equities.length * 0.1,
+    `${missing.length}/${equities.length} equities have no sector analysis (e.g. ${missing.slice(0, 5).join(", ")})`);
+});
+
+// -- SEC EDGAR fundamentals -----------------------------------------------------------------------
+
+function secFixture(overrides = {}) {
+  return {
+    status: "ok",
+    years: [
+      { period_end: "2025-09-27", label: "FY2025", first_filed: "2025-10-31" },
+      { period_end: "2026-09-26", label: "FY2026", first_filed: "2026-11-03" },
+    ],
+    metrics: [
+      { key: "revenue", unit: "USD", values: [416161000000, 478834000000] },
+      { key: "eps_diluted", unit: "USD/shares", values: [7.46, 8.98] },
+    ],
+    ...overrides,
+  };
+}
+
+test("formatSecValue scales dollars and keeps per-share values plain", () => {
+  assert.equal(L.formatSecValue(478834000000, "USD"), "478.8B");
+  assert.equal(L.formatSecValue(-147782000000, "USD"), "-147.8B");
+  assert.equal(L.formatSecValue(715000000, "USD"), "715.0M");
+  assert.equal(L.formatSecValue(5.2e12, "USD"), "5.20T");
+  assert.equal(L.formatSecValue(8.98, "USD/shares"), "8.98");
+  assert.equal(L.formatSecValue(null, "USD"), "—");
+});
+
+test("secCrossCheck matches Finviz's bar with the same fiscal-year label", () => {
+  const charts = {
+    sales: { annual: [{ name: "2025", value: 416161 }, { name: "2026", value: 478834 }] },
+    eps: { annual: [{ name: "2026", value: 8.979 }] },
+  };
+  const rows = L.secCrossCheck(secFixture(), charts);
+  assert.deepEqual(rows.map(r => [r.key, r.fiscal, r.match]), [["revenue", "FY2026", true], ["eps_diluted", "FY2026", true]]);
+  assert.equal(rows[0].finviz, 478834e6);
+});
+
+test("secCrossCheck flags a real difference and skips what one source lacks", () => {
+  const charts = { sales: { annual: [{ name: "2026", value: 440000 }] } }; // ~8% off, no EPS bars
+  const rows = L.secCrossCheck(secFixture(), charts);
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].match, false);
+  assert.ok(rows[0].diffPct > 7 && rows[0].diffPct < 9);
+  assert.deepEqual(L.secCrossCheck(secFixture(), { sales: { annual: [{ name: "2025", value: 1 }] } }), []);
+  assert.deepEqual(L.secCrossCheck({ status: "no_10k" }, charts), []);
+  assert.deepEqual(L.secCrossCheck(secFixture(), null), []);
+});
+
+test("secIsStale after ~15 months without a new fiscal year", () => {
+  const sec = secFixture();
+  assert.equal(L.secIsStale(sec, Date.parse("2027-06-01T00:00:00Z")), false);
+  assert.equal(L.secIsStale(sec, Date.parse("2028-01-15T00:00:00Z")), true);
+  assert.equal(L.secIsStale({ status: "no_10k" }, Date.now()), false);
+});
+
+const SEC_DIR = path.join(DATA_DIR, "sec");
+const hasSec = fs.existsSync(SEC_DIR);
+
+test("generated SEC files are well-formed and belong to listed equities", { skip: !hasSec && "no docs/data/sec" }, () => {
+  const index = JSON.parse(fs.readFileSync(INDEX_FILE, "utf8"));
+  const listed = new Set(index.tickers);
+  const files = fs.readdirSync(SEC_DIR).filter(f => f.endsWith(".json"));
+  assert.ok(files.length > 400, `only ${files.length} SEC files`);
+  let ok = 0;
+  for (const f of files) {
+    const t = f.slice(0, -5);
+    const sec = JSON.parse(fs.readFileSync(path.join(SEC_DIR, f), "utf8"));
+    assert.ok(listed.has(t), `${t}: SEC file for a ticker not in index.json`);
+    assert.equal(sec.ticker, t, `${t}: ticker field mismatch`);
+    assert.ok(["ok", "no_10k", "not_in_sec"].includes(sec.status), `${t}: unknown status ${sec.status}`);
+    if (sec.status !== "ok") continue;
+    ok++;
+    assert.ok(sec.years.length >= 1 && sec.years.length <= 5, `${t}: ${sec.years.length} years`);
+    for (let i = 1; i < sec.years.length; i++) assert.ok(sec.years[i - 1].period_end < sec.years[i].period_end, `${t}: years not oldest-first`);
+    for (const m of sec.metrics) {
+      assert.equal(m.values.length, sec.years.length, `${t}/${m.key}: values misaligned with years`);
+      assert.ok(m.values.every(v => v === null || (typeof v === "number" && Number.isFinite(v))), `${t}/${m.key}: non-numeric value`);
+    }
+    assert.ok(/^https:\/\/www\.sec\.gov\/Archives\/edgar\/data\/\d+\/\d+\/$/.test(sec.latest_10k.url), `${t}: bad filing url`);
+    const data = JSON.parse(fs.readFileSync(path.join(DATA_DIR, `${t}.json`), "utf8"));
+    L.secCrossCheck(sec, data.charts); // must not throw on any real pairing
+  }
+  assert.ok(ok > files.length * 0.8, `only ${ok}/${files.length} SEC files have 10-K data`);
+});

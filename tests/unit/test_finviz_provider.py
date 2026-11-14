@@ -325,6 +325,54 @@ def test_parse_categories_etf_form_omits_cap_size():
     assert "cap_size" not in result
 
 
+# Verbatim shape of the live header block as of 2026-11-13 (Finviz changed it ~2026-11-04): new
+# `/screener/stocks?...` path, `industry_` instead of `ind_`, and ETF pages point their industry
+# link at `/screener/etf?v=181&f=etf_sectype_...`. The old exact-href regex matched NONE of these
+# sector/industry links, which silently emptied every ticker's sector analysis.
+_AAPL_CATEGORIES_HTML_2026_11 = """
+                <div class="quote-header_categories">
+                    <a href="/screener/stocks?v=111&f=sec_technology" class="quote-header_category">Technology</a>
+                    <a href="/screener/stocks?v=111&f=industry_consumerelectronics" class="quote-header_category" title="Consumer Electronics"><span class="min-w-0 truncate">Consumer Electronics</span></a>
+                    <a href="/screener/stocks?v=111&f=geo_usa" class="quote-header_category">USA</a>
+                        <a href="/screener/stocks?v=111&f=cap_mega" class="quote-header_category">Mega</a>
+                    <a href="/screener/stocks?v=111&f=exch_nasd" class="quote-header_category">NASD</a>
+                </div>
+"""
+_SPY_CATEGORIES_HTML_2026_11 = """
+                <div class="quote-header_categories">
+                    <a href="/screener/stocks?v=111&f=sec_financial" class="quote-header_category">Financial</a>
+                    <a href="/screener/etf?v=181&f=etf_sectype_exchangetradedfund" class="quote-header_category" title="Exchange Traded Fund"><span class="min-w-0 truncate">Exchange Traded Fund</span></a>
+                    <a href="/screener/stocks?v=111&f=geo_usa" class="quote-header_category">USA</a>
+
+                    <a href="/screener/etf?v=181&f=exch_nyse" class="quote-header_category">NYSE</a>
+                </div>
+"""
+
+
+def test_parse_categories_2026_11_equity_format():
+    assert _parse_categories(_AAPL_CATEGORIES_HTML_2026_11) == {
+        "sector": "Technology", "industry": "Consumer Electronics", "country": "USA",
+        "cap_size": "Mega", "exchange": "NASD",
+    }
+
+
+def test_parse_categories_2026_11_etf_format():
+    assert _parse_categories(_SPY_CATEGORIES_HTML_2026_11) == {
+        "sector": "Financial", "industry": "Exchange Traded Fund", "country": "USA",
+        "exchange": "NYSE",
+    }
+
+
+def test_parse_categories_ignores_links_without_a_known_filter_prefix():
+    block = (
+        '<div class="quote-header_categories">'
+        '<a href="/screener/stocks?v=111&f=sec_energy" class="quote-header_category">Energy</a>'
+        '<a href="/elite?utm_source=finviz" class="quote-header_category">Elite</a>'
+        "</div>"
+    )
+    assert _parse_categories(block) == {"sector": "Energy"}
+
+
 def test_parse_categories_returns_empty_dict_when_block_absent():
     assert _parse_categories("<html><body>no categories here</body></html>") == {}
 

@@ -178,25 +178,34 @@ def _clean_text(html_fragment: str) -> str:
 # for equity-style sector-relative comparison (see scripts/generate_finviz_snapshot_site.py's
 # analysis module, which instead detects "is this an ETF" from the presence of the "Assets Under
 # Management" field — a signal no equity page carries — rather than from this generic label).
+#
+# Finviz changed these links around 2026-11-04 (confirmed live 2026-11-13): the href moved from
+# `screener?v=111&f=sec_...` to `/screener/stocks?v=111&f=sec_...`, and the industry prefix from
+# `ind_` to `industry_` (ETF pages: `/screener/etf?v=181&f=etf_sectype_...`). Matching the exact
+# old href made every ticker lose its sector silently for 10 days (no sector -> no sector medians
+# -> no "Análisis" on the site). So the pattern now only requires an href carrying an
+# `f=<prefix>_` filter, whatever the path; old and new formats are both accepted.
 _CATEGORY_PATTERN = re.compile(
-    r'<a href="screener\?v=111&f=(?P<kind>sec|ind|geo|cap|exch)_[^"]*" '
+    r'<a href="[^"]*[?&]f=(?P<kind>sec|industry|ind|etf_sectype|geo|cap|exch)_[^"]*" '
     r'class="quote-header_category"[^>]*>(?P<text>.*?)</a>',
     re.S,
 )
 _CATEGORY_KIND_NAMES = {
-    "sec": "sector", "ind": "industry", "geo": "country", "cap": "cap_size", "exch": "exchange",
+    "sec": "sector", "ind": "industry", "industry": "industry", "etf_sectype": "industry",
+    "geo": "country", "cap": "cap_size", "exch": "exchange",
 }
 
 
 def _parse_categories(body: str) -> dict[str, str]:
     """Returns whatever subset of {sector, industry, country, cap_size, exchange} this page's
     header block actually has — never guesses a missing one. Scoped to the header block only (the
-    first ~800 chars after its marker class), not searched over the whole page, so it can't
-    accidentally match an unrelated `quote-header_category`-styled link elsewhere."""
+    first ~2000 chars after its marker class; the 2026-11 hrefs are longer than the old ones), not
+    searched over the whole page, so it can't accidentally match an unrelated
+    `quote-header_category`-styled link elsewhere."""
     start = body.find("quote-header_categories")
     if start == -1:
         return {}
-    block = body[start : start + 800]
+    block = body[start : start + 2000]
     return {
         _CATEGORY_KIND_NAMES[m.group("kind")]: html.unescape(_clean_text(m.group("text")))
         for m in _CATEGORY_PATTERN.finditer(block)

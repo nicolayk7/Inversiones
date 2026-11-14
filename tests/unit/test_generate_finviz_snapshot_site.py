@@ -153,6 +153,24 @@ def test_mass_failure_still_aborts_without_writing(out, monkeypatch):
     assert not (out / "index.json").exists()                     # carried-forward doesn't mask an outage
 
 
+class NoSectorProvider(FakeProvider):
+    """Every page fetches fine but the parser found no categories — what happened 2026-11-04."""
+
+    def get_snapshot(self, ticker):
+        snapshot = super().get_snapshot(ticker)
+        snapshot["categories"] = {}
+        return snapshot
+
+
+def test_missing_sectors_everywhere_aborts_without_writing(out, monkeypatch):
+    _write_previous(out, "A1")
+    _use(monkeypatch, NoSectorProvider())
+    with pytest.raises(RuntimeError, match="3/3 equities came back with no sector"):
+        gen.main(["A1", "A2", "A3"])
+    assert _read(out, "A1")["name"] == "A1 Old Name"             # last good data untouched
+    assert not (out / "index.json").exists()
+
+
 def test_github_warning_only_inside_actions(monkeypatch, capsys):
     monkeypatch.delenv("GITHUB_ACTIONS", raising=False)
     gen._gh_warning("t", "m")

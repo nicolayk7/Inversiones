@@ -4,8 +4,26 @@
     {
       "name": "investment-intelligence-api",
       "runtimeExecutable": ".venv/Scripts/uvicorn.exe",
-      "runtimeArgs": ["apps.api.main:app", "--host", "127.0.0.1", "--port", "8010"],
+      "runtimeArgs": [
+        "apps.api.main:app",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8010"
+      ],
       "port": 8010
+    },
+    {
+      "name": "finviz-site",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8020",
+        "--directory",
+        "docs"
+      ],
+      "port": 8020
     }
   ]
 }

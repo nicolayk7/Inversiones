@@ -584,6 +584,22 @@ def main(tickers: list[str], merge_index: bool = False) -> None:
             "and will be missing for most of them. Run with no arguments before committing.",
             len(raw_snapshots),
         )
+
+    # Second safety net, added 2026-11-13: from 2026-11-04 Finviz changed its sector/industry link
+    # markup, finviz.py's parser found no sector on ANY page, and ten daily runs committed every
+    # ticker with analysis=None — the site showed "no hay suficientes acciones del mismo sector"
+    # everywhere and nothing failed. Fetching still "worked", so the check above couldn't see it.
+    # If most freshly-fetched equities come back without a sector, that's a parser break, not a
+    # data fact: abort so the last good site stays up and the failed run is visible in Actions.
+    fresh_equities = [s for s in raw_snapshots.values() if not _is_etf(s["fields"])]
+    no_sector = [s["ticker"] for s in fresh_equities if not s["categories"].get("sector")]
+    if fresh_equities and len(no_sector) > len(fresh_equities) // 2:
+        raise RuntimeError(
+            f"{len(no_sector)}/{len(fresh_equities)} equities came back with no sector "
+            f"(e.g. {', '.join(no_sector[:5])}) — finviz.com's header-category markup likely "
+            "changed; fix _parse_categories in packages/providers/fundamentals/finviz.py. "
+            "Aborting without writing so the sector analysis isn't wiped site-wide."
+        )
     sector_stats = _compute_sector_stats(raw_snapshots)
 
     # Pass 2: build each ticker's columns + analysis (now that sector_stats exists) and write, in

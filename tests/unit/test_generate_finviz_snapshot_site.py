@@ -119,6 +119,29 @@ def test_full_run_removes_orphaned_files(out, monkeypatch):
     assert sorted(p.stem for p in out.glob("*.json")) == ["AAA", "BBB", "index"]
 
 
+def test_full_run_removes_orphaned_sec_files(out, monkeypatch):
+    """A ticker dropped from the index must take its SEC file with it — the leftover KVUE SEC
+    file failed node validation and blocked the 2026-11-15 refresh."""
+    sec = out / "sec"
+    sec.mkdir()
+    for t in ("AAA", "KVUE"):
+        (sec / f"{t}.json").write_text(json.dumps({"ticker": t, "status": "ok"}))
+    _write_previous(out, "KVUE")
+    _use(monkeypatch, FakeProvider(snapshot_errors={"KVUE": FinvizNotFoundError("404")}))
+    gen.main(["AAA", "BBB", "KVUE"])
+    assert sorted(p.stem for p in sec.glob("*.json")) == ["AAA"]
+
+
+def test_partial_run_keeps_sec_files(out, monkeypatch):
+    sec = out / "sec"
+    sec.mkdir()
+    (sec / "OTHER.json").write_text("{}")
+    (out / "index.json").write_text(json.dumps({"tickers": ["OTHER"], "names": {}, "generated_at": "x"}))
+    _use(monkeypatch, FakeProvider())
+    gen.main(["AAA"], merge_index=True)
+    assert (sec / "OTHER.json").exists()
+
+
 def test_partial_run_never_deletes_files(out, monkeypatch):
     _write_previous(out, "OTHER")
     (out / "index.json").write_text(json.dumps({"tickers": ["OTHER"], "names": {}, "generated_at": "x"}))

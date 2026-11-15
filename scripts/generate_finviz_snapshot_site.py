@@ -121,13 +121,15 @@ logger = logging.getLogger("generate_finviz_snapshot_site")
 _REQUEST_DELAY_SECONDS = 0.15  # trimmed from 0.6 (2026-08-21) to shorten the daily refresh; see
 # module docstring's timing paragraph for why this stays sequential rather than adding concurrency.
 
-# S&P 500 ∪ Nasdaq-100, 518 unique tickers, alphabetical, BRK.B/BF.B -> BRK-B/BF-B (see module
+# S&P 500 ∪ Nasdaq-100, 517 unique tickers (518 before KVUE left), alphabetical, BRK.B/BF.B ->
+# BRK-B/BF-B (see module
 # docstring). A point-in-time snapshot of membership, not live-synced — it drifts as the indexes
 # change. LAST REFRESHED 2026-10-28 from Wikipedia's "List of S&P 500 companies" (503) and "List of
 # NASDAQ-100 companies" (101) via the MediaWiki API (slickcharts.com, the original 2026-08-20
 # Nasdaq source, now answers 403). Versus 2026-08-20: out BLDR, CTVA, PSKY, TAP, TTD, WBD; in BE,
 # ILMN, P, SKYD, TWLO, VYLR — every new symbol confirmed live on Finviz. WBD had already 404'd on
 # Finviz (gone from the site since 2026-10-18) and PSKY's chart 404'd (it trades as SKYD now).
+# KVUE removed 2026-11-15: 404 on Finviz after Kimberly-Clark's acquisition of Kenvue closed.
 # When the daily run reports a "Tickers no longer on Finviz" warning, refresh this list again.
 _SP500_NASDAQ100_TICKERS = [
     "A", "AAPL", "ABBV", "ABNB", "ABT", "ACGL", "ACN", "ADBE", "ADI", "ADM",
@@ -158,7 +160,7 @@ _SP500_NASDAQ100_TICKERS = [
     "INCY", "INTC", "INTU", "INVH", "IP", "IQV", "IR", "IRM", "ISRG", "IT",
     "ITW", "IVZ", "J", "JBHT", "JBL", "JCI", "JKHY", "JNJ", "JPM", "KDP",
     "KEY", "KEYS", "KHC", "KIM", "KKR", "KLAC", "KMB", "KMI", "KO", "KR",
-    "KVUE", "L", "LDOS", "LEN", "LH", "LHX", "LII", "LIN", "LITE", "LLY",
+    "L", "LDOS", "LEN", "LH", "LHX", "LII", "LIN", "LITE", "LLY",
     "LMT", "LNT", "LOW", "LRCX", "LULU", "LUV", "LVS", "LYB", "LYV", "MA",
     "MAA", "MAR", "MAS", "MCD", "MCHP", "MCK", "MCO", "MDLZ", "MDT", "MELI",
     "MET", "META", "MGM", "MKC", "MLM", "MMM", "MNST", "MO", "MOS", "MPC",
@@ -653,11 +655,17 @@ def main(tickers: list[str], merge_index: bool = False) -> None:
 def _remove_orphaned_files(keep: set[str]) -> None:
     """Full runs only: delete docs/data/<TICKER>.json for anything not in today's index — tickers
     that left TICKERS or came back 404. Otherwise the old file lingers forever (WBD.json sat
-    there frozen at 2026-10-17, still reachable by URL, after WBD left the index)."""
-    for path in _OUTPUT_DIR.glob("*.json"):
-        if path.name != "index.json" and path.stem not in keep:
-            path.unlink()
-            logger.info("[%s] removed orphaned data file (no longer listed).", path.stem)
+    there frozen at 2026-10-17, still reachable by URL, after WBD left the index).
+
+    Also deletes docs/data/sec/<TICKER>.json: this index is the site's ticker list, and the SEC
+    files hang off it. Leaving the SEC file behind failed validation and blocked the whole
+    2026-11-15 refresh when KVUE 404'd (delisted after the Kimberly-Clark acquisition)."""
+    for directory in (_OUTPUT_DIR, _OUTPUT_DIR / "sec"):
+        for path in directory.glob("*.json"):
+            if path.name != "index.json" and path.stem not in keep:
+                path.unlink()
+                logger.info("[%s] removed orphaned %s (no longer listed).", path.stem,
+                            path.relative_to(_OUTPUT_DIR).as_posix())
 
 
 def _merge_into_existing_index(partial: dict) -> dict:

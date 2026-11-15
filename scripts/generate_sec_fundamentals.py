@@ -538,10 +538,8 @@ def main(tickers: list[str] | None = None, client: httpx.Client | None = None, s
     _OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     for ticker in mismatched:  # a previous file may hold the wrong company's numbers
         (_OUTPUT_DIR / f"{ticker}.json").unlink(missing_ok=True)
-    for ticker, record in results.items():
-        (_OUTPUT_DIR / f"{ticker}.json").write_text(
-            json.dumps(record, ensure_ascii=False, separators=(",", ":")), encoding="utf-8",
-        )
+    written = sum(_write_if_changed(_OUTPUT_DIR / f"{ticker}.json", record)
+                  for ticker, record in results.items())
     if full_run:
         keep = set(tickers)
         for path in _OUTPUT_DIR.glob("*.json"):
@@ -549,8 +547,26 @@ def main(tickers: list[str] | None = None, client: httpx.Client | None = None, s
                 path.unlink()
                 logger.info("Removed orphaned %s", path.name)
     ok = sum(1 for r in results.values() if r.get("status") == "ok")
-    logger.info("Wrote %d SEC files (%d with 10-K data, %d failed and kept previous)",
-                len(results), ok, len(failed))
+    logger.info("Fetched %d SEC records, %d changed and rewritten (%d with 10-K data, %d failed "
+                "and kept previous)", len(results), written, ok, len(failed))
+
+
+def _write_if_changed(path: Path, record: dict) -> bool:
+    """Leave the file alone when only `generated_at` would change. Otherwise every daily run
+    rewrites all ~520 files and commits a no-op diff (the 2026-11-14 run did exactly that). So
+    `generated_at` means "when this file's data last changed", not "when it was last checked"."""
+    if path.exists():
+        try:
+            previous = json.loads(path.read_text(encoding="utf-8"))
+        except ValueError:
+            previous = None
+        if isinstance(previous, dict) and (
+            {k: v for k, v in previous.items() if k != "generated_at"}
+            == {k: v for k, v in record.items() if k != "generated_at"}
+        ):
+            return False
+    path.write_text(json.dumps(record, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return True
 
 
 if __name__ == "__main__":

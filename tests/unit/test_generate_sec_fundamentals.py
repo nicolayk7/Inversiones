@@ -421,3 +421,22 @@ def test_retries_then_succeeds():
 def test_blank_user_agent_falls_back(monkeypatch):
     monkeypatch.setattr(gen.settings, "sec_edgar_user_agent", "  ")
     assert gen._user_agent() == gen._DEFAULT_USER_AGENT
+
+
+def test_unchanged_data_is_not_rewritten_but_changed_data_is(site, monkeypatch):
+    """Only `generated_at` differing must not touch the file — otherwise every daily run commits
+    a ~520-file no-op diff (the 2026-11-14 run did)."""
+    _run({1: _GOOD_FACTS, 2: _GOOD_FACTS, 3: _GOOD_FACTS})
+    first = {t: (site / f"{t}.json").read_text(encoding="utf-8") for t in ("AAA", "BBB")}
+
+    class _Later(gen.datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return gen.datetime(2099, 1, 1, tzinfo=tz)
+
+    monkeypatch.setattr(gen, "datetime", _Later)
+    newer = _facts(NetIncomeLoss=[_fy("2025-12-31", 99, "2026-02-01")])
+    _run({1: _GOOD_FACTS, 2: newer, 3: _GOOD_FACTS})
+    assert (site / "AAA.json").read_text(encoding="utf-8") == first["AAA"]
+    bbb = _read(site, "BBB")
+    assert bbb["generated_at"].startswith("2099") and (site / "BBB.json").read_text(encoding="utf-8") != first["BBB"]
